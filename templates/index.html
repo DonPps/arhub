@@ -75,6 +75,18 @@
       </form>
     </div>
 
+    {% if podcast %}
+    <div class="podcast-card">
+      {% if podcast.cover_url %}
+      <img src="{{ root }}{{ podcast.cover_url }}" alt="Couverture du podcast Atlas Rising" class="podcast-cover">
+      {% endif %}
+      <div class="podcast-title">🎙️ Podcast Atlas Rising</div>
+      <audio controls preload="none" class="podcast-player">
+        <source src="{{ root }}{{ podcast.audio_url }}">
+      </audio>
+    </div>
+    {% endif %}
+
     <div class="ad-slot">Emplacement publicitaire</div>
   </aside>
 </div>

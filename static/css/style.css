@@ -92,7 +92,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 
 .masthead-logo{ flex-shrink:0; display:inline-flex; }
 .masthead-logo img{
-  width: 84px; height: 84px; object-fit: contain;
+  width: 116px; height: 116px; object-fit: contain;
   transition: transform .3s var(--ease);
 }
 .masthead-logo:hover img{ transform: scale(1.06) rotate(-2deg); }
@@ -418,6 +418,29 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .newsletter-form button:hover{ background: var(--red-dark); transform: translateY(-1px); }
 .newsletter-form button:disabled{ opacity:.7; cursor:default; transform:none; }
+
+/* ---------- Podcast (sidebar) ---------- */
+.podcast-card{
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 32px;
+}
+.podcast-cover{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+.podcast-title{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+.podcast-player{ width: 100%; }
 
 .ad-slot{
   border: 1px dashed var(--border);

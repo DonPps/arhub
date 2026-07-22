@@ -1,0 +1,10 @@
+Dépose ici :
+- un fichier audio (.mp3, .m4a, .wav ou .ogg) — l'épisode du podcast
+- une image de couverture (.jpg, .jpeg, .png ou .webp) — optionnelle
+
+Le site détecte automatiquement le premier fichier audio et la première
+image trouvés dans ce dossier au prochain lancement de generator.py, et
+affiche un lecteur podcast sur la page d'accueil (pas de page dédiée).
+
+Si tu remplaces l'épisode, retire l'ancien fichier audio pour éviter toute
+ambiguïté (le générateur prend le premier trouvé par ordre alphabétique).
