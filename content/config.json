@@ -1,0 +1,33 @@
+{
+  "site_url": "https://www.atlasrising.ma",
+  "categories": [
+    {"slug": "national-team", "name": "Équipe nationale"},
+    {"slug": "can-caf", "name": "CAN / CAF"},
+    {"slug": "transferts", "name": "Transferts"},
+    {"slug": "opinion", "name": "Opinion"},
+    {"slug": "maroc-2030", "name": "Maroc 2030"},
+    {"slug": "geopolitique", "name": "Géopolitique"}
+  ],
+  "static_pages": [
+    {
+      "slug": "a-propos",
+      "title": "À propos",
+      "html_content": "<h1>À propos d'Atlas Rising</h1><p>Atlas Rising est un média indépendant consacré à l'actualité du football marocain et africain, avec un regard direct et sans détour sur l'équipe nationale, la CAN, la CAF et les grands enjeux du continent à l'approche de la Coupe du Monde 2030.</p><p>Le contenu est produit avec l'appui d'outils d'assistance à la rédaction, puis relu et validé avant publication.</p>"
+    },
+    {
+      "slug": "contact",
+      "title": "Contact",
+      "html_content": "<h1>Contact</h1><p>Pour toute question, suggestion ou demande de partenariat, vous pouvez nous écrire à l'adresse suivante :</p><p><strong>contact@atlasrising.ma</strong></p><p>[À remplacer par la vraie adresse de contact avant mise en ligne]</p>"
+    },
+    {
+      "slug": "confidentialite",
+      "title": "Politique de confidentialité",
+      "html_content": "<h1>Politique de confidentialité</h1><p>Cette page décrit comment Atlas Rising traite les données des visiteurs du site.</p><h2>Cookies et publicité</h2><p>Ce site peut afficher des publicités via Google AdSense. Google et ses partenaires utilisent des cookies pour diffuser des annonces pertinentes en fonction des visites précédentes sur ce site et d'autres sites. Vous pouvez désactiver la publicité personnalisée en consultant les paramètres d'annonces de Google.</p><h2>Données collectées</h2><p>[À compléter : préciser les outils d'analyse utilisés, ex. Google Analytics, et la durée de conservation des données]</p><h2>Contact</h2><p>Pour toute question relative à cette politique, contactez-nous via la page Contact.</p>"
+    },
+    {
+      "slug": "mentions-legales",
+      "title": "Mentions légales",
+      "html_content": "<h1>Mentions légales</h1><p><strong>Éditeur du site :</strong> [Nom / raison sociale à compléter]</p><p><strong>Adresse :</strong> Casablanca, Maroc</p><p><strong>Hébergement :</strong> [Nom de l'hébergeur à compléter une fois choisi]</p><p><strong>Directeur de la publication :</strong> [À compléter]</p><p>Ce site est un média éditorial indépendant sans lien officiel avec la Fédération Royale Marocaine de Football (FRMF) ni la Confédération Africaine de Football (CAF).</p><h2>Liens d'affiliation</h2><p>Certains articles de la rubrique Maroc 2030 contiennent des liens d'affiliation vers des partenaires (hébergements, activités, réservations). Atlas Rising peut percevoir une commission sur les réservations effectuées via ces liens, sans coût additionnel pour le lecteur. Ces liens sont signalés dans les articles concernés.</p>"
+    }
+  ]
+}

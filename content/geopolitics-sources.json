@@ -1,0 +1,15 @@
+{
+  "note": "Sources RSS proposées pour la rubrique Géopolitique. À valider/ajuster avant branchement sur l'agent — vérifier que chaque flux RSS existe et fonctionne au moment de l'implémentation.",
+  "sources": [
+    {"name": "Le360 (International)", "focus": "actu marocaine et régionale généraliste"},
+    {"name": "TelQuel", "focus": "analyse politique et société marocaine"},
+    {"name": "Jeune Afrique", "focus": "géopolitique africaine et maghrébine"},
+    {"name": "Middle East Eye (édition française)", "focus": "géopolitique Moyen-Orient/Maghreb"},
+    {"name": "Al Jazeera (édition française)", "focus": "actu internationale, angle Sud global"},
+    {"name": "Hespress (édition française)", "focus": "actu marocaine généraliste — aussi n°1 de l'affinité de l'audience Facebook (19,1%)"},
+    {"name": "Akhbarona", "focus": "site d'actualité marocain généraliste — affinité audience Facebook 8%"},
+    {"name": "Media Live", "focus": "site d'actualité marocain généraliste — affinité audience Facebook 11,6%"}
+  ],
+  "audience_facebook_affinity_note": "Sources que l'audience Facebook d'Atlas Rising suit/regarde le plus : Hespress 19,1%, Media Live 11,6%, 2M.ma 11,4%, beIN SPORTS 10,1%, Medi1TV 10%, Elbotola 9%, Mohamed Elmakki (personnalité) 8,6%, Abderrahim Bouaida (personnalité) 8%, Akhbarona 8%. Chouf TV (15,8% d'affinité) volontairement exclu des sources — style tabloïd/controversé jugé incompatible avec la ligne éditoriale du site. 2M, beIN Sports, Medi1TV sont des médias essentiellement vidéo/TV sans flux RSS standard — à traiter différemment si utilisés (scraping web ou veille manuelle plutôt que RSS classique). Elbotola est un site foot dédié, plus pertinent pour l'agent foot existant que pour Géopolitique.",
+  "editorial_filter": "Angle géopolitique et diplomatique du sport (Mondial 2030, CAN, relations Maroc-Afrique-Espagne-Portugal), enjeux régionaux Maghreb/Sahel, ligne éditoriale pro-Maroc cohérente avec le reste du site."
+}

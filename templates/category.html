@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ category.name }} — Atlas Rising{% endblock %}
+{% block content %}
+
+<div class="layout">
+  <div>
+    <h2 class="grid-title">{{ category.name }}</h2>
+    <div class="article-list">
+      {% for a in articles %}
+      <article class="list-item">
+        <div class="list-media">Illustration</div>
+        <div>
+          <span class="eyebrow">{{ a.category }}</span>
+          <h3><a href="../article/{{ a.slug }}.html">{{ a.title }}</a></h3>
+          <p>{{ a.dek }}</p>
+          <div class="meta">{{ a.date }}</div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+  <aside>
+    <div class="ad-slot">Emplacement publicitaire</div>
+  </aside>
+</div>
+
+{% endblock %}
