@@ -83,36 +83,36 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   display:flex;
   align-items:center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 24px 0;
+  gap: 24px;
+  padding: 34px 0;
 }
-.masthead-side{ display:flex; align-items:center; gap:18px; flex:1; min-width:0; }
+.masthead-side{ display:flex; align-items:center; gap:22px; flex:1; min-width:0; }
 .masthead-left{ justify-content:flex-start; }
 .masthead-right{ justify-content:flex-end; }
 
 .masthead-logo{ flex-shrink:0; display:inline-flex; }
 .masthead-logo img{
-  width: 56px; height: 56px; object-fit: contain;
+  width: 84px; height: 84px; object-fit: contain;
   transition: transform .3s var(--ease);
 }
 .masthead-logo:hover img{ transform: scale(1.06) rotate(-2deg); }
 
 .date-strip{
   font-family: var(--font-nav);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--ink-soft);
   text-transform: uppercase;
   letter-spacing: 1px;
   white-space: nowrap;
 }
-.social-row{ display:flex; align-items:center; gap: 14px; }
+.social-row{ display:flex; align-items:center; gap: 18px; }
 .social-row a{ color: var(--ink-soft); display:inline-flex; transition: color .2s, transform .2s; }
 .social-row a:hover{ color: var(--red); transform: translateY(-2px); }
 
 .icon-btn{
-  display:flex; align-items:center; gap:7px;
+  display:flex; align-items:center; gap:8px;
   background:none; border:none; cursor:pointer;
-  font-family: var(--font-nav); font-size: 12px; font-weight:500;
+  font-family: var(--font-nav); font-size: 13px; font-weight:500;
   text-transform: uppercase; letter-spacing: .5px;
   color: var(--ink-soft); padding: 8px 4px;
   transition: color .2s;
@@ -120,11 +120,11 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .icon-btn:hover{ color: var(--red); }
 
 .btn-newsletter{
-  display:inline-flex; align-items:center; gap:8px;
+  display:inline-flex; align-items:center; gap:9px;
   background: var(--red); color:#fff;
-  font-family: var(--font-nav); font-size: 12px; font-weight:600;
+  font-family: var(--font-nav); font-size: 13px; font-weight:600;
   text-transform: uppercase; letter-spacing: .6px;
-  padding: 11px 20px; border-radius: 3px;
+  padding: 13px 24px; border-radius: 3px;
   transition: background .2s, transform .2s;
   white-space: nowrap;
 }
