@@ -33,9 +33,30 @@ ARTICLES_DIR = CONTENT_DIR / "articles"
 TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
 DIST_DIR = ROOT / "dist"
+PODCAST_DIR = ROOT / "Podcast"
 
 TRENDING_COUNT = 5   # nombre d'articles affichés dans le bloc "Tendances"
 RELATED_COUNT = 4    # nombre d'articles affichés dans "À lire aussi"
+
+PODCAST_AUDIO_EXTS = {".mp3", ".m4a", ".wav", ".ogg"}
+PODCAST_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
+
+
+def load_podcast():
+    """Détecte le premier fichier audio (+ éventuelle couverture) déposé
+    dans Podcast/. Retourne None si aucun fichier audio n'est présent —
+    le spot podcast reste alors simplement masqué sur la page d'accueil."""
+    if not PODCAST_DIR.exists():
+        return None
+    files = sorted(p for p in PODCAST_DIR.iterdir() if p.is_file())
+    audio = next((p for p in files if p.suffix.lower() in PODCAST_AUDIO_EXTS), None)
+    if not audio:
+        return None
+    cover = next((p for p in files if p.suffix.lower() in PODCAST_IMAGE_EXTS), None)
+    return {
+        "audio_url": f"Podcast/{audio.name}",
+        "cover_url": f"Podcast/{cover.name}" if cover else None,
+    }
 
 
 def load_config():
@@ -108,6 +129,7 @@ def build():
     lead = articles[0] if articles else None
     rest = articles[1:] if len(articles) > 1 else []
     trending = articles[:TRENDING_COUNT]
+    podcast = load_podcast()
 
     tpl = env.get_template("index.html")
     html = tpl.render(
@@ -118,6 +140,7 @@ def build():
         lead=lead,
         articles=rest,
         trending=trending,
+        podcast=podcast,
     )
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
 
@@ -182,6 +205,13 @@ def build():
 
     # ---------- Fichiers statiques (css, images) ----------
     shutil.copytree(STATIC_DIR, DIST_DIR / "static", dirs_exist_ok=True)
+
+    # ---------- Podcast (audio + couverture, si déposés) ----------
+    if PODCAST_DIR.exists():
+        shutil.copytree(
+            PODCAST_DIR, DIST_DIR / "Podcast", dirs_exist_ok=True,
+            ignore=shutil.ignore_patterns("LISEZ-MOI.txt"),
+        )
 
     # ---------- sitemap.xml ----------
     today_iso = date.today().isoformat()
