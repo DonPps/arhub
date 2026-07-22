@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Atlas Rising — À la une{% endblock %}
+{% block content %}
+
+<div class="layout">
+  <div>
+
+    {% if lead %}
+    <article class="hero">
+      {% if lead.morocco_tag %}
+      <div class="seal"><div class="seal-text">CHAMPIONS<br>D'AFRIQUE</div></div>
+      {% endif %}
+      <div class="hero-media">Illustration — {{ lead.category }}</div>
+      <span class="eyebrow">{{ lead.category }}</span>
+      <h1><a href="article/{{ lead.slug }}.html">{{ lead.title }}</a></h1>
+      <p class="dek">{{ lead.dek }}</p>
+      <div class="meta">{{ lead.date }} · {{ lead.read_time }} min de lecture</div>
+    </article>
+    {% endif %}
+
+    <h2 class="grid-title">Derniers articles</h2>
+    <div class="article-list">
+      {% for a in articles %}
+      <article class="list-item">
+        {% if a.morocco_tag %}
+        <div class="seal" style="width:60px;height:60px;top:6px;right:6px;">
+          <div class="seal-text" style="font-size:9px;">CHAMPIONS<br>D'AFRIQUE</div>
+        </div>
+        {% endif %}
+        <div class="list-media">Illustration</div>
+        <div>
+          <span class="eyebrow">{{ a.category }}</span>
+          <h3><a href="article/{{ a.slug }}.html">{{ a.title }}</a></h3>
+          <p>{{ a.dek }}</p>
+          <div class="meta">{{ a.date }}</div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+  </div>
+
+  <aside>
+    <div class="side-block">
+      <div class="side-title">Tendances</div>
+      {% for t in trending %}
+      <div class="side-item">
+        <div class="side-num">{{ loop.index }}</div>
+        <a href="article/{{ t.slug }}.html">{{ t.title }}</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="ad-slot">Emplacement publicitaire</div>
+  </aside>
+</div>
+
+{% endblock %}

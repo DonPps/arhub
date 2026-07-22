@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} — Atlas Rising{% endblock %}
+{% block description %}{{ article.dek }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": {{ article.title|tojson|safe }},
+  "description": {{ article.dek|tojson|safe }},
+  "datePublished": {{ article.date|tojson|safe }},
+  "articleSection": {{ article.category|tojson|safe }},
+  "keywords": {{ article.tags|join(", ")|tojson|safe }},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Atlas Rising",
+    "logo": {"@type": "ImageObject", "url": "{{ site_url }}/static/img/logo.png"}
+  },
+  "mainEntityOfPage": {{ (site_url ~ canonical_path)|tojson|safe }}
+}
+</script>
+{% endblock %}
+{% block content %}
+
+<div class="layout">
+  <div>
+    <div class="article-head">
+      <span class="eyebrow">{{ article.category }}</span>
+      <h1>{{ article.title }}</h1>
+      <div class="meta">{{ article.date }} · {{ article.read_time }} min de lecture</div>
+    </div>
+
+    <div class="hero-media" style="max-width:680px;">Illustration — {{ article.category }}</div>
+
+    {% if article.affiliate %}
+    <p style="font-size:12px; color:var(--ink-soft); font-style:italic; margin:14px 0 0; max-width:680px;">Cet article contient des liens d'affiliation. Atlas Rising peut percevoir une commission sur les réservations effectuées via ces liens, sans coût additionnel pour vous.</p>
+    {% endif %}
+
+    <div class="article-body">
+      {% for para in article.body_paragraphs %}
+      <p>{{ para|safe }}</p>
+      {% endfor %}
+
+      <div class="tag-row">
+        {% for tag in article.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="ad-slot" style="margin-top:36px;">Emplacement publicitaire</div>
+  </div>
+
+  <aside>
+    <div class="side-block">
+      <div class="side-title">À lire aussi</div>
+      {% for r in related %}
+      <div class="side-item">
+        <div class="side-num">→</div>
+        <a href="../article/{{ r.slug }}.html">{{ r.title }}</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="ad-slot">Emplacement publicitaire</div>
+  </aside>
+</div>
+
+{% endblock %}
