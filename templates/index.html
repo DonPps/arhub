@@ -10,11 +10,13 @@
       {% if lead.morocco_tag %}
       <div class="seal"><div class="seal-text">CHAMPIONS<br>D'AFRIQUE</div></div>
       {% endif %}
-      {% if lead.image %}
-      <div class="hero-media" style="padding:0; overflow:hidden;"><img src="{{ root }}{{ lead.image }}" alt="{{ lead.title }}" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-      {% else %}
-      <div class="hero-media">Illustration — {{ lead.category }}</div>
-      {% endif %}
+      <a href="article/{{ lead.slug }}.html" class="hero-media-link">
+        {% if lead.image %}
+        <div class="hero-media has-image"><img src="{{ root }}{{ lead.image }}" alt="{{ lead.title }}" loading="eager" fetchpriority="high"></div>
+        {% else %}
+        <div class="hero-media">Illustration — {{ lead.category }}</div>
+        {% endif %}
+      </a>
       <span class="eyebrow">{{ lead.category }}</span>
       <h1><a href="article/{{ lead.slug }}.html">{{ lead.title }}</a></h1>
       <p class="dek">{{ lead.dek }}</p>
@@ -27,20 +29,22 @@
       {% for a in articles %}
       <article class="list-item">
         {% if a.morocco_tag %}
-        <div class="seal" style="width:60px;height:60px;top:6px;right:6px;">
-          <div class="seal-text" style="font-size:9px;">CHAMPIONS<br>D'AFRIQUE</div>
+        <div class="seal seal-sm">
+          <div class="seal-text">CHAMPIONS<br>D'AFRIQUE</div>
         </div>
         {% endif %}
-        {% if a.image %}
-        <div class="list-media" style="padding:0; overflow:hidden;"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-        {% else %}
-        <div class="list-media">Illustration</div>
-        {% endif %}
+        <a href="article/{{ a.slug }}.html" class="list-media-link">
+          {% if a.image %}
+          <div class="list-media has-image"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>
+          {% else %}
+          <div class="list-media">Illustration</div>
+          {% endif %}
+        </a>
         <div>
           <span class="eyebrow">{{ a.category }}</span>
           <h3><a href="article/{{ a.slug }}.html">{{ a.title }}</a></h3>
           <p>{{ a.dek }}</p>
-          <div class="meta">{{ a.date }}</div>
+          <div class="meta">{{ a.date }} · {{ a.read_time }} min de lecture</div>
         </div>
       </article>
       {% endfor %}
@@ -53,11 +57,24 @@
       <div class="side-title">Tendances</div>
       {% for t in trending %}
       <div class="side-item">
-        <div class="side-num">{{ loop.index }}</div>
-        <a href="article/{{ t.slug }}.html">{{ t.title }}</a>
+        <div class="side-num">{{ '%02d'|format(loop.index) }}</div>
+        <div class="side-item-body">
+          <a href="article/{{ t.slug }}.html">{{ t.title }}</a>
+          <span class="side-time">{{ t.read_time }} min</span>
+        </div>
       </div>
       {% endfor %}
     </div>
+
+    <div class="newsletter-card" id="newsletter">
+      <div class="newsletter-title">Newsletter Atlas Rising</div>
+      <p>Recevez chaque matin l'essentiel de l'actualité.</p>
+      <form class="newsletter-form" data-newsletter>
+        <input type="email" placeholder="Votre email" required aria-label="Adresse email">
+        <button type="submit">S'abonner</button>
+      </form>
+    </div>
+
     <div class="ad-slot">Emplacement publicitaire</div>
   </aside>
 </div>
