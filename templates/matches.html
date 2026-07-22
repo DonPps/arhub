@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Matchs du jour — Atlas Rising{% endblock %}
+{% block description %}Les matchs marocains du jour : équipe nationale et clubs du Botola Pro, heures et scores.{% endblock %}
+{% block content %}
+
+<div class="matches-page">
+  <h2 class="grid-title">Matchs du jour</h2>
+
+  {% if matches_updated_at %}
+  <p class="matches-updated">Mis à jour : {{ matches_updated_at }}</p>
+  {% endif %}
+
+  {% if matches %}
+  <div class="match-list">
+    {% for m in matches %}
+    <div class="match-card">
+      <div class="match-competition">{{ m.competition }}</div>
+      <div class="match-row">
+        <div class="match-team">
+          {% if m.team_a_crest %}<img src="{{ m.team_a_crest }}" alt="" class="match-crest" loading="lazy">{% endif %}
+          <span>{{ m.team_a }}</span>
+        </div>
+
+        <div class="match-center">
+          {% if m.status == 'LIVE' %}
+          <span class="match-status match-status-live">EN DIRECT</span>
+          <div class="match-score">{{ m.score_a }} - {{ m.score_b }}</div>
+          {% elif m.status == 'RESULT' %}
+          <span class="match-status match-status-ended">TERMINÉ</span>
+          <div class="match-score">{{ m.score_a }} - {{ m.score_b }}</div>
+          {% else %}
+          <span class="match-status match-status-scheduled">À VENIR</span>
+          <div class="match-time">{{ m.kickoff_local }}</div>
+          {% endif %}
+        </div>
+
+        <div class="match-team match-team-b">
+          <span>{{ m.team_b }}</span>
+          {% if m.team_b_crest %}<img src="{{ m.team_b_crest }}" alt="" class="match-crest" loading="lazy">{% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="matches-empty">Aucun match marocain (équipe nationale ou Botola Pro) aujourd'hui.</p>
+  {% endif %}
+
+  <p class="matches-note">Horaires et scores basés sur des données publiques, à titre indicatif. Chaîne de diffusion non disponible pour l'instant.</p>
+</div>
+
+{% endblock %}

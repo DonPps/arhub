@@ -17,10 +17,13 @@ relancer ce script.
 import json
 import shutil
 import sys
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+
+MOROCCO_TZ = ZoneInfo("Africa/Casablanca")
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -38,6 +41,36 @@ RELATED_COUNT = 4    # nombre d'articles affichés dans "À lire aussi"
 def load_config():
     with open(CONTENT_DIR / "config.json", encoding="utf-8") as f:
         return json.load(f)
+
+
+def load_matches():
+    path = CONTENT_DIR / "matches.json"
+    if not path.exists():
+        return None, []
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+
+    matches = data.get("matches", [])
+    for m in matches:
+        m["kickoff_local"] = ""
+        if m.get("kickoff_utc"):
+            try:
+                dt_utc = datetime.strptime(m["kickoff_utc"], "%Y-%m-%dT%H:%M:%S.%fZ")
+                dt_local = dt_utc.replace(tzinfo=ZoneInfo("UTC")).astimezone(MOROCCO_TZ)
+                m["kickoff_local"] = dt_local.strftime("%d/%m à %Hh%M")
+            except ValueError:
+                pass
+
+    updated_at = data.get("updated_at")
+    updated_at_local = None
+    if updated_at:
+        try:
+            dt_utc = datetime.strptime(updated_at, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=ZoneInfo("UTC"))
+            updated_at_local = dt_utc.astimezone(MOROCCO_TZ).strftime("%d/%m/%Y à %Hh%M")
+        except ValueError:
+            pass
+
+    return updated_at_local, matches
 
 
 def load_articles():
@@ -134,6 +167,19 @@ def build():
         )
         (DIST_DIR / f"{page['slug']}.html").write_text(html, encoding="utf-8")
 
+    # ---------- Page Matchs du jour ----------
+    matches_updated_at, matches = load_matches()
+    tpl = env.get_template("matches.html")
+    html = tpl.render(
+        **common,
+        root="",
+        canonical_path="/matchs.html",
+        active_nav="matchs",
+        matches=matches,
+        matches_updated_at=matches_updated_at,
+    )
+    (DIST_DIR / "matchs.html").write_text(html, encoding="utf-8")
+
     # ---------- Fichiers statiques (css, images) ----------
     shutil.copytree(STATIC_DIR, DIST_DIR / "static", dirs_exist_ok=True)
 
@@ -143,6 +189,7 @@ def build():
     url_entries += [(f"/article/{a['slug']}.html", a["date"]) for a in articles]
     url_entries += [(f"/categorie/{c['slug']}.html", today_iso) for c in config["categories"]]
     url_entries += [(f"/{p['slug']}.html", today_iso) for p in config["static_pages"]]
+    url_entries += [("/matchs.html", today_iso)]
     sitemap_entries = "\n".join(
         f"  <url><loc>{config['site_url']}{u}</loc><lastmod>{lm}</lastmod></url>"
         for u, lm in url_entries
