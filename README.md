@@ -11,12 +11,50 @@ Google AdSense.
 atlas-rising-site/
 ├── content/
 │   ├── config.json          ← catégories + pages statiques (à propos, contact, légal...)
-│   └── articles/*.json      ← un fichier JSON par article
+│   ├── articles/*.json      ← un fichier JSON par article
+│   └── matches.json         ← matchs du jour (équipe nationale + Botola), voir ci-dessous
 ├── templates/                ← templates Jinja2 (HTML)
 ├── static/css/style.css      ← identité visuelle (Atlas Red / Rising Green)
 ├── generator.py               ← génère le site dans dist/
 └── dist/                      ← site final généré (à publier)
 ```
+
+## Page "Matchs du jour" (content/matches.json)
+
+Alimentée par `agents/matches_agent.py` (côté `C:\AtlasRising`, hors de ce
+dépôt) : scrape le JSON structuré embarqué dans les pages kooora.com,
+filtré sur l'équipe nationale et les 16 clubs du Botola Pro. Pas de
+validation Telegram (donnée factuelle, pas éditoriale) — un run = scrape +
+écriture + `generator.py` + commit git local.
+
+```json
+{
+  "updated_at": "2026-07-22T19:47:23Z",
+  "matches": [
+    {
+      "id": "...",
+      "competition": "الدوري المغربي الممتاز",
+      "team_a": "الرجاء البيضاوي",
+      "team_b": "الوداد الرياضي",
+      "team_a_crest": "https://...png",
+      "team_b_crest": "https://...png",
+      "kickoff_utc": "2026-07-22T17:00:00.000Z",
+      "status": "LIVE",
+      "score_a": 2,
+      "score_b": 1
+    }
+  ]
+}
+```
+
+- `status` : `LIVE`, `RESULT` ou `SCHEDULED`. `generator.py` convertit
+  `kickoff_utc` en heure du Maroc (`Africa/Casablanca`) pour l'affichage.
+- Pas de champ chaîne TV : ce n'est pas dans les données Kooora exploitées
+  actuellement (le champ existe dans leur schéma mais reste vide sur tous
+  les matchs vérifiés).
+- Ne couvre que les matchs du **jour même** — pas de calendrier
+  multi-semaines pour l'instant (limite de la source, voir historique de
+  conversation pour le détail).
 
 ## Utilisation
 
