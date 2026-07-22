@@ -112,6 +112,14 @@ Scheduler, capte cette réponse-photo et déclenche :
    (commit local uniquement — pas de push automatique tant qu'un remote
    GitHub n'est pas configuré manuellement)
 
+Une fois l'article publié, répondre encore au **même message Telegram** permet de le corriger :
+- une **nouvelle photo** remplace l'image de l'article déjà publié
+- le texte **"delete"** (ou "supprime"/"supprimer") dépublie l'article (retire le
+  JSON, l'image, régénère le site, commit)
+
+Cette correspondance message → article publié est gardée dans
+`state/published_posts.json` (côté `C:\AtlasRising`).
+
 ## Avant la demande AdSense
 
 - [ ] Nom de domaine propre réservé et pointé vers l'hébergement
