@@ -35,7 +35,7 @@
       "topic": "Agadir",
       "type": "ville",
       "affiliate_focus": "hébergement",
-      "done": false
+      "done": true
     },
     {
       "topic": "Chefchaouen",
@@ -47,79 +47,79 @@
       "topic": "Essaouira",
       "type": "ville",
       "affiliate_focus": "hébergement + activités",
-      "done": false
+      "done": true
     },
     {
       "topic": "Meknès",
       "type": "ville",
       "affiliate_focus": "hébergement",
-      "done": false
+      "done": true
     },
     {
       "topic": "Oujda",
       "type": "ville",
       "affiliate_focus": "hébergement",
-      "done": false
+      "done": true
     },
     {
       "topic": "Al Hoceïma",
       "type": "ville",
       "affiliate_focus": "hébergement",
-      "done": false
+      "done": true
     },
     {
       "topic": "Ouarzazate",
       "type": "ville",
       "affiliate_focus": "activités",
-      "done": false
+      "done": true
     },
     {
       "topic": "Désert de Merzouga",
       "type": "région",
       "affiliate_focus": "activités (bivouac, excursions)",
-      "done": false
+      "done": true
     },
     {
       "topic": "Vallée de l'Ourika",
       "type": "région",
       "affiliate_focus": "activités",
-      "done": false
+      "done": true
     },
     {
       "topic": "Vallée du Dadès et des roses",
       "type": "région",
       "affiliate_focus": "activités",
-      "done": false
+      "done": true
     },
     {
       "topic": "Montagnes de l'Atlas (Toubkal)",
       "type": "région",
       "affiliate_focus": "activités (randonnée)",
-      "done": false
+      "done": true
     },
     {
       "topic": "Montagnes du Rif",
       "type": "région",
       "affiliate_focus": "activités",
-      "done": false
+      "done": true
     },
     {
       "topic": "Côte atlantique (Oualidia, El Jadida)",
       "type": "région",
       "affiliate_focus": "hébergement + activités",
-      "done": false
+      "done": true
     },
     {
       "topic": "Ifrane, la Suisse marocaine",
       "type": "ville",
       "affiliate_focus": "hébergement",
-      "done": false
+      "done": true
     },
     {
       "topic": "Taghazout et le surf",
       "type": "région",
       "affiliate_focus": "activités (surf)",
-      "done": false
+      "done": true
     },
     {
       "topic": "Médina de Fès, guide pratique",
