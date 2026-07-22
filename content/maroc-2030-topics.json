@@ -17,13 +17,13 @@
       "topic": "Rabat",
       "type": "ville",
       "affiliate_focus": "hébergement",
-      "done": false
+      "done": true
     },
     {
       "topic": "Fès",
       "type": "ville",
       "affiliate_focus": "hébergement + activités",
-      "done": false
+      "done": true
     },
     {
       "topic": "Tanger",
