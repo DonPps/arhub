@@ -10,7 +10,11 @@
       {% if lead.morocco_tag %}
       <div class="seal"><div class="seal-text">CHAMPIONS<br>D'AFRIQUE</div></div>
       {% endif %}
+      {% if lead.image %}
+      <div class="hero-media" style="padding:0; overflow:hidden;"><img src="{{ root }}{{ lead.image }}" alt="{{ lead.title }}" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+      {% else %}
       <div class="hero-media">Illustration — {{ lead.category }}</div>
+      {% endif %}
       <span class="eyebrow">{{ lead.category }}</span>
       <h1><a href="article/{{ lead.slug }}.html">{{ lead.title }}</a></h1>
       <p class="dek">{{ lead.dek }}</p>
@@ -27,7 +31,11 @@
           <div class="seal-text" style="font-size:9px;">CHAMPIONS<br>D'AFRIQUE</div>
         </div>
         {% endif %}
+        {% if a.image %}
+        <div class="list-media" style="padding:0; overflow:hidden;"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+        {% else %}
         <div class="list-media">Illustration</div>
+        {% endif %}
         <div>
           <span class="eyebrow">{{ a.category }}</span>
           <h3><a href="article/{{ a.slug }}.html">{{ a.title }}</a></h3>

@@ -1,35 +1,185 @@
 {
   "note": "Liste de sujets à traiter par l'agent Maroc 2030. Un sujet = un article potentiel (ville, région ou expérience). L'agent peut cocher 'done' au fur et à mesure.",
   "topics": [
-    {"topic": "Marrakech", "type": "ville", "affiliate_focus": "hébergement + activités", "done": false},
-    {"topic": "Casablanca", "type": "ville", "affiliate_focus": "hébergement", "done": false},
-    {"topic": "Rabat", "type": "ville", "affiliate_focus": "hébergement", "done": false},
-    {"topic": "Fès", "type": "ville", "affiliate_focus": "hébergement + activités", "done": false},
-    {"topic": "Tanger", "type": "ville", "affiliate_focus": "hébergement", "done": false},
-    {"topic": "Agadir", "type": "ville", "affiliate_focus": "hébergement", "done": false},
-    {"topic": "Chefchaouen", "type": "ville", "affiliate_focus": "hébergement", "done": true},
-    {"topic": "Essaouira", "type": "ville", "affiliate_focus": "hébergement + activités", "done": false},
-    {"topic": "Meknès", "type": "ville", "affiliate_focus": "hébergement", "done": false},
-    {"topic": "Oujda", "type": "ville", "affiliate_focus": "hébergement", "done": false},
-    {"topic": "Al Hoceïma", "type": "ville", "affiliate_focus": "hébergement", "done": false},
-    {"topic": "Ouarzazate", "type": "ville", "affiliate_focus": "activités", "done": false},
-    {"topic": "Désert de Merzouga", "type": "région", "affiliate_focus": "activités (bivouac, excursions)", "done": false},
-    {"topic": "Vallée de l'Ourika", "type": "région", "affiliate_focus": "activités", "done": false},
-    {"topic": "Vallée du Dadès et des roses", "type": "région", "affiliate_focus": "activités", "done": false},
-    {"topic": "Montagnes de l'Atlas (Toubkal)", "type": "région", "affiliate_focus": "activités (randonnée)", "done": false},
-    {"topic": "Montagnes du Rif", "type": "région", "affiliate_focus": "activités", "done": false},
-    {"topic": "Côte atlantique (Oualidia, El Jadida)", "type": "région", "affiliate_focus": "hébergement + activités", "done": false},
-    {"topic": "Ifrane, la Suisse marocaine", "type": "ville", "affiliate_focus": "hébergement", "done": false},
-    {"topic": "Taghazout et le surf", "type": "région", "affiliate_focus": "activités (surf)", "done": false},
-    {"topic": "Médina de Fès, guide pratique", "type": "expérience", "affiliate_focus": "activités (visites guidées)", "done": false},
-    {"topic": "Cuisine marocaine, cours et expériences", "type": "expérience", "affiliate_focus": "activités", "done": false},
-    {"topic": "Hammams et bien-être au Maroc", "type": "expérience", "affiliate_focus": "activités", "done": false},
-    {"topic": "Se déplacer au Maroc (train, bus, location)", "type": "guide pratique", "affiliate_focus": "location de voiture", "done": false},
-    {"topic": "Stades du Mondial 2030 au Maroc", "type": "expérience", "affiliate_focus": "hébergement à proximité", "done": false},
-    {"topic": "Volubilis et le patrimoine antique", "type": "expérience", "affiliate_focus": "activités", "done": false},
-    {"topic": "Îles Purpuraires et Mogador", "type": "région", "affiliate_focus": "activités", "done": false},
-    {"topic": "Souks et artisanat, où acheter quoi", "type": "guide pratique", "affiliate_focus": "activités (visites guidées souks)", "done": false},
-    {"topic": "Meilleure période pour visiter le Maroc", "type": "guide pratique", "affiliate_focus": "aucun (article informatif)", "done": false},
-    {"topic": "Riads vs hôtels : que choisir", "type": "guide pratique", "affiliate_focus": "hébergement", "done": false}
+    {
+      "topic": "Marrakech",
+      "type": "ville",
+      "affiliate_focus": "hébergement + activités",
+      "done": true
+    },
+    {
+      "topic": "Casablanca",
+      "type": "ville",
+      "affiliate_focus": "hébergement",
+      "done": true
+    },
+    {
+      "topic": "Rabat",
+      "type": "ville",
+      "affiliate_focus": "hébergement",
+      "done": false
+    },
+    {
+      "topic": "Fès",
+      "type": "ville",
+      "affiliate_focus": "hébergement + activités",
+      "done": false
+    },
+    {
+      "topic": "Tanger",
+      "type": "ville",
+      "affiliate_focus": "hébergement",
+      "done": false
+    },
+    {
+      "topic": "Agadir",
+      "type": "ville",
+      "affiliate_focus": "hébergement",
+      "done": false
+    },
+    {
+      "topic": "Chefchaouen",
+      "type": "ville",
+      "affiliate_focus": "hébergement",
+      "done": true
+    },
+    {
+      "topic": "Essaouira",
+      "type": "ville",
+      "affiliate_focus": "hébergement + activités",
+      "done": false
+    },
+    {
+      "topic": "Meknès",
+      "type": "ville",
+      "affiliate_focus": "hébergement",
+      "done": false
+    },
+    {
+      "topic": "Oujda",
+      "type": "ville",
+      "affiliate_focus": "hébergement",
+      "done": false
+    },
+    {
+      "topic": "Al Hoceïma",
+      "type": "ville",
+      "affiliate_focus": "hébergement",
+      "done": false
+    },
+    {
+      "topic": "Ouarzazate",
+      "type": "ville",
+      "affiliate_focus": "activités",
+      "done": false
+    },
+    {
+      "topic": "Désert de Merzouga",
+      "type": "région",
+      "affiliate_focus": "activités (bivouac, excursions)",
+      "done": false
+    },
+    {
+      "topic": "Vallée de l'Ourika",
+      "type": "région",
+      "affiliate_focus": "activités",
+      "done": false
+    },
+    {
+      "topic": "Vallée du Dadès et des roses",
+      "type": "région",
+      "affiliate_focus": "activités",
+      "done": false
+    },
+    {
+      "topic": "Montagnes de l'Atlas (Toubkal)",
+      "type": "région",
+      "affiliate_focus": "activités (randonnée)",
+      "done": false
+    },
+    {
+      "topic": "Montagnes du Rif",
+      "type": "région",
+      "affiliate_focus": "activités",
+      "done": false
+    },
+    {
+      "topic": "Côte atlantique (Oualidia, El Jadida)",
+      "type": "région",
+      "affiliate_focus": "hébergement + activités",
+      "done": false
+    },
+    {
+      "topic": "Ifrane, la Suisse marocaine",
+      "type": "ville",
+      "affiliate_focus": "hébergement",
+      "done": false
+    },
+    {
+      "topic": "Taghazout et le surf",
+      "type": "région",
+      "affiliate_focus": "activités (surf)",
+      "done": false
+    },
+    {
+      "topic": "Médina de Fès, guide pratique",
+      "type": "expérience",
+      "affiliate_focus": "activités (visites guidées)",
+      "done": false
+    },
+    {
+      "topic": "Cuisine marocaine, cours et expériences",
+      "type": "expérience",
+      "affiliate_focus": "activités",
+      "done": false
+    },
+    {
+      "topic": "Hammams et bien-être au Maroc",
+      "type": "expérience",
+      "affiliate_focus": "activités",
+      "done": false
+    },
+    {
+      "topic": "Se déplacer au Maroc (train, bus, location)",
+      "type": "guide pratique",
+      "affiliate_focus": "location de voiture",
+      "done": false
+    },
+    {
+      "topic": "Stades du Mondial 2030 au Maroc",
+      "type": "expérience",
+      "affiliate_focus": "hébergement à proximité",
+      "done": false
+    },
+    {
+      "topic": "Volubilis et le patrimoine antique",
+      "type": "expérience",
+      "affiliate_focus": "activités",
+      "done": false
+    },
+    {
+      "topic": "Îles Purpuraires et Mogador",
+      "type": "région",
+      "affiliate_focus": "activités",
+      "done": false
+    },
+    {
+      "topic": "Souks et artisanat, où acheter quoi",
+      "type": "guide pratique",
+      "affiliate_focus": "activités (visites guidées souks)",
+      "done": false
+    },
+    {
+      "topic": "Meilleure période pour visiter le Maroc",
+      "type": "guide pratique",
+      "affiliate_focus": "aucun (article informatif)",
+      "done": false
+    },
+    {
+      "topic": "Riads vs hôtels : que choisir",
+      "type": "guide pratique",
+      "affiliate_focus": "hébergement",
+      "done": false
+    }
   ]
 }
