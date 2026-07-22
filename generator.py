@@ -206,6 +206,21 @@ def build():
     # ---------- Fichiers statiques (css, images) ----------
     shutil.copytree(STATIC_DIR, DIST_DIR / "static", dirs_exist_ok=True)
 
+    # ---------- Index de recherche (JS côté client) ----------
+    search_index = [
+        {
+            "title": a["title"],
+            "dek": a["dek"],
+            "category": a["category"],
+            "url": f"article/{a['slug']}.html",
+            "tags": a.get("tags", []),
+        }
+        for a in articles
+    ]
+    (DIST_DIR / "static" / "search-index.json").write_text(
+        json.dumps(search_index, ensure_ascii=False), encoding="utf-8"
+    )
+
     # ---------- Podcast (audio + couverture, si déposés) ----------
     if PODCAST_DIR.exists():
         shutil.copytree(
