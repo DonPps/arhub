@@ -80,7 +80,6 @@ cd dist && python3 -m http.server 8000
   "category_slug": "can-caf",
   "date": "2026-07-22",
   "read_time": 3,
-  "morocco_tag": true,
   "affiliate": false,
   "image": "static/img/articles/identifiant-url-unique.jpg",
   "tags": ["CAN 2026", "Maroc"],
@@ -89,7 +88,6 @@ cd dist && python3 -m http.server 8000
 ```
 
 - `category_slug` doit correspondre à un slug défini dans `content/config.json` → `categories`
-- `morocco_tag: true` affiche le sceau "Champions d'Afrique" sur l'article
 - `affiliate: true` affiche la mention légale liens d'affiliation sous l'illustration
 - `image` (optionnel) : chemin relatif à la racine du site (`static/img/articles/<slug>.jpg`)
   vers l'illustration de l'article. Si absent, un placeholder texte "Illustration" est affiché

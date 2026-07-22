@@ -177,31 +177,6 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .nav a:hover::after, .nav a.active::after{ right:0; }
 .nav-icon{ flex-shrink:0; vertical-align:-2px; }
 
-/* ---------- Signature : sceau Champions d'Afrique ---------- */
-.seal{
-  position:absolute;
-  width: 88px; height: 88px;
-  border: 2px solid var(--red);
-  border-radius: 50%;
-  display:flex; align-items:center; justify-content:center;
-  transform: rotate(-8deg);
-  background: var(--overlay);
-  box-shadow: 0 10px 22px -12px rgba(17,17,17,.45);
-  top: 16px; right: 16px;
-  z-index: 2;
-}
-.seal-text{
-  font-family: var(--font-nav);
-  font-weight: 600;
-  font-size: 10.5px;
-  line-height: 1.15;
-  text-align:center;
-  color: var(--red);
-  letter-spacing: 0.4px;
-}
-.seal-sm{ width: 58px; height: 58px; top: 8px; right: 8px; }
-.seal-sm .seal-text{ font-size: 8px; }
-
 /* ---------- Recherche (overlay) ---------- */
 .search-overlay{
   display:none;

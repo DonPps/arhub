@@ -7,9 +7,6 @@
 
     {% if lead %}
     <article class="hero">
-      {% if lead.morocco_tag %}
-      <div class="seal"><div class="seal-text">CHAMPIONS<br>D'AFRIQUE</div></div>
-      {% endif %}
       <a href="article/{{ lead.slug }}.html" class="hero-media-link">
         {% if lead.image %}
         <div class="hero-media has-image"><img src="{{ root }}{{ lead.image }}" alt="{{ lead.title }}" loading="eager" fetchpriority="high"></div>
@@ -28,11 +25,6 @@
     <div class="article-list">
       {% for a in articles %}
       <article class="list-item">
-        {% if a.morocco_tag %}
-        <div class="seal seal-sm">
-          <div class="seal-text">CHAMPIONS<br>D'AFRIQUE</div>
-        </div>
-        {% endif %}
         <a href="article/{{ a.slug }}.html" class="list-media-link">
           {% if a.image %}
           <div class="list-media has-image"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>

@@ -8,11 +8,6 @@
     <div class="article-list">
       {% for a in articles %}
       <article class="list-item">
-        {% if a.morocco_tag %}
-        <div class="seal seal-sm">
-          <div class="seal-text">CHAMPIONS<br>D'AFRIQUE</div>
-        </div>
-        {% endif %}
         <a href="../article/{{ a.slug }}.html" class="list-media-link">
           {% if a.image %}
           <div class="list-media has-image"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>
