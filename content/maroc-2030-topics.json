@@ -125,61 +125,61 @@
       "topic": "Médina de Fès, guide pratique",
       "type": "expérience",
       "affiliate_focus": "activités (visites guidées)",
-      "done": false
+      "done": true
     },
     {
       "topic": "Cuisine marocaine, cours et expériences",
       "type": "expérience",
       "affiliate_focus": "activités",
-      "done": false
+      "done": true
     },
     {
       "topic": "Hammams et bien-être au Maroc",
       "type": "expérience",
       "affiliate_focus": "activités",
-      "done": false
+      "done": true
     },
     {
       "topic": "Se déplacer au Maroc (train, bus, location)",
       "type": "guide pratique",
       "affiliate_focus": "location de voiture",
-      "done": false
+      "done": true
     },
     {
       "topic": "Stades du Mondial 2030 au Maroc",
       "type": "expérience",
       "affiliate_focus": "hébergement à proximité",
-      "done": false
+      "done": true
     },
     {
       "topic": "Volubilis et le patrimoine antique",
       "type": "expérience",
       "affiliate_focus": "activités",
-      "done": false
+      "done": true
     },
     {
       "topic": "Îles Purpuraires et Mogador",
       "type": "région",
       "affiliate_focus": "activités",
-      "done": false
+      "done": true
     },
     {
       "topic": "Souks et artisanat, où acheter quoi",
       "type": "guide pratique",
       "affiliate_focus": "activités (visites guidées souks)",
-      "done": false
+      "done": true
     },
     {
       "topic": "Meilleure période pour visiter le Maroc",
       "type": "guide pratique",
       "affiliate_focus": "aucun (article informatif)",
-      "done": false
+      "done": true
     },
     {
       "topic": "Riads vs hôtels : que choisir",
       "type": "guide pratique",
       "affiliate_focus": "hébergement",
-      "done": false
+      "done": true
     }
   ]
 }

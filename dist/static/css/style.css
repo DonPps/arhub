@@ -431,6 +431,86 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   letter-spacing: 1px;
 }
 
+/* ---------- Page Matchs du jour ---------- */
+.matches-page{ padding: 56px 0 88px; max-width: 760px; }
+.matches-updated{
+  font-family: var(--font-nav);
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin: -18px 0 28px;
+}
+.match-list{ display:flex; flex-direction:column; gap: 18px; }
+.match-card{
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: var(--shadow-soft);
+}
+.match-competition{
+  font-family: var(--font-nav);
+  font-size: 11px;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.match-row{ display:grid; grid-template-columns: 1fr auto 1fr; align-items:center; gap: 16px; }
+.match-team{ display:flex; align-items:center; gap: 10px; font-family: var(--font-body); font-weight: 600; font-size: 15px; }
+.match-team-b{ justify-content: flex-end; text-align: right; }
+.match-crest{ width: 28px; height: 28px; object-fit: contain; flex-shrink: 0; }
+.match-center{ display:flex; flex-direction:column; align-items:center; gap: 6px; min-width: 90px; }
+.match-score{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--ink);
+}
+.match-time{
+  font-family: var(--font-nav);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.match-status{
+  font-family: var(--font-nav);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.match-status-live{
+  background: var(--red);
+  color: #fff;
+  position: relative;
+  padding-left: 18px;
+}
+.match-status-live::before{
+  content:"";
+  position:absolute; left:8px; top:50%;
+  width:6px; height:6px; margin-top:-3px;
+  border-radius:50%; background:#fff;
+  animation: match-pulse 1.4s ease-in-out infinite;
+}
+@keyframes match-pulse{
+  0%, 100% { opacity: 1; }
+  50% { opacity: .35; }
+}
+.match-status-ended{ background: var(--illus-bg); color: var(--ink-soft); }
+.match-status-scheduled{ background: transparent; border: 1px solid var(--border); color: var(--ink-soft); }
+.matches-empty, .matches-note{
+  font-family: var(--font-body);
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+.matches-note{ margin-top: 28px; font-size: 12.5px; font-style: italic; }
+@media (max-width: 520px){
+  .match-row{ grid-template-columns: 1fr; text-align:center; gap: 10px; }
+  .match-team-b{ justify-content:center; text-align:center; }
+}
+
 /* ---------- Article page ---------- */
 .article-head{ padding: 52px 0 8px; max-width: 720px; }
 .article-head h1{
