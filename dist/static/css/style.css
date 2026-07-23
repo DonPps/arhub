@@ -719,10 +719,34 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 @media (max-width: 700px){
   .nav-toggle{ display:flex; }
-  .masthead-top{ flex-wrap:wrap; justify-content:center; text-align:center; gap:14px; }
-  .masthead-side{ flex:none; }
+
+  /* Bandeau haut compact : date+réseaux / logo / recherche+newsletter
+     sur une seule ligne, au lieu de l'empilement large façon desktop. */
+  .wrap{ padding: 0 16px; }
+  .masthead-top{
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 14px 0;
+    gap: 8px;
+  }
+  .masthead-side{ flex: 1 1 0; min-width: 0; }
+  .masthead-left{ flex-direction: row; align-items: center; gap: 8px; }
+  .masthead-left-row{ flex-direction: row; gap: 8px; }
+  .date-strip{ display: none; }
+  .brand-badge{ font-size: 10px; padding: 2px 7px; letter-spacing: .8px; }
+  .social-row{ gap: 10px; }
+  .social-row svg{ width: 15px; height: 15px; }
+
+  .masthead-logo{ order: 0; }
+  .masthead-logo img{ width: 48px; height: 48px; }
+
+  .masthead-right{ gap: 8px; }
   .icon-btn-label{ display:none; }
-  .nav-row{ justify-content:center; }
+  .icon-btn{ padding: 6px; }
+  .btn-newsletter{ padding: 8px 10px; }
+  .btn-newsletter-label{ display: none; }
+
+  .nav-row{ justify-content:center; padding: 2px 0; }
   .nav{
     display:none;
     position:absolute; left:0; right:0; top:100%;
@@ -737,11 +761,22 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   .nav.is-open{ display:flex; }
   .nav a{ width:100%; padding: 12px 0; }
   .nav a::after{ display:none; }
-  .hero h1{ font-size: 32px; }
-  .article-head h1{ font-size: 32px; }
-  .footer-top{ grid-template-columns: 1fr; }
+
+  .hero h1{ font-size: 28px; }
+  .hero p.dek{ font-size: 16px; }
+  .article-head h1{ font-size: 28px; }
+  .article-head{ padding: 32px 0 8px; }
+  .article-body{ font-size: 16.5px; }
+  .grid-title{ font-size: 20px; margin-bottom: 24px; }
+  .layout{ padding: 36px 0 56px; gap: 40px; }
+  .list-item{ padding: 24px 0; gap: 18px; }
+  .list-item h3{ font-size: 21px; }
+  .footer-top{ grid-template-columns: 1fr; padding: 40px 0 28px; gap: 28px; }
+  .site-footer{ margin-top: 40px; }
 }
 @media (max-width: 480px){
-  .masthead-left{ align-items: center; }
-  .masthead-left-row{ flex-direction: column; gap: 8px; }
+  .masthead-logo img{ width: 42px; height: 42px; }
+  .brand-badge{ display: none; }
+  .social-row svg{ width: 14px; height: 14px; }
+  .social-row{ gap: 8px; }
 }
