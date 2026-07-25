@@ -181,9 +181,11 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .news-ticker{
   display:flex;
   align-items:stretch;
-  background: var(--red);
-  color:#fff;
+  background: var(--illus-bg);
+  color: var(--ink);
   overflow:hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 .news-ticker-label{
   flex-shrink:0;
@@ -194,7 +196,8 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.06em;
-  background: var(--red-dark);
+  background: #B8925C;
+  color:#fff;
   padding: 0 16px;
   white-space:nowrap;
 }
@@ -209,20 +212,20 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   align-items:center;
   flex-shrink:0;
   white-space:nowrap;
-  animation: news-ticker-scroll 28s linear infinite;
+  animation: news-ticker-scroll 75s linear infinite;
 }
 .news-ticker:hover .news-ticker-list{ animation-play-state: paused; }
 .news-ticker-list a{
-  color:#fff;
+  color: var(--ink);
   text-decoration:none;
   font-family: var(--font-nav);
   font-size: 13px;
   font-weight:500;
-  opacity:.92;
+  opacity:.85;
   padding: 8px 24px;
-  border-right: 1px solid rgba(255,255,255,.28);
+  border-right: 1px solid rgba(17,17,17,.15);
 }
-.news-ticker-list a:hover{ opacity:1; text-decoration:underline; }
+.news-ticker-list a:hover{ opacity:1; color: var(--red); text-decoration:underline; }
 @keyframes news-ticker-scroll{
   from{ transform: translateX(0); }
   to{ transform: translateX(-100%); }
