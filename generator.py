@@ -167,6 +167,18 @@ def build():
     )
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
 
+    # ---------- Blog (archive complète) ----------
+    tpl = env.get_template("blog.html")
+    html = tpl.render(
+        **common,
+        root="",
+        canonical_path="/blog.html",
+        active_nav="blog",
+        articles=articles,
+        trending=trending,
+    )
+    (DIST_DIR / "blog.html").write_text(html, encoding="utf-8")
+
     # ---------- Pages articles ----------
     article_dir = DIST_DIR / "article"
     article_dir.mkdir(parents=True, exist_ok=True)
@@ -258,7 +270,7 @@ def build():
 
     # ---------- sitemap.xml ----------
     today_iso = date.today().isoformat()
-    url_entries = [("/", today_iso)]
+    url_entries = [("/", today_iso), ("/blog.html", today_iso)]
     url_entries += [(f"/article/{a['slug']}.html", a["date"]) for a in articles]
     url_entries += [(f"/categorie/{c['slug']}.html", today_iso) for c in config["categories"]]
     url_entries += [(f"/{p['slug']}.html", today_iso) for p in config["static_pages"]]
