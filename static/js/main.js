@@ -95,20 +95,43 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* --- Formulaires newsletter (pas encore branchés à un service d'envoi) --- */
+  /* --- Formulaires newsletter (inscription via Brevo, proxée par une Netlify Function) --- */
   var forms = document.querySelectorAll('[data-newsletter]');
   forms.forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var button = form.querySelector('button');
+      var input = form.querySelector('input[type="email"]');
+      var email = input ? input.value.trim() : '';
+      if (!email) return;
+
       var original = button.textContent;
-      button.textContent = 'Merci !';
       button.disabled = true;
-      form.reset();
-      setTimeout(function () {
-        button.textContent = original;
-        button.disabled = false;
-      }, 3000);
+      button.textContent = 'Envoi...';
+
+      fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email }),
+      })
+        .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+        .then(function (result) {
+          if (result.ok) {
+            button.textContent = 'Merci !';
+            form.reset();
+          } else {
+            button.textContent = 'Erreur, réessayez';
+          }
+        })
+        .catch(function () {
+          button.textContent = 'Erreur, réessayez';
+        })
+        .finally(function () {
+          setTimeout(function () {
+            button.textContent = original;
+            button.disabled = false;
+          }, 3000);
+        });
     });
   });
 
