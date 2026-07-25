@@ -874,11 +874,13 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .quiz-promo-overlay{
   position:absolute; inset:0;
-  background: linear-gradient(to top, rgba(10,10,10,.92) 0%, rgba(10,10,10,.55) 42%, rgba(10,10,10,.05) 75%);
+  background: linear-gradient(to top, rgba(10,10,10,.55) 0%, rgba(10,10,10,0) 22%);
   z-index:1;
 }
 .quiz-promo-body{
-  position:relative; z-index:2;
+  position:absolute; inset:0; z-index:2;
+  display:flex;
+  align-items:flex-end;
   padding: 28px 32px 32px;
 }
 .quiz-promo-body .eyebrow{ color: var(--gold); }
