@@ -77,6 +77,15 @@ def load_config():
         return json.load(f)
 
 
+def load_quiz_ranks():
+    path = STATIC_DIR / "data" / "quiz-questions.json"
+    if not path.exists():
+        return []
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    return sorted(data.get("ranks", []), key=lambda r: r["order"])
+
+
 def load_matches():
     path = CONTENT_DIR / "matches.json"
     if not path.exists():
@@ -217,6 +226,18 @@ def build():
     )
     (DIST_DIR / "matchs.html").write_text(html, encoding="utf-8")
 
+    # ---------- Page Atlas Quiz ----------
+    quiz_ranks = load_quiz_ranks()
+    tpl = env.get_template("quiz.html")
+    html = tpl.render(
+        **common,
+        root="",
+        canonical_path="/quiz.html",
+        active_nav="quiz",
+        quiz_ranks=quiz_ranks,
+    )
+    (DIST_DIR / "quiz.html").write_text(html, encoding="utf-8")
+
     # ---------- Fichiers statiques (css, images) ----------
     shutil.copytree(STATIC_DIR, DIST_DIR / "static", dirs_exist_ok=True)
 
@@ -242,6 +263,7 @@ def build():
     url_entries += [(f"/categorie/{c['slug']}.html", today_iso) for c in config["categories"]]
     url_entries += [(f"/{p['slug']}.html", today_iso) for p in config["static_pages"]]
     url_entries += [("/matchs.html", today_iso)]
+    url_entries += [("/quiz.html", today_iso)]
     sitemap_entries = "\n".join(
         f"  <url><loc>{config['site_url']}{u}</loc><lastmod>{lm}</lastmod></url>"
         for u, lm in url_entries

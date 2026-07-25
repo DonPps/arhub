@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Atlas Quiz — le mode carrière du football{% endblock %}
+{% block description %}Atlas Quiz : progressez de Cadet à Atlas Rising Legend à travers 9 rangs et 225 questions sur le football mondial, africain et marocain.{% endblock %}
+{% block content %}
+
+<div class="quiz-page" id="quiz-page" data-quiz-data="{{ root }}static/data/quiz-questions.json">
+
+  <div class="quiz-hero">
+    <span class="eyebrow">Atlas Quiz</span>
+    <h1>Atlas Quiz</h1>
+    <p class="quiz-subtitle">Prouvez que vous faites partie des plus grands connaisseurs du football.</p>
+    <div class="quiz-badges" id="quiz-badges" aria-label="Mes badges"></div>
+  </div>
+
+  <!-- ---------- Écran des rangs ---------- -->
+  <div class="quiz-ranks" id="quiz-ranks">
+    {% for r in quiz_ranks %}
+    <div class="quiz-rank-card" data-rank="{{ r.slug }}" data-order="{{ r.order }}" data-total="{{ r.questions_per_round }}" data-threshold="{{ r.pass_threshold }}">
+      <div class="quiz-rank-icon">{{ r.icon }}</div>
+      <div class="quiz-rank-body">
+        <h3 class="quiz-rank-name">{{ r.name }}</h3>
+        <p class="quiz-rank-desc">{{ r.description }}</p>
+        <div class="quiz-rank-progress">
+          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+          <span class="quiz-rank-progress-label">0%</span>
+        </div>
+      </div>
+      <div class="quiz-rank-status">
+        <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+        <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- ---------- Écran de jeu ---------- -->
+  <div class="quiz-player" id="quiz-player" hidden>
+    <div class="quiz-player-head">
+      <button class="quiz-exit" id="quiz-exit" type="button" aria-label="Quitter le quiz">✕</button>
+      <div class="quiz-player-meta">
+        <span id="quiz-question-counter">Question 1 / 25</span>
+        <span id="quiz-score">Score : 0</span>
+      </div>
+      <div class="quiz-timer" id="quiz-timer"><span id="quiz-timer-value">20</span>s</div>
+    </div>
+    <div class="quiz-progress-track"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+
+    <div class="quiz-question-card">
+      <span class="quiz-question-category" id="quiz-question-category"></span>
+      <h2 class="quiz-question-text" id="quiz-question-text"></h2>
+      <div class="quiz-answers" id="quiz-answers"></div>
+      <div class="quiz-explanation" id="quiz-explanation" hidden></div>
+    </div>
+  </div>
+
+  <!-- ---------- Écrans de fin ---------- -->
+  <div class="quiz-result" id="quiz-result" hidden>
+    <div class="quiz-result-card quiz-result-success" id="quiz-result-success" hidden>
+      <div class="quiz-result-icon">🎉</div>
+      <h2>Rang validé !</h2>
+      <div class="quiz-result-badge" id="quiz-result-badge"></div>
+      <p class="quiz-result-score" id="quiz-result-score-success"></p>
+      <button class="quiz-btn-primary" id="quiz-continue-btn" type="button">Continuer</button>
+    </div>
+    <div class="quiz-result-card quiz-result-fail" id="quiz-result-fail" hidden>
+      <div class="quiz-result-icon">😬</div>
+      <h2>Rang non validé</h2>
+      <p class="quiz-result-score" id="quiz-result-score-fail"></p>
+      <p class="quiz-result-threshold" id="quiz-result-threshold"></p>
+      <button class="quiz-btn-primary" id="quiz-retry-btn" type="button">Recommencer</button>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+{% block extra_scripts %}
+<script src="{{ root }}static/js/quiz.js" defer></script>
+{% endblock %}

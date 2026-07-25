@@ -70,6 +70,10 @@
         <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
         Matchs
       </a>
+      <a href="{{ root }}quiz.html" class="{% if active_nav=='quiz' %}active{% endif %}">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.6 6.2L21 9l-5 4.4L17.4 20 12 16.6 6.6 20 8 13.4 3 9l6.4-.8z"/></svg>
+        Atlas Quiz
+      </a>
       {% for cat in categories %}
       <a href="{{ root }}categorie/{{ cat.slug }}.html" class="{% if active_nav==cat.slug %}active{% endif %}">
         {% if cat.slug == 'national-team' %}
@@ -161,6 +165,7 @@
 
     <div class="footer-col">
       <div class="footer-col-title">Rubriques</div>
+      <a href="{{ root }}quiz.html">Atlas Quiz</a>
       {% for cat in categories[:3] %}
       <a href="{{ root }}categorie/{{ cat.slug }}.html">{{ cat.name }}</a>
       {% endfor %}
@@ -196,5 +201,6 @@
 </footer>
 
 <script src="{{ root }}static/js/main.js"></script>
+{% block extra_scripts %}{% endblock %}
 </body>
 </html>
