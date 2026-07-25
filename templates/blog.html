@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Blog — Atlas Rising{% endblock %}
+{% block description %}Tous les articles Atlas Rising : football marocain, africain, mondial et actualité FC26, classés du plus récent au plus ancien.{% endblock %}
+{% block content %}
+
+<div class="layout">
+  <div>
+    <h2 class="grid-title">Blog</h2>
+    <div class="article-list">
+      {% for a in articles %}
+      <article class="list-item">
+        <a href="article/{{ a.slug }}.html" class="list-media-link">
+          {% if a.image %}
+          <div class="list-media has-image"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>
+          {% else %}
+          <div class="list-media">Illustration</div>
+          {% endif %}
+        </a>
+        <div>
+          <span class="eyebrow">{{ a.category }}</span>
+          <h3><a href="article/{{ a.slug }}.html">{{ a.title }}</a></h3>
+          <p>{{ a.dek }}</p>
+          <div class="meta">{{ a.date }} · {{ a.read_time }} min de lecture</div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+  <aside>
+    <div class="side-block">
+      <div class="side-title">Tendances</div>
+      {% for t in trending %}
+      <div class="side-item">
+        <div class="side-num">{{ '%02d'|format(loop.index) }}</div>
+        <div class="side-item-body">
+          <a href="article/{{ t.slug }}.html">{{ t.title }}</a>
+          <span class="side-time">{{ t.read_time }} min</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="ad-slot">Emplacement publicitaire</div>
+  </aside>
+</div>
+
+{% endblock %}
