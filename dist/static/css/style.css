@@ -496,6 +496,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   width: 100%;
   background: transparent;
   padding: 6px 8px;
+  color-scheme: dark;
 }
 .podcast-player::-webkit-media-controls-enclosure{ background: transparent; }
 .podcast-player::-webkit-media-controls-panel{ background: transparent; }
