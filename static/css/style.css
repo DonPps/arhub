@@ -181,7 +181,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .news-ticker{
   display:flex;
   align-items:stretch;
-  background: var(--illus-bg);
+  background: transparent;
   color: var(--ink);
   overflow:hidden;
   border-top: 1px solid var(--border);
@@ -196,10 +196,11 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.06em;
-  background: #B8925C;
-  color:#fff;
+  background: transparent;
+  color: var(--red);
   padding: 0 16px;
   white-space:nowrap;
+  border-right: 1px solid rgba(17,17,17,.15);
 }
 .news-ticker-track{
   display:flex;
