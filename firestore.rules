@@ -1,0 +1,21 @@
+// firestore.rules — Atlas Rising / Atlas Quiz
+//
+// À coller dans Firebase Console → Firestore Database → Règles.
+// Ce fichier n'est PAS déployé automatiquement (aucun accès au projet
+// Firebase depuis cette session) — copie-colle son contenu manuellement.
+//
+// Principe : chaque utilisateur connecté ne peut lire et écrire QUE le
+// document de progression qui porte son propre uid — jamais celui d'un
+// autre utilisateur, et jamais sans être connecté.
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /quizProgress/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+  }
+}
