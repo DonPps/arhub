@@ -143,6 +143,7 @@ def build():
     common = {
         "site_url": config["site_url"],
         "categories": config["categories"],
+        "categories_by_slug": {c["slug"]: c for c in config["categories"]},
         "today": date.today().strftime("%d/%m/%Y"),
         "year": date.today().year,
         "ticker": articles[:10],
