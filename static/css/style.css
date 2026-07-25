@@ -216,6 +216,9 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .news-ticker:hover .news-ticker-list{ animation-play-state: paused; }
 .news-ticker-list a{
+  display:flex;
+  align-items:center;
+  gap:7px;
   color: var(--ink);
   text-decoration:none;
   font-family: var(--font-nav);
@@ -226,6 +229,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   border-right: 1px solid rgba(17,17,17,.15);
 }
 .news-ticker-list a:hover{ opacity:1; color: var(--red); text-decoration:underline; }
+.ticker-icon{ flex-shrink:0; color: var(--red); }
 @keyframes news-ticker-scroll{
   from{ transform: translateX(0); }
   to{ transform: translateX(-100%); }
