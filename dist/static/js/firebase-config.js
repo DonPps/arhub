@@ -10,12 +10,12 @@
 // rester en clair dans ce fichier JS public sans risque.
 
 export const firebaseConfig = {
-  apiKey: "REMPLACER_API_KEY",
-  authDomain: "REMPLACER.firebaseapp.com",
-  projectId: "REMPLACER_PROJECT_ID",
-  storageBucket: "REMPLACER.appspot.com",
-  messagingSenderId: "REMPLACER_SENDER_ID",
-  appId: "REMPLACER_APP_ID",
+  apiKey: "AIzaSyAGhAHYq2eUcyqxHq9_dPS19GwK-0QkyDg",
+  authDomain: "atlas-rising-website.firebaseapp.com",
+  projectId: "atlas-rising-website",
+  storageBucket: "atlas-rising-website.firebasestorage.app",
+  messagingSenderId: "813586942971",
+  appId: "1:813586942971:web:4f214e5b6568f60acbd95e",
 };
 
 // true tant que la config ci-dessus contient les valeurs par défaut —
