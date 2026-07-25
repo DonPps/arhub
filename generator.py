@@ -136,6 +136,7 @@ def build():
         "categories": config["categories"],
         "today": date.today().strftime("%d/%m/%Y"),
         "year": date.today().year,
+        "ticker": articles[:10],
     }
 
     # ---------- Page d'accueil ----------
