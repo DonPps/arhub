@@ -1,0 +1,13 @@
+Photo de fond du site (le Sahara en filigrane derrière tout le contenu,
+opacité réduite via le voile crème).
+
+Pour changer cette photo :
+1. Dépose UNE seule image ici (jpg, jpeg, png ou webp — n'importe quel nom).
+2. Relance la génération du site (ou publie n'importe quel article — la
+   génération se relance automatiquement à chaque publication).
+3. L'image est reprise automatiquement comme fond du site, avec exactement
+   les mêmes réglages qu'aujourd'hui (cover, centré en bas, fixe au scroll,
+   voile crème à 85% par-dessus). Aucune modification de code nécessaire.
+
+Si ce dossier est vide, le site garde le fond actuel (Sahara) sans rien
+changer.
