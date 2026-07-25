@@ -476,28 +476,29 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .newsletter-form button:hover{ background: var(--red-dark); transform: translateY(-1px); }
 .newsletter-form button:disabled{ opacity:.7; cursor:default; transform:none; }
 
-/* ---------- Podcast (sidebar) ---------- */
+/* ---------- Podcast (sidebar) : cover pleine largeur, lecteur incrusté ---------- */
 .podcast-card{
-  background: #fff;
+  position: relative;
   border-radius: 10px;
-  padding: 24px;
+  overflow: hidden;
   box-shadow: var(--shadow-soft);
   margin-bottom: 32px;
+  line-height: 0; /* évite un filet d'espace sous l'image */
 }
 .podcast-cover{
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 16px;
 }
-.podcast-title{
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 14px;
+.podcast-player{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  width: 100%;
+  background: rgba(17,17,17,.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 6px 8px;
 }
-.podcast-player{ width: 100%; }
 
 .ad-slot{
   border: 1px dashed var(--border);
