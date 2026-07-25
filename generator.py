@@ -34,12 +34,15 @@ TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
 DIST_DIR = ROOT / "dist"
 PODCAST_DIR = ROOT / "Podcast"
+BACKGROUND_DIR = ROOT / "Background"
 
 TRENDING_COUNT = 5   # nombre d'articles affichés dans le bloc "Tendances"
 RELATED_COUNT = 4    # nombre d'articles affichés dans "À lire aussi"
 
 PODCAST_AUDIO_EXTS = {".mp3", ".m4a", ".wav", ".ogg"}
 PODCAST_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
+BACKGROUND_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
+BACKGROUND_DEST = "static/img/sahara-bg.jpg"  # nom fixe attendu par style.css
 
 
 def load_podcast():
@@ -70,6 +73,39 @@ def load_podcast():
         "audio_url": f"static/podcast/episode{audio.suffix.lower()}",
         "cover_url": f"static/podcast/cover{cover.suffix.lower()}" if cover else None,
     }
+
+
+def load_background():
+    """Si une image est déposée dans Background/, elle remplace le fond du
+    site (Sahara en filigrane, cf. body{background-image} dans style.css)
+    — même traitement CSS (cover, centré bas, fixe, voile crème) quel que
+    soit le fichier fourni. style.css référence un nom de fichier fixe
+    (sahara-bg.jpg), donc on convertit systématiquement en JPEG plutôt que
+    de garder l'extension d'origine (contrairement au podcast, où le nom
+    est injecté dynamiquement dans le HTML).
+
+    N'écrit rien si Background/ est vide : le fond par défaut déjà présent
+    dans static/img/ (copié par le shutil.copytree juste avant) reste tel
+    quel."""
+    if not BACKGROUND_DIR.exists():
+        return
+    files = sorted(
+        p for p in BACKGROUND_DIR.iterdir()
+        if p.is_file() and p.suffix.lower() in BACKGROUND_IMAGE_EXTS
+    )
+    if not files:
+        return
+
+    source = files[0]
+    dest = DIST_DIR / BACKGROUND_DEST
+    dest.parent.mkdir(parents=True, exist_ok=True)
+
+    if source.suffix.lower() in (".jpg", ".jpeg"):
+        shutil.copy2(source, dest)
+    else:
+        from PIL import Image
+        img = Image.open(source).convert("RGB")
+        img.save(dest, "JPEG", quality=88, optimize=True)
 
 
 def load_config():
@@ -253,6 +289,7 @@ def build():
 
     # ---------- Fichiers statiques (css, images) ----------
     shutil.copytree(STATIC_DIR, DIST_DIR / "static", dirs_exist_ok=True)
+    load_background()
 
     # ---------- Index de recherche (JS côté client) ----------
     search_index = [
