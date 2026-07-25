@@ -177,6 +177,60 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .nav a:hover::after, .nav a.active::after{ right:0; }
 .nav-icon{ flex-shrink:0; vertical-align:-2px; }
 
+/* ---------- Bande d'actualités défilante ---------- */
+.news-ticker{
+  display:flex;
+  align-items:stretch;
+  background: var(--red);
+  color:#fff;
+  overflow:hidden;
+}
+.news-ticker-label{
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  font-family: var(--font-nav);
+  font-size: 11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  background: var(--red-dark);
+  padding: 0 16px;
+  white-space:nowrap;
+}
+.news-ticker-track{
+  display:flex;
+  flex:1;
+  min-width:0;
+  overflow:hidden;
+}
+.news-ticker-list{
+  display:flex;
+  align-items:center;
+  flex-shrink:0;
+  white-space:nowrap;
+  animation: news-ticker-scroll 28s linear infinite;
+}
+.news-ticker:hover .news-ticker-list{ animation-play-state: paused; }
+.news-ticker-list a{
+  color:#fff;
+  text-decoration:none;
+  font-family: var(--font-nav);
+  font-size: 13px;
+  font-weight:500;
+  opacity:.92;
+  padding: 8px 24px;
+  border-right: 1px solid rgba(255,255,255,.28);
+}
+.news-ticker-list a:hover{ opacity:1; text-decoration:underline; }
+@keyframes news-ticker-scroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-100%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .news-ticker-list{ animation: none; }
+}
+
 /* ---------- Recherche (overlay) ---------- */
 .search-overlay{
   display:none;
@@ -721,6 +775,9 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 @media (max-width: 700px){
   .nav-toggle{ display:flex; }
+
+  .news-ticker-label{ font-size: 10px; padding: 0 10px; }
+  .news-ticker-list a{ font-size: 12px; padding: 7px 16px; }
 
   /* Bandeau haut compact : date+réseaux / logo / recherche+newsletter
      sur une seule ligne, au lieu de l'empilement large façon desktop. */
