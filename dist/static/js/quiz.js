@@ -1,8 +1,9 @@
-/* Atlas Quiz — mode carrière (vanilla JS, progression en localStorage) */
+/* Atlas Quiz — mode carrière (compte requis, progression sauvegardée dans Firestore) */
+
+import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
 
 (function () {
 
-  var PROGRESS_KEY = 'atlasquiz_progress_v1';
   var QUESTION_TIME = 20; // secondes par question
   var FEEDBACK_DELAY = 1800; // ms avant la question suivante
 
@@ -12,6 +13,7 @@
   var dataUrl = page.getAttribute('data-quiz-data');
   var questionsPromise = null;
 
+  var loginGateScreen = document.getElementById('quiz-login-gate');
   var ranksScreen = document.getElementById('quiz-ranks');
   var playerScreen = document.getElementById('quiz-player');
   var resultScreen = document.getElementById('quiz-result');
@@ -31,21 +33,37 @@
 
   var session = null;
   var timerInterval = null;
+  var db = null;
+  var firestoreFns = null; // { doc, getDoc, setDoc }
+  var currentProgress = {}; // cache en mémoire de la progression Firestore du user courant
 
-  /* ---------- Progression (localStorage) ---------- */
+  /* ---------- Firestore ---------- */
 
-  function loadProgress() {
-    try {
-      return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {};
-    } catch (e) {
-      return {};
-    }
+  function initFirestore() {
+    if (!firebaseConfigured) return Promise.resolve(false);
+    return firebaseAppPromise.then(function (app) {
+      return import('https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js').then(function (mod) {
+        db = mod.getFirestore(app);
+        firestoreFns = mod;
+        return true;
+      });
+    });
   }
 
-  function saveProgress(progress) {
-    try {
-      localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
-    } catch (e) { /* stockage indisponible : progression non persistée */ }
+  function loadProgress(uid) {
+    var ref = firestoreFns.doc(db, 'quizProgress', uid);
+    return firestoreFns.getDoc(ref).then(function (snap) {
+      return snap.exists() ? snap.data() : {};
+    }).catch(function () {
+      return {};
+    });
+  }
+
+  function saveProgress(uid, progress) {
+    var ref = firestoreFns.doc(db, 'quizProgress', uid);
+    return firestoreFns.setDoc(ref, progress).catch(function (e) {
+      console.error('Échec de la sauvegarde de la progression Atlas Quiz:', e);
+    });
   }
 
   function getRankCards() {
@@ -63,7 +81,7 @@
   /* ---------- Rendu des cartes de rang + badges ---------- */
 
   function renderRanks() {
-    var progress = loadProgress();
+    var progress = currentProgress;
     var cards = getRankCards();
 
     cards.forEach(function (card) {
@@ -135,9 +153,49 @@
   /* ---------- Écrans ---------- */
 
   function showScreen(name) {
+    loginGateScreen.hidden = name !== 'login-gate';
     ranksScreen.hidden = name !== 'ranks';
     playerScreen.hidden = name !== 'player';
     resultScreen.hidden = name !== 'result';
+  }
+
+  /* ---------- Authentification : gating de la page ---------- */
+
+  function currentUser() {
+    return window.AtlasAuth ? window.AtlasAuth.getCurrentUser() : null;
+  }
+
+  function handleAuthState() {
+    if (!firebaseConfigured) {
+      showScreen('login-gate');
+      return;
+    }
+    if (!window.AtlasAuth || !window.AtlasAuth.isReady()) return; // attend le premier événement
+
+    var user = currentUser();
+    if (!user) {
+      session = null;
+      showScreen('login-gate');
+      return;
+    }
+
+    initFirestore().then(function () {
+      return loadProgress(user.uid);
+    }).then(function (progress) {
+      currentProgress = progress;
+      renderRanks();
+      showScreen('ranks');
+    });
+  }
+
+  document.addEventListener('atlas-auth-changed', handleAuthState);
+
+  var gateBtn = document.getElementById('quiz-login-gate-btn');
+  if (gateBtn) {
+    gateBtn.addEventListener('click', function () {
+      var accountToggle = document.getElementById('account-toggle');
+      if (accountToggle) accountToggle.click();
+    });
   }
 
   /* ---------- Session de quiz ---------- */
@@ -249,12 +307,12 @@
   function finishQuiz() {
     showScreen('result');
     var passed = session.correctCount >= session.threshold;
+    var user = currentUser();
 
     if (passed) {
-      var progress = loadProgress();
-      var prevBest = (progress[session.slug] && progress[session.slug].bestScore) || 0;
-      progress[session.slug] = { completed: true, bestScore: Math.max(prevBest, session.correctCount) };
-      saveProgress(progress);
+      var prevBest = (currentProgress[session.slug] && currentProgress[session.slug].bestScore) || 0;
+      currentProgress[session.slug] = { completed: true, bestScore: Math.max(prevBest, session.correctCount) };
+      if (user) saveProgress(user.uid, currentProgress);
 
       resultFail.hidden = true;
       resultSuccess.hidden = false;
@@ -300,6 +358,6 @@
     if (card) startQuiz(card);
   });
 
-  renderRanks();
+  handleAuthState();
 
 })();
