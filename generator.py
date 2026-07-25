@@ -44,8 +44,14 @@ PODCAST_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
 
 def load_podcast():
     """Détecte le premier fichier audio (+ éventuelle couverture) déposé
-    dans Podcast/. Retourne None si aucun fichier audio n'est présent —
-    le spot podcast reste alors simplement masqué sur la page d'accueil."""
+    dans Podcast/, et les copie vers dist/static/podcast/ sous un nom
+    prévisible (episode.<ext>, cover.<ext>). Le nom d'origine peut contenir
+    espaces/virgules/accents (ex. export ChatGPT) — on ne veut pas de ça
+    dans une URL publique, donc on renomme plutôt que d'espérer que
+    l'encodage survive intact à travers Jinja/git/Netlify.
+
+    Retourne None si aucun fichier audio n'est présent — le spot podcast
+    reste alors simplement masqué sur la page d'accueil."""
     if not PODCAST_DIR.exists():
         return None
     files = sorted(p for p in PODCAST_DIR.iterdir() if p.is_file())
@@ -53,9 +59,16 @@ def load_podcast():
     if not audio:
         return None
     cover = next((p for p in files if p.suffix.lower() in PODCAST_IMAGE_EXTS), None)
+
+    dest_dir = DIST_DIR / "static" / "podcast"
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(audio, dest_dir / f"episode{audio.suffix.lower()}")
+    if cover:
+        shutil.copy2(cover, dest_dir / f"cover{cover.suffix.lower()}")
+
     return {
-        "audio_url": f"Podcast/{audio.name}",
-        "cover_url": f"Podcast/{cover.name}" if cover else None,
+        "audio_url": f"static/podcast/episode{audio.suffix.lower()}",
+        "cover_url": f"static/podcast/cover{cover.suffix.lower()}" if cover else None,
     }
 
 
@@ -220,13 +233,6 @@ def build():
     (DIST_DIR / "static" / "search-index.json").write_text(
         json.dumps(search_index, ensure_ascii=False), encoding="utf-8"
     )
-
-    # ---------- Podcast (audio + couverture, si déposés) ----------
-    if PODCAST_DIR.exists():
-        shutil.copytree(
-            PODCAST_DIR, DIST_DIR / "Podcast", dirs_exist_ok=True,
-            ignore=shutil.ignore_patterns("LISEZ-MOI.txt"),
-        )
 
     # ---------- sitemap.xml ----------
     today_iso = date.today().isoformat()
