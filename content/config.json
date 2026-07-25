@@ -22,15 +22,19 @@
       "name": "Maroc 2030"
     },
     {
-      "slug": "geopolitique",
-      "name": "Géopolitique"
+      "slug": "football-mondial",
+      "name": "Football Mondial"
+    },
+    {
+      "slug": "fc26",
+      "name": "FC26"
     }
   ],
   "static_pages": [
     {
       "slug": "a-propos",
       "title": "À propos",
-      "html_content": "<h1>À propos d'Atlas Rising</h1><p>Atlas Rising est un média indépendant consacré à l'actualité du football marocain et africain, avec un regard direct et sans détour sur l'équipe nationale, la CAN, la CAF et les grands enjeux du continent à l'approche de la Coupe du Monde 2030.</p>"
+      "html_content": "<h1>À propos d'Atlas Rising</h1><p>Atlas Rising est un média indépendant consacré au football, avec un regard direct et sans détour sur l'équipe nationale marocaine, la CAN, la CAF, le football mondial et les grands enjeux du continent à l'approche de la Coupe du Monde 2030.</p>"
     },
     {
       "slug": "contact",
