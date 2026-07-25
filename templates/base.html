@@ -76,16 +76,10 @@
       </a>
       {% for cat in categories %}
       <a href="{{ root }}categorie/{{ cat.slug }}.html" class="{% if active_nav==cat.slug %}active{% endif %}">
-        {% if cat.slug == 'national-team' %}
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 014-4h6a4 4 0 014 4v2"/><path d="M17 8l3 3-3 3"/></svg>
-        {% elif cat.slug == 'can-caf' %}
+        {% if cat.slug == 'can-caf' %}
         <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4z"/><path d="M17 5h3a2 2 0 01-2 4M7 5H4a2 2 0 002 4"/></svg>
         {% elif cat.slug == 'transferts' %}
         <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2l4 4-4 4M3 6h18M7 22l-4-4 4-4M21 18H3"/></svg>
-        {% elif cat.slug == 'opinion' %}
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 01-9 8.4A8.9 8.9 0 013 11.5 8.4 8.4 0 0112 3a8.3 8.3 0 019 8.5z"/></svg>
-        {% elif cat.slug == 'maroc-2030' %}
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3l6 3 6-3v15l-6 3-6-3-6 3V6z"/><path d="M9 3v15M15 6v15"/></svg>
         {% elif cat.slug == 'football-mondial' %}
         <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18 15 15 0 010-18z"/></svg>
         {% elif cat.slug == 'fc26' %}

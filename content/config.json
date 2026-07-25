@@ -2,24 +2,12 @@
   "site_url": "https://www.atlasrising.ma",
   "categories": [
     {
-      "slug": "national-team",
-      "name": "Équipe nationale"
-    },
-    {
       "slug": "can-caf",
       "name": "CAN / CAF"
     },
     {
       "slug": "transferts",
       "name": "Transferts"
-    },
-    {
-      "slug": "opinion",
-      "name": "Opinion"
-    },
-    {
-      "slug": "maroc-2030",
-      "name": "Maroc 2030"
     },
     {
       "slug": "football-mondial",
@@ -49,7 +37,7 @@
     {
       "slug": "mentions-legales",
       "title": "Mentions légales",
-      "html_content": "<h1>Mentions légales</h1><p><strong>Éditeur du site :</strong> YochStudio</p><p><strong>Adresse :</strong> Casablanca, Maroc</p><p><strong>Hébergement :</strong> [Nom de l'hébergeur à compléter une fois choisi]</p><p><strong>Directeur de la publication :</strong> Atlas Rising</p><p>Ce site est un média éditorial indépendant sans lien officiel avec la Fédération Royale Marocaine de Football (FRMF) ni la Confédération Africaine de Football (CAF).</p><h2>Liens d'affiliation</h2><p>Certains articles de la rubrique Maroc 2030 contiennent des liens d'affiliation vers des partenaires (hébergements, activités, réservations). Atlas Rising peut percevoir une commission sur les réservations effectuées via ces liens, sans coût additionnel pour le lecteur. Ces liens sont signalés dans les articles concernés.</p>"
+      "html_content": "<h1>Mentions légales</h1><p><strong>Éditeur du site :</strong> YochStudio</p><p><strong>Adresse :</strong> Casablanca, Maroc</p><p><strong>Hébergement :</strong> [Nom de l'hébergeur à compléter une fois choisi]</p><p><strong>Directeur de la publication :</strong> Atlas Rising</p><p>Ce site est un média éditorial indépendant sans lien officiel avec la Fédération Royale Marocaine de Football (FRMF) ni la Confédération Africaine de Football (CAF).</p>"
     }
   ]
 }
