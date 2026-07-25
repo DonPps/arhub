@@ -494,11 +494,11 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   position: absolute;
   left: 0; right: 0; bottom: 0;
   width: 100%;
-  background: rgba(17,17,17,.6);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: transparent;
   padding: 6px 8px;
 }
+.podcast-player::-webkit-media-controls-enclosure{ background: transparent; }
+.podcast-player::-webkit-media-controls-panel{ background: transparent; }
 
 .ad-slot{
   border: 1px dashed var(--border);
