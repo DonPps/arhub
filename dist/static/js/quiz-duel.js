@@ -10,10 +10,12 @@
  */
 
 import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
+import { refreshLeaderboardEntry, loadTopPlayers } from './quiz-leaderboard.js';
 
 (function () {
 
   var DUEL_QUESTION_COUNT = 10;
+  var DUEL_FEEDBACK_DELAY = 1100; // plus court que le mode carrière (1800ms) — un duel doit rester rythmé
 
   var page = document.getElementById('quiz-page');
   if (!page) return;
@@ -24,6 +26,8 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
   var waitingScreen = document.getElementById('quiz-duel-waiting');
   var playerScreen = document.getElementById('quiz-duel-player');
   var resultScreen = document.getElementById('quiz-duel-result');
+  var loadingScreen = document.getElementById('quiz-duel-loading');
+  var leaderboardSection = document.getElementById('quiz-leaderboard-section');
   var historyList = document.getElementById('quiz-duel-history-list');
 
   var db = null;
@@ -82,7 +86,7 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     // lui-même) tant qu'un duel est en cours — le retour se fait par
     // navigation complète (lien "Retour à Atlas Quiz"), pas par un état
     // à restaurer ici.
-    [pickerScreen, joinScreen, waitingScreen, playerScreen, resultScreen, document.getElementById('quiz-ranks')].forEach(function (el) {
+    [pickerScreen, joinScreen, waitingScreen, playerScreen, resultScreen, loadingScreen, leaderboardSection, document.getElementById('quiz-ranks')].forEach(function (el) {
       if (el) el.hidden = true;
     });
     Object.keys(map).forEach(function (id) {
@@ -91,11 +95,19 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     });
   }
 
+  /* ---------- Sélection des questions (rang OU thème) ---------- */
+
+  function poolFor(questions, topicMode, topicSlug) {
+    return questions.filter(function (q) {
+      return topicMode === 'theme' ? q.category === topicSlug : q.rank === topicSlug;
+    });
+  }
+
   /* ---------- Création d'un duel ---------- */
 
-  function createDuel(rankSlug, rankName, total, hostUid, hostNickname) {
+  function createDuel(topicMode, topicSlug, topicName, hostUid, hostNickname) {
     return fetchQuestions().then(function (data) {
-      var pool = (data.questions || []).filter(function (q) { return q.rank === rankSlug; });
+      var pool = poolFor(data.questions || [], topicMode, topicSlug);
       var count = Math.min(DUEL_QUESTION_COUNT, pool.length);
       var indices = shuffle(pool.map(function (_, i) { return i; })).slice(0, count);
 
@@ -105,8 +117,9 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
         hostNickname: hostNickname,
         guestUid: null,
         guestNickname: null,
-        rankSlug: rankSlug,
-        rankName: rankName,
+        topicMode: topicMode,
+        topicSlug: topicSlug,
+        topicName: topicName,
         total: count,
         questionIndices: indices,
         status: 'waiting',
@@ -126,14 +139,16 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     return url.toString();
   }
 
-  function startHostFlow(rankSlug, rankName, total) {
+  function startHostFlow(topicMode, topicSlug, topicName) {
     var user = currentUser();
     if (!user) return;
+    showScreens({ 'quiz-duel-loading': true });
     myNickname(user).then(function (nickname) {
-      return createDuel(rankSlug, rankName, total, user.uid, nickname);
+      return createDuel(topicMode, topicSlug, topicName, user.uid, nickname);
     }).then(function (duelId) {
       enterWaitingRoom(duelId, true);
     }).catch(function () {
+      showScreens({ 'quiz-duel-picker': true });
       alert('Impossible de créer le duel pour le moment. Réessaie.');
     });
   }
@@ -151,6 +166,7 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
       var data = snap.data();
       if (data.guestUid && data.status === 'in_progress') {
         if (unsubDuel) unsubDuel();
+        showScreens({ 'quiz-duel-loading': true });
         startDuelPlay(duelId, data, isHost);
       }
     });
@@ -177,6 +193,7 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
       if (data.hostUid === user.uid || data.guestUid === user.uid) {
         // Déjà participant (hôte qui rouvre son lien, ou invité déjà entré)
         if (data.status === 'in_progress' || data.guestUid) {
+          showScreens({ 'quiz-duel-loading': true });
           startDuelPlay(duelId, data, data.hostUid === user.uid);
         } else {
           enterWaitingRoom(duelId, true);
@@ -191,14 +208,16 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
       }
 
       showScreens({ 'quiz-duel-join': true });
+      var topicLabel = data.topicMode === 'theme' ? 'le thème' : 'le rang';
       setJoinMessage(
-        (data.hostNickname || 'Un joueur') + ' te défie sur le rang "' + data.rankName + '" !',
+        (data.hostNickname || 'Un joueur') + ' te défie sur ' + topicLabel + ' "' + data.topicName + '" !',
         true
       );
       var btn = document.getElementById('quiz-duel-join-btn');
       if (btn) {
         btn.onclick = function () {
           btn.disabled = true;
+          showScreens({ 'quiz-duel-loading': true });
           myNickname(user).then(function (nickname) {
             return firestoreFns.updateDoc(firestoreFns.doc(db, 'quizDuels', duelId), {
               guestUid: user.uid, guestNickname: nickname, status: 'in_progress',
@@ -212,8 +231,9 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
               startDuelPlay(duelId, data, false);
             });
           }).catch(function () {
+            showScreens({ 'quiz-duel-join': true });
             btn.disabled = false;
-            setJoinMessage('Impossible de rejoindre ce duel — réessaie.', false);
+            setJoinMessage('Impossible de rejoindre ce duel — réessaie.', true);
           });
         };
       }
@@ -230,13 +250,13 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
   /* ---------- Partie synchronisée ---------- */
 
   function startDuelPlay(duelId, duelData, isHost) {
-    showScreens({ 'quiz-duel-player': true });
     var opponentUid = isHost ? duelData.guestUid : duelData.hostUid;
     var myUid = currentUser().uid;
 
     fetchQuestions().then(function (data) {
-      var pool = (data.questions || []).filter(function (q) { return q.rank === duelData.rankSlug; });
+      var pool = poolFor(data.questions || [], duelData.topicMode, duelData.topicSlug);
       var questions = duelData.questionIndices.map(function (i) { return pool[i]; });
+      showScreens({ 'quiz-duel-player': true });
 
       duelState = {
         duelId: duelId, isHost: isHost, myUid: myUid, opponentUid: opponentUid,
@@ -321,7 +341,7 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
         firestoreFns.updateDoc(myRef, { score: duelState.me.score, index: duelState.me.index });
         renderDuelQuestion();
       }
-    }, 1800);
+    }, DUEL_FEEDBACK_DELAY);
   }
 
   function showDuelWaitingForOpponent() {
@@ -344,6 +364,8 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
       ? { status: 'finished', finalHostScore: myScore, finalGuestScore: oppScore, winnerUid: winnerUid }
       : { status: 'finished', finalHostScore: oppScore, finalGuestScore: myScore, winnerUid: winnerUid };
     firestoreFns.updateDoc(duelRef, finalData).catch(function () {}); // déjà clôturé par l'autre client : pas grave
+    var me = currentUser();
+    if (me) refreshLeaderboardEntry(db, firestoreFns, me).then(function () { loadLeaderboard(); });
 
     showScreens({ 'quiz-duel-result': true });
     var titleEl = document.getElementById('quiz-duel-result-title');
@@ -385,34 +407,86 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
       var oppName = amHost ? d.guestNickname : d.hostNickname;
       var outcome = myScore === oppScore ? 'Égalité' : (myScore > oppScore ? 'Victoire' : 'Défaite');
       return '<div class="quiz-duel-history-row"><span class="quiz-duel-history-outcome quiz-duel-history-' + outcome.toLowerCase() + '">' + outcome + '</span>' +
-        '<span>' + (d.rankName || '') + ' vs ' + (oppName || '?') + '</span>' +
+        '<span>' + (d.topicName || '') + ' vs ' + (oppName || '?') + '</span>' +
         '<span>' + myScore + '–' + oppScore + '</span></div>';
     }).join('');
   }
 
-  /* ---------- Sélecteur de rang (créer un duel) ---------- */
+  /* ---------- Sélecteur rang / thème (créer un duel) ---------- */
+
+  var activeDuelMode = 'rank';
 
   function renderPicker() {
     if (!pickerScreen) return;
     var cards = Array.prototype.slice.call(document.querySelectorAll('.quiz-rank-card'));
-    var select = document.getElementById('quiz-duel-rank-select');
-    if (!select) return;
-    select.innerHTML = cards.map(function (c) {
-      return '<option value="' + c.getAttribute('data-rank') + '">' + c.querySelector('.quiz-rank-name').textContent + '</option>';
-    }).join('');
+    var rankSelect = document.getElementById('quiz-duel-rank-select');
+    if (rankSelect) {
+      rankSelect.innerHTML = cards.map(function (c) {
+        return '<option value="' + c.getAttribute('data-rank') + '">' + c.querySelector('.quiz-rank-name').textContent + '</option>';
+      }).join('');
+    }
+
+    var themeSelect = document.getElementById('quiz-duel-theme-select');
+    if (themeSelect) {
+      fetchQuestions().then(function (data) {
+        var themes = [];
+        (data.questions || []).forEach(function (q) {
+          if (q.category && themes.indexOf(q.category) === -1) themes.push(q.category);
+        });
+        themes.sort();
+        themeSelect.innerHTML = themes.map(function (t) {
+          return '<option value="' + t + '">' + t + '</option>';
+        }).join('');
+      });
+    }
   }
+
+  Array.prototype.slice.call(document.querySelectorAll('.quiz-duel-mode-tab')).forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      activeDuelMode = tab.getAttribute('data-mode');
+      Array.prototype.slice.call(document.querySelectorAll('.quiz-duel-mode-tab')).forEach(function (t) {
+        t.classList.toggle('active', t === tab);
+      });
+      document.getElementById('quiz-duel-rank-select').hidden = activeDuelMode !== 'rank';
+      document.getElementById('quiz-duel-theme-select').hidden = activeDuelMode !== 'theme';
+    });
+  });
 
   var createBtn = document.getElementById('quiz-duel-create-btn');
   if (createBtn) {
     createBtn.addEventListener('click', function () {
-      var select = document.getElementById('quiz-duel-rank-select');
-      var slug = select.value;
-      var card = document.querySelector('.quiz-rank-card[data-rank="' + slug + '"]');
-      if (!card) return;
-      var name = card.querySelector('.quiz-rank-name').textContent;
-      var total = Math.min(DUEL_QUESTION_COUNT, parseInt(card.getAttribute('data-total'), 10) || 10);
-      createBtn.disabled = true;
-      startHostFlow(slug, name, total);
+      if (activeDuelMode === 'theme') {
+        var themeSelect = document.getElementById('quiz-duel-theme-select');
+        var theme = themeSelect.value;
+        if (!theme) return;
+        startHostFlow('theme', theme, theme);
+      } else {
+        var rankSelect = document.getElementById('quiz-duel-rank-select');
+        var slug = rankSelect.value;
+        var card = document.querySelector('.quiz-rank-card[data-rank="' + slug + '"]');
+        if (!card) return;
+        var name = card.querySelector('.quiz-rank-name').textContent;
+        startHostFlow('rank', slug, name);
+      }
+    });
+  }
+
+  /* ---------- Classement ---------- */
+
+  function loadLeaderboard() {
+    var listEl = document.getElementById('quiz-leaderboard-list');
+    if (!listEl) return;
+    loadTopPlayers(db, firestoreFns, 20).then(function (rows) {
+      if (!rows.length) {
+        listEl.innerHTML = '<p class="quiz-duel-history-empty">Le classement se remplira au fil des premières parties.</p>';
+        return;
+      }
+      rows.sort(function (a, b) { return (b.points || 0) - (a.points || 0); });
+      listEl.innerHTML = rows.map(function (r, i) {
+        return '<div class="quiz-leaderboard-row"><span class="quiz-leaderboard-rank">' + (i + 1) + '</span>' +
+          '<span class="quiz-leaderboard-name">' + (r.nickname || 'Joueur') + '</span>' +
+          '<span class="quiz-leaderboard-points">' + (r.points || 0) + ' pts</span></div>';
+      }).join('');
     });
   }
 
@@ -435,6 +509,7 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     initFirestore().then(function () {
       renderPicker();
       loadHistory(user.uid);
+      loadLeaderboard();
       checkJoinFromUrl();
     });
   }

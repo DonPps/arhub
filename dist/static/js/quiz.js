@@ -1,6 +1,7 @@
 /* Atlas Quiz — mode carrière (compte requis, progression sauvegardée dans Firestore) */
 
 import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
+import { refreshLeaderboardEntry } from './quiz-leaderboard.js';
 
 (function () {
 
@@ -176,11 +177,13 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     ranksScreen.hidden = name !== 'ranks';
     playerScreen.hidden = name !== 'player';
     resultScreen.hidden = name !== 'result';
-    // Le sélecteur de duel (quiz-duel.js) ne doit s'afficher qu'aux côtés
-    // de l'écran des rangs — jamais pendant la connexion, une partie
-    // solo ou son résultat.
+    // Le sélecteur de duel et le classement (quiz-duel.js) ne doivent
+    // s'afficher qu'aux côtés de l'écran des rangs — jamais pendant la
+    // connexion, une partie solo ou son résultat.
     var duelPicker = document.getElementById('quiz-duel-picker');
     if (duelPicker) duelPicker.hidden = name !== 'ranks';
+    var leaderboard = document.getElementById('quiz-leaderboard-section');
+    if (leaderboard) leaderboard.hidden = name !== 'ranks';
   }
 
   /* ---------- Authentification : gating de la page ---------- */
@@ -335,8 +338,14 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
 
     if (passed) {
       var prevBest = (currentProgress[session.slug] && currentProgress[session.slug].bestScore) || 0;
+      var wasAlreadyCompleted = !!(currentProgress[session.slug] && currentProgress[session.slug].completed);
       currentProgress[session.slug] = { completed: true, bestScore: Math.max(prevBest, session.correctCount) };
-      if (user) saveProgress(user.uid, currentProgress);
+      if (user) {
+        saveProgress(user.uid, currentProgress);
+        // Ne recalcule le classement que sur une première validation (un
+        // rang déjà validé rejoué n'ajoute pas de points supplémentaires).
+        if (!wasAlreadyCompleted) refreshLeaderboardEntry(db, firestoreFns, user);
+      }
 
       resultFail.hidden = true;
       resultSuccess.hidden = false;

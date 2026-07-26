@@ -46,13 +46,37 @@
   <!-- ---------- Mode Duel : défier un ami ---------- -->
   <div class="quiz-duel-section" id="quiz-duel-picker" hidden>
     <h2 class="grid-title">Défier un ami</h2>
-    <p class="quiz-duel-intro">Choisis un rang, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
+    <p class="quiz-duel-intro">Choisis un rang ou un thème, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
+
+    <div class="quiz-duel-mode-tabs">
+      <button type="button" class="quiz-duel-mode-tab active" data-mode="rank">Par rang</button>
+      <button type="button" class="quiz-duel-mode-tab" data-mode="theme">Par thème</button>
+    </div>
+
     <div class="quiz-duel-picker-row">
       <select id="quiz-duel-rank-select"></select>
+      <select id="quiz-duel-theme-select" hidden></select>
       <button type="button" class="quiz-btn-primary" id="quiz-duel-create-btn">Créer un duel</button>
     </div>
+
     <h3 class="quiz-duel-history-title">Mes duels récents</h3>
     <div class="quiz-duel-history" id="quiz-duel-history-list"></div>
+  </div>
+
+  <!-- ---------- Classement ---------- -->
+  <div class="quiz-duel-section" id="quiz-leaderboard-section" hidden>
+    <h2 class="grid-title">Classement</h2>
+    <p class="quiz-duel-intro">Les meilleurs joueurs d'Atlas Quiz, tous rangs et duels confondus.</p>
+    <div class="quiz-leaderboard-list" id="quiz-leaderboard-list"></div>
+  </div>
+
+  <!-- ---------- Chargement (entrée en partie) ---------- -->
+  <div class="quiz-login-gate" id="quiz-duel-loading" hidden>
+    <div class="quiz-login-gate-card">
+      <div class="quiz-spinner" aria-hidden="true"></div>
+      <h2>Entrée dans la partie…</h2>
+      <p>Un instant, on prépare le duel.</p>
+    </div>
   </div>
 
   <!-- ---------- Rejoindre un duel via lien ---------- -->
