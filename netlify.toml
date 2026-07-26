@@ -2,3 +2,11 @@
   publish = "dist"
   command = ""
   functions = "netlify/functions"
+
+# Même URL /subscribe utilisée par static/js/main.js quel que soit l'hébergeur
+# (Cloudflare Pages sert nativement /subscribe depuis functions/subscribe.js ;
+# ici on redirige vers l'équivalent Netlify Function pour garder une seule URL).
+[[redirects]]
+  from = "/subscribe"
+  to = "/.netlify/functions/subscribe"
+  status = 200
