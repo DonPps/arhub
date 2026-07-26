@@ -10,7 +10,7 @@
  */
 
 import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
-import { refreshLeaderboardEntry, loadTopPlayers } from './quiz-leaderboard.js';
+import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from './quiz-leaderboard.js';
 
 (function () {
 
@@ -490,6 +490,16 @@ import { refreshLeaderboardEntry, loadTopPlayers } from './quiz-leaderboard.js';
     });
   }
 
+  function loadHeroStats() {
+    var playersEl = document.getElementById('quizx-stat-players');
+    var avgEl = document.getElementById('quizx-stat-avgpoints');
+    if (!playersEl && !avgEl) return;
+    loadLeaderboardStats(db, firestoreFns).then(function (stats) {
+      if (playersEl) playersEl.textContent = stats.count;
+      if (avgEl) avgEl.textContent = stats.avgPoints;
+    });
+  }
+
   var copyBtn = document.getElementById('quiz-duel-copy-btn');
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
@@ -504,6 +514,13 @@ import { refreshLeaderboardEntry, loadTopPlayers } from './quiz-leaderboard.js';
   /* ---------- Démarrage ---------- */
 
   function init() {
+    // Les statistiques de la section Hero (joueurs classés, points moyens)
+    // sont publiques (lecture ouverte sur "leaderboard") et doivent
+    // s'afficher meme pour un visiteur non connecte, contrairement au
+    // reste de cette page (rangs/duel/classement detaille), verrouille
+    // par la porte de connexion generale du quiz (voir quiz.js).
+    initFirestore().then(function () { loadHeroStats(); });
+
     var user = currentUser();
     if (!user) return;
     initFirestore().then(function () {

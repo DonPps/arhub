@@ -160,6 +160,15 @@ def load_quiz_ranks():
     return sorted(data.get("ranks", []), key=lambda r: r["order"])
 
 
+def load_quiz_question_count():
+    path = STATIC_DIR / "data" / "quiz-questions.json"
+    if not path.exists():
+        return 0
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    return len(data.get("questions", []))
+
+
 def load_matches():
     path = CONTENT_DIR / "matches.json"
     if not path.exists():
@@ -341,6 +350,7 @@ def build():
 
     # ---------- Page Atlas Quiz ----------
     quiz_ranks = load_quiz_ranks()
+    quiz_question_count = load_quiz_question_count()
     tpl = env.get_template("quiz.html")
     html = tpl.render(
         **common,
@@ -348,6 +358,7 @@ def build():
         canonical_path="/quiz.html",
         active_nav="quiz",
         quiz_ranks=quiz_ranks,
+        quiz_question_count=quiz_question_count,
     )
     (DIST_DIR / "quiz.html").write_text(html, encoding="utf-8")
 

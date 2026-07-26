@@ -318,14 +318,40 @@
 <main class="wrap">
 
 
-<div class="quiz-page" id="quiz-page" data-quiz-data="static/data/quiz-questions.json">
+<div class="quiz-page quizx-page" id="quiz-page" data-quiz-data="static/data/quiz-questions.json">
 
-  <div class="quiz-hero">
+  <!-- ---------- Hero ---------- -->
+  <section class="quizx-hero">
     <span class="eyebrow">Atlas Quiz</span>
-    <h1>Atlas Quiz</h1>
-    <p class="quiz-subtitle">Prouvez que vous faites partie des plus grands connaisseurs du football.</p>
+    <h1>Le grand quiz du football marocain, africain et mondial</h1>
+    <p class="quizx-hero-subtitle">9 rangs, 225 questions, un mode carrière solo et des duels en temps réel entre amis.</p>
+    <p class="quizx-hero-desc">Progressez de Cadet à Atlas Rising Legend, défiez un ami sur le rang ou le thème de votre choix, et grimpez dans le classement général.</p>
+    <div class="quizx-hero-ctas">
+      <a href="#quiz-ranks-anchor" class="quiz-btn-primary">Jouer maintenant</a>
+      <a href="#quiz-duel-picker" class="quizx-btn-secondary">Défier un ami</a>
+    </div>
     <div class="quiz-badges" id="quiz-badges" aria-label="Mes badges"></div>
-  </div>
+  </section>
+
+  <!-- ---------- Statistiques ---------- -->
+  <section class="quizx-stats" aria-label="Statistiques Atlas Quiz">
+    <div class="quizx-stat-card">
+      <span class="quizx-stat-value">9</span>
+      <span class="quizx-stat-label">Rangs à débloquer</span>
+    </div>
+    <div class="quizx-stat-card">
+      <span class="quizx-stat-value" id="quizx-stat-players">—</span>
+      <span class="quizx-stat-label">Joueurs classés</span>
+    </div>
+    <div class="quizx-stat-card">
+      <span class="quizx-stat-value">225</span>
+      <span class="quizx-stat-label">Questions</span>
+    </div>
+    <div class="quizx-stat-card">
+      <span class="quizx-stat-value" id="quizx-stat-avgpoints">—</span>
+      <span class="quizx-stat-label">Points moyens</span>
+    </div>
+  </section>
 
   <!-- ---------- Verrou connexion ---------- -->
   <div class="quiz-login-gate" id="quiz-login-gate" hidden>
@@ -337,180 +363,260 @@
     </div>
   </div>
 
-  <!-- ---------- Écran des rangs ---------- -->
-  <div class="quiz-ranks" id="quiz-ranks" hidden>
-    
-    <div class="quiz-rank-card" data-rank="cadet" data-order="1" data-total="25" data-threshold="20">
-      <div class="quiz-rank-icon">🥉</div>
-      <div class="quiz-rank-body">
-        <h3 class="quiz-rank-name">Cadet</h3>
-        <p class="quiz-rank-desc">Les bases du football pour bien débuter.</p>
-        <div class="quiz-rank-progress">
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-          <span class="quiz-rank-progress-label">0%</span>
-        </div>
-      </div>
-      <div class="quiz-rank-status">
-        <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
-        <button class="quiz-rank-play" type="button" disabled>Jouer</button>
-      </div>
-    </div>
-    
-    <div class="quiz-rank-card" data-rank="espoir" data-order="2" data-total="25" data-threshold="20">
-      <div class="quiz-rank-icon">🥈</div>
-      <div class="quiz-rank-body">
-        <h3 class="quiz-rank-name">Espoir</h3>
-        <p class="quiz-rank-desc">Clubs, légendes et grandes compétitions.</p>
-        <div class="quiz-rank-progress">
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-          <span class="quiz-rank-progress-label">0%</span>
-        </div>
-      </div>
-      <div class="quiz-rank-status">
-        <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
-        <button class="quiz-rank-play" type="button" disabled>Jouer</button>
-      </div>
-    </div>
-    
-    <div class="quiz-rank-card" data-rank="professionnel" data-order="3" data-total="25" data-threshold="20">
-      <div class="quiz-rank-icon">⚽</div>
-      <div class="quiz-rank-body">
-        <h3 class="quiz-rank-name">Professionnel</h3>
-        <p class="quiz-rank-desc">Règles, tactiques et histoire approfondie.</p>
-        <div class="quiz-rank-progress">
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-          <span class="quiz-rank-progress-label">0%</span>
-        </div>
-      </div>
-      <div class="quiz-rank-status">
-        <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
-        <button class="quiz-rank-play" type="button" disabled>Jouer</button>
-      </div>
-    </div>
-    
-    <div class="quiz-rank-card" data-rank="analyste" data-order="4" data-total="25" data-threshold="20">
-      <div class="quiz-rank-icon">📊</div>
-      <div class="quiz-rank-body">
-        <h3 class="quiz-rank-name">Analyste</h3>
-        <p class="quiz-rank-desc">Statistiques, records et transferts marquants.</p>
-        <div class="quiz-rank-progress">
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-          <span class="quiz-rank-progress-label">0%</span>
-        </div>
-      </div>
-      <div class="quiz-rank-status">
-        <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
-        <button class="quiz-rank-play" type="button" disabled>Jouer</button>
-      </div>
-    </div>
-    
-    <div class="quiz-rank-card" data-rank="expert-fifa" data-order="5" data-total="25" data-threshold="20">
-      <div class="quiz-rank-icon">🧠</div>
-      <div class="quiz-rank-body">
-        <h3 class="quiz-rank-name">Expert FIFA</h3>
-        <p class="quiz-rank-desc">L&#39;histoire complète de la Coupe du Monde.</p>
-        <div class="quiz-rank-progress">
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-          <span class="quiz-rank-progress-label">0%</span>
-        </div>
-      </div>
-      <div class="quiz-rank-status">
-        <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
-        <button class="quiz-rank-play" type="button" disabled>Jouer</button>
-      </div>
-    </div>
-    
-    <div class="quiz-rank-card" data-rank="expert-caf" data-order="6" data-total="25" data-threshold="20">
-      <div class="quiz-rank-icon">🌍</div>
-      <div class="quiz-rank-body">
-        <h3 class="quiz-rank-name">Expert CAF</h3>
-        <p class="quiz-rank-desc">Le football africain sous toutes ses coutures.</p>
-        <div class="quiz-rank-progress">
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-          <span class="quiz-rank-progress-label">0%</span>
-        </div>
-      </div>
-      <div class="quiz-rank-status">
-        <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
-        <button class="quiz-rank-play" type="button" disabled>Jouer</button>
-      </div>
-    </div>
-    
-    <div class="quiz-rank-card" data-rank="maitre" data-order="7" data-total="25" data-threshold="20">
-      <div class="quiz-rank-icon">👑</div>
-      <div class="quiz-rank-body">
-        <h3 class="quiz-rank-name">Maître du Football</h3>
-        <p class="quiz-rank-desc">Tactique, histoire et records combinés.</p>
-        <div class="quiz-rank-progress">
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-          <span class="quiz-rank-progress-label">0%</span>
-        </div>
-      </div>
-      <div class="quiz-rank-status">
-        <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
-        <button class="quiz-rank-play" type="button" disabled>Jouer</button>
-      </div>
-    </div>
-    
-    <div class="quiz-rank-card" data-rank="elite" data-order="8" data-total="25" data-threshold="20">
-      <div class="quiz-rank-icon">🔥</div>
-      <div class="quiz-rank-body">
-        <h3 class="quiz-rank-name">Atlas Rising Elite</h3>
-        <p class="quiz-rank-desc">Immersion totale dans les Lions de l&#39;Atlas.</p>
-        <div class="quiz-rank-progress">
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-          <span class="quiz-rank-progress-label">0%</span>
-        </div>
-      </div>
-      <div class="quiz-rank-status">
-        <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
-        <button class="quiz-rank-play" type="button" disabled>Jouer</button>
-      </div>
-    </div>
-    
-    <div class="quiz-rank-card" data-rank="legend" data-order="9" data-total="25" data-threshold="20">
-      <div class="quiz-rank-icon">🏆</div>
-      <div class="quiz-rank-body">
-        <h3 class="quiz-rank-name">Atlas Rising Legend</h3>
-        <p class="quiz-rank-desc">Le rang ultime, réservé aux plus grands connaisseurs.</p>
-        <div class="quiz-rank-progress">
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-          <span class="quiz-rank-progress-label">0%</span>
-        </div>
-      </div>
-      <div class="quiz-rank-status">
-        <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
-        <button class="quiz-rank-play" type="button" disabled>Jouer</button>
-      </div>
-    </div>
-    
-  </div>
+  <span id="quiz-ranks-anchor" class="quizx-anchor" aria-hidden="true"></span>
 
-  <!-- ---------- Mode Duel : défier un ami ---------- -->
-  <div class="quiz-duel-section" id="quiz-duel-picker" hidden>
-    <h2 class="grid-title">Défier un ami</h2>
-    <p class="quiz-duel-intro">Choisis un rang ou un thème, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
+  <div class="quizx-layout">
+    <div class="quizx-main">
 
-    <div class="quiz-duel-mode-tabs">
-      <button type="button" class="quiz-duel-mode-tab active" data-mode="rank">Par rang</button>
-      <button type="button" class="quiz-duel-mode-tab" data-mode="theme">Par thème</button>
+      <!-- ---------- Écran des rangs ---------- -->
+      <div class="quiz-ranks quizx-quiz-grid" id="quiz-ranks" hidden>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="cadet" data-order="1" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🥉</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Cadet</h3>
+            <p class="quiz-rank-desc">Les bases du football pour bien débuter.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 1/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="espoir" data-order="2" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🥈</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Espoir</h3>
+            <p class="quiz-rank-desc">Clubs, légendes et grandes compétitions.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 2/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="professionnel" data-order="3" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">⚽</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Professionnel</h3>
+            <p class="quiz-rank-desc">Règles, tactiques et histoire approfondie.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 3/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="analyste" data-order="4" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">📊</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Analyste</h3>
+            <p class="quiz-rank-desc">Statistiques, records et transferts marquants.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 4/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="expert-fifa" data-order="5" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🧠</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Expert FIFA</h3>
+            <p class="quiz-rank-desc">L&#39;histoire complète de la Coupe du Monde.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 5/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="expert-caf" data-order="6" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🌍</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Expert CAF</h3>
+            <p class="quiz-rank-desc">Le football africain sous toutes ses coutures.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 6/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="maitre" data-order="7" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">👑</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Maître du Football</h3>
+            <p class="quiz-rank-desc">Tactique, histoire et records combinés.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 7/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="elite" data-order="8" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🔥</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Atlas Rising Elite</h3>
+            <p class="quiz-rank-desc">Immersion totale dans les Lions de l&#39;Atlas.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 8/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="legend" data-order="9" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🏆</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Atlas Rising Legend</h3>
+            <p class="quiz-rank-desc">Le rang ultime, réservé aux plus grands connaisseurs.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 9/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- ---------- Mode Duel : défier un ami ---------- -->
+      <div class="quiz-duel-section quizx-card-block" id="quiz-duel-picker" hidden>
+        <h2 class="grid-title">Défier un ami</h2>
+        <p class="quiz-duel-intro">Choisis un rang ou un thème, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
+
+        <div class="quiz-duel-mode-tabs">
+          <button type="button" class="quiz-duel-mode-tab active" data-mode="rank">Par rang</button>
+          <button type="button" class="quiz-duel-mode-tab" data-mode="theme">Par thème</button>
+        </div>
+
+        <div class="quiz-duel-picker-row">
+          <select id="quiz-duel-rank-select"></select>
+          <select id="quiz-duel-theme-select" hidden></select>
+          <button type="button" class="quiz-btn-primary" id="quiz-duel-create-btn">Créer un duel</button>
+        </div>
+
+        <h3 class="quiz-duel-history-title">Mes duels récents</h3>
+        <div class="quiz-duel-history" id="quiz-duel-history-list"></div>
+      </div>
+
     </div>
 
-    <div class="quiz-duel-picker-row">
-      <select id="quiz-duel-rank-select"></select>
-      <select id="quiz-duel-theme-select" hidden></select>
-      <button type="button" class="quiz-btn-primary" id="quiz-duel-create-btn">Créer un duel</button>
-    </div>
+    <aside class="quizx-sidebar">
+      <div class="quizx-sidebar-card" id="quizx-my-stats" hidden>
+        <h3 class="quizx-sidebar-title">Ma progression</h3>
+        <div class="quizx-my-stats-body" id="quizx-my-stats-body">
+          <p class="quizx-sidebar-empty">Connecte-toi pour suivre ta progression.</p>
+        </div>
+      </div>
 
-    <h3 class="quiz-duel-history-title">Mes duels récents</h3>
-    <div class="quiz-duel-history" id="quiz-duel-history-list"></div>
-  </div>
-
-  <!-- ---------- Classement ---------- -->
-  <div class="quiz-duel-section" id="quiz-leaderboard-section" hidden>
-    <h2 class="grid-title">Classement</h2>
-    <p class="quiz-duel-intro">Les meilleurs joueurs d'Atlas Quiz, tous rangs et duels confondus.</p>
-    <div class="quiz-leaderboard-list" id="quiz-leaderboard-list"></div>
+      <!-- ---------- Classement ---------- -->
+      <div class="quizx-sidebar-card" id="quiz-leaderboard-section" hidden>
+        <h3 class="quizx-sidebar-title">Classement</h3>
+        <p class="quizx-sidebar-subtitle">Meilleurs joueurs, tous rangs et duels confondus.</p>
+        <div class="quiz-leaderboard-list" id="quiz-leaderboard-list"></div>
+      </div>
+    </aside>
   </div>
 
   <!-- ---------- Chargement (entrée en partie) ---------- -->
