@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block title %}Blog — Atlas Rising{% endblock %}
-{% block description %}Tous les articles Atlas Rising : football marocain, africain, mondial et actualité FC26, classés du plus récent au plus ancien.{% endblock %}
+{% block description %}Les billets et coulisses d'Atlas Rising, rédigés directement par la rédaction.{% endblock %}
 {% block content %}
 
 <div class="layout">
   <div>
     <h2 class="grid-title">Blog</h2>
+    {% if not articles %}
+    <p class="search-empty">Aucun billet de blog pour l'instant — revenez bientôt.</p>
+    {% endif %}
     <div class="article-list">
       {% for a in articles %}
       <article class="list-item">
