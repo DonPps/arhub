@@ -356,6 +356,19 @@ def build():
     )
     (DIST_DIR / "profil.html").write_text(html, encoding="utf-8")
 
+    # ---------- Page admin (emplacements publicitaires) ----------
+    # Pas de lien dans la nav, pas dans le sitemap (noindex dans le
+    # template) — outil interne, protege par firestore.rules (email du
+    # proprietaire) et par un verrou cote client dans admin-ads.js.
+    tpl = env.get_template("admin-ads.html")
+    html = tpl.render(
+        **common,
+        root="",
+        canonical_path="/admin-ads.html",
+        active_nav="",
+    )
+    (DIST_DIR / "admin-ads.html").write_text(html, encoding="utf-8")
+
     # ---------- Fichiers statiques (css, images) ----------
     shutil.copytree(STATIC_DIR, DIST_DIR / "static", dirs_exist_ok=True)
     load_background()

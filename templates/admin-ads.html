@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block title %}Gestion des publicités — Atlas Rising{% endblock %}
+{% block description %}Panneau d'administration des emplacements publicitaires Atlas Rising.{% endblock %}
+{% block content %}
+
+<meta name="robots" content="noindex, nofollow">
+
+<div class="admin-ads-page" id="admin-ads-page">
+
+  <!-- ---------- Verrou connexion ---------- -->
+  <div class="quiz-login-gate" id="admin-login-gate" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">🔒</p>
+      <h2>Accès réservé</h2>
+      <p>Cette page est réservée au propriétaire du site.</p>
+      <button type="button" class="quiz-btn-primary" id="admin-login-gate-btn">Se connecter</button>
+    </div>
+  </div>
+
+  <!-- ---------- Accès refusé (connecté mais pas propriétaire) ---------- -->
+  <div class="quiz-login-gate" id="admin-denied-gate" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">⛔</p>
+      <h2>Accès refusé</h2>
+      <p>Ce compte n'a pas accès à la gestion des publicités.</p>
+    </div>
+  </div>
+
+  <!-- ---------- Contenu admin ---------- -->
+  <div class="admin-ads-content" id="admin-ads-content" hidden>
+    <span class="eyebrow">Administration</span>
+    <h1>Emplacements publicitaires</h1>
+
+    <form class="admin-ads-form" id="admin-ads-form">
+      <input type="hidden" id="ad-id" value="">
+
+      <div class="admin-form-row">
+        <label for="ad-name">Nom (interne)</label>
+        <input type="text" id="ad-name" required placeholder="Ex. Maroc Telecom — Offre 5G">
+      </div>
+
+      <div class="admin-form-row admin-form-row-split">
+        <div>
+          <label for="ad-type">Type</label>
+          <select id="ad-type">
+            <option value="sponsor">Sponsor privé</option>
+            <option value="adsense">Google AdSense</option>
+          </select>
+        </div>
+        <div>
+          <label for="ad-placement">Emplacement</label>
+          <input type="text" id="ad-placement" list="ad-placement-options" required placeholder="ex. home_before_articles">
+          <datalist id="ad-placement-options">
+            <option value="home_header_leaderboard">
+            <option value="home_after_hero">
+            <option value="home_before_articles">
+            <option value="home_sidebar">
+            <option value="article_inline_p2">
+            <option value="article_end">
+            <option value="article_sidebar">
+          </datalist>
+        </div>
+      </div>
+
+      <div class="admin-form-row admin-form-row-split">
+        <div>
+          <label for="ad-priority">Priorité</label>
+          <input type="number" id="ad-priority" value="1" min="0" step="1">
+        </div>
+        <div class="admin-form-checkbox">
+          <label for="ad-enabled"><input type="checkbox" id="ad-enabled" checked> Activée</label>
+        </div>
+      </div>
+
+      <div class="admin-form-row admin-form-row-split">
+        <div>
+          <label for="ad-start">Date de début (optionnel)</label>
+          <input type="date" id="ad-start">
+        </div>
+        <div>
+          <label for="ad-end">Date de fin (optionnel)</label>
+          <input type="date" id="ad-end">
+        </div>
+      </div>
+
+      <!-- Champs Sponsor privé -->
+      <div id="admin-fields-sponsor">
+        <div class="admin-form-row">
+          <label for="ad-title">Titre affiché</label>
+          <input type="text" id="ad-title" placeholder="Ex. Offre 5G illimitée">
+        </div>
+        <div class="admin-form-row">
+          <label for="ad-description">Description</label>
+          <textarea id="ad-description" rows="2" placeholder="Une courte accroche"></textarea>
+        </div>
+        <div class="admin-form-row admin-form-row-split">
+          <div>
+            <label for="ad-image">Image (URL)</label>
+            <input type="url" id="ad-image" placeholder="https://...">
+          </div>
+          <div>
+            <label for="ad-logo">Logo (URL)</label>
+            <input type="url" id="ad-logo" placeholder="https://...">
+          </div>
+        </div>
+        <div class="admin-form-row admin-form-row-split">
+          <div>
+            <label for="ad-button">Texte du bouton</label>
+            <input type="text" id="ad-button" placeholder="Découvrir l'offre">
+          </div>
+          <div>
+            <label for="ad-url">Lien</label>
+            <input type="url" id="ad-url" placeholder="https://...">
+          </div>
+        </div>
+      </div>
+
+      <!-- Champs AdSense -->
+      <div id="admin-fields-adsense" hidden>
+        <div class="admin-form-row admin-form-row-split">
+          <div>
+            <label for="ad-slot">Slot ID</label>
+            <input type="text" id="ad-slot" placeholder="1234567890">
+          </div>
+          <div>
+            <label for="ad-format">Format</label>
+            <input type="text" id="ad-format" placeholder="auto">
+          </div>
+        </div>
+        <div class="admin-form-checkbox">
+          <label for="ad-responsive"><input type="checkbox" id="ad-responsive" checked> Responsive (pleine largeur)</label>
+        </div>
+      </div>
+
+      <div class="admin-form-actions">
+        <button type="submit" class="quiz-btn-primary" id="admin-submit-btn">Créer la publicité</button>
+        <button type="button" class="admin-cancel-btn" id="admin-cancel-btn" hidden>Annuler</button>
+      </div>
+      <p class="admin-form-feedback" id="admin-form-feedback" hidden></p>
+    </form>
+
+    <h2 class="grid-title">Publicités existantes</h2>
+    <div class="admin-ads-list" id="admin-ads-list">
+      <p class="admin-ads-empty" id="admin-ads-empty" hidden>Aucune publicité pour l'instant.</p>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+{% block extra_scripts %}
+<script type="module" src="{{ root }}static/js/admin-ads.js"></script>
+{% endblock %}

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_ads.html" import ad_leaderboard, ad_sidebar, sponsor_hero %}
+{% from "_ads.html" import ad_leaderboard, ad_sidebar, ad_inline, sponsor_hero %}
 {% block title %}Atlas Rising — À la une{% endblock %}
 {% block content %}
 
@@ -23,6 +23,8 @@
       <div class="meta">{{ lead.date }} · {{ lead.read_time }} min de lecture</div>
     </article>
     {% endif %}
+
+    {{ ad_inline('home_after_hero') }}
 
     <a href="{{ root }}quiz.html" class="quiz-promo-card">
       <img src="{{ root }}static/img/quiz-cover.jpg" alt="" class="quiz-promo-bg" loading="lazy">
