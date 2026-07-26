@@ -441,14 +441,30 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
     }
   }
 
+  function activateDuelMode(mode) {
+    activeDuelMode = mode;
+    Array.prototype.slice.call(document.querySelectorAll('.quiz-duel-mode-tab')).forEach(function (t) {
+      t.classList.toggle('active', t.getAttribute('data-mode') === mode);
+    });
+    document.getElementById('quiz-duel-rank-select').hidden = mode !== 'rank';
+    document.getElementById('quiz-duel-theme-select').hidden = mode !== 'theme';
+  }
+
   Array.prototype.slice.call(document.querySelectorAll('.quiz-duel-mode-tab')).forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      activeDuelMode = tab.getAttribute('data-mode');
-      Array.prototype.slice.call(document.querySelectorAll('.quiz-duel-mode-tab')).forEach(function (t) {
-        t.classList.toggle('active', t === tab);
-      });
-      document.getElementById('quiz-duel-rank-select').hidden = activeDuelMode !== 'rank';
-      document.getElementById('quiz-duel-theme-select').hidden = activeDuelMode !== 'theme';
+    tab.addEventListener('click', function () { activateDuelMode(tab.getAttribute('data-mode')); });
+  });
+
+  // Cartes catégories (thèmes) : préselectionne le thème du duel et amène
+  // l'utilisateur directement sur le formulaire de création.
+  Array.prototype.slice.call(document.querySelectorAll('.quizx-category-card')).forEach(function (card) {
+    card.addEventListener('click', function () {
+      var theme = card.getAttribute('data-theme');
+      var picker = document.getElementById('quiz-duel-picker');
+      if (!picker || picker.hidden) return; // pas connecté : rien à sélectionner
+      activateDuelMode('theme');
+      var themeSelect = document.getElementById('quiz-duel-theme-select');
+      if (themeSelect) themeSelect.value = theme;
+      picker.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
@@ -490,6 +506,59 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
     });
   }
 
+  function loadRecentAndPopular() {
+    var recentEl = document.getElementById('quizx-recent-duels');
+    var popularEl = document.getElementById('quizx-popular-themes');
+    if (!recentEl && !popularEl) return;
+
+    // Un seul tri par date (index automatique, pas de composite requis) —
+    // le filtre "finished" se fait côté client sur le lot récupéré.
+    var q = firestoreFns.query(
+      firestoreFns.collection(db, 'quizDuels'),
+      firestoreFns.orderBy('createdAt', 'desc'),
+      firestoreFns.limit(60)
+    );
+    firestoreFns.getDocs(q).then(function (snap) {
+      var finished = [];
+      snap.forEach(function (d) { var data = d.data(); if (data.status === 'finished') finished.push(data); });
+
+      if (recentEl) {
+        var recent = finished.slice(0, 6);
+        recentEl.innerHTML = recent.length ? recent.map(function (d) {
+          var outcome = d.winnerUid === null ? 'Égalité' : (d.finalHostScore === d.finalGuestScore ? 'Égalité' : 'Terminé');
+          return '<div class="quizx-recent-row">' +
+            '<span class="quizx-recent-players">' + escapeHtml(d.hostNickname || '?') + ' <span class="quizx-recent-vs">vs</span> ' + escapeHtml(d.guestNickname || '?') + '</span>' +
+            '<span class="quizx-recent-topic">' + escapeHtml(d.topicName || '') + '</span>' +
+            '<span class="quizx-recent-score">' + d.finalHostScore + '–' + d.finalGuestScore + '</span>' +
+          '</div>';
+        }).join('') : '<p class="quizx-sidebar-empty">Aucun duel joué pour l\'instant.</p>';
+      }
+
+      if (popularEl) {
+        var counts = {};
+        finished.forEach(function (d) {
+          if (!d.topicName) return;
+          counts[d.topicName] = (counts[d.topicName] || 0) + 1;
+        });
+        var popular = Object.keys(counts).map(function (name) { return { name: name, count: counts[name] }; })
+          .sort(function (a, b) { return b.count - a.count; }).slice(0, 6);
+        popularEl.innerHTML = popular.length ? popular.map(function (p) {
+          return '<div class="quizx-recent-row"><span class="quizx-recent-topic">' + escapeHtml(p.name) + '</span>' +
+            '<span class="quizx-recent-score">' + p.count + ' duel' + (p.count > 1 ? 's' : '') + '</span></div>';
+        }).join('') : '<p class="quizx-sidebar-empty">Pas encore assez de duels pour un classement.</p>';
+      }
+    }).catch(function () {
+      if (recentEl) recentEl.innerHTML = '<p class="quizx-sidebar-empty">Indisponible pour l\'instant.</p>';
+      if (popularEl) popularEl.innerHTML = '<p class="quizx-sidebar-empty">Indisponible pour l\'instant.</p>';
+    });
+  }
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str || '';
+    return div.innerHTML;
+  }
+
   function loadHeroStats() {
     var playersEl = document.getElementById('quizx-stat-players');
     var avgEl = document.getElementById('quizx-stat-avgpoints');
@@ -519,7 +588,10 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
     // s'afficher meme pour un visiteur non connecte, contrairement au
     // reste de cette page (rangs/duel/classement detaille), verrouille
     // par la porte de connexion generale du quiz (voir quiz.js).
-    initFirestore().then(function () { loadHeroStats(); });
+    initFirestore().then(function () {
+      loadHeroStats();
+      loadRecentAndPopular();
+    });
 
     var user = currentUser();
     if (!user) return;

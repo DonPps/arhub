@@ -169,6 +169,24 @@ def load_quiz_question_count():
     return len(data.get("questions", []))
 
 
+QUIZ_THEME_ICONS = {
+    "Maroc": "🇲🇦", "Histoire": "📜", "Joueurs": "⭐", "Records": "🏆",
+    "Football Africain": "🌍", "Coupe du Monde": "🌐", "Clubs": "🛡️",
+    "CAF": "🏅", "Entraîneurs": "📋", "FIFA": "⚽", "Arbitrage": "🟨",
+    "Statistiques": "📊", "Tactique": "♟️", "Ligue des Champions": "👑",
+}
+
+
+def load_quiz_themes():
+    path = STATIC_DIR / "data" / "quiz-questions.json"
+    if not path.exists():
+        return []
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    names = sorted({q["category"] for q in data.get("questions", []) if q.get("category")})
+    return [{"name": n, "icon": QUIZ_THEME_ICONS.get(n, "🔖")} for n in names]
+
+
 def load_matches():
     path = CONTENT_DIR / "matches.json"
     if not path.exists():
@@ -351,6 +369,7 @@ def build():
     # ---------- Page Atlas Quiz ----------
     quiz_ranks = load_quiz_ranks()
     quiz_question_count = load_quiz_question_count()
+    quiz_themes = load_quiz_themes()
     tpl = env.get_template("quiz.html")
     html = tpl.render(
         **common,
@@ -359,6 +378,7 @@ def build():
         active_nav="quiz",
         quiz_ranks=quiz_ranks,
         quiz_question_count=quiz_question_count,
+        quiz_themes=quiz_themes,
     )
     (DIST_DIR / "quiz.html").write_text(html, encoding="utf-8")
 

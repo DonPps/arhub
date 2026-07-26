@@ -42,11 +42,14 @@ service cloud.firestore {
     // Duels Atlas Quiz (1v1 temps réel). Le document racine ne contient que
     // les métadonnées immuables du duel (rang, questions, hôte) + le champ
     // guestUid qui se remplit une seule fois quand un adversaire rejoint via
-    // le lien d'invitation — la sécurité repose sur le fait que l'id du duel
-    // (généré par Firestore, imprévisible) n'est connu que de ceux à qui le
-    // lien a été partagé, combiné à l'obligation d'être connecté.
+    // le lien d'invitation. Lecture publique (comme "leaderboard") pour
+    // alimenter les sections "Duels récents" / "Thèmes populaires" visibles
+    // même sans connexion — mêmes infos déjà publiques via le classement
+    // (pseudo + score), rien de nouveau exposé. L'écriture reste strictement
+    // limitée aux participants (voir plus bas), la sécurité de création/
+    // jointure ne repose jamais sur le fait que la lecture soit publique.
     match /quizDuels/{duelId} {
-      allow read: if request.auth != null;
+      allow read: if true;
       allow create: if request.auth != null && request.resource.data.hostUid == request.auth.uid;
       allow update: if request.auth != null && (
         // Rejoindre : uniquement si personne n'a encore rejoint, et
