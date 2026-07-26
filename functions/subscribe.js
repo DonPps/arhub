@@ -65,9 +65,9 @@ export async function onRequestPost({ request, env }) {
 }
 
 export async function onRequestGet({ env }) {
-  // Diagnostic temporaire (26/07/2026) — n'expose aucune valeur, seulement
-  // la presence/forme des variables recues par la Function. A retirer une
-  // fois la newsletter confirmee fonctionnelle.
+  // Diagnostic temporaire (26/07/2026) — recheck apres correction du nom
+  // des variables (espace de trop retire). N'expose aucune valeur, juste
+  // la presence/forme des variables recues. A retirer une fois confirme.
   return json({
     envKeys: Object.keys(env),
     hasApiKey: typeof env.BREVO_API_KEY,
