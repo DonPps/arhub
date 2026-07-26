@@ -34,6 +34,7 @@ window.AtlasAuth = {
   isConfigured: () => firebaseConfigured,
   signUp: (email, password) => authReadyPromise.then((fns) => fns.createUserWithEmailAndPassword(fns.auth, email, password)),
   signIn: (email, password) => authReadyPromise.then((fns) => fns.signInWithEmailAndPassword(fns.auth, email, password)),
+  signInWithGoogle: () => authReadyPromise.then((fns) => fns.signInWithPopup(fns.auth, fns.googleProvider)),
   signOutUser: () => authReadyPromise.then((fns) => fns.signOut(fns.auth)),
 };
 
@@ -41,11 +42,12 @@ async function initFirebase() {
   const app = await firebaseAppPromise;
   const {
     getAuth, onAuthStateChanged, createUserWithEmailAndPassword,
-    signInWithEmailAndPassword, signOut,
+    signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut,
   } = await import('https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js');
 
   const auth = getAuth(app);
-  readyResolve({ auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut });
+  const googleProvider = new GoogleAuthProvider();
+  readyResolve({ auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, googleProvider, signOut });
 
   onAuthStateChanged(auth, (user) => {
     currentUser = user;
@@ -103,6 +105,8 @@ const FIREBASE_ERROR_MESSAGES = {
   'auth/weak-password': 'Mot de passe trop court (6 caractères minimum).',
 };
 
+const SILENT_ERROR_CODES = ['auth/popup-closed-by-user', 'auth/cancelled-popup-request'];
+
 function friendlyError(err) {
   return FIREBASE_ERROR_MESSAGES[err.code] || 'Une erreur est survenue, réessaie.';
 }
@@ -115,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const loginForm = document.getElementById('login-form');
   const signupForm = document.getElementById('signup-form');
   const logoutBtn = document.getElementById('logout-btn');
+  const googleBtn = document.getElementById('google-signin-btn');
 
   if (!toggle || !overlay) return;
 
@@ -188,6 +193,20 @@ document.addEventListener('DOMContentLoaded', function () {
   if (logoutBtn) {
     logoutBtn.addEventListener('click', function () {
       window.AtlasAuth.signOutUser().then(closeOverlay);
+    });
+  }
+
+  if (googleBtn) {
+    googleBtn.addEventListener('click', function () {
+      googleBtn.disabled = true;
+      window.AtlasAuth.signInWithGoogle()
+        .then(function () { closeOverlay(); })
+        .catch(function (err) {
+          if (SILENT_ERROR_CODES.indexOf(err.code) === -1) {
+            showFormError(loginForm.hidden ? signupForm : loginForm, friendlyError(err));
+          }
+        })
+        .finally(function () { googleBtn.disabled = false; });
     });
   }
 });

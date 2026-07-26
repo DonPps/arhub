@@ -17,5 +17,12 @@ service cloud.firestore {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
 
+    // Pseudo + bio du profil. Jamais lisible par un autre utilisateur —
+    // l'email lui-même n'y est pas stocké (il reste dans Firebase Auth,
+    // accessible seulement au propriétaire du compte via le SDK).
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
   }
 }

@@ -43,6 +43,29 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     );
   }
 
+  function loadUserProfile(uid, user) {
+    var ref = firestoreFns.doc(db, 'users', uid);
+    return withTimeout(
+      firestoreFns.getDoc(ref).then(function (snap) {
+        return snap.exists() ? snap.data() : {};
+      }).catch(function () {
+        return {};
+      }),
+      8000,
+      {}
+    ).then(function (data) {
+      return {
+        nickname: data.nickname || user.displayName || (user.email || '').split('@')[0],
+        bio: data.bio || '',
+      };
+    });
+  }
+
+  function saveUserProfile(uid, nickname, bio) {
+    var ref = firestoreFns.doc(db, 'users', uid);
+    return firestoreFns.setDoc(ref, { nickname: nickname, bio: bio }, { merge: true });
+  }
+
   function getRankRows() {
     return Array.prototype.slice.call(document.querySelectorAll('.profile-rank-row'));
   }
@@ -87,10 +110,24 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     contentScreen.hidden = true;
   }
 
-  function showContent(user, progress) {
+  function renderAvatar(user) {
+    var avatarEl = document.getElementById('profile-avatar');
+    if (!avatarEl) return;
+    if (user.photoURL) {
+      avatarEl.innerHTML = '<img src="' + user.photoURL + '" alt="Photo de profil">';
+    } else {
+      avatarEl.textContent = '👤';
+    }
+  }
+
+  function showContent(user, progress, userProfile) {
     gateScreen.hidden = true;
     contentScreen.hidden = false;
     document.getElementById('profile-email').textContent = user.email;
+    document.getElementById('profile-nickname').textContent = userProfile.nickname;
+    document.getElementById('profile-nickname-input').value = userProfile.nickname;
+    document.getElementById('profile-bio-input').value = userProfile.bio;
+    renderAvatar(user);
     renderRanks(progress);
   }
 
@@ -108,9 +145,9 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     }
 
     initFirestore().then(function () {
-      return loadProgress(user.uid);
-    }).then(function (progress) {
-      showContent(user, progress);
+      return Promise.all([loadProgress(user.uid), loadUserProfile(user.uid, user)]);
+    }).then(function (results) {
+      showContent(user, results[0], results[1]);
     });
   }
 
@@ -128,6 +165,32 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
   if (logoutBtn) {
     logoutBtn.addEventListener('click', function () {
       if (window.AtlasAuth) window.AtlasAuth.signOutUser();
+    });
+  }
+
+  var editForm = document.getElementById('profile-edit-form');
+  if (editForm) {
+    editForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var user = window.AtlasAuth && window.AtlasAuth.getCurrentUser();
+      if (!user) return;
+      var nickname = document.getElementById('profile-nickname-input').value.trim();
+      var bio = document.getElementById('profile-bio-input').value.trim();
+      var feedback = document.getElementById('profile-edit-feedback');
+      var button = editForm.querySelector('button');
+      if (!nickname) return;
+      button.disabled = true;
+      saveUserProfile(user.uid, nickname, bio).then(function () {
+        document.getElementById('profile-nickname').textContent = nickname;
+        feedback.textContent = 'Profil enregistré.';
+        feedback.hidden = false;
+      }).catch(function (err) {
+        console.error('profile save error:', err);
+        feedback.textContent = "Erreur, réessaie.";
+        feedback.hidden = false;
+      }).finally(function () {
+        button.disabled = false;
+      });
     });
   }
 
