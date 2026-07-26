@@ -16,6 +16,7 @@ relancer ce script.
 
 import json
 import shutil
+import subprocess
 import sys
 from datetime import date, datetime
 from pathlib import Path
@@ -45,6 +46,25 @@ BACKGROUND_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
 BACKGROUND_DEST = "static/img/sahara-bg.jpg"  # nom fixe attendu par style.css
 
 
+PODCAST_MAX_BYTES = 20 * 1024 * 1024  # marge sous la limite Cloudflare Pages (25 Mio/fichier)
+PODCAST_COMPRESS_BITRATE = "96k"       # mono, largement suffisant pour de la voix
+
+
+def _compress_audio(source: Path, dest: Path) -> None:
+    """Réencode un fichier audio trop volumineux en AAC mono 96 kbps (voix
+    uniquement, donc perte de qualité imperceptible) — utilisé quand la
+    source dépasse PODCAST_MAX_BYTES. Toujours produit un .m4a en sortie,
+    quel que soit le format d'origine, pour éviter d'avoir à gérer un
+    encodeur différent par extension."""
+    import imageio_ffmpeg
+    ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
+    subprocess.run(
+        [ffmpeg, "-y", "-i", str(source), "-ac", "1", "-b:a", PODCAST_COMPRESS_BITRATE,
+         "-movflags", "+faststart", str(dest)],
+        capture_output=True, check=True,
+    )
+
+
 def load_podcast():
     """Détecte le premier fichier audio (+ éventuelle couverture) déposé
     dans Podcast/, et les copie vers dist/static/podcast/ sous un nom
@@ -52,6 +72,11 @@ def load_podcast():
     espaces/virgules/accents (ex. export ChatGPT) — on ne veut pas de ça
     dans une URL publique, donc on renomme plutôt que d'espérer que
     l'encodage survive intact à travers Jinja/git/Netlify.
+
+    Si le fichier dépasse PODCAST_MAX_BYTES (cause réelle d'un échec de
+    déploiement Cloudflare Pages le 26/07/2026 — limite de 25 Mio/fichier),
+    il est automatiquement recompressé en AAC mono 96 kbps plutôt que copié
+    tel quel.
 
     Retourne None si aucun fichier audio n'est présent — le spot podcast
     reste alors simplement masqué sur la page d'accueil."""
@@ -65,12 +90,24 @@ def load_podcast():
 
     dest_dir = DIST_DIR / "static" / "podcast"
     dest_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(audio, dest_dir / f"episode{audio.suffix.lower()}")
+
+    if audio.stat().st_size > PODCAST_MAX_BYTES:
+        audio_url = "static/podcast/episode.m4a"
+        try:
+            _compress_audio(audio, dest_dir / "episode.m4a")
+        except Exception as e:
+            print(f"⚠️  Compression audio échouée ({e}) — copie du fichier original tel quel.")
+            audio_url = f"static/podcast/episode{audio.suffix.lower()}"
+            shutil.copy2(audio, dest_dir / f"episode{audio.suffix.lower()}")
+    else:
+        audio_url = f"static/podcast/episode{audio.suffix.lower()}"
+        shutil.copy2(audio, dest_dir / f"episode{audio.suffix.lower()}")
+
     if cover:
         shutil.copy2(cover, dest_dir / f"cover{cover.suffix.lower()}")
 
     return {
-        "audio_url": f"static/podcast/episode{audio.suffix.lower()}",
+        "audio_url": audio_url,
         "cover_url": f"static/podcast/cover{cover.suffix.lower()}" if cover else None,
     }
 
