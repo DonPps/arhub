@@ -139,6 +139,33 @@ import { refreshLeaderboardEntry } from './quiz-leaderboard.js';
     });
 
     renderBadges(cards, progress);
+    renderMyStats(cards, progress);
+  }
+
+  function renderMyStats(cards, progress) {
+    var bodyEl = document.getElementById('quizx-my-stats-body');
+    if (!bodyEl || !cards.length) return;
+
+    var completedCount = cards.filter(function (c) {
+      return !!(progress[c.getAttribute('data-rank')] && progress[c.getAttribute('data-rank')].completed);
+    }).length;
+
+    var current = cards.filter(function (c) {
+      var order = parseInt(c.getAttribute('data-order'), 10);
+      return isUnlocked(order, progress, cards) && !(progress[c.getAttribute('data-rank')] && progress[c.getAttribute('data-rank')].completed);
+    })[0] || cards[cards.length - 1];
+
+    var icon = current.querySelector('.quiz-rank-icon').textContent;
+    var name = current.querySelector('.quiz-rank-name').textContent;
+    var pct = Math.round((completedCount / cards.length) * 100);
+
+    bodyEl.innerHTML =
+      '<div class="quizx-my-rank-row">' +
+        '<span class="quizx-my-rank-icon">' + icon + '</span>' +
+        '<span><span class="quizx-my-rank-name">' + name + '</span>' +
+        '<span class="quizx-my-rank-sub">' + completedCount + '/' + cards.length + ' rangs validés</span></span>' +
+      '</div>' +
+      '<div class="quizx-my-progress-track"><div class="quizx-my-progress-fill" style="width:' + pct + '%"></div></div>';
   }
 
   function renderBadges(cards, progress) {
@@ -184,6 +211,8 @@ import { refreshLeaderboardEntry } from './quiz-leaderboard.js';
     if (duelPicker) duelPicker.hidden = name !== 'ranks';
     var leaderboard = document.getElementById('quiz-leaderboard-section');
     if (leaderboard) leaderboard.hidden = name !== 'ranks';
+    var myStats = document.getElementById('quizx-my-stats');
+    if (myStats) myStats.hidden = name !== 'ranks';
   }
 
   /* ---------- Authentification : gating de la page ---------- */

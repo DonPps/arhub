@@ -1068,9 +1068,23 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 
 /* ---------- Page /quiz : en-tête + badges ---------- */
 .quiz-page{ padding: 44px 0 64px; }
-.quiz-hero{ text-align:center; max-width:640px; margin:0 auto 36px; }
-.quiz-hero h1{ font-family: var(--font-display); font-size:44px; margin: 10px 0 12px; }
-.quiz-subtitle{ font-family: var(--font-body); color: var(--ink-soft); font-size:17px; line-height:1.5; margin:0 0 26px; }
+
+/* ---------- Hero Atlas Quiz ---------- */
+.quizx-hero{ text-align:center; max-width:720px; margin:0 auto 40px; }
+.quizx-hero h1{
+  font-family: var(--font-display); font-weight:700; font-size:44px;
+  line-height:1.14; letter-spacing:-.2px; margin: 10px 0 16px;
+}
+.quizx-hero-subtitle{ font-family: var(--font-body); color: var(--ink); font-size:18px; line-height:1.55; margin:0 0 10px; font-weight:500; }
+.quizx-hero-desc{ font-family: var(--font-body); color: var(--ink-soft); font-size:15px; line-height:1.6; max-width:560px; margin:0 auto 28px; }
+.quizx-hero-ctas{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:30px; }
+.quizx-btn-secondary{
+  display:inline-block; background:#fff; color: var(--ink);
+  border: 1.5px solid var(--border); border-radius:6px;
+  padding:12px 28px; font-family: var(--font-nav); font-size:14px; font-weight:600;
+  cursor:pointer; transition: all .2s;
+}
+.quizx-btn-secondary:hover{ border-color: var(--red); color: var(--red); }
 .quiz-badges{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
 .quiz-badge{
   width:44px; height:44px; border-radius:50%;
@@ -1087,40 +1101,117 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   box-shadow: 0 4px 12px -4px rgba(182,28,28,.5);
 }
 
+/* ---------- Statistiques ---------- */
+.quizx-stats{
+  display:grid; grid-template-columns: repeat(4, 1fr); gap:16px;
+  max-width:1080px; margin: 0 auto 48px;
+}
+.quizx-stat-card{
+  background:#fff; border:1px solid var(--border); border-radius:10px;
+  padding:22px 18px; text-align:center; box-shadow: var(--shadow-soft);
+}
+.quizx-stat-value{
+  display:block; font-family: var(--font-display); font-weight:700; font-size:30px;
+  color: var(--red); margin-bottom:4px;
+}
+.quizx-stat-label{
+  font-family: var(--font-nav); font-size:11.5px; color: var(--ink-soft);
+  text-transform:uppercase; letter-spacing:.05em;
+}
+
+.quizx-anchor{ display:block; position:relative; top:-90px; visibility:hidden; }
+
+/* ---------- Layout deux colonnes ---------- */
+.quizx-layout{
+  display:grid; grid-template-columns: 1fr 320px; gap:40px;
+  max-width:1080px; margin:0 auto; align-items:start;
+}
+.quizx-sidebar{ position:sticky; top:24px; display:flex; flex-direction:column; gap:20px; }
+.quizx-sidebar-card{
+  background:#fff; border:1px solid var(--border); border-radius:10px;
+  padding:22px; box-shadow: var(--shadow-soft);
+}
+.quizx-sidebar-title{ font-family: var(--font-display); font-size:17px; margin:0 0 4px; }
+.quizx-sidebar-subtitle{ font-family: var(--font-body); font-size:12.5px; color: var(--ink-soft); margin:0 0 16px; }
+.quizx-sidebar-empty{ font-family: var(--font-body); font-size:13.5px; color: var(--ink-soft); margin:0; }
+.quizx-card-block{ margin-top:8px; }
+
+.quizx-my-stats-body{ display:flex; flex-direction:column; gap:10px; }
+.quizx-my-rank-row{ display:flex; align-items:center; gap:12px; }
+.quizx-my-rank-icon{
+  width:40px; height:40px; border-radius:50%; flex-shrink:0;
+  background: var(--illus-bg); display:flex; align-items:center; justify-content:center; font-size:19px;
+}
+.quizx-my-rank-name{ font-family: var(--font-display); font-size:15px; display:block; }
+.quizx-my-rank-sub{ font-family: var(--font-nav); font-size:11.5px; color: var(--ink-soft); }
+.quizx-my-progress-track{ height:6px; border-radius:3px; background: var(--border); overflow:hidden; margin-top:4px; }
+.quizx-my-progress-fill{ height:100%; background: var(--red); }
+
+/* ---------- Grille de quiz (cartes de rang redesignées) ----------
+   .quiz-ranks / .quiz-rank-card / .quiz-rank-icon / .quiz-rank-status
+   sont les regles d'ORIGINE (editees en place plus bas dans ce fichier
+   pour le nouveau look) — quiz.js/quiz-duel.js dependent de ces memes
+   classes et attributs, donc on reskinne sans jamais les renommer. */
+.quizx-quiz-card-image{
+  position:relative; aspect-ratio:16/9; background: var(--illus-bg);
+  display:flex; align-items:center; justify-content:center;
+  border-bottom:1px solid var(--border); margin:-1px -1px 0;
+  background-image: repeating-linear-gradient(135deg, rgba(17,17,17,.03) 0 12px, transparent 12px 24px);
+}
+.quizx-quiz-card-icon{
+  font-size:32px; width:64px; height:64px; border-radius:50%;
+  background:#fff; border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: var(--shadow-soft); margin:0;
+}
+.quizx-quiz-card-body{ padding:20px 22px 0; }
+.quizx-quiz-card-meta{
+  display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;
+  font-family: var(--font-nav); font-size:11px; color: var(--ink-soft);
+  text-transform:uppercase; letter-spacing:.03em;
+}
+.quizx-quiz-card-meta span{
+  background: var(--illus-bg); padding:4px 9px; border-radius:20px;
+}
+
+@media (max-width: 960px){
+  .quizx-layout{ grid-template-columns: 1fr; }
+  .quizx-sidebar{ position:static; }
+  .quizx-stats{ grid-template-columns: repeat(2, 1fr); }
+}
+
 .quiz-login-gate[hidden], #quiz-ranks[hidden], #quiz-player[hidden], #quiz-result[hidden],
 #profile-content[hidden],
 #quiz-duel-picker[hidden], #quiz-duel-join[hidden], #quiz-duel-waiting[hidden],
 #quiz-duel-player[hidden], #quiz-duel-result[hidden], #quiz-duel-loading[hidden],
-#quiz-leaderboard-section[hidden]{ display:none; }
+#quiz-leaderboard-section[hidden], #quizx-my-stats[hidden]{ display:none; }
 
 /* ---------- Grille des rangs ---------- */
 .quiz-ranks{
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap:18px;
-  max-width:1080px;
-  margin:0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap:20px;
+  margin-bottom: 44px;
 }
 .quiz-rank-card{
   display:flex; flex-direction:column;
   background:#fff;
   border:1px solid var(--border);
   border-radius:10px;
-  padding:22px;
+  overflow:hidden;
   box-shadow: var(--shadow-soft);
   transition: transform .2s var(--ease), box-shadow .2s var(--ease), opacity .2s;
 }
 .quiz-rank-card.is-unlocked:hover{ transform: translateY(-3px); box-shadow: var(--shadow-card); }
 .quiz-rank-card.is-locked{ opacity:.55; filter:grayscale(.6); }
 .quiz-rank-card.is-completed{ border-color: var(--gold); }
-.quiz-rank-icon{ font-size:34px; margin-bottom:10px; }
 .quiz-rank-name{ font-family: var(--font-display); font-size:19px; margin:0 0 6px; }
 .quiz-rank-desc{ font-family: var(--font-body); color: var(--ink-soft); font-size:13.5px; line-height:1.4; margin:0 0 14px; min-height:38px; }
 .quiz-rank-progress{ display:flex; align-items:center; gap:8px; margin-bottom:16px; }
 .quiz-rank-progress-track{ flex:1; height:6px; border-radius:3px; background: var(--border); overflow:hidden; }
 .quiz-rank-progress-fill{ height:100%; background: var(--red); transition: width .4s var(--ease); }
 .quiz-rank-progress-label{ font-family: var(--font-nav); font-size:11px; color: var(--ink-soft); flex-shrink:0; }
-.quiz-rank-status{ display:flex; align-items:center; justify-content:space-between; margin-top:auto; gap:10px; }
+.quiz-rank-status{ display:flex; align-items:center; justify-content:space-between; margin-top:auto; gap:10px; padding:16px 22px 22px; }
 .quiz-rank-badge-state{ font-size:16px; }
 .quiz-rank-play{
   background: var(--red); color:#fff; border:none; border-radius:5px;

@@ -44,6 +44,16 @@ export function refreshLeaderboardEntry(db, firestoreFns, user) {
   }).catch(function (e) { console.error('refreshLeaderboardEntry failed:', e); });
 }
 
+export function loadLeaderboardStats(db, firestoreFns) {
+  return firestoreFns.getDocs(firestoreFns.collection(db, 'leaderboard')).then(function (snap) {
+    var rows = [];
+    snap.forEach(function (d) { rows.push(d.data()); });
+    if (!rows.length) return { count: 0, avgPoints: 0 };
+    var total = rows.reduce(function (sum, r) { return sum + (r.points || 0); }, 0);
+    return { count: rows.length, avgPoints: Math.round(total / rows.length) };
+  }).catch(function () { return { count: 0, avgPoints: 0 }; });
+}
+
 export function loadTopPlayers(db, firestoreFns, count) {
   var q = firestoreFns.query(
     firestoreFns.collection(db, 'leaderboard'),
