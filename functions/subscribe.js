@@ -8,8 +8,9 @@
 //
 // Servi automatiquement par Cloudflare Pages à l'URL /subscribe (le nom du
 // fichier sous functions/ devient la route). Variables BREVO_API_KEY /
-// BREVO_LIST_ID redéfinies (clé régénérée) dans le dashboard Cloudflare
-// Pages (Settings → Variables and secrets, environnement Production).
+// BREVO_LIST_ID à définir dans le dashboard Cloudflare Pages (Settings →
+// Variables and secrets, environnement Production) — attention à ne pas
+// laisser d'espace parasite dans le nom de la variable.
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -64,17 +65,8 @@ export async function onRequestPost({ request, env }) {
   }
 }
 
-export async function onRequestGet({ env }) {
-  // Diagnostic temporaire (26/07/2026) — recheck apres correction du nom
-  // des variables (espace de trop retire). N'expose aucune valeur, juste
-  // la presence/forme des variables recues. A retirer une fois confirme.
-  return json({
-    envKeys: Object.keys(env),
-    hasApiKey: typeof env.BREVO_API_KEY,
-    apiKeyLength: env.BREVO_API_KEY ? env.BREVO_API_KEY.length : 0,
-    hasListId: typeof env.BREVO_LIST_ID,
-    listIdRaw: env.BREVO_LIST_ID === undefined ? 'undefined' : JSON.stringify(env.BREVO_LIST_ID),
-  }, 200);
+export async function onRequestGet() {
+  return json({ error: 'Method Not Allowed' }, 405);
 }
 
 function json(data, status) {
