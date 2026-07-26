@@ -1,6 +1,9 @@
 {% extends "base.html" %}
+{% from "_ads.html" import ad_leaderboard, ad_sidebar, sponsor_hero %}
 {% block title %}Atlas Rising — À la une{% endblock %}
 {% block content %}
+
+{{ ad_leaderboard('home_header_leaderboard') }}
 
 <div class="layout">
   <div>
@@ -31,6 +34,8 @@
         </span>
       </div>
     </a>
+
+    {{ sponsor_hero('home_before_articles') }}
 
     <h2 class="grid-title">Derniers articles</h2>
     <div class="article-list">
@@ -89,7 +94,7 @@
     </div>
     {% endif %}
 
-    <div class="ad-slot">Emplacement publicitaire</div>
+    {{ ad_sidebar('home_sidebar') }}
   </aside>
 </div>
 

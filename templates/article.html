@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_ads.html" import ad_bottom, sponsor_sidebar %}
 {% block title %}{{ article.title }} — Atlas Rising{% endblock %}
 {% block description %}{{ article.dek }}{% endblock %}
 {% block og_type %}article{% endblock %}
@@ -53,7 +54,7 @@
       </div>
     </div>
 
-    <div class="ad-slot" style="margin-top:36px;">Emplacement publicitaire</div>
+    <div style="margin-top:36px;">{{ ad_bottom('article_end') }}</div>
   </div>
 
   <aside>
@@ -66,7 +67,7 @@
       </div>
       {% endfor %}
     </div>
-    <div class="ad-slot">Emplacement publicitaire</div>
+    {{ sponsor_sidebar('article_sidebar') }}
   </aside>
 </div>
 

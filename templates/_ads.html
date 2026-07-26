@@ -1,0 +1,44 @@
+{# templates/_ads.html — bibliothèque de macros "composants publicitaires".
+
+   Équivalent Jinja2 des composants AdLeaderboard/AdSidebar/AdInline/
+   AdBottom/SponsorHero/SponsorMatch/SponsorSidebar : chaque macro pose
+   un conteneur vide (espace réservé, zéro CLS) que static/js/ads/
+   ad-manager.js hydrate côté client une fois visible à l'écran, à
+   partir de la collection Firestore "ads" filtrée sur `placement`.
+
+   Usage dans un template :
+     {% from "_ads.html" import ad_leaderboard %}
+     {{ ad_leaderboard('home_header_leaderboard') }}
+
+   `placement` doit correspondre exactement au champ "placement" des
+   documents Firestore ciblés (voir ad-manager.js pour le détail du
+   fonctionnement, et firestore.rules pour les règles d'accès).
+#}
+
+{% macro ad_leaderboard(placement) %}
+<div class="ad-slot ad-leaderboard" data-ad-placement="{{ placement }}" aria-label="Publicité"></div>
+{% endmacro %}
+
+{% macro ad_sidebar(placement) %}
+<div class="ad-slot ad-sidebar" data-ad-placement="{{ placement }}" aria-label="Publicité"></div>
+{% endmacro %}
+
+{% macro ad_inline(placement) %}
+<div class="ad-slot ad-inline" data-ad-placement="{{ placement }}" aria-label="Publicité"></div>
+{% endmacro %}
+
+{% macro ad_bottom(placement) %}
+<div class="ad-slot ad-bottom" data-ad-placement="{{ placement }}" aria-label="Publicité"></div>
+{% endmacro %}
+
+{% macro sponsor_hero(placement) %}
+<div class="ad-slot sponsor-hero" data-ad-placement="{{ placement }}" aria-label="Contenu sponsorisé"></div>
+{% endmacro %}
+
+{% macro sponsor_match(placement) %}
+<div class="ad-slot sponsor-match" data-ad-placement="{{ placement }}" aria-label="Contenu sponsorisé"></div>
+{% endmacro %}
+
+{% macro sponsor_sidebar(placement) %}
+<div class="ad-slot sponsor-sidebar" data-ad-placement="{{ placement }}" aria-label="Contenu sponsorisé"></div>
+{% endmacro %}
