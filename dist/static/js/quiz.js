@@ -176,6 +176,11 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     ranksScreen.hidden = name !== 'ranks';
     playerScreen.hidden = name !== 'player';
     resultScreen.hidden = name !== 'result';
+    // Le sélecteur de duel (quiz-duel.js) ne doit s'afficher qu'aux côtés
+    // de l'écran des rangs — jamais pendant la connexion, une partie
+    // solo ou son résultat.
+    var duelPicker = document.getElementById('quiz-duel-picker');
+    if (duelPicker) duelPicker.hidden = name !== 'ranks';
   }
 
   /* ---------- Authentification : gating de la page ---------- */
