@@ -1001,7 +1001,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   box-shadow: 0 4px 12px -4px rgba(182,28,28,.5);
 }
 
-#quiz-ranks[hidden], #quiz-player[hidden], #quiz-result[hidden]{ display:none; }
+#quiz-login-gate[hidden], #quiz-ranks[hidden], #quiz-player[hidden], #quiz-result[hidden]{ display:none; }
 
 /* ---------- Grille des rangs ---------- */
 .quiz-ranks{
