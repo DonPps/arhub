@@ -74,5 +74,13 @@ service cloud.firestore {
       }
     }
 
+    // Classement public Atlas Quiz — seul endroit du site où un pseudo est
+    // associé publiquement à un score (choix assumé pour cette
+    // fonctionnalité). Chacun ne peut écrire QUE son propre document.
+    match /leaderboard/{userId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
   }
 }
