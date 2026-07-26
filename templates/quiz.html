@@ -43,6 +43,41 @@
     {% endfor %}
   </div>
 
+  <!-- ---------- Mode Duel : défier un ami ---------- -->
+  <div class="quiz-duel-section" id="quiz-duel-picker" hidden>
+    <h2 class="grid-title">Défier un ami</h2>
+    <p class="quiz-duel-intro">Choisis un rang, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
+    <div class="quiz-duel-picker-row">
+      <select id="quiz-duel-rank-select"></select>
+      <button type="button" class="quiz-btn-primary" id="quiz-duel-create-btn">Créer un duel</button>
+    </div>
+    <h3 class="quiz-duel-history-title">Mes duels récents</h3>
+    <div class="quiz-duel-history" id="quiz-duel-history-list"></div>
+  </div>
+
+  <!-- ---------- Rejoindre un duel via lien ---------- -->
+  <div class="quiz-login-gate" id="quiz-duel-join" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">⚔️</p>
+      <h2>Duel Atlas Quiz</h2>
+      <p id="quiz-duel-join-message"></p>
+      <button type="button" class="quiz-btn-primary" id="quiz-duel-join-btn" hidden>Rejoindre le duel</button>
+    </div>
+  </div>
+
+  <!-- ---------- Salle d'attente (hôte) ---------- -->
+  <div class="quiz-login-gate" id="quiz-duel-waiting" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">⏳</p>
+      <h2>En attente d'un adversaire…</h2>
+      <p>Envoie ce lien à un ami pour qu'il te rejoigne :</p>
+      <div class="quiz-duel-link-row">
+        <input type="text" id="quiz-duel-invite-link" readonly>
+        <button type="button" class="admin-cancel-btn" id="quiz-duel-copy-btn">Copier le lien</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ---------- Écran de jeu ---------- -->
   <div class="quiz-player" id="quiz-player" hidden>
     <div class="quiz-player-head">
@@ -81,9 +116,41 @@
     </div>
   </div>
 
+  <!-- ---------- Écran de jeu Duel ---------- -->
+  <div class="quiz-player quiz-duel-player" id="quiz-duel-player" hidden>
+    <div class="quiz-duel-scoreboard">
+      <span id="quiz-duel-my-score">Toi : 0</span>
+      <span class="quiz-duel-vs">vs</span>
+      <span id="quiz-duel-opponent-name"></span>
+      <span id="quiz-duel-opponent-score"></span>
+    </div>
+    <div class="quiz-player-head">
+      <div class="quiz-player-meta">
+        <span id="quiz-duel-counter">Question 1 / 10</span>
+      </div>
+    </div>
+    <div class="quiz-question-card">
+      <span class="quiz-question-category" id="quiz-duel-category"></span>
+      <h2 class="quiz-question-text" id="quiz-duel-question-text"></h2>
+      <div class="quiz-answers" id="quiz-duel-answers"></div>
+      <div class="quiz-explanation" id="quiz-duel-explanation" hidden></div>
+    </div>
+  </div>
+
+  <!-- ---------- Résultat Duel ---------- -->
+  <div class="quiz-result" id="quiz-duel-result" hidden>
+    <div class="quiz-result-card">
+      <div class="quiz-result-icon">⚔️</div>
+      <h2 id="quiz-duel-result-title"></h2>
+      <p class="quiz-result-score" id="quiz-duel-result-score"></p>
+      <a class="quiz-btn-primary" href="{{ root }}quiz.html">Retour à Atlas Quiz</a>
+    </div>
+  </div>
+
 </div>
 
 {% endblock %}
 {% block extra_scripts %}
 <script type="module" src="{{ root }}static/js/quiz.js"></script>
+<script type="module" src="{{ root }}static/js/quiz-duel.js"></script>
 {% endblock %}
