@@ -43,20 +43,39 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     if (!firebaseConfigured) return Promise.resolve(false);
     return firebaseAppPromise.then(function (app) {
       return import('https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js').then(function (mod) {
-        db = mod.getFirestore(app);
+        // experimentalAutoDetectLongPolling : bascule automatiquement sur du
+        // long-polling HTTP si la connexion streaming habituelle de Firestore
+        // est bloquée (proxy, pare-feu, réseau restrictif) — cause confirmée
+        // d'un blocage "Could not reach Cloud Firestore backend" le 26/07/2026.
+        db = mod.initializeFirestore(app, { experimentalAutoDetectLongPolling: true });
         firestoreFns = mod;
         return true;
       });
     });
   }
 
+  function withTimeout(promise, ms, fallback) {
+    return Promise.race([
+      promise,
+      new Promise(function (resolve) { setTimeout(function () { resolve(fallback); }, ms); }),
+    ]);
+  }
+
   function loadProgress(uid) {
     var ref = firestoreFns.doc(db, 'quizProgress', uid);
-    return firestoreFns.getDoc(ref).then(function (snap) {
-      return snap.exists() ? snap.data() : {};
-    }).catch(function () {
-      return {};
-    });
+    // Filet de sécurité : si Firestore ne répond pas (réseau restrictif,
+    // panne temporaire...), on ne bloque jamais l'utilisateur indéfiniment
+    // sur l'écran de connexion — au pire il démarre avec une progression
+    // vide plutôt qu'un écran figé.
+    return withTimeout(
+      firestoreFns.getDoc(ref).then(function (snap) {
+        return snap.exists() ? snap.data() : {};
+      }).catch(function () {
+        return {};
+      }),
+      8000,
+      {}
+    );
   }
 
   function saveProgress(uid, progress) {
