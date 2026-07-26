@@ -189,6 +189,24 @@ def load_matches():
     return updated_at_local, matches
 
 
+def _image_aspect_ratio(image_rel_path):
+    """Ratio CSS ("w/h") calculé depuis les dimensions réelles du fichier.
+
+    Le cadre .hero-media épouse ainsi toujours l'image telle qu'elle est
+    (au lieu d'un 16:9 fixe) — évite qu'une illustration au ratio
+    différent (ex. générée hors du pipeline standard) soit rognée ou
+    affichée avec des bandes vides. Retombe sur 16/9 si le fichier est
+    introuvable ou illisible.
+    """
+    try:
+        from PIL import Image
+        with Image.open(ROOT / image_rel_path) as img:
+            w, h = img.size
+        return f"{w}/{h}"
+    except Exception:
+        return "16/9"
+
+
 def load_articles():
     articles = []
     for path in sorted(ARTICLES_DIR.glob("*.json")):
@@ -196,6 +214,9 @@ def load_articles():
             articles.append(json.load(f))
     # tri du plus récent au plus ancien
     articles.sort(key=lambda a: a["date"], reverse=True)
+    for a in articles:
+        if a.get("image"):
+            a["image_ratio"] = _image_aspect_ratio(a["image"])
     return articles
 
 

@@ -9,7 +9,7 @@
     <article class="hero">
       <a href="article/{{ lead.slug }}.html" class="hero-media-link">
         {% if lead.image %}
-        <div class="hero-media has-image"><img src="{{ root }}{{ lead.image }}" alt="{{ lead.title }}" loading="eager" fetchpriority="high"></div>
+        <div class="hero-media has-image" style="aspect-ratio:{{ lead.image_ratio }}"><img src="{{ root }}{{ lead.image }}" alt="{{ lead.title }}" loading="eager" fetchpriority="high"></div>
         {% else %}
         <div class="hero-media">Illustration — {{ lead.category }}</div>
         {% endif %}

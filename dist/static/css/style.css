@@ -438,8 +438,9 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   margin-bottom: 26px;
   box-shadow: var(--shadow-card);
 }
+.hero-media.has-image{ background:none; }
 .hero-media img{
-  width:100%; height:100%; object-fit:contain; display:block;
+  width:100%; height:100%; object-fit:cover; display:block;
   transition: transform .6s var(--ease);
 }
 .hero:hover .hero-media img{ transform: scale(1.045); }
