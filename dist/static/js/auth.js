@@ -12,7 +12,6 @@
 
 import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
 
-let auth = null;
 let currentUser = null;
 let authReady = false;
 
@@ -20,10 +19,22 @@ function dispatchAuthChanged() {
   document.dispatchEvent(new CustomEvent('atlas-auth-changed', { detail: { user: currentUser, ready: authReady } }));
 }
 
+// Promesse résolue une fois Firebase Auth initialisé (SDK chargé + instance
+// prête). signUp/signIn/signOutUser l'attendent TOUJOURS avant d'agir, même
+// si appelés très tôt (ex. soumission du formulaire avant la fin du
+// chargement réseau du SDK) — évite la course "window.AtlasAuth.signUp is
+// not a function" constatée le 26/07/2026 quand le clic précédait la fin de
+// initFirebase().
+let readyResolve;
+const authReadyPromise = new Promise((resolve) => { readyResolve = resolve; });
+
 window.AtlasAuth = {
   getCurrentUser: () => currentUser,
   isReady: () => authReady,
   isConfigured: () => firebaseConfigured,
+  signUp: (email, password) => authReadyPromise.then((fns) => fns.createUserWithEmailAndPassword(fns.auth, email, password)),
+  signIn: (email, password) => authReadyPromise.then((fns) => fns.signInWithEmailAndPassword(fns.auth, email, password)),
+  signOutUser: () => authReadyPromise.then((fns) => fns.signOut(fns.auth)),
 };
 
 async function initFirebase() {
@@ -33,11 +44,8 @@ async function initFirebase() {
     signInWithEmailAndPassword, signOut,
   } = await import('https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js');
 
-  auth = getAuth(app);
-
-  window.AtlasAuth.signUp = (email, password) => createUserWithEmailAndPassword(auth, email, password);
-  window.AtlasAuth.signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
-  window.AtlasAuth.signOutUser = () => signOut(auth);
+  const auth = getAuth(app);
+  readyResolve({ auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut });
 
   onAuthStateChanged(auth, (user) => {
     currentUser = user;
