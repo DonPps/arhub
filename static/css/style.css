@@ -664,6 +664,14 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .podcast-player::-webkit-media-controls-enclosure{ background: transparent; }
 .podcast-player::-webkit-media-controls-panel{ background: transparent; }
 
+/* ---------- Emplacements publicitaires (AdManager) ----------
+   .ad-slot est le conteneur commun (reserve l'espace, evite le CLS).
+   Sans classe de variante (ad-leaderboard/ad-sidebar/...), il garde
+   l'ancien rendu "Emplacement publicitaire" en pointilles — pages pas
+   encore migrees vers le systeme dynamique. Avec une variante +
+   [data-ad-placement], static/js/ads/ad-manager.js hydrate le
+   conteneur (AdSense ou sponsor prive) une fois visible a l'ecran, ou
+   le fait disparaitre proprement (.ad-empty) si rien n'est disponible. */
 .ad-slot{
   border: 1px dashed var(--border);
   border-radius: 6px;
@@ -675,6 +683,68 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+.ad-slot[data-ad-placement]{
+  border:none; padding:0; margin: 28px 0; text-transform:none; letter-spacing:normal;
+  text-align:left; border-radius: 10px; overflow:hidden; transition: opacity .3s var(--ease);
+}
+.ad-slot.ad-empty{ display:none; }
+.ad-slot.ad-placeholder{
+  border: 1px dashed var(--border);
+  color: var(--ink-soft);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-height: 60px;
+  display:flex; align-items:center; justify-content:center;
+  padding: 14px 10px;
+}
+
+/* AdLeaderboard — bandeau horizontal (728x90 desktop / 320x100 mobile) */
+.ad-leaderboard{ max-width: 728px; aspect-ratio: 728 / 90; margin-left:auto; margin-right:auto; }
+@media (max-width: 620px){ .ad-leaderboard{ aspect-ratio: 320 / 100; } }
+
+/* AdSidebar — pavé 300x600, sticky en desktop, masqué en mobile */
+.ad-sidebar{ aspect-ratio: 300 / 600; position: sticky; top: 24px; }
+@media (max-width: 860px){ .ad-sidebar{ display:none; } }
+
+/* AdInline — encart au fil du texte d'un article */
+.ad-inline{ aspect-ratio: 640 / 180; max-width: 640px; margin-left:auto; margin-right:auto; }
+
+/* AdBottom — encart horizontal en fin d'article */
+.ad-bottom{ aspect-ratio: 728 / 140; }
+@media (max-width: 620px){ .ad-bottom{ aspect-ratio: 320 / 100; } }
+
+/* Sponsors privés (SponsorHero / SponsorMatch / SponsorSidebar) */
+.sponsor-card-link{
+  position:relative; display:flex; flex-direction:column; height:100%;
+  text-decoration:none; color:inherit; background:#fff;
+  border: 1px solid var(--border); border-radius: 10px; overflow:hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.sponsor-card-link:hover{ transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+.sponsor-tag{
+  position:absolute; top:10px; left:10px; z-index:1;
+  background: rgba(17,17,17,.65); color:#fff;
+  font-family: var(--font-nav); font-size:10px; text-transform:uppercase; letter-spacing:.06em;
+  padding:3px 8px; border-radius:20px;
+}
+.sponsor-image{ width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+.sponsor-body{ padding:16px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
+.sponsor-logo{ width:36px; height:36px; border-radius:50%; object-fit:cover; }
+.sponsor-title{ font-family: var(--font-display); font-size:17px; font-weight:700; color: var(--ink); }
+.sponsor-desc{ font-family: var(--font-body); font-size:13.5px; color: var(--ink-soft); line-height:1.5; margin:0; }
+.sponsor-btn{
+  align-self:flex-start; margin-top:auto;
+  background: var(--red); color:#fff;
+  font-family: var(--font-nav); font-size:12.5px; font-weight:600;
+  padding:9px 18px; border-radius:6px;
+}
+.sponsor-sidebar .sponsor-card-link{ flex-direction:row; align-items:center; aspect-ratio:auto; }
+.sponsor-sidebar .sponsor-image{ width:90px; aspect-ratio:1/1; flex-shrink:0; }
+.sponsor-sidebar .sponsor-body{ padding:12px 14px; gap:4px; }
+.sponsor-sidebar .sponsor-title{ font-size:14px; }
+.sponsor-sidebar .sponsor-desc{ display:none; }
 
 /* ---------- Page Matchs du jour ---------- */
 .matches-page{ padding: 56px 0 88px; max-width: 760px; }

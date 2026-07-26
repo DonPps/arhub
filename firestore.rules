@@ -24,5 +24,20 @@ service cloud.firestore {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
 
+    // Emplacements publicitaires (AdManager). Lecture publique (les
+    // pubs doivent s'afficher même pour un visiteur non connecté) ;
+    // écriture réservée au propriétaire du site (futur panneau
+    // /admin/ads). Les compteurs impressions/clics sont mis à jour
+    // côté client (ad-manager.js) même par un visiteur anonyme, donc
+    // ce champ précis reste ouvert en écriture publique, MAIS limité à
+    // ces deux compteurs uniquement — impossible de modifier le
+    // contenu d'une pub sans être le propriétaire.
+    match /ads/{adId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.email == 'ochfy.youssef@gmail.com';
+      allow update: if request.resource.data.diff(resource.data).affectedKeys()
+                      .hasOnly(['impressions', 'clicks']);
+    }
+
   }
 }
