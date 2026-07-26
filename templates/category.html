@@ -10,7 +10,7 @@
       <article class="list-item">
         <a href="../article/{{ a.slug }}.html" class="list-media-link">
           {% if a.image %}
-          <div class="list-media has-image"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>
+          <div class="list-media has-image" style="aspect-ratio:{{ a.image_ratio }}"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>
           {% else %}
           <div class="list-media">Illustration</div>
           {% endif %}
