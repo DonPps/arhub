@@ -324,6 +324,17 @@ def build():
     )
     (DIST_DIR / "quiz.html").write_text(html, encoding="utf-8")
 
+    # ---------- Page Profil ----------
+    tpl = env.get_template("profil.html")
+    html = tpl.render(
+        **common,
+        root="",
+        canonical_path="/profil.html",
+        active_nav="profil",
+        quiz_ranks=quiz_ranks,
+    )
+    (DIST_DIR / "profil.html").write_text(html, encoding="utf-8")
+
     # ---------- Fichiers statiques (css, images) ----------
     shutil.copytree(STATIC_DIR, DIST_DIR / "static", dirs_exist_ok=True)
     load_background()
@@ -351,6 +362,7 @@ def build():
     url_entries += [(f"/{p['slug']}.html", today_iso) for p in config["static_pages"]]
     url_entries += [("/matchs.html", today_iso)]
     url_entries += [("/quiz.html", today_iso)]
+    url_entries += [("/profil.html", today_iso)]
     sitemap_entries = "\n".join(
         f"  <url><loc>{config['site_url']}{u}</loc><lastmod>{lm}</lastmod></url>"
         for u, lm in url_entries

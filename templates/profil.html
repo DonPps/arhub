@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Mon profil — Atlas Rising{% endblock %}
+{% block description %}Ton compte Atlas Rising : email et progression Atlas Quiz.{% endblock %}
+{% block content %}
+
+<div class="profile-page" id="profile-page">
+
+  <!-- ---------- Verrou connexion ---------- -->
+  <div class="quiz-login-gate" id="profile-login-gate" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">🔒</p>
+      <h2>Connecte-toi pour voir ton profil</h2>
+      <p>Ton profil regroupe tes informations de compte et ta progression Atlas Quiz.</p>
+      <button type="button" class="quiz-btn-primary" id="profile-login-gate-btn">Se connecter / S'inscrire</button>
+    </div>
+  </div>
+
+  <!-- ---------- Contenu du profil ---------- -->
+  <div class="profile-content" id="profile-content" hidden>
+    <div class="profile-header">
+      <div class="profile-avatar">👤</div>
+      <div class="profile-header-body">
+        <span class="eyebrow">Mon compte</span>
+        <h1 id="profile-email">—</h1>
+        <button type="button" class="profile-logout-btn" id="profile-logout-btn">Se déconnecter</button>
+      </div>
+    </div>
+
+    <h2 class="grid-title">Mes badges</h2>
+    <div class="quiz-badges profile-badges" id="profile-badges" aria-label="Mes badges"></div>
+
+    <h2 class="grid-title">Progression Atlas Quiz</h2>
+    <div class="profile-ranks" id="profile-ranks">
+      {% for r in quiz_ranks %}
+      <div class="profile-rank-row" data-rank="{{ r.slug }}" data-total="{{ r.questions_per_round }}">
+        <span class="profile-rank-icon">{{ r.icon }}</span>
+        <div class="profile-rank-info">
+          <span class="profile-rank-name">{{ r.name }}</span>
+          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+        </div>
+        <span class="profile-rank-status">Verrouillé</span>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="{{ root }}quiz.html" class="quiz-btn-primary profile-quiz-link">Aller à Atlas Quiz</a>
+  </div>
+
+</div>
+
+{% endblock %}
+{% block extra_scripts %}
+<script type="module" src="{{ root }}static/js/profile.js"></script>
+{% endblock %}

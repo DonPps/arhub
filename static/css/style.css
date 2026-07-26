@@ -1001,7 +1001,8 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   box-shadow: 0 4px 12px -4px rgba(182,28,28,.5);
 }
 
-#quiz-login-gate[hidden], #quiz-ranks[hidden], #quiz-player[hidden], #quiz-result[hidden]{ display:none; }
+.quiz-login-gate[hidden], #quiz-ranks[hidden], #quiz-player[hidden], #quiz-result[hidden],
+#profile-content[hidden]{ display:none; }
 
 /* ---------- Grille des rangs ---------- */
 .quiz-ranks{
@@ -1115,7 +1116,65 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .quiz-btn-primary:hover{ background: var(--red-dark); transform: translateY(-1px); }
 
+/* ---------- Lien profil dans la modale compte ---------- */
+.account-profile-link{
+  display:block; text-align:center;
+  font-family: var(--font-nav); font-size:13px; font-weight:600;
+  color: var(--red); text-decoration:none;
+  margin: 4px 0 14px;
+}
+.account-profile-link:hover{ text-decoration:underline; }
+
+/* ---------- Page Profil ---------- */
+.profile-page{ padding: 44px 0 64px; max-width: 720px; margin: 0 auto; }
+.profile-header{
+  display:flex; align-items:center; gap:20px;
+  padding-bottom: 28px; margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.profile-avatar{
+  flex-shrink:0; width:72px; height:72px; border-radius:50%;
+  background: var(--illus-bg); display:flex; align-items:center; justify-content:center;
+  font-size:34px;
+}
+.profile-header-body h1{
+  font-family: var(--font-display); font-size:24px; margin: 4px 0 12px;
+  word-break: break-all;
+}
+.profile-logout-btn{
+  background:none; border:1.5px solid var(--border); border-radius:6px;
+  padding:8px 18px; font-family: var(--font-nav); font-size:12.5px; font-weight:600;
+  color: var(--ink); cursor:pointer; transition: all .2s;
+}
+.profile-logout-btn:hover{ border-color: var(--red); color: var(--red); }
+
+.profile-badges{ justify-content:flex-start; margin-bottom: 36px; }
+
+.profile-ranks{ display:flex; flex-direction:column; gap:10px; margin-bottom: 28px; }
+.profile-rank-row{
+  display:flex; align-items:center; gap:16px;
+  background:#fff; border:1px solid var(--border); border-radius:8px;
+  padding:14px 18px;
+}
+.profile-rank-row.is-locked{ opacity:.55; filter:grayscale(.6); }
+.profile-rank-row.is-completed{ border-color: var(--gold); }
+.profile-rank-icon{ font-size:24px; flex-shrink:0; }
+.profile-rank-info{ flex:1; min-width:0; }
+.profile-rank-name{
+  display:block; font-family: var(--font-display); font-size:15.5px;
+  margin-bottom:6px;
+}
+.profile-rank-status{
+  flex-shrink:0; font-family: var(--font-nav); font-size:12px; font-weight:600;
+  color: var(--ink-soft); white-space:nowrap;
+}
+.profile-rank-row.is-completed .profile-rank-status{ color: var(--red); }
+.profile-quiz-link{ display:inline-block; }
+
 @media (max-width: 700px){
+  .profile-header{ flex-direction:column; text-align:center; }
+  .profile-rank-row{ flex-wrap:wrap; }
+  .profile-rank-status{ width:100%; text-align:right; }
   .quiz-promo-card{ min-height:260px; }
   .quiz-promo-body{ padding:20px 22px 24px; }
   .quiz-promo-body h2{ font-size:24px; }
