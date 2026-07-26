@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_ads.html" import ad_bottom, sponsor_sidebar %}
+{% from "_ads.html" import ad_bottom, ad_inline, sponsor_sidebar %}
 {% block title %}{{ article.title }} — Atlas Rising{% endblock %}
 {% block description %}{{ article.dek }}{% endblock %}
 {% block og_type %}article{% endblock %}
@@ -45,6 +45,9 @@
     <div class="article-body">
       {% for para in article.body_paragraphs %}
       <p>{{ para|safe }}</p>
+      {% if loop.index == 2 and article.body_paragraphs|length > 3 %}
+      {{ ad_inline('article_inline_p2') }}
+      {% endif %}
       {% endfor %}
 
       <div class="tag-row">
