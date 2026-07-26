@@ -39,6 +39,7 @@ BACKGROUND_DIR = ROOT / "Background"
 
 TRENDING_COUNT = 5   # nombre d'articles affichés dans le bloc "Tendances"
 RELATED_COUNT = 5    # nombre d'articles affichés dans "À lire aussi" (max demandé : 5)
+LATEST_COUNT = 5     # nombre d'articles affichés dans "Derniers articles" (accueil)
 
 PODCAST_AUDIO_EXTS = {".mp3", ".m4a", ".wav", ".ogg"}
 PODCAST_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
@@ -256,20 +257,25 @@ def build():
         canonical_path="/",
         active_nav="home",
         lead=lead,
-        articles=rest,
+        articles=rest[:LATEST_COUNT],
         trending=trending,
         podcast=podcast,
     )
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
 
-    # ---------- Blog (archive complète) ----------
+    # ---------- Blog (posts rédigés manuellement par le propriétaire,
+    # tagués [BLOG] via Telegram — voir agents/blog_agent.py côté pipeline.
+    # Ne contient PAS les news du pipeline automatique (can-caf /
+    # football-mondial / transferts) : celles-ci restent uniquement sur
+    # l'accueil, leur page catégorie, et les pages articles individuelles.
+    blog_posts = [a for a in articles if a.get("category_slug") == "blog"]
     tpl = env.get_template("blog.html")
     html = tpl.render(
         **common,
         root="",
         canonical_path="/blog.html",
         active_nav="blog",
-        articles=articles,
+        articles=blog_posts,
         trending=trending,
     )
     (DIST_DIR / "blog.html").write_text(html, encoding="utf-8")
