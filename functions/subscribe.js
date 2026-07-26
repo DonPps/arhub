@@ -64,8 +64,17 @@ export async function onRequestPost({ request, env }) {
   }
 }
 
-export async function onRequestGet() {
-  return json({ error: 'Method Not Allowed' }, 405);
+export async function onRequestGet({ env }) {
+  // Diagnostic temporaire (26/07/2026) — n'expose aucune valeur, seulement
+  // la presence/forme des variables recues par la Function. A retirer une
+  // fois la newsletter confirmee fonctionnelle.
+  return json({
+    envKeys: Object.keys(env),
+    hasApiKey: typeof env.BREVO_API_KEY,
+    apiKeyLength: env.BREVO_API_KEY ? env.BREVO_API_KEY.length : 0,
+    hasListId: typeof env.BREVO_LIST_ID,
+    listIdRaw: env.BREVO_LIST_ID === undefined ? 'undefined' : JSON.stringify(env.BREVO_LIST_ID),
+  }, 200);
 }
 
 function json(data, status) {
