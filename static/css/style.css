@@ -132,6 +132,12 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   transition: color .2s;
 }
 .icon-btn:hover{ color: var(--red); }
+#account-label{
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .btn-newsletter{
   display:inline-flex; align-items:center; gap:9px;
