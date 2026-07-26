@@ -32,7 +32,7 @@
     </div>
 
     {% if article.image %}
-    <div class="hero-media has-image article-media"><img src="{{ root }}{{ article.image }}" alt="{{ article.title }}" loading="eager" fetchpriority="high"></div>
+    <div class="hero-media has-image article-media" style="aspect-ratio:{{ article.image_ratio }}"><img src="{{ root }}{{ article.image }}" alt="{{ article.title }}" loading="eager" fetchpriority="high"></div>
     {% else %}
     <div class="hero-media article-media">Illustration — {{ article.category }}</div>
     {% endif %}
