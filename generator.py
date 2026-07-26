@@ -38,7 +38,7 @@ PODCAST_DIR = ROOT / "Podcast"
 BACKGROUND_DIR = ROOT / "Background"
 
 TRENDING_COUNT = 5   # nombre d'articles affichés dans le bloc "Tendances"
-RELATED_COUNT = 4    # nombre d'articles affichés dans "À lire aussi"
+RELATED_COUNT = 5    # nombre d'articles affichés dans "À lire aussi" (max demandé : 5)
 
 PODCAST_AUDIO_EXTS = {".mp3", ".m4a", ".wav", ".ogg"}
 PODCAST_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
