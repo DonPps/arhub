@@ -8,8 +8,8 @@
 //
 // Servi automatiquement par Cloudflare Pages à l'URL /subscribe (le nom du
 // fichier sous functions/ devient la route). Variables BREVO_API_KEY /
-// BREVO_LIST_ID définies dans le dashboard Cloudflare Pages (Settings →
-// Environment variables), pas dans ce fichier.
+// BREVO_LIST_ID redéfinies (clé régénérée) dans le dashboard Cloudflare
+// Pages (Settings → Variables and secrets, environnement Production).
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
