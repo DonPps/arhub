@@ -18,13 +18,24 @@
   <!-- ---------- Contenu du profil ---------- -->
   <div class="profile-content" id="profile-content" hidden>
     <div class="profile-header">
-      <div class="profile-avatar">👤</div>
+      <div class="profile-avatar" id="profile-avatar">👤</div>
       <div class="profile-header-body">
         <span class="eyebrow">Mon compte</span>
-        <h1 id="profile-email">—</h1>
+        <h1 id="profile-nickname">—</h1>
+        <p class="profile-email-note">Email (visible seulement par toi) : <span id="profile-email">—</span></p>
         <button type="button" class="profile-logout-btn" id="profile-logout-btn">Se déconnecter</button>
       </div>
     </div>
+
+    <h2 class="grid-title">Modifier mon profil</h2>
+    <form class="profile-edit-form" id="profile-edit-form">
+      <label for="profile-nickname-input">Pseudo</label>
+      <input type="text" id="profile-nickname-input" maxlength="30" placeholder="Ton pseudo" autocomplete="off">
+      <label for="profile-bio-input">Bio</label>
+      <textarea id="profile-bio-input" maxlength="200" rows="3" placeholder="Une courte bio..."></textarea>
+      <button type="submit" class="quiz-btn-primary">Enregistrer</button>
+      <p class="profile-edit-feedback" id="profile-edit-feedback" hidden></p>
+    </form>
 
     <h2 class="grid-title">Mes badges</h2>
     <div class="quiz-badges profile-badges" id="profile-badges" aria-label="Mes badges"></div>
