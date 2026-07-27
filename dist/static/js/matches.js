@@ -19,6 +19,7 @@
 
 import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
 import { loadFavorites, toggleFavorite } from './favorites.js';
+import { awardPoints } from './points.js';
 
 (function () {
   var page = document.getElementById('matches-page');
@@ -134,6 +135,7 @@ import { loadFavorites, toggleFavorite } from './favorites.js';
       updateUpdatedLabel(data && data.updated_at);
       renderGroups();
       if (state.date === todayStr) startLivePolling();
+      if (state.matches.length) awardPoints('match_view', 'match-' + state.date);
     });
   }
 
