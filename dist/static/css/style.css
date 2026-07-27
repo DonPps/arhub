@@ -1669,3 +1669,52 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 @media (max-width: 640px){
   .comment-login-gate{ flex-direction:column; align-items:flex-start; }
 }
+
+/* ---------- Bulles flottantes (podcast + quiz), style pop-up WhatsApp ---------- */
+.floating-widgets{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  align-items:flex-end;
+}
+.floating-widget{ position:relative; }
+.floating-bubble{
+  width:56px; height:56px; border-radius:50%;
+  background: var(--red);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 10px 24px -8px rgba(0,0,0,.45);
+  border:none; cursor:pointer;
+  transition: transform .2s var(--ease), background .2s;
+  flex-shrink:0;
+}
+.floating-bubble:hover{ background: var(--red-dark); transform: scale(1.06); }
+.floating-popup{
+  position:absolute; right:0; bottom:66px; width:260px;
+  background:#fff; border-radius:12px;
+  box-shadow: var(--shadow-soft);
+  overflow:hidden;
+}
+.floating-popup[hidden]{ display:none; }
+.floating-popup-header{
+  display:flex; align-items:center; justify-content:space-between;
+  background: var(--red); color:#fff; padding:10px 14px;
+  font-family: var(--font-nav); font-size:13px; font-weight:600;
+}
+.floating-popup-close{
+  background:none; border:none; color:#fff; font-size:18px; line-height:1;
+  cursor:pointer; padding:0 4px;
+}
+.floating-popup-body{ padding:14px; }
+.floating-podcast-cover{ width:100%; border-radius:8px; margin-bottom:10px; display:block; }
+.floating-podcast-player{ width:100%; }
+.floating-popup-body p{ margin:0; font-family: var(--font-body); font-size:13px; color: var(--ink-soft); }
+
+@media (max-width: 640px){
+  .floating-widgets{ right:14px; bottom:14px; gap:10px; }
+  .floating-bubble{ width:50px; height:50px; }
+  .floating-popup{ width: calc(100vw - 28px); right:0; }
+}

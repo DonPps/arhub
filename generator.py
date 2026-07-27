@@ -269,13 +269,15 @@ def build():
         "today": date.today().strftime("%d/%m/%Y"),
         "year": date.today().year,
         "ticker": articles[:10],
+        # Widgets flottants (base.html, présents sur toutes les pages) :
+        # podcast pour la mini-pop-up lecteur, quiz pour le lien direct.
+        "podcast": load_podcast(),
     }
 
     # ---------- Page d'accueil ----------
     lead = articles[0] if articles else None
     rest = articles[1:] if len(articles) > 1 else []
     trending = articles[:TRENDING_COUNT]
-    podcast = load_podcast()
 
     tpl = env.get_template("index.html")
     html = tpl.render(
@@ -286,7 +288,6 @@ def build():
         lead=lead,
         articles=rest[:LATEST_COUNT],
         trending=trending,
-        podcast=podcast,
     )
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
 
