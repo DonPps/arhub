@@ -70,6 +70,21 @@ import { loadFavorites, toggleFavorite } from './favorites.js';
     return d.toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
   }
 
+  /* L'heure locale n'est PAS précalculée dans les fichiers archivés (ils
+   * viennent tels quels du pipeline, sans passer par generator.py) — on
+   * la calcule ici, dans le fuseau du Maroc pour rester cohérent quel
+   * que soit le fuseau du visiteur. */
+  function formatKickoffLocal(isoUtc) {
+    if (!isoUtc) return '';
+    var d = new Date(isoUtc);
+    if (isNaN(d.getTime())) return '';
+    try {
+      return new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit', timeZone: 'Africa/Casablanca' }).format(d);
+    } catch (e) {
+      return d.toISOString().slice(11, 16);
+    }
+  }
+
   /* ---------- DateSelector ---------- */
   function renderDateSelector() {
     // Le plan API-Football actuel ne couvre que J-1 à J+1 (voir
@@ -224,12 +239,18 @@ import { loadFavorites, toggleFavorite } from './favorites.js';
       else if (m.status_short === 'AET') label = 'AP';
       return '<span class="match-badge match-badge-ended">' + label + '</span>';
     }
+    if (m.status === 'OTHER') {
+      return '<span class="match-badge match-badge-other">' + escapeHtml(m.status_long || 'INDISPONIBLE') + '</span>';
+    }
     return '<span class="match-badge match-badge-scheduled">À VENIR</span>';
   }
 
   function scoreOrTime(m) {
     if (m.status === 'SCHEDULED') {
-      return '<span class="match-row-time">' + escapeHtml(m.kickoff_local || '') + '</span>';
+      return '<span class="match-row-time">' + escapeHtml(formatKickoffLocal(m.kickoff_utc)) + '</span>';
+    }
+    if (m.status === 'OTHER') {
+      return '<span class="match-row-time">' + escapeHtml(m.status_long || '') + '</span>';
     }
     var html = '<span class="match-row-score">' + (m.score_a != null ? m.score_a : '-') + ' - ' + (m.score_b != null ? m.score_b : '-') + '</span>';
     if (m.status === 'RESULT' && (m.status_short === 'AET' || m.status_short === 'PEN') && m.score_ht_a != null) {

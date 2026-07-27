@@ -1,13 +1,14 @@
 /* Atlas Rising — page profil (compte + progression Atlas Quiz, lecture seule) */
 
 import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
-import { loadFavorites, removeFavorite } from './favorites.js';
+import { loadFavorites, removeFavorite, toggleFavorite } from './favorites.js';
 
 (function () {
 
   var page = document.getElementById('profile-page');
   if (!page) return;
 
+  var root = document.body.getAttribute('data-root') || '';
   var gateScreen = document.getElementById('profile-login-gate');
   var contentScreen = document.getElementById('profile-content');
   var db = null;
@@ -140,6 +141,68 @@ import { loadFavorites, removeFavorite } from './favorites.js';
     loadFavorites(db, firestoreFns, uid).then(function (favs) {
       renderFavoritesList('profile-favorite-teams', 'teams', uid, favs.teams);
       renderFavoritesList('profile-favorite-competitions', 'competitions', uid, favs.competitions);
+    });
+  }
+
+  /* ---------- Recherche équipe/compétition à suivre (favori sans qu'elle
+   * joue aujourd'hui) — construite à partir de tout ce que le pipeline
+   * Matchs a déjà croisé (static/data/teams.json /competitions.json),
+   * pas d'appel API depuis le navigateur. */
+  var teamsIndexPromise = null;
+  var competitionsIndexPromise = null;
+  var favoriteSearchInput = document.getElementById('favorite-search-input');
+  var favoriteSearchResults = document.getElementById('favorite-search-results');
+
+  function loadIndex(file) {
+    return fetch(root + 'static/data/' + file).then(function (r) { return r.json(); }).catch(function () { return []; });
+  }
+
+  function renderSearchResultRow(type, name, crest) {
+    return '<div class="favorite-search-row">' +
+      (crest ? '<img src="' + crest + '" alt="" class="favorite-search-crest">' : '<span class="favorite-search-crest crest-fallback">' + escapeHtml(name.charAt(0)) + '</span>') +
+      '<span class="favorite-search-name">' + escapeHtml(name) + '</span>' +
+      '<button type="button" class="favorite-search-add" data-type="' + type + '" data-name="' + escapeHtml(name) + '">Ajouter</button>' +
+      '</div>';
+  }
+
+  function renderSearchResults(user, teams, comps) {
+    if (!teams.length && !comps.length) {
+      favoriteSearchResults.innerHTML = '<p class="favorite-search-empty">Aucun résultat — seules les équipes/compétitions déjà croisées dans les matchs suivis apparaissent ici.</p>';
+      favoriteSearchResults.hidden = false;
+      return;
+    }
+    favoriteSearchResults.innerHTML =
+      teams.map(function (t) { return renderSearchResultRow('teams', t.name, t.crest); }).join('') +
+      comps.map(function (c) { return renderSearchResultRow('competitions', c.name, c.logo); }).join('');
+    favoriteSearchResults.hidden = false;
+
+    Array.prototype.forEach.call(favoriteSearchResults.querySelectorAll('.favorite-search-add'), function (btn) {
+      btn.addEventListener('click', function () {
+        if (!user || !db) return;
+        btn.disabled = true;
+        toggleFavorite(db, firestoreFns, user.uid, btn.getAttribute('data-type'), btn.getAttribute('data-name'))
+          .then(function () {
+            renderFavorites(user.uid);
+            favoriteSearchInput.value = '';
+            favoriteSearchResults.hidden = true;
+          })
+          .catch(function (e) { console.error('Échec ajout favori:', e); btn.disabled = false; });
+      });
+    });
+  }
+
+  if (favoriteSearchInput) {
+    favoriteSearchInput.addEventListener('input', function () {
+      var q = favoriteSearchInput.value.trim().toLowerCase();
+      var user = window.AtlasAuth && window.AtlasAuth.getCurrentUser();
+      if (!q || !user) { favoriteSearchResults.hidden = true; favoriteSearchResults.innerHTML = ''; return; }
+      if (!teamsIndexPromise) teamsIndexPromise = loadIndex('teams.json');
+      if (!competitionsIndexPromise) competitionsIndexPromise = loadIndex('competitions.json');
+      Promise.all([teamsIndexPromise, competitionsIndexPromise]).then(function (results) {
+        var teams = results[0].filter(function (t) { return t.name.toLowerCase().indexOf(q) !== -1; }).slice(0, 6);
+        var comps = results[1].filter(function (c) { return c.name.toLowerCase().indexOf(q) !== -1; }).slice(0, 6);
+        renderSearchResults(user, teams, comps);
+      });
     });
   }
 
