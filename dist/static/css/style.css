@@ -647,7 +647,13 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   box-shadow: var(--shadow-soft);
   margin-bottom: 32px;
   line-height: 0; /* évite un filet d'espace sous l'image */
+  background: #fff;
 }
+.podcast-placeholder{ line-height: 1.5; padding: 26px 22px; }
+.podcast-placeholder .podcast-title{
+  font-family: var(--font-display); font-weight:700; font-size:16px; margin-bottom:6px;
+}
+.podcast-placeholder p{ font-family: var(--font-body); font-size:13.5px; color: var(--ink-soft); margin:0; }
 .podcast-cover{
   width: 100%;
   aspect-ratio: 1 / 1;
