@@ -490,7 +490,32 @@
   </div>
 </footer>
 
+<div class="floating-widgets">
+  <div class="floating-widget">
+    <button type="button" class="floating-bubble" id="podcast-bubble-toggle" aria-label="Écouter le podcast Atlas Rising" aria-expanded="false" aria-controls="podcast-popup">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3a4 4 0 00-4 4v4a4 4 0 008 0V7a4 4 0 00-4-4z"/><path d="M5 11v1a7 7 0 0014 0v-1M12 19v3"/></svg>
+    </button>
+    <div class="floating-popup" id="podcast-popup" hidden>
+      <div class="floating-popup-header">
+        <span>Podcast Atlas Rising</span>
+        <button type="button" class="floating-popup-close" id="podcast-popup-close" aria-label="Fermer">&times;</button>
+      </div>
+      <div class="floating-popup-body">
+        
+        <img src="../static/podcast/cover.png" alt="" class="floating-podcast-cover">
+        <audio controls preload="none" class="floating-podcast-player"><source src="../static/podcast/episode.m4a"></audio>
+        
+      </div>
+    </div>
+  </div>
+
+  <a href="../quiz.html" class="floating-bubble" aria-label="Jouer à l'Atlas Quiz">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10v4M5 12h4"/><circle cx="16" cy="10.5" r="1" fill="#fff" stroke="none"/><circle cx="18.5" cy="13" r="1" fill="#fff" stroke="none"/></svg>
+  </a>
+</div>
+
 <script src="../static/js/main.js"></script>
+<script src="../static/js/floating-widgets.js"></script>
 <script type="module" src="../static/js/auth.js"></script>
 <script type="module" src="../static/js/ads/ad-manager.js"></script>
 
