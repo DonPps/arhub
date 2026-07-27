@@ -1702,6 +1702,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .floating-widget{ position:relative; }
 .floating-bubble{
+  position:relative;
   width:56px; height:56px; border-radius:50%;
   background: var(--red);
   display:flex; align-items:center; justify-content:center;
@@ -1711,6 +1712,22 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   flex-shrink:0;
 }
 .floating-bubble:hover{ background: var(--red-dark); transform: scale(1.06); }
+.floating-bubble::after{
+  content: attr(data-tooltip);
+  position:absolute; right: calc(100% + 12px); top:50%;
+  background: var(--ink); color:#fff;
+  font-family: var(--font-nav); font-size:12px; font-weight:600;
+  padding:6px 12px; border-radius:6px; white-space:nowrap;
+  opacity:0; pointer-events:none;
+  transform: translateY(-50%) translateX(6px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+}
+.floating-bubble:hover::after, .floating-bubble:focus-visible::after{
+  opacity:1; transform: translateY(-50%) translateX(0);
+}
+@media (max-width: 640px){
+  .floating-bubble::after{ display:none; } /* pas de hover fiable au tactile */
+}
 .floating-popup{
   position:absolute; right:0; bottom:66px; width:260px;
   background:#fff; border-radius:12px;
@@ -1832,41 +1849,6 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .grid-card:hover h3{ color: var(--red); }
 
-/* ---------- Carrousel horizontal generique ----------
-   Coupe du Monde 2026 aujourd'hui, reutilisable plus tard pour
-   videos/podcasts multiples. Scroll natif + scroll-snap : le swipe
-   mobile est gere gratuitement par le navigateur. */
-.section-mondial2026{
-  background: var(--illus-bg);
-  border-radius: var(--radius-lg);
-  padding: 34px 28px;
-}
-.hcarousel{ position:relative; display:flex; align-items:center; gap:10px; }
-.hcarousel-track{
-  display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory;
-  scrollbar-width:none; padding-bottom:4px;
-}
-.hcarousel-track::-webkit-scrollbar{ display:none; }
-.hcarousel-card{ flex:0 0 240px; scroll-snap-align:start; display:block; }
-.hcarousel-card-media{
-  aspect-ratio:4/3; border-radius: var(--radius-md); overflow:hidden;
-  background:#fff; box-shadow: var(--shadow-card); margin-bottom:10px;
-}
-.hcarousel-card-media img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s var(--ease); }
-.hcarousel-card:hover .hcarousel-card-media img{ transform: scale(1.06); }
-.hcarousel-card h3{
-  font-family: var(--font-display); font-size:15px; font-weight:700;
-  line-height:1.3; margin:0 0 4px; transition: color .2s;
-}
-.hcarousel-card:hover h3{ color: var(--red); }
-.hcarousel-arrow{
-  flex-shrink:0; width:38px; height:38px; border-radius:50%;
-  background:#fff; border:1px solid var(--border); cursor:pointer; padding:0;
-  display:flex; align-items:center; justify-content:center; color: var(--ink);
-  transition: background .2s var(--ease), color .2s;
-}
-.hcarousel-arrow:hover{ background: var(--red); color:#fff; }
-
 /* ---------- Football Mondial : grille magazine ---------- */
 .magazine-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
 .magazine-card-lg{ grid-column: span 2; grid-row: span 2; display:block; }
@@ -1889,17 +1871,18 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .magazine-card-sm:hover h4{ color: var(--red); }
 
-/* ---------- Podcast spotlight (home) ---------- */
-.podcast-spotlight{
-  display:flex; gap:24px; align-items:center;
-  background:#fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);
-  padding:22px 26px;
+/* ---------- Podcast (carte sidebar, sous la newsletter) ---------- */
+.podcast-sidebar-card{
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+  padding: 22px 20px;
+  margin-bottom: 32px;
 }
-.podcast-spotlight-cover{ width:120px; height:120px; border-radius: var(--radius-md); object-fit:cover; flex-shrink:0; }
-.podcast-spotlight-title{ font-family: var(--font-display); font-weight:700; font-size:19px; margin-bottom:10px; }
-.podcast-spotlight-body{ flex:1; min-width:0; }
-.podcast-spotlight-body p{ margin:0; color: var(--ink-soft); font-family: var(--font-body); font-size:14px; }
-.podcast-spotlight-player{ width:100%; }
+.podcast-sidebar-title{ font-family: var(--font-display); font-weight:700; font-size:16px; margin-bottom:14px; }
+.podcast-sidebar-cover{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px; margin-bottom:12px; display:block; }
+.podcast-sidebar-player{ width:100%; }
+.podcast-sidebar-card p{ margin:0; font-family: var(--font-body); font-size:13.5px; color: var(--ink-soft); }
 
 /* ---------- Reveal leger au scroll ---------- */
 [data-reveal]{ opacity:0; transform: translateY(16px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
@@ -1928,7 +1911,4 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 
 @media (max-width: 640px){
   .content-section{ margin: 40px 0; }
-  .podcast-spotlight{ flex-direction:column; align-items:flex-start; }
-  .podcast-spotlight-cover{ width:100%; height:auto; aspect-ratio:1/1; }
-  .section-mondial2026{ padding:22px 18px; }
 }
