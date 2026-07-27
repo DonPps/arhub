@@ -1,4 +1,29 @@
 {
-  "updated_at": "2026-07-25T20:47:33Z",
-  "matches": []
+  "updated_at": "2026-07-27T12:13:34Z",
+  "matches": [
+    {
+      "id": 1600200,
+      "competition": "Africa Cup of Nations - Women",
+      "team_a": "South Africa W",
+      "team_b": "Tanzania W",
+      "team_a_crest": "https://media.api-sports.io/football/teams/1978.png",
+      "team_b_crest": "https://media.api-sports.io/football/teams/21437.png",
+      "kickoff_utc": "2026-07-27T17:00:00.000000Z",
+      "status": "SCHEDULED",
+      "score_a": null,
+      "score_b": null
+    },
+    {
+      "id": 1600201,
+      "competition": "Africa Cup of Nations - Women",
+      "team_a": "Ivory Coast W",
+      "team_b": "Burkina Faso W",
+      "team_a_crest": "https://media.api-sports.io/football/teams/1734.png",
+      "team_b_crest": "https://media.api-sports.io/football/teams/19092.png",
+      "kickoff_utc": "2026-07-27T20:00:00.000000Z",
+      "status": "SCHEDULED",
+      "score_a": null,
+      "score_b": null
+    }
+  ]
 }
