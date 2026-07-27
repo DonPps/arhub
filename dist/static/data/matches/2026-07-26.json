@@ -1,0 +1,52 @@
+{
+  "date": "2026-07-26",
+  "updated_at": "2026-07-27T21:47:35Z",
+  "matches": [
+    {
+      "id": 1600198,
+      "competition": "Africa Cup of Nations - Women",
+      "competition_logo": "https://media.api-sports.io/football/leagues/922.png",
+      "competition_country": "World",
+      "team_a": "Algeria W",
+      "team_b": "Senegal W",
+      "team_a_crest": "https://media.api-sports.io/football/teams/18257.png",
+      "team_b_crest": "https://media.api-sports.io/football/teams/18262.png",
+      "venue": "Stade Olympique de Rabat",
+      "kickoff_utc": "2026-07-26T17:00:00.000000Z",
+      "status": "RESULT",
+      "status_short": "FT",
+      "elapsed": 90,
+      "score_a": 2,
+      "score_b": 0,
+      "score_ht_a": 1,
+      "score_ht_b": 0,
+      "score_et_a": null,
+      "score_et_b": null,
+      "score_pen_a": null,
+      "score_pen_b": null
+    },
+    {
+      "id": 1600199,
+      "competition": "Africa Cup of Nations - Women",
+      "competition_logo": "https://media.api-sports.io/football/leagues/922.png",
+      "competition_country": "World",
+      "team_a": "Morocco W",
+      "team_b": "Kenya W",
+      "team_a_crest": "https://media.api-sports.io/football/teams/14461.png",
+      "team_b_crest": "https://media.api-sports.io/football/teams/16934.png",
+      "venue": "Stade Prince Moulay Hassan",
+      "kickoff_utc": "2026-07-26T20:00:00.000000Z",
+      "status": "RESULT",
+      "status_short": "FT",
+      "elapsed": 90,
+      "score_a": 4,
+      "score_b": 0,
+      "score_ht_a": 3,
+      "score_ht_b": 0,
+      "score_et_a": null,
+      "score_et_b": null,
+      "score_pen_a": null,
+      "score_pen_b": null
+    }
+  ]
+}

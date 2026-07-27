@@ -1,52 +1,54 @@
 {% extends "base.html" %}
-{% block title %}Matchs du jour — Atlas Rising{% endblock %}
-{% block description %}Les matchs marocains du jour : équipe nationale et clubs du Botola Pro, heures et scores.{% endblock %}
+{% block title %}Matchs — Atlas Rising{% endblock %}
+{% block description %}Suivez tous les matchs du jour : Maroc, CAN/CAF, Coupe du Monde 2026 et grands championnats, en direct.{% endblock %}
 {% block content %}
 
-<div class="matches-page">
-  <h2 class="grid-title">Matchs du jour</h2>
+<div class="matches-page" id="matches-page" data-today="{{ today_str }}" data-dates="{{ matches_dates|tojson }}">
+  <div class="matches-pitch-bg" aria-hidden="true"></div>
 
-  {% if matches_updated_at %}
-  <p class="matches-updated">Mis à jour : {{ matches_updated_at }}</p>
-  {% endif %}
-
-  {% if matches %}
-  <div class="match-list">
-    {% for m in matches %}
-    <div class="match-card">
-      <div class="match-competition">{{ m.competition }}</div>
-      <div class="match-row">
-        <div class="match-team">
-          {% if m.team_a_crest %}<img src="{{ m.team_a_crest }}" alt="" class="match-crest" loading="lazy">{% endif %}
-          <span>{{ m.team_a }}</span>
-        </div>
-
-        <div class="match-center">
-          {% if m.status == 'LIVE' %}
-          <span class="match-status match-status-live">EN DIRECT</span>
-          <div class="match-score">{{ m.score_a }} - {{ m.score_b }}</div>
-          {% elif m.status == 'RESULT' %}
-          <span class="match-status match-status-ended">TERMINÉ</span>
-          <div class="match-score">{{ m.score_a }} - {{ m.score_b }}</div>
-          {% else %}
-          <span class="match-status match-status-scheduled">À VENIR</span>
-          <div class="match-time">{{ m.kickoff_local }}</div>
-          {% endif %}
-        </div>
-
-        <div class="match-team match-team-b">
-          <span>{{ m.team_b }}</span>
-          {% if m.team_b_crest %}<img src="{{ m.team_b_crest }}" alt="" class="match-crest" loading="lazy">{% endif %}
-        </div>
-      </div>
-    </div>
-    {% endfor %}
+  <div class="matches-head">
+    <h1 class="grid-title">Matchs</h1>
+    <p class="matches-updated" id="matches-updated" hidden></p>
   </div>
-  {% else %}
-  <p class="matches-empty">Aucun match marocain (équipe nationale ou Botola Pro) aujourd'hui.</p>
-  {% endif %}
 
-  <p class="matches-note">Horaires et scores basés sur des données publiques, à titre indicatif. Chaîne de diffusion non disponible pour l'instant.</p>
+  <div class="matches-toolbar">
+    <div class="date-selector" id="date-selector" role="tablist" aria-label="Choisir une date"></div>
+    <button type="button" class="date-calendar-btn" id="date-calendar-btn" aria-label="Choisir une date dans le calendrier">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+    </button>
+    <input type="date" id="date-calendar-input" class="date-calendar-input" aria-label="Date précise">
+  </div>
+
+  <div class="matches-search-row">
+    <div class="matches-search">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="matches-search-input" placeholder="Équipe, compétition, sélection..." aria-label="Rechercher un match">
+    </div>
+    <div class="filter-tabs" id="filter-tabs" role="tablist" aria-label="Filtrer les matchs">
+      <button type="button" class="filter-tab is-active" data-filter="all" role="tab" aria-selected="true">Tous</button>
+      <button type="button" class="filter-tab" data-filter="live" role="tab" aria-selected="false">Live</button>
+      <button type="button" class="filter-tab" data-filter="upcoming" role="tab" aria-selected="false">À venir</button>
+      <button type="button" class="filter-tab" data-filter="finished" role="tab" aria-selected="false">Terminés</button>
+      <button type="button" class="filter-tab" data-filter="favorites" role="tab" aria-selected="false">Favoris</button>
+    </div>
+  </div>
+
+  <div class="matches-groups" id="matches-groups" aria-live="polite">
+    <p class="matches-loading">Chargement…</p>
+  </div>
+
+  <p class="matches-note">Horaires et scores basés sur des données publiques, à titre indicatif. Compositions, statistiques, classements et chaîne de diffusion pas encore disponibles.</p>
 </div>
 
+<div class="match-drawer" id="match-drawer" hidden>
+  <div class="match-drawer-overlay" id="match-drawer-overlay"></div>
+  <div class="match-drawer-panel" role="dialog" aria-modal="true" aria-label="Détail du match">
+    <button type="button" class="match-drawer-close" id="match-drawer-close" aria-label="Fermer">&times;</button>
+    <div class="match-drawer-body" id="match-drawer-body"></div>
+  </div>
+</div>
+
+{% endblock %}
+{% block extra_scripts %}
+<script type="module" src="{{ root }}static/js/matches.js?v={{ asset_version }}"></script>
 {% endblock %}

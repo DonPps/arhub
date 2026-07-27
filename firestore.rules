@@ -103,5 +103,12 @@ service cloud.firestore {
       allow delete: if request.auth != null && request.auth.uid == resource.data.uid;
     }
 
+    // Favoris de la page Matchs (équipes + compétitions) — privé, jamais
+    // lisible par un autre utilisateur (contrairement au classement
+    // Quiz, un favori n'a aucune raison d'être public).
+    match /favorites/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
   }
 }
