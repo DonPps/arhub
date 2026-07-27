@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="static/img/favicon.png">
-<link rel="stylesheet" href="static/css/style.css?v=3c43f22f9f">
+<link rel="stylesheet" href="static/css/style.css?v=f7069e0e9b">
 <!-- Google AdSense (à activer après approbation) -->
 <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
@@ -690,20 +690,27 @@
       
     </div>
 
-    <div class="newsletter-card" id="newsletter">
-      <div class="newsletter-title">Newsletter Atlas Rising</div>
-      <p>Recevez chaque matin l'essentiel de l'actualité.</p>
-      <form class="newsletter-form" data-newsletter>
-        <input type="email" placeholder="Votre email" required aria-label="Adresse email">
-        <button type="submit">S'abonner</button>
-      </form>
+    <div class="newsletter-cover-card" id="newsletter">
+      <img src="static/img/newsletter-cover.jpg" alt="" class="newsletter-cover-bg" loading="lazy">
+      <div class="newsletter-cover-overlay" aria-hidden="true"></div>
+      <div class="newsletter-cover-body">
+        <div class="newsletter-title">Newsletter Atlas Rising</div>
+        <p>Recevez chaque matin l'essentiel de l'actualité.</p>
+        <form class="newsletter-form newsletter-form-compact" data-newsletter>
+          <input type="email" placeholder="Votre email" required aria-label="Adresse email">
+          <button type="submit">S'abonner</button>
+        </form>
+      </div>
     </div>
 
-    <div class="podcast-sidebar-card">
-      <div class="podcast-sidebar-title">Podcast Atlas Rising</div>
+    <div class="podcast-cover-card">
+      <img src="static/podcast/cover.jpg" alt="" class="podcast-cover-bg">
+      <div class="podcast-cover-overlay" aria-hidden="true"></div>
       
-      <img src="static/podcast/cover.png" alt="Couverture du podcast Atlas Rising" class="podcast-sidebar-cover">
-      <audio controls preload="none" class="podcast-sidebar-player"><source src="static/podcast/episode.m4a"></audio>
+      <div class="podcast-cover-body">
+        <div class="podcast-cover-title">Podcast Atlas Rising</div>
+        <audio controls preload="none" class="podcast-cover-player"><source src="static/podcast/episode.m4a"></audio>
+      </div>
       
     </div>
 
@@ -787,7 +794,7 @@
       </div>
       <div class="floating-popup-body">
         
-        <img src="static/podcast/cover.png" alt="" class="floating-podcast-cover">
+        <img src="static/podcast/cover.jpg" alt="" class="floating-podcast-cover">
         <audio controls preload="none" class="floating-podcast-player"><source src="static/podcast/episode.m4a"></audio>
         
       </div>
@@ -799,13 +806,13 @@
   </a>
 </div>
 
-<script src="static/js/main.js?v=3c43f22f9f"></script>
-<script src="static/js/floating-widgets.js?v=3c43f22f9f"></script>
-<script type="module" src="static/js/auth.js?v=3c43f22f9f"></script>
-<script type="module" src="static/js/ads/ad-manager.js?v=3c43f22f9f"></script>
+<script src="static/js/main.js?v=f7069e0e9b"></script>
+<script src="static/js/floating-widgets.js?v=f7069e0e9b"></script>
+<script type="module" src="static/js/auth.js?v=f7069e0e9b"></script>
+<script type="module" src="static/js/ads/ad-manager.js?v=f7069e0e9b"></script>
 
-<script src="static/js/hero-slider.js?v=3c43f22f9f"></script>
-<script src="static/js/reveal.js?v=3c43f22f9f"></script>
+<script src="static/js/hero-slider.js?v=f7069e0e9b"></script>
+<script src="static/js/reveal.js?v=f7069e0e9b"></script>
 
 </body>
 </html>
