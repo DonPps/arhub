@@ -1748,5 +1748,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background-size: 15px 15px; background-position: center;
 }
 .empty-state svg{ color: var(--ink-soft); opacity:.45; margin-bottom:10px; }
-.empty-state img{ width:120px; height:120px; object-fit:contain; margin-bottom:14px; }
 .empty-state p{ margin:0; }
