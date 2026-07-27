@@ -229,6 +229,19 @@ import { loadFavorites, toggleFavorite } from './favorites.js';
     return '<span class="' + extraClass + ' crest-fallback">' + escapeHtml(initial) + '</span>';
   }
 
+  /* L'API ne met pas toujours à jour le statut à l'heure exacte du coup
+   * d'envoi (constaté le 27/07/2026 : un match resté "NS" plusieurs
+   * heures après son heure prévue, y compris en interrogeant la fiche
+   * du match directement). Plutôt que d'afficher "À VENIR" de façon
+   * trompeuse dans ce cas, on affiche que la donnée n'a pas suivi —
+   * jamais qu'un match n'a pas eu lieu alors qu'on n'en sait rien. */
+  function isKickoffOverdue(m) {
+    if (m.status !== 'SCHEDULED' || !m.kickoff_utc) return false;
+    var kickoff = new Date(m.kickoff_utc).getTime();
+    if (isNaN(kickoff)) return false;
+    return Date.now() - kickoff > 30 * 60 * 1000; // 30 min de marge
+  }
+
   function statusBadge(m) {
     if (m.status === 'LIVE') {
       return '<span class="match-badge match-badge-live">LIVE' + (m.elapsed != null ? ' ' + m.elapsed + "'" : '') + '</span>';
@@ -241,6 +254,9 @@ import { loadFavorites, toggleFavorite } from './favorites.js';
     }
     if (m.status === 'OTHER') {
       return '<span class="match-badge match-badge-other">' + escapeHtml(m.status_long || 'INDISPONIBLE') + '</span>';
+    }
+    if (isKickoffOverdue(m)) {
+      return '<span class="match-badge match-badge-other">EN ATTENTE DE MISE À JOUR</span>';
     }
     return '<span class="match-badge match-badge-scheduled">À VENIR</span>';
   }
