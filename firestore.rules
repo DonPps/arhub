@@ -110,5 +110,129 @@ service cloud.firestore {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
 
+    // ---------- Atlas Points (progression + boutique + packs) ----------
+    //
+    // points/{uid} concentre solde + anti-double-crédit + inventaire dans
+    // UN SEUL document : Firestore ne peut pas garantir l'atomicité entre
+    // deux documents via les règles seules (seulement via des transactions
+    // côté client, qu'une règle par document ne "voit" pas) — regrouper
+    // évite qu'un client puisse s'octroyer un pack sans que son prix soit
+    // réellement déduit du solde dans la même écriture.
+    //
+    // Chaque écriture porte un champ `lastAction` (type + clé concernée) —
+    // ça évite d'avoir à extraire "le nom de la clé ajoutée" d'un diff de
+    // map (peu pratique dans ce langage de règles) : le client déclare son
+    // intention, la règle vérifie qu'elle correspond exactement au
+    // changement réel.
+    //
+    // Valeurs de points autorisées : DOIVENT rester synchronisées avec
+    // POINTS_VALUES dans static/js/points-config.js (dupliquées ici car
+    // les règles ne peuvent pas importer un fichier JS externe).
+    match /points/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      allow create: if request.auth != null && request.auth.uid == userId
+        && request.resource.data.balance == 0
+        && request.resource.data.credited == {}
+        && request.resource.data.ownedPacks == {}
+        && request.resource.data.ownedItems == {};
+
+      allow update: if request.auth != null && request.auth.uid == userId && (
+        // 1. Gain de points : une seule action créditée à la fois, jamais
+        // une déjà créditée (empêche le double-crédit), valeur dans
+        // l'ensemble autorisé.
+        (
+          request.resource.data.lastAction.type == 'earn'
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['balance', 'credited', 'lastAction'])
+          && !(request.resource.data.lastAction.key in resource.data.credited)
+          && request.resource.data.credited[request.resource.data.lastAction.key] == true
+          && request.resource.data.credited.diff(resource.data.credited).addedKeys().size() == 1
+          && request.resource.data.credited.diff(resource.data.credited).removedKeys().size() == 0
+          && request.resource.data.credited.diff(resource.data.credited).changedKeys().size() == 0
+          && (request.resource.data.balance - resource.data.balance) in [2, 5, 8, 10, 15, 20, 25, 50]
+        )
+        ||
+        // 2. Connexion quotidienne / série (streak) — pas de points ici
+        // (le gain associé passe séparément par le cas 1).
+        (
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['loginStreak', 'lastLoginDate', 'lastAction'])
+        )
+        ||
+        // 3. Achat boutique (badge/avatar/cadre/cosmétique) — le prix
+        // vient TOUJOURS du catalogue public `shop`, jamais de ce que le
+        // client prétend payer.
+        (
+          request.resource.data.lastAction.type == 'buy_item'
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['balance', 'ownedItems', 'lastAction'])
+          && !(request.resource.data.lastAction.key in resource.data.ownedItems)
+          && request.resource.data.lastAction.key in request.resource.data.ownedItems
+          && request.resource.data.ownedItems.diff(resource.data.ownedItems).addedKeys().size() == 1
+          && request.resource.data.ownedItems.diff(resource.data.ownedItems).removedKeys().size() == 0
+          && request.resource.data.ownedItems.diff(resource.data.ownedItems).changedKeys().size() == 0
+          && request.resource.data.balance >= 0
+          && resource.data.balance - request.resource.data.balance ==
+             get(/databases/$(database)/documents/shop/$(request.resource.data.lastAction.key)).data.price
+        )
+        ||
+        // 4. Achat d'un pack — même principe, prix relu depuis `packs`.
+        // lastAction.key = instanceId (généré côté client), packSlug =
+        // pack acheté.
+        (
+          request.resource.data.lastAction.type == 'buy_pack'
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['balance', 'ownedPacks', 'lastAction'])
+          && !(request.resource.data.lastAction.key in resource.data.ownedPacks)
+          && request.resource.data.ownedPacks[request.resource.data.lastAction.key].packSlug == request.resource.data.lastAction.packSlug
+          && request.resource.data.ownedPacks.diff(resource.data.ownedPacks).addedKeys().size() == 1
+          && request.resource.data.ownedPacks.diff(resource.data.ownedPacks).removedKeys().size() == 0
+          && request.resource.data.ownedPacks.diff(resource.data.ownedPacks).changedKeys().size() == 0
+          && request.resource.data.balance >= 0
+          && resource.data.balance - request.resource.data.balance ==
+             get(/databases/$(database)/documents/packs/$(request.resource.data.lastAction.packSlug)).data.price
+        )
+        ||
+        // 5. Équiper un badge/cadre/avatar déjà possédé — gratuit ; l'UI
+        // ne propose que ce qui est possédé, afficher un id non possédé
+        // n'a aucun effet néfaste.
+        (
+          request.resource.data.diff(resource.data).affectedKeys()
+            .hasOnly(['equippedBadge', 'equippedFrame', 'equippedAvatar', 'lastAction'])
+        )
+      );
+
+      // Résultat d'ouverture d'un pack — un document PAR pack ouvert,
+      // jamais modifiable après coup : Firestore refuse une "create" sur
+      // un chemin déjà occupé (elle devient une "update", ici toujours
+      // interdite) — c'est ce qui garantit qu'un pack ne peut être ouvert
+      // qu'une seule fois.
+      match /openedPacks/{instanceId} {
+        allow read: if request.auth != null && request.auth.uid == userId;
+        allow create: if request.auth != null && request.auth.uid == userId
+          && instanceId in get(/databases/$(database)/documents/points/$(userId)).data.ownedPacks
+          && request.resource.data.packSlug ==
+             get(/databases/$(database)/documents/points/$(userId)).data.ownedPacks[instanceId].packSlug
+          && request.resource.data.grantedCards is list
+          && request.resource.data.grantedCards.size() ==
+             get(/databases/$(database)/documents/packs/$(request.resource.data.packSlug)).data.cardsPerPack
+          && request.resource.data.grantedCards.hasOnly(
+               get(/databases/$(database)/documents/packs/$(request.resource.data.packSlug)).data.cardPool
+             );
+        allow update, delete: if false;
+      }
+    }
+
+    // Catalogue boutique (badges/avatars/cadres/cosmétiques) — lecture
+    // publique (les prix doivent s'afficher même sans connexion),
+    // écriture réservée au propriétaire du site (même principe que `ads`).
+    match /shop/{itemId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.email == 'ochfy.youssef@gmail.com';
+    }
+
+    // Catalogue des packs de cartes — même principe.
+    match /packs/{packSlug} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.email == 'ochfy.youssef@gmail.com';
+    }
+
   }
 }
