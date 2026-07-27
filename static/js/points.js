@@ -14,7 +14,7 @@ var db = null;
 var firestoreFns = null;
 var dbReadyPromise = null;
 
-function ensureFirestore() {
+export function ensureFirestore() {
   if (dbReadyPromise) return dbReadyPromise;
   if (!firebaseConfigured) { dbReadyPromise = Promise.resolve(false); return dbReadyPromise; }
   dbReadyPromise = firebaseAppPromise.then(function (app) {
@@ -145,6 +145,19 @@ export function buyPack(packSlug, price) {
     update['ownedPacks.' + instanceId] = { packSlug: packSlug, purchasedAt: firestoreFns.serverTimestamp() };
     update.lastAction = { type: 'buy_pack', key: instanceId, packSlug: packSlug };
     return firestoreFns.updateDoc(ref, update).then(function () { return instanceId; });
+  });
+}
+
+/* IDs des instances de pack déjà ouvertes (sous-collection openedPacks)
+ * — sert à ne plus proposer "Ouvrir" pour un pack déjà révélé. */
+export function loadOpenedPackIds(uid) {
+  return ensureFirestore().then(function (ok) {
+    if (!ok) return [];
+    return firestoreFns.getDocs(firestoreFns.collection(db, 'points', uid, 'openedPacks')).then(function (snap) {
+      var ids = [];
+      snap.forEach(function (d) { ids.push(d.id); });
+      return ids;
+    }).catch(function () { return []; });
   });
 }
 

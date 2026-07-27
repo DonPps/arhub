@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Ma Collection — Atlas Rising{% endblock %}
+{% block description %}Toutes les cartes Atlas Points obtenues — recherche, filtres et tri par rareté, compétition, équipe, joueur ou saison.{% endblock %}
+{% block content %}
+
+<div class="collection-page" id="collection-page">
+  <div class="matches-head">
+    <h1 class="grid-title">Ma Collection</h1>
+  </div>
+
+  <div class="quiz-login-gate" id="collection-login-gate">
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">🔒</p>
+      <h2>Connecte-toi pour voir ta collection</h2>
+      <button type="button" class="quiz-btn-primary" id="collection-login-btn">Se connecter / S'inscrire</button>
+    </div>
+  </div>
+
+  <div id="collection-content" hidden>
+    <div class="matches-search-row">
+      <div class="matches-search">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" id="collection-search-input" placeholder="Carte, joueur, équipe, saison..." aria-label="Rechercher une carte">
+      </div>
+      <div class="filter-tabs" id="collection-rarity-tabs" role="tablist" aria-label="Filtrer par rareté">
+        <button type="button" class="filter-tab is-active" data-rarity="all" role="tab" aria-selected="true">Toutes</button>
+      </div>
+    </div>
+    <div class="shop-grid" id="collection-grid"></div>
+  </div>
+</div>
+
+{% endblock %}
+{% block extra_scripts %}
+<script type="module" src="{{ root }}static/js/collection.js?v={{ asset_version }}"></script>
+{% endblock %}

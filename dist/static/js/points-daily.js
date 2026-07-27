@@ -3,7 +3,7 @@
  * tient à jour le badge de solde du header. Séparé de auth.js pour ne
  * pas alourdir ce module central. */
 
-import { handleDailyLogin, watchPoints } from './points.js';
+import { handleDailyLogin, watchPoints, awardPoints } from './points.js';
 
 var unsubscribe = null;
 
@@ -28,3 +28,12 @@ document.addEventListener('atlas-auth-changed', function (e) {
   if (unsubscribe) unsubscribe();
   watchPoints(user.uid, updateBadge).then(function (unsub) { unsubscribe = unsub; });
 });
+
+// Écoute podcast (lecteur flottant + carte home) — "play" ne remonte pas
+// (bubble), on écoute donc en phase de capture sur tout le document.
+document.addEventListener('play', function (e) {
+  var el = e.target;
+  if (!el || !el.classList) return;
+  if (!el.classList.contains('floating-podcast-player') && !el.classList.contains('podcast-cover-player')) return;
+  awardPoints('podcast_listen', 'podcast-' + new Date().toISOString().slice(0, 10));
+}, true);
