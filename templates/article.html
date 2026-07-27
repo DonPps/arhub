@@ -58,6 +58,28 @@
     </div>
 
     <div style="margin-top:36px;">{{ ad_bottom('article_end') }}</div>
+
+    <div class="comments-section" id="comments-section" data-article-slug="{{ article.slug }}">
+      <div class="comments-header">
+        <h2 class="comments-title">Commentaires</h2>
+        <span class="comments-count-badge"><span id="comments-count">0</span></span>
+      </div>
+
+      <div class="comment-login-gate" id="comment-login-gate">
+        <p>Connecte-toi pour participer à la discussion.</p>
+        <button type="button" class="quiz-btn-primary comment-login-btn">Se connecter</button>
+      </div>
+
+      <form class="comment-form" id="comment-form" hidden>
+        <textarea id="comment-textarea" class="comment-textarea" maxlength="1000" rows="3" placeholder="Ton avis sur cet article..." required></textarea>
+        <p class="comment-error" id="comment-error" hidden></p>
+        <button type="submit" class="quiz-btn-primary" id="comment-submit-btn">Publier</button>
+      </form>
+
+      <div class="comment-list" id="comments-list">
+        <p class="comments-empty">Chargement des commentaires...</p>
+      </div>
+    </div>
   </div>
 
   <aside>
@@ -74,4 +96,7 @@
   </aside>
 </div>
 
+{% endblock %}
+{% block extra_scripts %}
+<script type="module" src="{{ root }}static/js/comments.js"></script>
 {% endblock %}
