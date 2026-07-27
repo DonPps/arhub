@@ -14,6 +14,7 @@ d'écrire un nouveau fichier JSON dans content/articles/ puis de
 relancer ce script.
 """
 
+import hashlib
 import json
 import shutil
 import subprocess
@@ -49,6 +50,28 @@ BACKGROUND_DEST = "static/img/sahara-bg.jpg"  # nom fixe attendu par style.css
 
 PODCAST_MAX_BYTES = 20 * 1024 * 1024  # marge sous la limite Cloudflare Pages (25 Mio/fichier)
 PODCAST_COMPRESS_BITRATE = "96k"       # mono, largement suffisant pour de la voix
+
+# Assets globaux chargés par base.html sur toutes les pages — leur hash
+# combiné sert de cache-buster (?v=...). Sans ça, un navigateur ou le
+# cache CDN peut continuer à servir l'ancien style.css/JS après un
+# déploiement, ce qui donne l'impression qu'un changement n'est pas
+# passé alors qu'il est bien en ligne (cause confirmée le 27/07/2026).
+GLOBAL_ASSET_FILES = [
+    "css/style.css",
+    "js/main.js",
+    "js/floating-widgets.js",
+    "js/auth.js",
+    "js/ads/ad-manager.js",
+]
+
+
+def _asset_version() -> str:
+    h = hashlib.md5()
+    for rel_path in GLOBAL_ASSET_FILES:
+        path = STATIC_DIR / rel_path
+        if path.exists():
+            h.update(path.read_bytes())
+    return h.hexdigest()[:10]
 
 
 def _compress_audio(source: Path, dest: Path) -> None:
@@ -272,6 +295,7 @@ def build():
         # Widgets flottants (base.html, présents sur toutes les pages) :
         # podcast pour la mini-pop-up lecteur, quiz pour le lien direct.
         "podcast": load_podcast(),
+        "asset_version": _asset_version(),
     }
 
     # ---------- Page d'accueil ----------
