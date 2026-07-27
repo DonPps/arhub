@@ -29,6 +29,12 @@
   --shadow-card: 0 18px 40px -22px rgba(17,17,17,.4);
   --shadow-soft: 0 20px 45px -26px rgba(17,17,17,.3);
   --ease: cubic-bezier(.2,.8,.2,1);
+
+  /* Utilisées par plusieurs composants (cartes homepage, boutique...) —
+     valeurs alignées sur les rayons déjà en dur ailleurs dans ce fichier. */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
 }
 
 *{ box-sizing: border-box; }
@@ -2106,4 +2112,131 @@ body.drawer-open{ overflow:hidden; }
 
 @media (max-width: 640px){
   .content-section{ margin: 40px 0; }
+}
+
+/* ============================================================
+   Atlas Points — progression, boutique, packs de cartes
+   (identité inchangée : mêmes tokens de couleur partout, la
+   distinction de rareté se fait par nuance/poids, pas par une
+   nouvelle teinte)
+   ============================================================ */
+
+/* ---------- Badge solde (header) ---------- */
+.points-badge{
+  display:flex; align-items:center; gap:6px;
+  background: var(--red); color:#fff; border-radius:20px;
+  padding:6px 12px; font-family: var(--font-nav); font-size:12.5px; font-weight:700;
+  transition: background .2s, transform .2s var(--ease);
+}
+.points-badge:hover{ background: var(--red-dark); transform: translateY(-1px); }
+.points-badge[hidden]{ display:none; }
+.points-badge-icon{ font-size:13px; }
+
+/* ---------- Panneau Atlas Points (profil) ---------- */
+.points-panel{
+  background:#fff; border-radius: var(--radius-md, 10px); box-shadow: var(--shadow-soft);
+  padding:22px 24px; margin-bottom:32px;
+}
+.points-panel-head{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px; }
+.points-panel-level{ display:flex; align-items:center; gap:14px; }
+.points-panel-level-icon{ font-size:34px; line-height:1; }
+.points-panel-level-name{ font-family: var(--font-display); font-weight:700; font-size:19px; }
+.points-panel-balance{ font-family: var(--font-nav); font-size:13px; color: var(--ink-soft); }
+.points-progress-track{ height:8px; border-radius:20px; background: var(--illus-bg); overflow:hidden; }
+.points-progress-fill{ height:100%; background: var(--red); border-radius:20px; transition: width .5s var(--ease); }
+.points-progress-label{ margin:8px 0 0; font-family: var(--font-nav); font-size:12px; color: var(--ink-soft); }
+
+/* ---------- Page Boutique / Collection ---------- */
+.shop-page, .collection-page{ position:relative; padding: 48px 0 88px; }
+.shop-head{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:24px; }
+.shop-balance{
+  display:flex; align-items:center; gap:8px; background: var(--illus-bg);
+  border-radius:20px; padding:8px 16px; font-family: var(--font-nav); font-weight:700; font-size:13.5px;
+}
+.shop-balance[hidden]{ display:none; }
+.shop-login-gate{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  background: var(--overlay); border:1px solid var(--border); border-radius:8px;
+  padding:16px 18px; margin-bottom:28px; font-size:14px; color: var(--ink-soft);
+}
+.shop-login-gate[hidden]{ display:none; }
+.shop-section{ margin-bottom:48px; }
+.shop-section-intro{ font-family: var(--font-body); font-size:13.5px; color: var(--ink-soft); margin:-10px 0 18px; }
+
+.shop-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap:20px; }
+.shop-card{ display:flex; flex-direction:column; }
+.shop-card-media{
+  position:relative; aspect-ratio:3/4; border-radius: var(--radius-md, 10px); overflow:hidden;
+  background: var(--illus-bg); box-shadow: var(--shadow-card); margin-bottom:12px;
+}
+.shop-card-media img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .4s var(--ease); }
+.shop-card:hover .shop-card-media img{ transform: scale(1.05); }
+.shop-card-rarity{
+  position:absolute; top:8px; left:8px; font-family: var(--font-nav); font-size:9.5px; font-weight:700;
+  letter-spacing:.05em; text-transform:uppercase; padding:3px 8px; border-radius:20px;
+  background: rgba(17,17,17,.55); color:#fff;
+}
+.shop-card-body h3{ font-family: var(--font-display); font-size:15px; font-weight:700; margin:0 0 4px; }
+.shop-card-body p{ font-family: var(--font-body); font-size:12.5px; color: var(--ink-soft); margin:0 0 10px; line-height:1.4; }
+.shop-card-status{ font-family: var(--font-nav); font-size:11px; text-transform:uppercase; letter-spacing:.05em; }
+.shop-buy-btn{
+  display:inline-flex; align-items:center; gap:6px; align-self:flex-start;
+  background: var(--red); color:#fff; border:none; border-radius:20px;
+  padding:8px 16px; font-family: var(--font-nav); font-size:12.5px; font-weight:700;
+  cursor:pointer; transition: background .2s, transform .2s var(--ease);
+}
+.shop-buy-btn:hover:not(:disabled){ background: var(--red-dark); transform: translateY(-1px); }
+.shop-buy-btn:disabled{ background: var(--border); color: var(--ink-soft); cursor:default; }
+
+.shop-inventory{ display:flex; flex-direction:column; gap:10px; }
+.shop-inventory-item{
+  display:flex; align-items:center; gap:12px; background:#fff; border:1px solid var(--border);
+  border-radius:8px; padding:10px 14px;
+}
+.shop-inventory-thumb{ width:40px; height:52px; object-fit:cover; border-radius:6px; flex-shrink:0; }
+.shop-inventory-name{ flex:1; font-family: var(--font-body); font-weight:600; font-size:13.5px; }
+
+/* Rareté — nuances des tokens existants, jamais une nouvelle teinte */
+.rarity-common{ background: rgba(102,102,102,.7); }
+.rarity-rare{ background: var(--red); }
+.rarity-epic{ background: var(--red-dark); box-shadow: 0 0 10px -2px var(--red); }
+.rarity-legendary{ background: var(--gold); color: var(--ink); box-shadow: 0 0 12px -2px var(--gold); }
+.rarity-mythic{ background: linear-gradient(135deg, var(--gold), var(--red)); box-shadow: 0 0 14px -2px var(--red); }
+.rarity-limited-edition{ background: var(--ink); color: var(--gold); border:1px solid var(--gold); }
+.rarity-event-exclusive{ background: var(--red); border:1px solid var(--gold); }
+
+/* ---------- Ouverture de pack ---------- */
+.pack-opening-modal{ position:fixed; inset:0; z-index:90; }
+.pack-opening-modal[hidden]{ display:none; }
+.pack-opening-overlay{ position:absolute; inset:0; background: rgba(10,10,10,0); transition: background .25s var(--ease); }
+.pack-opening-modal.is-open .pack-opening-overlay{ background: rgba(10,10,10,.75); }
+.pack-opening-panel{
+  position:absolute; top:50%; left:50%; transform: translate(-50%,-48%);
+  width:min(560px, 92vw); max-height:85vh; overflow-y:auto;
+  background:#fff; border-radius: var(--radius-lg, 16px); box-shadow: var(--shadow-card);
+  padding:32px 26px; opacity:0; transition: opacity .25s var(--ease), transform .25s var(--ease);
+}
+.pack-opening-modal.is-open .pack-opening-panel{ opacity:1; transform: translate(-50%,-50%); }
+.pack-opening-loading{ text-align:center; font-family: var(--font-body); color: var(--ink-soft); padding:40px 0; }
+.pack-reveal-title{ text-align:center; font-family: var(--font-display); font-size:22px; margin:0 0 24px; }
+.pack-reveal-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap:16px; }
+.pack-reveal-card{
+  text-align:center; opacity:0; transform: translateY(14px) scale(.9);
+  animation: pack-card-reveal .5s var(--ease) forwards;
+}
+@keyframes pack-card-reveal{ to{ opacity:1; transform:none; } }
+.pack-reveal-card img{
+  width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:10px;
+  box-shadow: var(--shadow-card); margin-bottom:8px;
+}
+.pack-reveal-card-name{ font-family: var(--font-display); font-weight:700; font-size:13px; }
+.pack-reveal-card-rarity{ font-family: var(--font-nav); font-size:10px; text-transform:uppercase; letter-spacing:.05em; color: var(--ink-soft); }
+
+@media (prefers-reduced-motion: reduce){
+  .pack-reveal-card{ animation: none; opacity:1; transform:none; }
+}
+
+@media (max-width: 640px){
+  .shop-grid{ grid-template-columns: repeat(2, 1fr); gap:14px; }
+  .points-panel-head{ align-items:flex-start; }
 }
