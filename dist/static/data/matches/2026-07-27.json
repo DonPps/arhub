@@ -1,6 +1,6 @@
 {
   "date": "2026-07-27",
-  "updated_at": "2026-07-27T21:47:35Z",
+  "updated_at": "2026-07-27T22:25:35Z",
   "matches": [
     {
       "id": 1600200,
@@ -15,6 +15,7 @@
       "kickoff_utc": "2026-07-27T17:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
+      "status_long": "Not Started",
       "elapsed": null,
       "score_a": null,
       "score_b": null,
@@ -38,6 +39,7 @@
       "kickoff_utc": "2026-07-27T20:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
+      "status_long": "Not Started",
       "elapsed": null,
       "score_a": null,
       "score_b": null,

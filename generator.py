@@ -309,6 +309,38 @@ def group_matches_by_competition(matches):
     return [groups[k] for k in order]
 
 
+def build_teams_and_competitions_index():
+    """Liste agrégée de toutes les équipes/compétitions vues dans
+    l'archive des matchs (nom + logo réel) — permet de mettre en favori
+    une équipe même les jours où elle ne joue pas. Construite uniquement
+    à partir de ce qui a déjà été récupéré (aucun appel API
+    supplémentaire) : ne couvre donc que ce qui est passé par la fenêtre
+    suivie jusqu'ici, pas "toutes les équipes du monde"."""
+    teams = {}
+    competitions = {}
+    if MATCHES_DIR.exists():
+        for f in MATCHES_DIR.glob("*.json"):
+            if f.stem == "index":
+                continue
+            with open(f, encoding="utf-8") as fh:
+                data = json.load(fh)
+            for m in data.get("matches", []):
+                for name, crest in ((m.get("team_a"), m.get("team_a_crest")), (m.get("team_b"), m.get("team_b_crest"))):
+                    if name and name not in teams:
+                        teams[name] = {"name": name, "crest": crest, "competition": m.get("competition")}
+                comp_name = m.get("competition")
+                if comp_name and comp_name not in competitions:
+                    competitions[comp_name] = {
+                        "name": comp_name,
+                        "logo": m.get("competition_logo"),
+                        "country": m.get("competition_country"),
+                    }
+    return (
+        sorted(teams.values(), key=lambda t: t["name"]),
+        sorted(competitions.values(), key=lambda c: c["name"]),
+    )
+
+
 def _image_aspect_ratio(image_rel_path):
     """Ratio CSS ("w/h") calculé depuis les dimensions réelles du fichier.
 
@@ -481,6 +513,16 @@ def build():
         matches_dist_dir.mkdir(parents=True, exist_ok=True)
         for f in MATCHES_DIR.glob("*.json"):
             shutil.copy2(f, matches_dist_dir / f.name)
+
+    # Index équipes/compétitions déjà rencontrées dans l'archive — sert à
+    # pouvoir suivre une équipe en favori même les jours où elle ne joue
+    # pas (voir profil.html). Régénéré à chaque build, coût zéro (aucun
+    # appel API, juste relire ce qu'on a déjà).
+    teams_index, competitions_index = build_teams_and_competitions_index()
+    data_dir = DIST_DIR / "static" / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+    (data_dir / "teams.json").write_text(json.dumps(teams_index, ensure_ascii=False), encoding="utf-8")
+    (data_dir / "competitions.json").write_text(json.dumps(competitions_index, ensure_ascii=False), encoding="utf-8")
 
     tpl = env.get_template("matches.html")
     html = tpl.render(

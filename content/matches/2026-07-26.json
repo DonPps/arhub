@@ -1,6 +1,6 @@
 {
   "date": "2026-07-26",
-  "updated_at": "2026-07-27T21:47:35Z",
+  "updated_at": "2026-07-27T22:25:34Z",
   "matches": [
     {
       "id": 1600198,
@@ -15,6 +15,7 @@
       "kickoff_utc": "2026-07-26T17:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
+      "status_long": "Match Finished",
       "elapsed": 90,
       "score_a": 2,
       "score_b": 0,
@@ -38,6 +39,7 @@
       "kickoff_utc": "2026-07-26T20:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
+      "status_long": "Match Finished",
       "elapsed": 90,
       "score_a": 4,
       "score_b": 0,
