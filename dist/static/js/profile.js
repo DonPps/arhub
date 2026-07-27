@@ -2,6 +2,8 @@
 
 import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
 import { loadFavorites, removeFavorite, toggleFavorite } from './favorites.js';
+import { watchPoints } from './points.js';
+import { getLevel } from './points-config.js';
 
 (function () {
 
@@ -137,6 +139,29 @@ import { loadFavorites, removeFavorite, toggleFavorite } from './favorites.js';
     });
   }
 
+  var pointsUnsubscribe = null;
+  function renderPointsPanel(uid) {
+    if (pointsUnsubscribe) pointsUnsubscribe();
+    watchPoints(uid, function (data) {
+      var balance = (data && data.balance) || 0;
+      var level = getLevel(balance);
+      var iconEl = document.getElementById('points-level-icon');
+      var nameEl = document.getElementById('points-level-name');
+      var balanceEl = document.getElementById('points-panel-balance');
+      var fillEl = document.getElementById('points-progress-fill');
+      var labelEl = document.getElementById('points-progress-label');
+      if (iconEl) iconEl.textContent = level.current.icon;
+      if (nameEl) nameEl.textContent = level.current.name;
+      if (balanceEl) balanceEl.textContent = balance;
+      if (fillEl) fillEl.style.width = Math.round(level.progress * 100) + '%';
+      if (labelEl) {
+        labelEl.textContent = level.next
+          ? ('Prochain niveau : ' + level.next.name + ' (' + balance + ' / ' + level.next.threshold + ' AP)')
+          : 'Niveau maximum atteint !';
+      }
+    }).then(function (unsub) { pointsUnsubscribe = unsub; });
+  }
+
   function renderFavorites(uid) {
     loadFavorites(db, firestoreFns, uid).then(function (favs) {
       renderFavoritesList('profile-favorite-teams', 'teams', uid, favs.teams);
@@ -250,6 +275,7 @@ import { loadFavorites, removeFavorite, toggleFavorite } from './favorites.js';
     }).then(function (results) {
       showContent(user, results[0], results[1]);
       renderFavorites(user.uid);
+      renderPointsPanel(user.uid);
     });
   }
 
