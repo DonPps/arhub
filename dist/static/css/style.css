@@ -73,7 +73,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   outline-offset: 3px;
 }
 
-.wrap{ max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.wrap{ max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
 /* ---------- Masthead ---------- */
 .masthead{
@@ -183,28 +183,34 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .nav a:hover::after, .nav a.active::after{ right:0; }
 .nav-icon{ flex-shrink:0; vertical-align:-2px; }
 
-/* ---------- Bande d'actualités défilante ---------- */
+/* ---------- Bande d'actualités défilante ----------
+   .news-ticker-outer porte le fond/les bordures pleine largeur (même
+   principe que .masthead) ; .news-ticker (avec .wrap) garde le contenu
+   dans la même colonne centrée que le reste du site, pour une mise en
+   page compacte au lieu d'un bandeau qui déborde d'un bord à l'autre. */
+.news-ticker-outer{
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
 .news-ticker{
   display:flex;
   align-items:stretch;
   background: transparent;
   color: var(--ink);
   overflow:hidden;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
 }
 .news-ticker-label{
   flex-shrink:0;
   display:flex;
   align-items:center;
   font-family: var(--font-nav);
-  font-size: 12.5px;
+  font-size: 11px;
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.06em;
   background: var(--red);
   color: #fff;
-  padding: 0 20px 0 22px;
+  padding: 0 16px;
   white-space:nowrap;
 }
 .news-ticker-track{
@@ -224,14 +230,14 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .news-ticker-list a{
   display:flex;
   align-items:center;
-  gap:7px;
+  gap:6px;
   color: var(--ink);
   text-decoration:none;
   font-family: var(--font-nav);
-  font-size: 13px;
+  font-size: 12px;
   font-weight:500;
   opacity:.85;
-  padding: 8px 24px;
+  padding: 6px 18px;
   border-right: 1px solid rgba(17,17,17,.15);
 }
 .news-ticker-list a:hover{ opacity:1; color: var(--red); text-decoration:underline; }
@@ -971,7 +977,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   .nav-toggle{ display:flex; }
 
   .news-ticker-label{ font-size: 10px; padding: 0 10px; }
-  .news-ticker-list a{ font-size: 12px; padding: 7px 16px; }
+  .news-ticker-list a{ font-size: 11px; padding: 6px 14px; }
 
   /* Bandeau haut compact : date+réseaux / logo / recherche+newsletter
      sur une seule ligne, au lieu de l'empilement large façon desktop. */
