@@ -341,6 +341,48 @@ def build_teams_and_competitions_index():
     )
 
 
+CARDS_DIR = CONTENT_DIR / "cards"
+PACKS_DIR = CONTENT_DIR / "packs"
+
+
+def build_cards_catalog():
+    """Catalogue des cartes Atlas Points — jamais générées, déposées par
+    l'équipe (voir plan de refonte Matchs/section 22). Un dossier par
+    collection (content/cards/<collection-slug>/<card-slug>.json), image
+    attendue en static/img/cards/<collection-slug>/<card-slug>.jpg sauf
+    si un champ "image" explicite est fourni. Retourne une liste vide
+    tant qu'aucun fichier n'a été déposé — jamais de carte inventée."""
+    cards = []
+    if not CARDS_DIR.exists():
+        return cards
+    for collection_dir in sorted(p for p in CARDS_DIR.iterdir() if p.is_dir()):
+        for card_file in sorted(collection_dir.glob("*.json")):
+            with open(card_file, encoding="utf-8") as f:
+                card = json.load(f)
+            card.setdefault("slug", card_file.stem)
+            card.setdefault("collection", collection_dir.name)
+            card.setdefault("image", f"static/img/cards/{collection_dir.name}/{card_file.stem}.jpg")
+            cards.append(card)
+    return cards
+
+
+def build_packs_catalog():
+    """Définitions de packs (content/packs/<pack-slug>.json) — prix/
+    rareté/pool de cartes, source de vérité aussi lue par firestore.rules
+    via get() au moment de l'achat/ouverture. Vide tant qu'aucun pack
+    n'est défini."""
+    packs = []
+    if not PACKS_DIR.exists():
+        return packs
+    for pack_file in sorted(PACKS_DIR.glob("*.json")):
+        with open(pack_file, encoding="utf-8") as f:
+            pack = json.load(f)
+        pack.setdefault("slug", pack_file.stem)
+        pack.setdefault("image", f"static/img/packs/{pack_file.stem}.jpg")
+        packs.append(pack)
+    return packs
+
+
 def _image_aspect_ratio(image_rel_path):
     """Ratio CSS ("w/h") calculé depuis les dimensions réelles du fichier.
 
@@ -536,6 +578,37 @@ def build():
         today_str=today_str,
     )
     (DIST_DIR / "matchs.html").write_text(html, encoding="utf-8")
+
+    # ---------- Atlas Points : catalogue cartes/packs (affichage) ----------
+    # Source de vérité pour le PRIX/POOL au moment d'un achat reste
+    # toujours Firestore (packs/{slug}, voir firestore.rules) — ces
+    # fichiers ne servent qu'à afficher rapidement la boutique/collection
+    # sans dépendre d'une lecture Firestore pour la simple LISTE. Rappel :
+    # tout pack ajouté ici doit aussi être recopié dans Firestore
+    # (collection `packs`) pour être achetable — même principe que
+    # firestore.rules, jamais déployé automatiquement.
+    cards_catalog = build_cards_catalog()
+    packs_catalog = build_packs_catalog()
+    (data_dir / "cards.json").write_text(json.dumps(cards_catalog, ensure_ascii=False), encoding="utf-8")
+    (data_dir / "packs.json").write_text(json.dumps(packs_catalog, ensure_ascii=False), encoding="utf-8")
+
+    tpl = env.get_template("boutique.html")
+    html = tpl.render(
+        **common,
+        root="",
+        canonical_path="/boutique.html",
+        active_nav="boutique",
+    )
+    (DIST_DIR / "boutique.html").write_text(html, encoding="utf-8")
+
+    tpl = env.get_template("collection.html")
+    html = tpl.render(
+        **common,
+        root="",
+        canonical_path="/collection.html",
+        active_nav="boutique",
+    )
+    (DIST_DIR / "collection.html").write_text(html, encoding="utf-8")
 
     # ---------- Page Atlas Quiz ----------
     quiz_ranks = load_quiz_ranks()

@@ -2,6 +2,7 @@
 
 import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
 import { refreshLeaderboardEntry } from './quiz-leaderboard.js';
+import { awardPoints } from './points.js';
 
 (function () {
 
@@ -278,6 +279,7 @@ import { refreshLeaderboardEntry } from './quiz-leaderboard.js';
       btn.disabled = false;
       showScreen('player');
       renderQuestion();
+      awardPoints('quiz_participate', 'quiz-participate-' + slug + '-' + new Date().toISOString().slice(0, 10));
     }).catch(function () {
       btn.textContent = originalLabel;
       btn.disabled = false;
@@ -345,7 +347,10 @@ import { refreshLeaderboardEntry } from './quiz-leaderboard.js';
       }
     });
 
-    if (isCorrect) { session.score++; session.correctCount++; }
+    if (isCorrect) {
+      session.score++; session.correctCount++;
+      if (q.id) awardPoints('quiz_correct_answer', 'quiz-correct-' + q.id);
+    }
 
     elExplanation.textContent = q.explanation;
     elExplanation.hidden = false;

@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mon profil — Atlas Rising</title>
-<meta name="description" content="Ton compte Atlas Rising : email et progression Atlas Quiz.">
-<link rel="canonical" href="https://www.atlasrising.ma/profil.html">
+<title>Boutique — Atlas Rising</title>
+<meta name="description" content="Dépense tes Atlas Points : badges, avatars, cadres, cosmétiques et packs de cartes exclusifs.">
+<link rel="canonical" href="https://www.atlasrising.ma/boutique.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Atlas Rising">
-<meta property="og:title" content="Mon profil — Atlas Rising">
-<meta property="og:description" content="Ton compte Atlas Rising : email et progression Atlas Quiz.">
-<meta property="og:url" content="https://www.atlasrising.ma/profil.html">
+<meta property="og:title" content="Boutique — Atlas Rising">
+<meta property="og:description" content="Dépense tes Atlas Points : badges, avatars, cadres, cosmétiques et packs de cartes exclusifs.">
+<meta property="og:url" content="https://www.atlasrising.ma/boutique.html">
 <meta property="og:image" content="https://www.atlasrising.ma/static/img/logo.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mon profil — Atlas Rising">
-<meta name="twitter:description" content="Ton compte Atlas Rising : email et progression Atlas Quiz.">
+<meta name="twitter:title" content="Boutique — Atlas Rising">
+<meta name="twitter:description" content="Dépense tes Atlas Points : badges, avatars, cadres, cosmétiques et packs de cartes exclusifs.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,7 +103,7 @@
         <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.6 6.2L21 9l-5 4.4L17.4 20 12 16.6 6.6 20 8 13.4 3 9l6.4-.8z"/></svg>
         Atlas Quiz
       </a>
-      <a href="boutique.html" class="">
+      <a href="boutique.html" class="active">
         <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l1.5-5h15L21 9M3 9v10a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18M9 13a3 3 0 006 0"/></svg>
         Boutique
       </a>
@@ -327,172 +327,51 @@
 </div>
 
 
+<div class="pack-opening-modal" id="pack-opening-modal" hidden>
+  <div class="pack-opening-overlay" id="pack-opening-overlay"></div>
+  <div class="pack-opening-panel">
+    <button type="button" class="match-drawer-close" id="pack-opening-close" aria-label="Fermer">&times;</button>
+    <div class="pack-opening-body" id="pack-opening-body"></div>
+  </div>
+</div>
+
 
 <main class="wrap">
 
 
-<div class="profile-page" id="profile-page">
-
-  <!-- ---------- Verrou connexion ---------- -->
-  <div class="quiz-login-gate" id="profile-login-gate" hidden>
-    <div class="quiz-login-gate-card">
-      <p class="quiz-login-gate-icon">🔒</p>
-      <h2>Connecte-toi pour voir ton profil</h2>
-      <p>Ton profil regroupe tes informations de compte et ta progression Atlas Quiz.</p>
-      <button type="button" class="quiz-btn-primary" id="profile-login-gate-btn">Se connecter / S'inscrire</button>
+<div class="shop-page" id="shop-page">
+  <div class="shop-head">
+    <h1 class="grid-title">Boutique</h1>
+    <div class="shop-balance" id="shop-balance-display" hidden>
+      <span class="points-badge-icon" aria-hidden="true">⭐</span>
+      <span id="shop-balance-value">0</span> Atlas Points
     </div>
   </div>
 
-  <!-- ---------- Contenu du profil ---------- -->
-  <div class="profile-content" id="profile-content" hidden>
-    <div class="profile-header">
-      <div class="profile-avatar" id="profile-avatar">👤</div>
-      <div class="profile-header-body">
-        <span class="eyebrow">Mon compte</span>
-        <h1 id="profile-nickname">—</h1>
-        <p class="profile-email-note">Email (visible seulement par toi) : <span id="profile-email">—</span></p>
-        <button type="button" class="profile-logout-btn" id="profile-logout-btn">Se déconnecter</button>
-      </div>
-    </div>
-
-    <div class="points-panel" id="points-panel">
-      <div class="points-panel-head">
-        <div class="points-panel-level">
-          <span class="points-panel-level-icon" id="points-level-icon">🌱</span>
-          <div>
-            <div class="points-panel-level-name" id="points-level-name">Rookie</div>
-            <div class="points-panel-balance"><span id="points-panel-balance">0</span> Atlas Points</div>
-          </div>
-        </div>
-        <a href="boutique.html" class="quiz-btn-primary">Boutique</a>
-      </div>
-      <div class="points-progress-track"><div class="points-progress-fill" id="points-progress-fill" style="width:0%"></div></div>
-      <p class="points-progress-label" id="points-progress-label">Prochain niveau : —</p>
-    </div>
-
-    <h2 class="grid-title">Modifier mon profil</h2>
-    <form class="profile-edit-form" id="profile-edit-form">
-      <label for="profile-nickname-input">Pseudo</label>
-      <input type="text" id="profile-nickname-input" maxlength="30" placeholder="Ton pseudo" autocomplete="off">
-      <label for="profile-bio-input">Bio</label>
-      <textarea id="profile-bio-input" maxlength="200" rows="3" placeholder="Une courte bio..."></textarea>
-      <button type="submit" class="quiz-btn-primary">Enregistrer</button>
-      <p class="profile-edit-feedback" id="profile-edit-feedback" hidden></p>
-    </form>
-
-    <h2 class="grid-title">Mes badges</h2>
-    <div class="quiz-badges profile-badges" id="profile-badges" aria-label="Mes badges"></div>
-
-    <h2 class="grid-title">Progression Atlas Quiz</h2>
-    <div class="profile-ranks" id="profile-ranks">
-      
-      <div class="profile-rank-row" data-rank="cadet" data-total="25">
-        <span class="profile-rank-icon">🥉</span>
-        <div class="profile-rank-info">
-          <span class="profile-rank-name">Cadet</span>
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-        </div>
-        <span class="profile-rank-status">Verrouillé</span>
-      </div>
-      
-      <div class="profile-rank-row" data-rank="espoir" data-total="25">
-        <span class="profile-rank-icon">🥈</span>
-        <div class="profile-rank-info">
-          <span class="profile-rank-name">Espoir</span>
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-        </div>
-        <span class="profile-rank-status">Verrouillé</span>
-      </div>
-      
-      <div class="profile-rank-row" data-rank="professionnel" data-total="25">
-        <span class="profile-rank-icon">⚽</span>
-        <div class="profile-rank-info">
-          <span class="profile-rank-name">Professionnel</span>
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-        </div>
-        <span class="profile-rank-status">Verrouillé</span>
-      </div>
-      
-      <div class="profile-rank-row" data-rank="analyste" data-total="25">
-        <span class="profile-rank-icon">📊</span>
-        <div class="profile-rank-info">
-          <span class="profile-rank-name">Analyste</span>
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-        </div>
-        <span class="profile-rank-status">Verrouillé</span>
-      </div>
-      
-      <div class="profile-rank-row" data-rank="expert-fifa" data-total="25">
-        <span class="profile-rank-icon">🧠</span>
-        <div class="profile-rank-info">
-          <span class="profile-rank-name">Expert FIFA</span>
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-        </div>
-        <span class="profile-rank-status">Verrouillé</span>
-      </div>
-      
-      <div class="profile-rank-row" data-rank="expert-caf" data-total="25">
-        <span class="profile-rank-icon">🌍</span>
-        <div class="profile-rank-info">
-          <span class="profile-rank-name">Expert CAF</span>
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-        </div>
-        <span class="profile-rank-status">Verrouillé</span>
-      </div>
-      
-      <div class="profile-rank-row" data-rank="maitre" data-total="25">
-        <span class="profile-rank-icon">👑</span>
-        <div class="profile-rank-info">
-          <span class="profile-rank-name">Maître du Football</span>
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-        </div>
-        <span class="profile-rank-status">Verrouillé</span>
-      </div>
-      
-      <div class="profile-rank-row" data-rank="elite" data-total="25">
-        <span class="profile-rank-icon">🔥</span>
-        <div class="profile-rank-info">
-          <span class="profile-rank-name">Atlas Rising Elite</span>
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-        </div>
-        <span class="profile-rank-status">Verrouillé</span>
-      </div>
-      
-      <div class="profile-rank-row" data-rank="legend" data-total="25">
-        <span class="profile-rank-icon">🏆</span>
-        <div class="profile-rank-info">
-          <span class="profile-rank-name">Atlas Rising Legend</span>
-          <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
-        </div>
-        <span class="profile-rank-status">Verrouillé</span>
-      </div>
-      
-    </div>
-    <a href="quiz.html" class="quiz-btn-primary profile-quiz-link">Aller à Atlas Quiz</a>
-
-    <h2 class="grid-title">Mes favoris (Matchs)</h2>
-    <div class="favorite-search">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      <input type="text" id="favorite-search-input" placeholder="Rechercher une équipe ou une compétition à suivre..." aria-label="Rechercher une équipe ou une compétition à suivre">
-    </div>
-    <div class="favorite-search-results" id="favorite-search-results" hidden></div>
-    <div class="profile-favorites">
-      <div class="profile-favorites-group">
-        <h3>Équipes</h3>
-        <div class="profile-favorites-list" id="profile-favorite-teams">
-          <p class="profile-favorites-empty">Aucune équipe favorite pour l'instant — ajoute-en depuis la page Matchs.</p>
-        </div>
-      </div>
-      <div class="profile-favorites-group">
-        <h3>Compétitions</h3>
-        <div class="profile-favorites-list" id="profile-favorite-competitions">
-          <p class="profile-favorites-empty">Aucune compétition favorite pour l'instant.</p>
-        </div>
-      </div>
-    </div>
-    <a href="matchs.html" class="quiz-btn-primary profile-quiz-link">Voir les matchs</a>
+  <div class="shop-login-gate" id="shop-login-gate">
+    <p>Connecte-toi pour dépenser tes Atlas Points.</p>
+    <button type="button" class="quiz-btn-primary" id="shop-login-btn">Se connecter</button>
   </div>
 
+  <section class="shop-section">
+    <h2 class="grid-title">Packs de cartes</h2>
+    <p class="shop-section-intro">Le contenu d'un pack reste secret tant qu'il n'est pas ouvert.</p>
+    <div class="shop-grid" id="shop-packs-grid">
+      <p class="matches-loading">Chargement…</p>
+    </div>
+  </section>
+
+  <section class="shop-section">
+    <h2 class="grid-title">Badges, avatars &amp; cosmétiques</h2>
+    <div class="shop-grid" id="shop-items-grid">
+      <p class="matches-loading">Chargement…</p>
+    </div>
+  </section>
+
+  <section class="shop-section" id="shop-inventory-section" hidden>
+    <h2 class="grid-title">Mon inventaire</h2>
+    <div class="shop-inventory" id="shop-inventory"></div>
+  </section>
 </div>
 
 
@@ -587,7 +466,8 @@
 <script type="module" src="static/js/points-daily.js?v=3773e140cd"></script>
 <script type="module" src="static/js/ads/ad-manager.js?v=3773e140cd"></script>
 
-<script type="module" src="static/js/profile.js?v=3773e140cd"></script>
+<script type="module" src="static/js/shop.js?v=3773e140cd"></script>
+<script type="module" src="static/js/pack-opening.js?v=3773e140cd"></script>
 
 </body>
 </html>
