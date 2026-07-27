@@ -202,11 +202,10 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.06em;
-  background: transparent;
-  color: var(--red);
+  background: var(--red);
+  color: #fff;
   padding: 0 16px;
   white-space:nowrap;
-  border-right: 1px solid rgba(17,17,17,.15);
 }
 .news-ticker-track{
   display:flex;
