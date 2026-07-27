@@ -102,6 +102,19 @@ def _compress_audio(source: Path, dest: Path) -> None:
     )
 
 
+def _compress_cover_image(source: Path, dest: Path, max_width: int = 900) -> None:
+    """Redimensionne (largeur max) et réencode en JPEG qualité 86 — les
+    pochettes déposées telles quelles (export ChatGPT) pèsent souvent
+    plusieurs Mo, hors de proportion pour une image de carte."""
+    from PIL import Image
+    with Image.open(source) as img:
+        img = img.convert("RGB")
+        if img.width > max_width:
+            new_height = int(img.height * max_width / img.width)
+            img = img.resize((max_width, new_height), Image.LANCZOS)
+        img.save(dest, "JPEG", quality=86)
+
+
 def load_podcast():
     """Détecte le premier fichier audio (+ éventuelle couverture) déposé
     dans Podcast/, et les copie vers dist/static/podcast/ sous un nom
@@ -140,12 +153,19 @@ def load_podcast():
         audio_url = f"static/podcast/episode{audio.suffix.lower()}"
         shutil.copy2(audio, dest_dir / f"episode{audio.suffix.lower()}")
 
+    cover_url = None
     if cover:
-        shutil.copy2(cover, dest_dir / f"cover{cover.suffix.lower()}")
+        try:
+            _compress_cover_image(cover, dest_dir / "cover.jpg")
+            cover_url = "static/podcast/cover.jpg"
+        except Exception as e:
+            print(f"⚠️  Compression pochette podcast échouée ({e}) — copie du fichier original tel quel.")
+            shutil.copy2(cover, dest_dir / f"cover{cover.suffix.lower()}")
+            cover_url = f"static/podcast/cover{cover.suffix.lower()}"
 
     return {
         "audio_url": audio_url,
-        "cover_url": f"static/podcast/cover{cover.suffix.lower()}" if cover else None,
+        "cover_url": cover_url,
     }
 
 

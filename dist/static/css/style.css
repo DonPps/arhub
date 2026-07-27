@@ -644,26 +644,44 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   letter-spacing: .5px;
 }
 
-/* ---------- Newsletter (bloc sidebar) ---------- */
-.newsletter-card{
-  background: #fff;
+/* ---------- Newsletter (bloc sidebar) — photo pleine largeur, pas de
+   cadre : titre/texte/formulaire incrustés directement sur l'image
+   (même principe que .quiz-promo-card). ---------- */
+.newsletter-cover-card{
+  position:relative;
+  min-height: 300px;
   border-radius: 10px;
-  padding: 28px 24px;
+  overflow: hidden;
   box-shadow: var(--shadow-soft);
   margin-bottom: 32px;
+}
+.newsletter-cover-bg{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; z-index:0;
+}
+.newsletter-cover-overlay{
+  position:absolute; inset:0; z-index:1;
+  background: linear-gradient(to top, rgba(10,10,10,.8) 12%, rgba(10,10,10,.2) 55%, rgba(10,10,10,0) 82%);
+}
+.newsletter-cover-body{
+  position:relative; z-index:2;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  min-height:300px;
+  padding: 24px 22px;
 }
 .newsletter-title{
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 8px;
+  font-size: 19px;
+  color:#fff;
+  margin-bottom: 6px;
 }
-.newsletter-card p{
+.newsletter-cover-body p{
   font-family: var(--font-body);
   font-size: 13.5px;
-  color: var(--ink-soft);
+  color: rgba(255,255,255,.88);
   line-height: 1.5;
-  margin: 0 0 18px;
+  margin: 0 0 16px;
 }
 .newsletter-form{ display:flex; flex-direction:column; gap: 10px; }
 .newsletter-form input{
@@ -1880,18 +1898,37 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .magazine-card-sm:hover h4{ color: var(--red); }
 
-/* ---------- Podcast (carte sidebar, sous la newsletter) ---------- */
-.podcast-sidebar-card{
-  background: #fff;
+/* ---------- Podcast (carte sidebar, sous la newsletter) — même
+   principe : photo pleine largeur, pas de cadre blanc, titre/lecteur
+   incrustés directement sur l'image (fond --ink de secours si aucun
+   épisode/aucune pochette). ---------- */
+.podcast-cover-card{
+  position:relative;
+  min-height: 220px;
   border-radius: 10px;
+  overflow: hidden;
   box-shadow: var(--shadow-soft);
-  padding: 22px 20px;
   margin-bottom: 32px;
+  background: var(--ink);
 }
-.podcast-sidebar-title{ font-family: var(--font-display); font-weight:700; font-size:16px; margin-bottom:14px; }
-.podcast-sidebar-cover{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px; margin-bottom:12px; display:block; }
-.podcast-sidebar-player{ width:100%; }
-.podcast-sidebar-card p{ margin:0; font-family: var(--font-body); font-size:13.5px; color: var(--ink-soft); }
+.podcast-cover-bg{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; z-index:0;
+}
+.podcast-cover-overlay{
+  position:absolute; inset:0; z-index:1;
+  background: linear-gradient(to top, rgba(10,10,10,.82) 18%, rgba(10,10,10,.15) 60%, rgba(10,10,10,0) 85%);
+}
+.podcast-cover-body{
+  position:relative; z-index:2;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  min-height:220px;
+  padding: 20px;
+}
+.podcast-cover-title{ font-family: var(--font-display); font-weight:700; font-size:16px; color:#fff; margin-bottom:12px; }
+.podcast-cover-player{ width:100%; color-scheme: dark; }
+.podcast-cover-body p{ margin:0; font-family: var(--font-body); font-size:13px; color: rgba(255,255,255,.85); }
+.podcast-cover-empty{ justify-content:center; text-align:center; }
 
 /* ---------- Reveal leger au scroll ---------- */
 [data-reveal]{ opacity:0; transform: translateY(16px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
