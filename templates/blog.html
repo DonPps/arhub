@@ -7,11 +7,14 @@
   <div>
     <h2 class="grid-title">Blog</h2>
     {% if not articles %}
-    <p class="search-empty">Aucun billet de blog pour l'instant — revenez bientôt.</p>
+    <div class="empty-state">
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
+      <p class="search-empty">Aucun billet de blog pour l'instant — revenez bientôt.</p>
+    </div>
     {% endif %}
     <div class="article-list">
       {% for a in articles %}
-      <article class="list-item">
+      <article class="list-item" data-reveal>
         <a href="article/{{ a.slug }}.html" class="list-media-link">
           {% if a.image %}
           <div class="list-media has-image" style="aspect-ratio:{{ a.image_ratio }}"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>

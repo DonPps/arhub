@@ -54,6 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
     searchToggle.setAttribute('aria-expanded', 'false');
   }
 
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
   function renderResults(query) {
     var q = query.trim().toLowerCase();
     if (!q) {
@@ -66,14 +72,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }).slice(0, 8);
 
     if (matches.length === 0) {
-      searchResults.innerHTML = '<div class="search-empty">Aucun article trouvé pour "' + query + '".</div>';
+      searchResults.innerHTML = '<div class="empty-state">'
+        + '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>'
+        + '<div class="search-empty">Aucun article trouvé pour "' + escapeHtml(query) + '".</div>'
+        + '</div>';
       return;
     }
 
     searchResults.innerHTML = matches.map(function (a) {
       return '<a class="search-result" href="' + root + a.url + '">' +
-        '<span class="search-result-category">' + a.category + '</span>' +
-        '<span class="search-result-title">' + a.title + '</span>' +
+        '<span class="search-result-category">' + escapeHtml(a.category) + '</span>' +
+        '<span class="search-result-title">' + escapeHtml(a.title) + '</span>' +
         '</a>';
     }).join('');
   }
@@ -118,17 +127,21 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(function (result) {
           if (result.ok) {
             button.textContent = 'Merci !';
+            button.classList.add('is-success');
             form.reset();
           } else {
             button.textContent = 'Erreur, réessayez';
+            button.classList.add('is-error');
           }
         })
         .catch(function () {
           button.textContent = 'Erreur, réessayez';
+          button.classList.add('is-error');
         })
         .finally(function () {
           setTimeout(function () {
             button.textContent = original;
+            button.classList.remove('is-success', 'is-error');
             button.disabled = false;
           }, 3000);
         });
