@@ -1,6 +1,7 @@
 /* Atlas Rising — page profil (compte + progression Atlas Quiz, lecture seule) */
 
 import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
+import { loadFavorites, removeFavorite } from './favorites.js';
 
 (function () {
 
@@ -105,6 +106,43 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     renderBadges(rows, progress);
   }
 
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str == null ? '' : String(str);
+    return div.innerHTML;
+  }
+
+  function renderFavoritesList(containerId, type, uid, names) {
+    var el = document.getElementById(containerId);
+    if (!el) return;
+    if (!names.length) {
+      el.innerHTML = '<p class="profile-favorites-empty">' +
+        (type === 'teams' ? "Aucune équipe favorite pour l'instant — ajoute-en depuis la page Matchs." : "Aucune compétition favorite pour l'instant.") +
+        '</p>';
+      return;
+    }
+    el.innerHTML = names.map(function (name) {
+      return '<span class="profile-favorite-chip">' + escapeHtml(name) +
+        '<button type="button" class="profile-favorite-remove" data-type="' + type + '" data-name="' + escapeHtml(name) + '" aria-label="Retirer ' + escapeHtml(name) + ' des favoris">&times;</button></span>';
+    }).join('');
+
+    Array.prototype.forEach.call(el.querySelectorAll('.profile-favorite-remove'), function (btn) {
+      btn.addEventListener('click', function () {
+        btn.disabled = true;
+        removeFavorite(db, firestoreFns, uid, btn.getAttribute('data-type'), btn.getAttribute('data-name'))
+          .then(function () { renderFavorites(uid); })
+          .catch(function (e) { console.error('Échec suppression favori:', e); btn.disabled = false; });
+      });
+    });
+  }
+
+  function renderFavorites(uid) {
+    loadFavorites(db, firestoreFns, uid).then(function (favs) {
+      renderFavoritesList('profile-favorite-teams', 'teams', uid, favs.teams);
+      renderFavoritesList('profile-favorite-competitions', 'competitions', uid, favs.competitions);
+    });
+  }
+
   function showGate() {
     gateScreen.hidden = false;
     contentScreen.hidden = true;
@@ -148,6 +186,7 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
       return Promise.all([loadProgress(user.uid), loadUserProfile(user.uid, user)]);
     }).then(function (results) {
       showContent(user, results[0], results[1]);
+      renderFavorites(user.uid);
     });
   }
 

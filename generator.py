@@ -243,8 +243,23 @@ def load_quiz_themes():
     return [{"name": n, "icon": QUIZ_THEME_ICONS.get(n, "🔖")} for n in names]
 
 
-def load_matches():
-    path = CONTENT_DIR / "matches.json"
+MATCHES_DIR = CONTENT_DIR / "matches"
+
+
+def load_matches_index():
+    """Dates réellement archivées (voir agents/matches_agent.py côté
+    pipeline) — sert au sélecteur de date pour savoir ce qui est
+    consultable sans avoir à deviner la fenêtre de fetch."""
+    path = MATCHES_DIR / "index.json"
+    if not path.exists():
+        return []
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    return sorted(data.get("available_dates", []))
+
+
+def load_matches_for_date(date_str):
+    path = MATCHES_DIR / f"{date_str}.json"
     if not path.exists():
         return None, []
     with open(path, encoding="utf-8") as f:
@@ -257,7 +272,7 @@ def load_matches():
             try:
                 dt_utc = datetime.strptime(m["kickoff_utc"], "%Y-%m-%dT%H:%M:%S.%fZ")
                 dt_local = dt_utc.replace(tzinfo=ZoneInfo("UTC")).astimezone(MOROCCO_TZ)
-                m["kickoff_local"] = dt_local.strftime("%d/%m à %Hh%M")
+                m["kickoff_local"] = dt_local.strftime("%Hh%M")
             except ValueError:
                 pass
 
@@ -271,6 +286,27 @@ def load_matches():
             pass
 
     return updated_at_local, matches
+
+
+def group_matches_by_competition(matches):
+    """Regroupe une liste de matchs (déjà triée par coup d'envoi) par
+    compétition, dans l'ordre d'apparition — pas de tri alphabétique
+    supplémentaire, pour garder les compétitions avec le match le plus
+    proche en premier."""
+    groups = {}
+    order = []
+    for m in matches:
+        key = m["competition"]
+        if key not in groups:
+            groups[key] = {
+                "name": key,
+                "logo": m.get("competition_logo"),
+                "country": m.get("competition_country"),
+                "matches": [],
+            }
+            order.append(key)
+        groups[key]["matches"].append(m)
+    return [groups[k] for k in order]
 
 
 def _image_aspect_ratio(image_rel_path):
@@ -431,16 +467,31 @@ def build():
         )
         (DIST_DIR / f"{page['slug']}.html").write_text(html, encoding="utf-8")
 
-    # ---------- Page Matchs du jour ----------
-    matches_updated_at, matches = load_matches()
+    # ---------- Page Matchs ----------
+    matches_dates = load_matches_index()
+    today_str = datetime.now(MOROCCO_TZ).strftime("%Y-%m-%d")
+    matches_updated_at, today_matches = load_matches_for_date(today_str)
+    matches_groups = group_matches_by_competition(today_matches)
+
+    # Copie l'archive brute (un JSON par date) pour la navigation de date
+    # côté client (static/js/matches.js) — c'est notre propre fichier déjà
+    # généré, aucun coût API supplémentaire à la consulter.
+    if MATCHES_DIR.exists():
+        matches_dist_dir = DIST_DIR / "static" / "data" / "matches"
+        matches_dist_dir.mkdir(parents=True, exist_ok=True)
+        for f in MATCHES_DIR.glob("*.json"):
+            shutil.copy2(f, matches_dist_dir / f.name)
+
     tpl = env.get_template("matches.html")
     html = tpl.render(
         **common,
         root="",
         canonical_path="/matchs.html",
         active_nav="matchs",
-        matches=matches,
+        matches_groups=matches_groups,
         matches_updated_at=matches_updated_at,
+        matches_dates=matches_dates,
+        today_str=today_str,
     )
     (DIST_DIR / "matchs.html").write_text(html, encoding="utf-8")
 
