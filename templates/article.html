@@ -29,7 +29,13 @@
     <div class="article-head">
       <span class="eyebrow">{{ article.category }}</span>
       <h1>{{ article.title }}</h1>
-      <div class="meta">{{ article.date }} · {{ article.read_time }} min de lecture</div>
+      <div class="meta-row">
+        <div class="meta">{{ article.date }} · {{ article.read_time }} min de lecture</div>
+        <button type="button" class="article-share-btn" id="article-share-btn" data-title="{{ article.title }}">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-3.8M8.6 13.4l6.8 3.8"/></svg>
+          Partager
+        </button>
+      </div>
     </div>
 
     {% if article.image %}
@@ -99,4 +105,5 @@
 {% endblock %}
 {% block extra_scripts %}
 <script type="module" src="{{ root }}static/js/comments.js?v={{ asset_version }}"></script>
+<script type="module" src="{{ root }}static/js/article-points.js?v={{ asset_version }}"></script>
 {% endblock %}
