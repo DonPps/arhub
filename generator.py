@@ -41,13 +41,12 @@ BACKGROUND_DIR = ROOT / "Background"
 TRENDING_COUNT = 5   # nombre d'articles affichés dans le bloc "Tendances"
 RELATED_COUNT = 5    # nombre d'articles affichés dans "À lire aussi" (max demandé : 5)
 
-# Mots-clés utilisés pour repérer, parmi les articles déjà catégorisés,
-# ceux qui concernent spécifiquement le Maroc ou la Coupe du Monde 2026 —
-# il n'existe pas de catégorie dédiée pour ces deux thèmes (juste des tags
-# libres par article), donc filtrage best-effort par mot-clé plutôt qu'un
-# nouveau champ de données.
+# Mots-clés utilisés pour repérer, parmi les articles déjà catégorisés
+# can-caf, ceux qui concernent spécifiquement le Maroc — il n'existe pas
+# de catégorie dédiée pour ce thème (juste des tags libres par article),
+# donc filtrage best-effort par mot-clé plutôt qu'un nouveau champ de
+# données.
 MAROC_KEYWORDS = ["maroc", "frmf", "lions de l'atlas", "lionnes de l'atlas"]
-MONDIAL2026_KEYWORDS = ["coupe du monde 2026", "mondial 2026"]
 
 
 def _matches_keywords(article, keywords):
@@ -75,7 +74,6 @@ GLOBAL_ASSET_FILES = [
     "js/auth.js",
     "js/ads/ad-manager.js",
     "js/hero-slider.js",
-    "js/hcarousel.js",
     "js/reveal.js",
 ]
 
@@ -315,10 +313,10 @@ def build():
 
     # ---------- Page d'accueil ----------
     # Chaque section a sa propre liste (pas de grande liste générique) —
-    # voir MAROC_KEYWORDS/MONDIAL2026_KEYWORDS pour les deux filtrées par
-    # mot-clé plutôt que par catégorie dédiée. Chevauchement volontaire
-    # entre sections assumé (stock d'articles encore limité) : voir le
-    # plan de refonte homepage pour le détail de ce choix.
+    # voir MAROC_KEYWORDS pour le filtrage par mot-clé (pas de catégorie
+    # dédiée). Chevauchement volontaire entre sections assumé (stock
+    # d'articles encore limité) : voir le plan de refonte homepage pour
+    # le détail de ce choix.
     hero_slides = articles[:5]
     trending = articles[:TRENDING_COUNT]
 
@@ -326,7 +324,6 @@ def build():
     maroc_articles = [a for a in canaf_all if _matches_keywords(a, MAROC_KEYWORDS)][:4]
     canaf_articles = canaf_all[:6]
 
-    mondial2026_articles = [a for a in articles if _matches_keywords(a, MONDIAL2026_KEYWORDS)][:6]
     monde_articles = [a for a in articles if a["category_slug"] == "football-mondial"][:6]
     fc26_articles = [a for a in articles if a["category_slug"] == "fc26"][:4]
     mercato_articles = [a for a in articles if a["category_slug"] == "transferts"][:4]
@@ -346,7 +343,6 @@ def build():
         mercato_articles=mercato_articles,
         canaf_articles=canaf_articles,
         maroc_articles=maroc_articles,
-        mondial2026_articles=mondial2026_articles,
         monde_articles=monde_articles,
         quiz_popular_theme=quiz_popular_theme,
     )

@@ -117,31 +117,6 @@
     </section>
     {% endif %}
 
-    {% if mondial2026_articles|length >= 3 %}
-    <section class="content-section section-mondial2026" data-reveal>
-      <div class="section-head">
-        <h2 class="grid-title">Coupe du Monde 2026</h2>
-      </div>
-      <div class="hcarousel" data-hcarousel>
-        <button type="button" class="hcarousel-arrow hcarousel-prev" aria-label="Précédent">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg>
-        </button>
-        <div class="hcarousel-track">
-          {% for a in mondial2026_articles %}
-          <a href="article/{{ a.slug }}.html" class="hcarousel-card">
-            {% if a.image %}<div class="hcarousel-card-media"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
-            <h3>{{ a.title }}</h3>
-            <div class="meta">{{ a.date }}</div>
-          </a>
-          {% endfor %}
-        </div>
-        <button type="button" class="hcarousel-arrow hcarousel-next" aria-label="Suivant">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
-        </button>
-      </div>
-    </section>
-    {% endif %}
-
     {% if monde_articles %}
     <section class="content-section section-monde" data-reveal>
       <div class="section-head">
@@ -213,23 +188,6 @@
       </a>
     </section>
 
-    <section class="content-section section-podcast" data-reveal>
-      <div class="podcast-spotlight">
-        {% if podcast %}
-        {% if podcast.cover_url %}<img src="{{ root }}{{ podcast.cover_url }}" alt="Couverture du podcast Atlas Rising" class="podcast-spotlight-cover">{% endif %}
-        <div class="podcast-spotlight-body">
-          <div class="podcast-spotlight-title">Podcast Atlas Rising</div>
-          <audio controls preload="none" class="podcast-spotlight-player"><source src="{{ root }}{{ podcast.audio_url }}"></audio>
-        </div>
-        {% else %}
-        <div class="podcast-spotlight-body">
-          <div class="podcast-spotlight-title">Podcast Atlas Rising</div>
-          <p>Prochain épisode bientôt disponible.</p>
-        </div>
-        {% endif %}
-      </div>
-    </section>
-
   </div>
 
   <aside>
@@ -255,6 +213,16 @@
       </form>
     </div>
 
+    <div class="podcast-sidebar-card">
+      <div class="podcast-sidebar-title">Podcast Atlas Rising</div>
+      {% if podcast %}
+      {% if podcast.cover_url %}<img src="{{ root }}{{ podcast.cover_url }}" alt="Couverture du podcast Atlas Rising" class="podcast-sidebar-cover">{% endif %}
+      <audio controls preload="none" class="podcast-sidebar-player"><source src="{{ root }}{{ podcast.audio_url }}"></audio>
+      {% else %}
+      <p>Prochain épisode bientôt disponible.</p>
+      {% endif %}
+    </div>
+
     {{ ad_sidebar('home_sidebar') }}
   </aside>
 </div>
@@ -262,6 +230,5 @@
 {% endblock %}
 {% block extra_scripts %}
 <script src="{{ root }}static/js/hero-slider.js?v={{ asset_version }}"></script>
-<script src="{{ root }}static/js/hcarousel.js?v={{ asset_version }}"></script>
 <script src="{{ root }}static/js/reveal.js?v={{ asset_version }}"></script>
 {% endblock %}
