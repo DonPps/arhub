@@ -15,7 +15,6 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
   if (!section) return;
 
   var slug = section.getAttribute('data-article-slug');
-  var root = document.body.getAttribute('data-root') || '';
   var listEl = document.getElementById('comments-list');
   var countEl = document.getElementById('comments-count');
   var loginGate = document.getElementById('comment-login-gate');
@@ -64,7 +63,7 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
 
     if (!comments.length) {
       listEl.innerHTML = '<div class="empty-state">'
-        + '<img src="' + root + 'static/img/empty-states/comments.jpg" alt="" loading="lazy">'
+        + '<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v12H8l-4 4z"/></svg>'
         + '<p class="comments-empty">Aucun commentaire pour l\'instant — sois le premier à réagir.</p>'
         + '</div>';
       return;
