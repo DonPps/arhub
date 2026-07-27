@@ -40,6 +40,8 @@
   <p class="matches-note">Horaires et scores basés sur des données publiques, à titre indicatif. Compositions, statistiques, classements et chaîne de diffusion pas encore disponibles.</p>
 </div>
 
+{% endblock %}
+{% block modals %}
 <div class="match-drawer" id="match-drawer" hidden>
   <div class="match-drawer-overlay" id="match-drawer-overlay"></div>
   <div class="match-drawer-panel" role="dialog" aria-modal="true" aria-label="Détail du match">
@@ -47,7 +49,6 @@
     <div class="match-drawer-body" id="match-drawer-body"></div>
   </div>
 </div>
-
 {% endblock %}
 {% block extra_scripts %}
 <script type="module" src="{{ root }}static/js/matches.js?v={{ asset_version }}"></script>
