@@ -39,10 +39,14 @@
 
     {{ sponsor_hero('home_before_articles') }}
 
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 40 16" width="40" height="16"><path d="M2 8h11M27 8h11" stroke="currentColor" stroke-width="1.4"/><path d="M20 2l4 6-4 6-4-6z" fill="currentColor"/></svg>
+    </div>
+
     <h2 class="grid-title">Derniers articles</h2>
     <div class="article-list">
       {% for a in articles %}
-      <article class="list-item">
+      <article class="list-item" data-reveal>
         <a href="article/{{ a.slug }}.html" class="list-media-link">
           {% if a.image %}
           <div class="list-media has-image" style="aspect-ratio:{{ a.image_ratio }}"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>
@@ -63,7 +67,7 @@
   </div>
 
   <aside>
-    <div class="side-block">
+    <div class="side-block" data-reveal>
       <div class="side-title">Tendances</div>
       {% for t in trending %}
       <div class="side-item">

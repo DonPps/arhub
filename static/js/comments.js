@@ -62,15 +62,20 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     countEl.textContent = comments.length;
 
     if (!comments.length) {
-      listEl.innerHTML = '<p class="comments-empty">Aucun commentaire pour l\'instant — sois le premier à réagir.</p>';
+      listEl.innerHTML = '<div class="empty-state">'
+        + '<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v12H8l-4 4z"/></svg>'
+        + '<p class="comments-empty">Aucun commentaire pour l\'instant — sois le premier à réagir.</p>'
+        + '</div>';
       return;
     }
 
     listEl.innerHTML = comments.map(function (c) {
       var canDelete = currentUser && currentUser.uid === c.uid;
+      var name = c.nickname || 'Utilisateur';
       return '<div class="comment-item" data-id="' + c.id + '">'
         + '<div class="comment-item-head">'
-        + '<span class="comment-author">' + escapeHtml(c.nickname || 'Utilisateur') + '</span>'
+        + '<span><span class="comment-avatar">' + escapeHtml(name.charAt(0).toUpperCase()) + '</span>'
+        + '<span class="comment-author">' + escapeHtml(name) + '</span></span>'
         + '<span class="comment-date">' + formatDate(c.createdAt) + '</span>'
         + '</div>'
         + '<p class="comment-text">' + escapeHtml(c.text) + '</p>'
@@ -164,6 +169,9 @@ import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
     listEl.innerHTML = '<p class="comments-empty">Les commentaires ne sont pas encore disponibles.</p>';
     return;
   }
+  // Le markup initial (article.html) affiche déjà un skeleton — pas besoin
+  // de le réécrire ici, listenComments()/renderComments() le remplacera
+  // dès la première réponse Firestore.
 
   updateAuthUI();
   initFirestore().then(function (ok) {

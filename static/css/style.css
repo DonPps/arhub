@@ -28,7 +28,12 @@
 
   --shadow-card: 0 18px 40px -22px rgba(17,17,17,.4);
   --shadow-soft: 0 20px 45px -26px rgba(17,17,17,.3);
+  --shadow-lift: 0 14px 30px -16px rgba(17,17,17,.28);
   --ease: cubic-bezier(.2,.8,.2,1);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
 }
 
 *{ box-sizing: border-box; }
@@ -68,9 +73,16 @@ img{ max-width: 100%; display:block; }
 button{ font: inherit; }
 ::selection{ background: var(--red); color: #fff; }
 
-a:focus-visible, button:focus-visible, input:focus-visible{
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
   outline: 2px solid var(--red);
   outline-offset: 3px;
+}
+
+/* État "pressé" cohérent sur tous les boutons pleins/outline du site —
+   un détail discret mais que Stripe/Linear appliquent systématiquement. */
+.quiz-btn-primary:active, .btn-newsletter:active, .quizx-btn-secondary:active,
+.account-google-btn:active, .comment-delete-btn:active, .icon-btn:active{
+  transform: scale(.96);
 }
 
 .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 24px; }
@@ -638,6 +650,14 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .newsletter-form button:hover{ background: var(--red-dark); transform: translateY(-1px); }
 .newsletter-form button:disabled{ opacity:.7; cursor:default; transform:none; }
+.newsletter-form button.is-success, .newsletter-form button.is-error{
+  animation: btn-feedback-pop .3s var(--ease);
+}
+.newsletter-form button.is-success{ background:#2e8b45; }
+.newsletter-form button.is-error{ background: var(--red-dark); }
+@keyframes btn-feedback-pop{
+  0%{ transform: scale(1); } 40%{ transform: scale(1.05); } 100%{ transform: scale(1); }
+}
 
 /* ---------- Podcast (sidebar) : cover pleine largeur, lecteur incrusté ---------- */
 .podcast-card{
@@ -854,9 +874,9 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 6px 13px;
-  transition: border-color .2s, color .2s;
+  transition: border-color .2s var(--ease), color .2s var(--ease), background .2s var(--ease);
 }
-.tag:hover{ border-color: var(--red); color: var(--red); }
+.tag:hover{ border-color: var(--red); color: var(--red); background: rgba(182,28,28,.06); }
 
 /* ---------- Static/legal pages ---------- */
 .page-body{
@@ -1647,6 +1667,16 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .comments-empty{ color: var(--ink-soft); font-size:14px; font-style:italic; }
 .comment-item{
   border:1px solid var(--border); border-radius:8px; padding:14px 16px; background:#fff;
+  transition: box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+.comment-item:hover{ box-shadow: var(--shadow-lift); border-color: transparent; }
+
+.comment-avatar{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:26px; height:26px; border-radius:50%; flex-shrink:0;
+  background: var(--illus-bg); color: var(--red-dark);
+  font-family: var(--font-nav); font-weight:700; font-size:11px;
+  margin-right:8px; vertical-align:-7px;
 }
 .comment-item-head{
   display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:6px;
@@ -1663,3 +1693,59 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 @media (max-width: 640px){
   .comment-login-gate{ flex-direction:column; align-items:flex-start; }
 }
+
+/* ---------- Séparateur de section (motif géométrique neutre) ---------- */
+.section-divider{
+  display:flex; align-items:center; justify-content:center;
+  color: var(--border); margin: 8px 0 30px; opacity:.9;
+}
+.section-divider svg{ color: var(--red); opacity:.55; }
+
+/* ---------- Skeleton loaders (état de chargement) ---------- */
+@keyframes shimmer{
+  0%{ background-position: -200% 0; }
+  100%{ background-position: 200% 0; }
+}
+.skeleton-line{
+  height: 13px; border-radius: 4px; margin-bottom: 8px;
+  background: linear-gradient(90deg, var(--illus-bg) 25%, #f5efe0 50%, var(--illus-bg) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+.skeleton-line:last-child{ margin-bottom:0; }
+.skeleton-line.w-60{ width:60%; }
+.skeleton-line.w-40{ width:40%; }
+.skeleton-avatar{
+  width:26px; height:26px; border-radius:50%; flex-shrink:0;
+  background: linear-gradient(90deg, var(--illus-bg) 25%, #f5efe0 50%, var(--illus-bg) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+.skeleton-comment{
+  display:flex; gap:10px; align-items:flex-start;
+  border:1px solid var(--border); border-radius:8px; padding:14px 16px; background:#fff;
+}
+.skeleton-comment-body{ flex:1; }
+
+@media (prefers-reduced-motion: reduce){
+  .skeleton-line, .skeleton-avatar{ animation: none; }
+}
+
+/* ---------- Révélation légère au scroll ---------- */
+[data-reveal]{
+  opacity:0; transform: translateY(14px);
+  transition: opacity .55s var(--ease), transform .55s var(--ease);
+}
+[data-reveal].is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  [data-reveal]{ opacity:1; transform:none; transition:none; }
+}
+
+/* ---------- Empty states (motif discret + icône neutre) ---------- */
+.empty-state{
+  text-align:center; padding:36px 20px; border-radius: var(--radius-md);
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 15px 15px; background-position: center;
+}
+.empty-state svg{ color: var(--ink-soft); opacity:.45; margin-bottom:10px; }
+.empty-state p{ margin:0; }
