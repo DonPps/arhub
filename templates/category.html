@@ -7,7 +7,7 @@
     <h2 class="grid-title">{{ category.name }}</h2>
     <div class="article-list">
       {% for a in articles %}
-      <article class="list-item" data-reveal>
+      <article class="list-item">
         <a href="../article/{{ a.slug }}.html" class="list-media-link">
           {% if a.image %}
           <div class="list-media has-image" style="aspect-ratio:{{ a.image_ratio }}"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>
