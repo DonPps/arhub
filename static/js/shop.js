@@ -4,7 +4,7 @@
  * découplée). */
 
 import { firebaseConfigured, firebaseAppPromise } from './firebase-config.js';
-import { ensureFirestore, getFirestoreRefs, watchPoints, buyItem, buyPack, loadOpenedPackIds } from './points.js';
+import { ensureFirestore, getFirestoreRefs, watchPoints, buyItem, buyPack, loadOpenedPackIds, equip } from './points.js';
 
 (function () {
   var page = document.getElementById('shop-page');
@@ -59,6 +59,12 @@ import { ensureFirestore, getFirestoreRefs, watchPoints, buyItem, buyPack, loadO
     return 'Disponible';
   }
 
+  var EQUIP_SLOTS = { badge: 'equippedBadge', avatar: 'equippedAvatar', frame: 'equippedFrame', cadre: 'equippedFrame' };
+
+  function slotFor(item) {
+    return EQUIP_SLOTS[(item.type || '').toLowerCase()] || null;
+  }
+
   function renderPacks() {
     if (!packsCatalog.length) {
       packsGrid.innerHTML = '<div class="empty-state"><p class="matches-empty">Aucun pack disponible pour l\'instant — revenez bientôt.</p></div>';
@@ -88,20 +94,43 @@ import { ensureFirestore, getFirestoreRefs, watchPoints, buyItem, buyPack, loadO
     itemsGrid.innerHTML = shopItems.map(function (it) {
       var owned = pointsData.ownedItems && pointsData.ownedItems[it.id];
       var canAfford = currentUser && !owned && it.status === 'available' && currentBalance >= it.price;
-      var btnLabel = owned ? 'Possédé' : ('⭐ ' + it.price);
+      var slot = slotFor(it);
+      var equipped = owned && slot && pointsData[slot] === it.id;
+      var actionBtn;
+      if (owned && slot) {
+        actionBtn = '<button type="button" class="shop-buy-btn shop-equip-btn' + (equipped ? ' is-equipped' : '') + '" data-slot="' + slot + '" data-slug="' + escapeHtml(it.id) + '">' +
+          (equipped ? 'Équipé ✓' : 'Équiper') + '</button>';
+      } else if (owned) {
+        actionBtn = '<button type="button" class="shop-buy-btn" disabled>Possédé</button>';
+      } else {
+        actionBtn = '<button type="button" class="shop-buy-btn" data-type="item" data-slug="' + escapeHtml(it.id) + '" data-price="' + it.price + '"' +
+          (canAfford ? '' : ' disabled') + '>⭐ ' + it.price + '</button>';
+      }
       return '<div class="shop-card">' +
         '<div class="shop-card-media"><img src="' + escapeHtml(it.imageUrl || '') + '" alt="' + escapeHtml(it.name) + '" loading="lazy">' +
         '<span class="shop-card-rarity ' + rarityClass(it.rarity) + '">' + escapeHtml(it.rarity || '') + '</span></div>' +
         '<div class="shop-card-body"><h3>' + escapeHtml(it.name) + '</h3>' +
         '<p class="shop-card-status">' + (owned ? 'Possédé' : escapeHtml(statusLabel(it.status))) + '</p>' +
-        '<button type="button" class="shop-buy-btn" data-type="item" data-slug="' + escapeHtml(it.id) + '" data-price="' + it.price + '"' +
-        (canAfford ? '' : ' disabled') + '>' + btnLabel + '</button></div></div>';
+        actionBtn + '</div></div>';
     }).join('');
 
-    Array.prototype.forEach.call(itemsGrid.querySelectorAll('.shop-buy-btn'), function (btn) {
-      if (btn.textContent.indexOf('Possédé') !== -1) return;
+    Array.prototype.forEach.call(itemsGrid.querySelectorAll('.shop-equip-btn'), function (btn) {
+      btn.addEventListener('click', function () { handleEquip(btn); });
+    });
+    Array.prototype.forEach.call(itemsGrid.querySelectorAll('.shop-buy-btn[data-type="item"]'), function (btn) {
       btn.addEventListener('click', function () { handleBuyItem(btn); });
     });
+  }
+
+  function handleEquip(btn) {
+    if (!currentUser) return;
+    var slot = btn.getAttribute('data-slot');
+    var itemId = btn.getAttribute('data-slug');
+    if (btn.classList.contains('is-equipped')) return;
+    btn.disabled = true;
+    equip(slot, itemId).catch(function (e) {
+      console.error('Échec équipement:', e);
+    }).then(function () { btn.disabled = false; });
   }
 
   function renderInventory() {

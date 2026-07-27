@@ -2187,6 +2187,8 @@ body.drawer-open{ overflow:hidden; }
 }
 .shop-buy-btn:hover:not(:disabled){ background: var(--red-dark); transform: translateY(-1px); }
 .shop-buy-btn:disabled{ background: var(--border); color: var(--ink-soft); cursor:default; }
+.shop-equip-btn.is-equipped{ background: var(--gold); color: var(--ink); cursor:default; }
+.shop-equip-btn.is-equipped:hover{ background: var(--gold); transform:none; }
 
 .shop-inventory{ display:flex; flex-direction:column; gap:10px; }
 .shop-inventory-item{
