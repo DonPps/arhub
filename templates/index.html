@@ -8,57 +8,227 @@
 <div class="layout">
   <div>
 
-    {% if lead %}
-    <article class="hero">
-      <a href="article/{{ lead.slug }}.html" class="hero-media-link">
-        {% if lead.image %}
-        <div class="hero-media has-image" style="aspect-ratio:{{ lead.image_ratio }}"><img src="{{ root }}{{ lead.image }}" alt="{{ lead.title }}" loading="eager" fetchpriority="high"></div>
-        {% else %}
-        <div class="hero-media">Illustration — {{ lead.category }}</div>
-        {% endif %}
-      </a>
-      <span class="eyebrow">{{ lead.category }}</span>
-      <h1><a href="article/{{ lead.slug }}.html">{{ lead.title }}</a></h1>
-      <p class="dek">{{ lead.dek }}</p>
-      <div class="meta">{{ lead.date }} · {{ lead.read_time }} min de lecture</div>
-    </article>
+    {% if hero_slides %}
+    <div class="hero-slider" id="hero-slider" data-autoplay="6000">
+      <div class="hero-slider-track">
+        {% for a in hero_slides %}
+        <article class="hero-slide{% if loop.first %} is-active{% endif %}" data-index="{{ loop.index0 }}">
+          <a href="article/{{ a.slug }}.html" class="hero-media-link">
+            {% if a.image %}
+            <div class="hero-media has-image" style="aspect-ratio:{{ a.image_ratio }}"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="{% if loop.first %}eager{% else %}lazy{% endif %}"{% if loop.first %} fetchpriority="high"{% endif %}></div>
+            {% else %}
+            <div class="hero-media">Illustration — {{ a.category }}</div>
+            {% endif %}
+          </a>
+          <span class="eyebrow">{{ a.category }}</span>
+          <h1><a href="article/{{ a.slug }}.html">{{ a.title }}</a></h1>
+          <p class="dek">{{ a.dek }}</p>
+          <a href="article/{{ a.slug }}.html" class="hero-slide-cta">
+            Lire l'article
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </article>
+        {% endfor %}
+      </div>
+
+      {% if hero_slides|length > 1 %}
+      <button type="button" class="hero-slider-arrow hero-slider-prev" aria-label="Slide précédente">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <button type="button" class="hero-slider-arrow hero-slider-next" aria-label="Slide suivante">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <div class="hero-slider-dots" role="tablist" aria-label="Choisir une slide">
+        {% for a in hero_slides %}
+        <button type="button" class="hero-slider-dot{% if loop.first %} is-active{% endif %}" data-index="{{ loop.index0 }}" aria-label="Aller à la slide {{ loop.index }}"></button>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
     {% endif %}
 
     {{ ad_inline('home_after_hero') }}
 
-    <a href="{{ root }}quiz.html" class="quiz-promo-card">
-      <img src="{{ root }}static/img/quiz-cover.jpg" alt="" class="quiz-promo-bg" loading="lazy">
-      <div class="quiz-promo-overlay" aria-hidden="true"></div>
-      <div class="quiz-promo-body">
-        <span class="quiz-promo-cta">
-          Commencer le défi
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </span>
+    {% if fc26_articles %}
+    <section class="content-section section-fc26" data-reveal>
+      <div class="section-head">
+        <h2 class="grid-title">FC26</h2>
+        <a href="{{ root }}categorie/fc26.html" class="section-see-all">Voir tout →</a>
       </div>
-    </a>
-
-    {{ sponsor_hero('home_before_articles') }}
-
-    <h2 class="grid-title">Derniers articles</h2>
-    <div class="article-list">
-      {% for a in articles %}
-      <article class="list-item">
-        <a href="article/{{ a.slug }}.html" class="list-media-link">
-          {% if a.image %}
-          <div class="list-media has-image" style="aspect-ratio:{{ a.image_ratio }}"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>
-          {% else %}
-          <div class="list-media">Illustration</div>
-          {% endif %}
+      <div class="fc26-row">
+        {% for a in fc26_articles %}
+        <a href="article/{{ a.slug }}.html" class="fc26-card">
+          <div class="fc26-card-media">
+            {% if a.image %}<img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy">{% endif %}
+            <span class="fc26-card-badge">Analyse</span>
+          </div>
+          <h3>{{ a.title }}</h3>
         </a>
-        <div>
-          <span class="eyebrow">{{ a.category }}</span>
-          <h3><a href="article/{{ a.slug }}.html">{{ a.title }}</a></h3>
-          <p>{{ a.dek }}</p>
-          <div class="meta">{{ a.date }} · {{ a.read_time }} min de lecture</div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if mercato_articles %}
+    <section class="content-section section-mercato" data-reveal>
+      <div class="section-head">
+        <h2 class="grid-title">Mercato</h2>
+        <a href="{{ root }}categorie/transferts.html" class="section-see-all">Voir tout →</a>
+      </div>
+      <div class="mercato-grid">
+        <a href="article/{{ mercato_articles[0].slug }}.html" class="mercato-card-big">
+          {% if mercato_articles[0].image %}
+          <div class="mercato-card-media has-image" style="aspect-ratio:{{ mercato_articles[0].image_ratio }}"><img src="{{ root }}{{ mercato_articles[0].image }}" alt="{{ mercato_articles[0].title }}" loading="lazy"></div>
+          {% endif %}
+          <span class="eyebrow">{{ mercato_articles[0].category }}</span>
+          <h3>{{ mercato_articles[0].title }}</h3>
+          <p>{{ mercato_articles[0].dek }}</p>
+        </a>
+        <div class="mercato-small-list">
+          {% for a in mercato_articles[1:4] %}
+          <a href="article/{{ a.slug }}.html" class="mercato-card-small">
+            {% if a.image %}<div class="mercato-card-small-media"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
+            <div>
+              <span class="eyebrow">{{ a.category }}</span>
+              <h4>{{ a.title }}</h4>
+            </div>
+          </a>
+          {% endfor %}
         </div>
-      </article>
-      {% endfor %}
-    </div>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if canaf_articles %}
+    <section class="content-section section-canaf" data-reveal>
+      <div class="section-head">
+        <h2 class="grid-title">CAN / CAF</h2>
+        <a href="{{ root }}categorie/can-caf.html" class="section-see-all">Voir tout →</a>
+      </div>
+      <div class="grid-3col">
+        {% for a in canaf_articles %}
+        <a href="article/{{ a.slug }}.html" class="grid-card">
+          {% if a.image %}<div class="grid-card-media has-image" style="aspect-ratio:{{ a.image_ratio }}"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
+          <h3>{{ a.title }}</h3>
+          <div class="meta">{{ a.category }} · {{ a.read_time }} min de lecture</div>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if mondial2026_articles|length >= 3 %}
+    <section class="content-section section-mondial2026" data-reveal>
+      <div class="section-head">
+        <h2 class="grid-title">Coupe du Monde 2026</h2>
+      </div>
+      <div class="hcarousel" data-hcarousel>
+        <button type="button" class="hcarousel-arrow hcarousel-prev" aria-label="Précédent">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <div class="hcarousel-track">
+          {% for a in mondial2026_articles %}
+          <a href="article/{{ a.slug }}.html" class="hcarousel-card">
+            {% if a.image %}<div class="hcarousel-card-media"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
+            <h3>{{ a.title }}</h3>
+            <div class="meta">{{ a.date }}</div>
+          </a>
+          {% endfor %}
+        </div>
+        <button type="button" class="hcarousel-arrow hcarousel-next" aria-label="Suivant">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if monde_articles %}
+    <section class="content-section section-monde" data-reveal>
+      <div class="section-head">
+        <h2 class="grid-title">Football Mondial</h2>
+        <a href="{{ root }}categorie/football-mondial.html" class="section-see-all">Voir tout →</a>
+      </div>
+      <div class="magazine-grid">
+        <a href="article/{{ monde_articles[0].slug }}.html" class="magazine-card-lg">
+          {% if monde_articles[0].image %}
+          <div class="magazine-card-media has-image" style="aspect-ratio:{{ monde_articles[0].image_ratio }}"><img src="{{ root }}{{ monde_articles[0].image }}" alt="{{ monde_articles[0].title }}" loading="lazy"></div>
+          {% endif %}
+          <span class="eyebrow">{{ monde_articles[0].category }}</span>
+          <h3>{{ monde_articles[0].title }}</h3>
+        </a>
+        {% for a in monde_articles[1:6] %}
+        <a href="article/{{ a.slug }}.html" class="magazine-card-sm">
+          {% if a.image %}<div class="magazine-card-media"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
+          <h4>{{ a.title }}</h4>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if maroc_articles %}
+    <section class="content-section section-maroc" data-reveal>
+      <div class="section-head">
+        <h2 class="grid-title">Maroc</h2>
+      </div>
+      <div class="mercato-grid">
+        <a href="article/{{ maroc_articles[0].slug }}.html" class="mercato-card-big">
+          {% if maroc_articles[0].image %}
+          <div class="mercato-card-media has-image" style="aspect-ratio:{{ maroc_articles[0].image_ratio }}"><img src="{{ root }}{{ maroc_articles[0].image }}" alt="{{ maroc_articles[0].title }}" loading="lazy"></div>
+          {% endif %}
+          <span class="eyebrow">{{ maroc_articles[0].category }}</span>
+          <h3>{{ maroc_articles[0].title }}</h3>
+          <p>{{ maroc_articles[0].dek }}</p>
+        </a>
+        <div class="mercato-small-list">
+          {% for a in maroc_articles[1:4] %}
+          <a href="article/{{ a.slug }}.html" class="mercato-card-small">
+            {% if a.image %}<div class="mercato-card-small-media"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
+            <div>
+              <span class="eyebrow">{{ a.category }}</span>
+              <h4>{{ a.title }}</h4>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    {{ sponsor_hero('home_before_quiz') }}
+
+    <section class="content-section section-quiz" data-reveal>
+      <a href="{{ root }}quiz.html" class="quiz-promo-card">
+        <img src="{{ root }}static/img/quiz-cover.jpg" alt="" class="quiz-promo-bg" loading="lazy">
+        <div class="quiz-promo-overlay" aria-hidden="true"></div>
+        <div class="quiz-promo-body">
+          {% if quiz_popular_theme %}
+          <span class="quiz-promo-theme">{{ quiz_popular_theme.icon }} Thème populaire : {{ quiz_popular_theme.name }}</span>
+          {% endif %}
+          <span class="quiz-promo-cta">
+            Jouer à l'Atlas Quiz
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+    </section>
+
+    <section class="content-section section-podcast" data-reveal>
+      <div class="podcast-spotlight">
+        {% if podcast %}
+        {% if podcast.cover_url %}<img src="{{ root }}{{ podcast.cover_url }}" alt="Couverture du podcast Atlas Rising" class="podcast-spotlight-cover">{% endif %}
+        <div class="podcast-spotlight-body">
+          <div class="podcast-spotlight-title">Podcast Atlas Rising</div>
+          <audio controls preload="none" class="podcast-spotlight-player"><source src="{{ root }}{{ podcast.audio_url }}"></audio>
+        </div>
+        {% else %}
+        <div class="podcast-spotlight-body">
+          <div class="podcast-spotlight-title">Podcast Atlas Rising</div>
+          <p>Prochain épisode bientôt disponible.</p>
+        </div>
+        {% endif %}
+      </div>
+    </section>
 
   </div>
 
@@ -85,24 +255,13 @@
       </form>
     </div>
 
-    <div class="podcast-card">
-      {% if podcast %}
-      {% if podcast.cover_url %}
-      <img src="{{ root }}{{ podcast.cover_url }}" alt="Couverture du podcast Atlas Rising" class="podcast-cover">
-      {% endif %}
-      <audio controls preload="none" class="podcast-player">
-        <source src="{{ root }}{{ podcast.audio_url }}">
-      </audio>
-      {% else %}
-      <div class="podcast-placeholder">
-        <div class="podcast-title">Podcast Atlas Rising</div>
-        <p>Prochain épisode bientôt disponible.</p>
-      </div>
-      {% endif %}
-    </div>
-
     {{ ad_sidebar('home_sidebar') }}
   </aside>
 </div>
 
+{% endblock %}
+{% block extra_scripts %}
+<script src="{{ root }}static/js/hero-slider.js?v={{ asset_version }}"></script>
+<script src="{{ root }}static/js/hcarousel.js?v={{ asset_version }}"></script>
+<script src="{{ root }}static/js/reveal.js?v={{ asset_version }}"></script>
 {% endblock %}

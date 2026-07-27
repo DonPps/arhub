@@ -419,8 +419,13 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   .layout{ grid-template-columns: 1fr; }
 }
 
-/* ---------- Hero / lead story ---------- */
-.hero{ position: relative; margin-bottom: 64px; }
+/* ---------- Hero slider / lead stories ---------- */
+.hero-slider{ position: relative; margin-bottom: 64px; }
+.hero-slider-track{ position: relative; }
+.hero-slide{ display:none; }
+.hero-slide.is-active{ display:block; animation: hero-fade .5s var(--ease); }
+@keyframes hero-fade{ from{ opacity:0; } to{ opacity:1; } }
+
 .hero-media-link{ display:block; }
 .hero-media{
   position:relative;
@@ -442,7 +447,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   width:100%; height:100%; object-fit:cover; display:block;
   transition: transform .6s var(--ease);
 }
-.hero:hover .hero-media img{ transform: scale(1.045); }
+.hero-slide:hover .hero-media img{ transform: scale(1.045); }
 
 .eyebrow{
   display:inline-block;
@@ -454,7 +459,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   font-weight: 600;
   margin-bottom: 12px;
 }
-.hero h1{
+.hero-slide h1{
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 46px;
@@ -463,15 +468,51 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   margin: 0 0 16px;
   max-width: 720px;
 }
-.hero h1 a{ transition: color .2s; }
-.hero:hover h1 a{ color: var(--red); }
-.hero p.dek{
+.hero-slide h1 a{ transition: color .2s; }
+.hero-slide:hover h1 a{ color: var(--red); }
+.hero-slide p.dek{
   font-family: var(--font-body);
   color: var(--ink-soft);
   font-size: 18px;
   line-height: 1.55;
   margin: 0 0 14px;
   max-width: 620px;
+}
+.hero-slide-cta{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family: var(--font-nav); font-size:13px; font-weight:700;
+  text-transform:uppercase; letter-spacing:.5px; color: var(--red);
+  transition: gap .2s var(--ease);
+}
+.hero-slide-cta:hover{ gap:13px; }
+
+.hero-slider-arrow{
+  position:absolute; top:33%; transform:translateY(-50%);
+  width:42px; height:42px; border-radius:50%;
+  background:#fff; border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  color: var(--ink); cursor:pointer; z-index:5; padding:0;
+  box-shadow: var(--shadow-soft);
+  transition: background .2s var(--ease), color .2s, transform .2s var(--ease);
+}
+.hero-slider-arrow:hover{ background: var(--red); color:#fff; transform: translateY(-50%) scale(1.08); }
+.hero-slider-prev{ left:10px; }
+.hero-slider-next{ right:10px; }
+
+.hero-slider-dots{
+  display:flex; justify-content:center; gap:8px; margin-top:18px;
+}
+.hero-slider-dot{
+  width:8px; height:8px; border-radius:50%;
+  background: var(--border); border:none; cursor:pointer; padding:0;
+  transition: background .2s var(--ease), transform .2s var(--ease);
+}
+.hero-slider-dot:hover{ background: var(--ink-soft); }
+.hero-slider-dot.is-active{ background: var(--red); transform:scale(1.3); }
+
+@media (max-width: 640px){
+  .hero-slider-arrow{ width:34px; height:34px; }
+  .hero-slide h1{ font-size:30px; }
 }
 .meta{
   font-family: var(--font-nav);
@@ -637,37 +678,6 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .newsletter-form button:hover{ background: var(--red-dark); transform: translateY(-1px); }
 .newsletter-form button:disabled{ opacity:.7; cursor:default; transform:none; }
-
-/* ---------- Podcast (sidebar) : cover pleine largeur, lecteur incrusté ---------- */
-.podcast-card{
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
-  margin-bottom: 32px;
-  line-height: 0; /* évite un filet d'espace sous l'image */
-  background: #fff;
-}
-.podcast-placeholder{ line-height: 1.5; padding: 26px 22px; }
-.podcast-placeholder .podcast-title{
-  font-family: var(--font-display); font-weight:700; font-size:16px; margin-bottom:6px;
-}
-.podcast-placeholder p{ font-family: var(--font-body); font-size:13.5px; color: var(--ink-soft); margin:0; }
-.podcast-cover{
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-.podcast-player{
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  width: 100%;
-  background: transparent;
-  padding: 6px 8px;
-  color-scheme: dark;
-}
-.podcast-player::-webkit-media-controls-enclosure{ background: transparent; }
-.podcast-player::-webkit-media-controls-panel{ background: transparent; }
 
 /* ---------- Emplacements publicitaires (AdManager) ----------
    .ad-slot est le conteneur commun (reserve l'espace, evite le CLS).
@@ -1055,13 +1065,17 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .quiz-promo-body{
   position:absolute; inset:0; z-index:2;
-  display:flex;
-  align-items:flex-end;
+  display:flex; flex-direction:column;
+  align-items:flex-start; justify-content:flex-end;
+  gap:10px;
   padding: 28px 32px 32px;
 }
 .quiz-promo-body .eyebrow{ color: var(--gold); }
-.quiz-promo-body h2{ font-family: var(--font-display); font-size:28px; margin: 6px 0 10px; color:#fff; }
-.quiz-promo-body p{ font-family: var(--font-body); color: rgba(255,255,255,.88); font-size:15px; line-height:1.5; max-width:520px; margin:0 0 18px; }
+.quiz-promo-theme{
+  display:inline-block; color:#fff; background: rgba(0,0,0,.35);
+  font-family: var(--font-nav); font-size:12.5px; font-weight:600;
+  padding:6px 14px; border-radius:20px;
+}
 .quiz-promo-cta{
   display:inline-flex; align-items:center; gap:6px;
   background: var(--red); color:#fff;
@@ -1716,4 +1730,199 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   .floating-widgets{ right:14px; bottom:14px; gap:10px; }
   .floating-bubble{ width:50px; height:50px; }
   .floating-popup{ width: calc(100vw - 28px); right:0; }
+}
+
+/* ============================================================
+   Homepage — sections dynamiques (refonte disposition, identite
+   graphique inchangee : memes couleurs/polices/tokens partout)
+   ============================================================ */
+
+/* ---------- Tetes de section communes ---------- */
+.content-section{ margin: 56px 0; }
+.section-head{
+  display:flex; align-items:baseline; justify-content:space-between;
+  gap:16px; margin-bottom:22px;
+}
+.section-see-all{
+  font-family: var(--font-nav); font-size:12.5px; font-weight:600;
+  color: var(--red); white-space:nowrap; transition: gap .2s var(--ease);
+  display:inline-flex; align-items:center; gap:4px;
+}
+.section-see-all:hover{ gap:8px; }
+
+/* ---------- FC26 : 4 cartes horizontales ---------- */
+.fc26-row{ display:grid; grid-template-columns: repeat(4, 1fr); gap:18px; }
+.fc26-card{ display:block; }
+.fc26-card-media{
+  position:relative; aspect-ratio: 4/3; border-radius: var(--radius-md);
+  overflow:hidden; background: var(--illus-bg); box-shadow: var(--shadow-card);
+  margin-bottom:12px;
+}
+.fc26-card-media img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition: transform .5s var(--ease);
+}
+.fc26-card:hover .fc26-card-media img{ transform: scale(1.06); }
+.fc26-card-badge{
+  position:absolute; top:10px; left:10px;
+  background: var(--red); color:#fff;
+  font-family: var(--font-nav); font-size:10.5px; font-weight:700;
+  text-transform:uppercase; letter-spacing:.5px;
+  padding:4px 10px; border-radius:20px;
+}
+.fc26-card h3{
+  font-family: var(--font-display); font-size:16px; font-weight:700;
+  line-height:1.3; margin:0; transition: color .2s;
+}
+.fc26-card:hover h3{ color: var(--red); }
+
+/* ---------- Mercato / Maroc : 1 grande carte + petites (mosaique) ---------- */
+.mercato-grid{ display:grid; grid-template-columns: 1.3fr 1fr; gap:24px; align-items:start; }
+.mercato-card-big{ display:block; }
+.mercato-card-media{
+  position:relative; aspect-ratio:16/9; border-radius: var(--radius-md);
+  overflow:hidden; background: var(--illus-bg); box-shadow: var(--shadow-card);
+  margin-bottom:16px;
+}
+.mercato-card-media img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition: transform .5s var(--ease);
+}
+.mercato-card-big:hover .mercato-card-media img{ transform: scale(1.05); }
+.mercato-card-big h3{
+  font-family: var(--font-display); font-size:24px; font-weight:700;
+  line-height:1.25; margin:0 0 8px; transition: color .2s;
+}
+.mercato-card-big:hover h3{ color: var(--red); }
+.mercato-card-big p{ font-family: var(--font-body); color: var(--ink-soft); font-size:14.5px; line-height:1.55; margin:0; }
+
+.mercato-small-list{ display:flex; flex-direction:column; gap:16px; }
+.mercato-card-small{ display:flex; gap:14px; align-items:center; }
+.mercato-card-small-media{
+  width:88px; height:66px; flex-shrink:0; border-radius:8px; overflow:hidden;
+  background: var(--illus-bg);
+}
+.mercato-card-small-media img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .4s var(--ease); }
+.mercato-card-small:hover .mercato-card-small-media img{ transform: scale(1.08); }
+.mercato-card-small h4{
+  font-family: var(--font-display); font-size:15px; font-weight:700;
+  line-height:1.3; margin:4px 0 0; transition: color .2s;
+}
+.mercato-card-small:hover h4{ color: var(--red); }
+
+/* ---------- CAN / CAF : grille 3 colonnes ---------- */
+.grid-3col{ display:grid; grid-template-columns: repeat(3, 1fr); gap:22px; }
+.grid-card{ display:block; }
+.grid-card-media{
+  position:relative; aspect-ratio:4/3; border-radius: var(--radius-md);
+  overflow:hidden; background: var(--illus-bg); box-shadow: var(--shadow-card);
+  margin-bottom:14px;
+}
+.grid-card-media img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s var(--ease); }
+.grid-card:hover .grid-card-media img{ transform: scale(1.06); }
+.grid-card h3{
+  font-family: var(--font-display); font-size:17px; font-weight:700;
+  line-height:1.3; margin:0 0 8px; transition: color .2s;
+}
+.grid-card:hover h3{ color: var(--red); }
+
+/* ---------- Carrousel horizontal generique ----------
+   Coupe du Monde 2026 aujourd'hui, reutilisable plus tard pour
+   videos/podcasts multiples. Scroll natif + scroll-snap : le swipe
+   mobile est gere gratuitement par le navigateur. */
+.section-mondial2026{
+  background: var(--illus-bg);
+  border-radius: var(--radius-lg);
+  padding: 34px 28px;
+}
+.hcarousel{ position:relative; display:flex; align-items:center; gap:10px; }
+.hcarousel-track{
+  display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory;
+  scrollbar-width:none; padding-bottom:4px;
+}
+.hcarousel-track::-webkit-scrollbar{ display:none; }
+.hcarousel-card{ flex:0 0 240px; scroll-snap-align:start; display:block; }
+.hcarousel-card-media{
+  aspect-ratio:4/3; border-radius: var(--radius-md); overflow:hidden;
+  background:#fff; box-shadow: var(--shadow-card); margin-bottom:10px;
+}
+.hcarousel-card-media img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s var(--ease); }
+.hcarousel-card:hover .hcarousel-card-media img{ transform: scale(1.06); }
+.hcarousel-card h3{
+  font-family: var(--font-display); font-size:15px; font-weight:700;
+  line-height:1.3; margin:0 0 4px; transition: color .2s;
+}
+.hcarousel-card:hover h3{ color: var(--red); }
+.hcarousel-arrow{
+  flex-shrink:0; width:38px; height:38px; border-radius:50%;
+  background:#fff; border:1px solid var(--border); cursor:pointer; padding:0;
+  display:flex; align-items:center; justify-content:center; color: var(--ink);
+  transition: background .2s var(--ease), color .2s;
+}
+.hcarousel-arrow:hover{ background: var(--red); color:#fff; }
+
+/* ---------- Football Mondial : grille magazine ---------- */
+.magazine-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+.magazine-card-lg{ grid-column: span 2; grid-row: span 2; display:block; }
+.magazine-card-lg .magazine-card-media{ aspect-ratio:16/10; margin-bottom:14px; }
+.magazine-card-lg h3{
+  font-family: var(--font-display); font-size:22px; font-weight:700;
+  line-height:1.25; margin:0; transition: color .2s;
+}
+.magazine-card-lg:hover h3{ color: var(--red); }
+.magazine-card-sm{ display:block; }
+.magazine-card-media{
+  aspect-ratio:4/3; border-radius: var(--radius-md); overflow:hidden;
+  background: var(--illus-bg); box-shadow: var(--shadow-card); margin-bottom:10px;
+}
+.magazine-card-media img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s var(--ease); }
+.magazine-card-sm:hover .magazine-card-media img, .magazine-card-lg:hover .magazine-card-media img{ transform: scale(1.05); }
+.magazine-card-sm h4{
+  font-family: var(--font-display); font-size:14.5px; font-weight:700;
+  line-height:1.3; margin:0; transition: color .2s;
+}
+.magazine-card-sm:hover h4{ color: var(--red); }
+
+/* ---------- Podcast spotlight (home) ---------- */
+.podcast-spotlight{
+  display:flex; gap:24px; align-items:center;
+  background:#fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);
+  padding:22px 26px;
+}
+.podcast-spotlight-cover{ width:120px; height:120px; border-radius: var(--radius-md); object-fit:cover; flex-shrink:0; }
+.podcast-spotlight-title{ font-family: var(--font-display); font-weight:700; font-size:19px; margin-bottom:10px; }
+.podcast-spotlight-body{ flex:1; min-width:0; }
+.podcast-spotlight-body p{ margin:0; color: var(--ink-soft); font-family: var(--font-body); font-size:14px; }
+.podcast-spotlight-player{ width:100%; }
+
+/* ---------- Reveal leger au scroll ---------- */
+[data-reveal]{ opacity:0; transform: translateY(16px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+[data-reveal].is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  [data-reveal]{ opacity:1; transform:none; transition:none; }
+}
+
+/* ---------- Responsive : peu de scroll vertical, sections en horizontal ---------- */
+@media (max-width: 860px){
+  .fc26-row{ grid-template-columns: repeat(4, 200px); overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px; scrollbar-width:none; }
+  .fc26-row::-webkit-scrollbar{ display:none; }
+  .fc26-card{ scroll-snap-align:start; }
+
+  .mercato-grid{ grid-template-columns:1fr; }
+
+  .grid-3col{ grid-template-columns: repeat(3, 240px); overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px; scrollbar-width:none; }
+  .grid-3col::-webkit-scrollbar{ display:none; }
+  .grid-card{ scroll-snap-align:start; }
+
+  .magazine-grid{ grid-template-columns: repeat(3, 220px); overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px; scrollbar-width:none; }
+  .magazine-grid::-webkit-scrollbar{ display:none; }
+  .magazine-card-lg{ grid-column:auto; grid-row:auto; scroll-snap-align:start; }
+  .magazine-card-sm{ scroll-snap-align:start; }
+}
+
+@media (max-width: 640px){
+  .content-section{ margin: 40px 0; }
+  .podcast-spotlight{ flex-direction:column; align-items:flex-start; }
+  .podcast-spotlight-cover{ width:100%; height:auto; aspect-ratio:1/1; }
+  .section-mondial2026{ padding:22px 18px; }
 }

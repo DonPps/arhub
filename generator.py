@@ -40,7 +40,19 @@ BACKGROUND_DIR = ROOT / "Background"
 
 TRENDING_COUNT = 5   # nombre d'articles affichés dans le bloc "Tendances"
 RELATED_COUNT = 5    # nombre d'articles affichés dans "À lire aussi" (max demandé : 5)
-LATEST_COUNT = 5     # nombre d'articles affichés dans "Derniers articles" (accueil)
+
+# Mots-clés utilisés pour repérer, parmi les articles déjà catégorisés,
+# ceux qui concernent spécifiquement le Maroc ou la Coupe du Monde 2026 —
+# il n'existe pas de catégorie dédiée pour ces deux thèmes (juste des tags
+# libres par article), donc filtrage best-effort par mot-clé plutôt qu'un
+# nouveau champ de données.
+MAROC_KEYWORDS = ["maroc", "frmf", "lions de l'atlas", "lionnes de l'atlas"]
+MONDIAL2026_KEYWORDS = ["coupe du monde 2026", "mondial 2026"]
+
+
+def _matches_keywords(article, keywords):
+    haystack = " ".join([article.get("title", "")] + article.get("tags", [])).lower()
+    return any(kw in haystack for kw in keywords)
 
 PODCAST_AUDIO_EXTS = {".mp3", ".m4a", ".wav", ".ogg"}
 PODCAST_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
@@ -62,6 +74,9 @@ GLOBAL_ASSET_FILES = [
     "js/floating-widgets.js",
     "js/auth.js",
     "js/ads/ad-manager.js",
+    "js/hero-slider.js",
+    "js/hcarousel.js",
+    "js/reveal.js",
 ]
 
 
@@ -299,9 +314,25 @@ def build():
     }
 
     # ---------- Page d'accueil ----------
-    lead = articles[0] if articles else None
-    rest = articles[1:] if len(articles) > 1 else []
+    # Chaque section a sa propre liste (pas de grande liste générique) —
+    # voir MAROC_KEYWORDS/MONDIAL2026_KEYWORDS pour les deux filtrées par
+    # mot-clé plutôt que par catégorie dédiée. Chevauchement volontaire
+    # entre sections assumé (stock d'articles encore limité) : voir le
+    # plan de refonte homepage pour le détail de ce choix.
+    hero_slides = articles[:5]
     trending = articles[:TRENDING_COUNT]
+
+    canaf_all = [a for a in articles if a["category_slug"] == "can-caf"]
+    maroc_articles = [a for a in canaf_all if _matches_keywords(a, MAROC_KEYWORDS)][:4]
+    canaf_articles = canaf_all[:6]
+
+    mondial2026_articles = [a for a in articles if _matches_keywords(a, MONDIAL2026_KEYWORDS)][:6]
+    monde_articles = [a for a in articles if a["category_slug"] == "football-mondial"][:6]
+    fc26_articles = [a for a in articles if a["category_slug"] == "fc26"][:4]
+    mercato_articles = [a for a in articles if a["category_slug"] == "transferts"][:4]
+
+    quiz_themes_home = load_quiz_themes()
+    quiz_popular_theme = quiz_themes_home[0] if quiz_themes_home else None
 
     tpl = env.get_template("index.html")
     html = tpl.render(
@@ -309,9 +340,15 @@ def build():
         root="",
         canonical_path="/",
         active_nav="home",
-        lead=lead,
-        articles=rest[:LATEST_COUNT],
+        hero_slides=hero_slides,
         trending=trending,
+        fc26_articles=fc26_articles,
+        mercato_articles=mercato_articles,
+        canaf_articles=canaf_articles,
+        maroc_articles=maroc_articles,
+        mondial2026_articles=mondial2026_articles,
+        monde_articles=monde_articles,
+        quiz_popular_theme=quiz_popular_theme,
     )
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
 
