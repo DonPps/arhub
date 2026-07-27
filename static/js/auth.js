@@ -61,6 +61,8 @@ async function initFirebase() {
 
 function renderAccountUI() {
   const label = document.getElementById('account-label');
+  const icon = document.getElementById('account-icon');
+  const avatar = document.getElementById('account-avatar');
   const loggedOutView = document.getElementById('account-logged-out');
   const loggedInView = document.getElementById('account-logged-in');
   const emailDisplay = document.getElementById('account-email-display');
@@ -73,11 +75,26 @@ function renderAccountUI() {
   }
 
   if (currentUser) {
-    label.textContent = currentUser.email;
+    // Bouton compte : photo de profil (Google) ou avatar à initiales
+    // plutôt que l'email en clair dans le header, une fois connecté.
+    if (icon) icon.hidden = true;
+    label.hidden = true;
+    if (avatar) {
+      avatar.hidden = false;
+      if (currentUser.photoURL) {
+        avatar.innerHTML = '<img src="' + currentUser.photoURL + '" alt="">';
+      } else {
+        const name = currentUser.displayName || (currentUser.email || 'U').split('@')[0];
+        avatar.textContent = name.charAt(0).toUpperCase();
+      }
+    }
     if (loggedOutView) loggedOutView.hidden = true;
     if (loggedInView) loggedInView.hidden = false;
     if (emailDisplay) emailDisplay.textContent = currentUser.email;
   } else {
+    if (icon) icon.hidden = false;
+    label.hidden = false;
+    if (avatar) { avatar.hidden = true; avatar.innerHTML = ''; }
     label.textContent = 'Compte';
     if (loggedOutView) loggedOutView.hidden = false;
     if (loggedInView) loggedInView.hidden = true;
