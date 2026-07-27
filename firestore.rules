@@ -85,5 +85,23 @@ service cloud.firestore {
       allow write: if request.auth != null && request.auth.uid == userId;
     }
 
+    // Commentaires d'articles. Lecture publique (visibles même sans
+    // connexion) ; création réservée aux utilisateurs connectés, qui ne
+    // peuvent créer un commentaire que sous leur propre uid (impossible de
+    // usurper un autre auteur) ; texte borné pour éviter l'abus. Jamais de
+    // modification a posteriori (immuable) — seule la suppression par
+    // l'auteur lui-même est permise.
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.articleSlug is string
+        && request.resource.data.text is string
+        && request.resource.data.text.size() > 0
+        && request.resource.data.text.size() <= 1000;
+      allow update: if false;
+      allow delete: if request.auth != null && request.auth.uid == resource.data.uid;
+    }
+
   }
 }
