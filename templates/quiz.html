@@ -274,6 +274,6 @@
 
 {% endblock %}
 {% block extra_scripts %}
-<script type="module" src="{{ root }}static/js/quiz.js"></script>
-<script type="module" src="{{ root }}static/js/quiz-duel.js"></script>
+<script type="module" src="{{ root }}static/js/quiz.js?v={{ asset_version }}"></script>
+<script type="module" src="{{ root }}static/js/quiz-duel.js?v={{ asset_version }}"></script>
 {% endblock %}
