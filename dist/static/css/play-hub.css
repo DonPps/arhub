@@ -803,3 +803,283 @@
     transform:none !important;
   }
 }
+
+/* ================================================================
+   DÉFI EN LIGNE — "Online Arena" (onglet Play uniquement)
+   Tout ce bloc est scoppé aux classes .arena-* (préfixe dédié pour
+   ne jamais entrer en collision avec .quizx-* de l'onglet Quiz Solo,
+   même si les deux vivent déjà dans des panels séparés). Aucune
+   redéfinition brute de .quiz-btn-primary/.quizx-sidebar-card/etc.
+   utilisés ailleurs — uniquement des règles composées additives,
+   comme partout ailleurs dans ce fichier.
+   ================================================================ */
+
+/* ---------- Hero ---------- */
+.play-body .arena-hero{
+  position:relative; border-radius:20px; overflow:hidden; margin-bottom:22px;
+  box-shadow: 0 30px 60px -26px rgba(0,0,0,.85), 0 0 0 1px rgba(184,144,62,.3);
+}
+.play-body .arena-hero-banner{ width:100%; height:auto; display:block; max-height:520px; object-fit:cover; }
+.play-body .arena-hero-overlay{
+  position:absolute; left:0; right:0; bottom:0; padding:22px clamp(16px,4vw,40px) 26px;
+  background: linear-gradient(0deg, rgba(6,5,4,.94) 0%, rgba(6,5,4,.6) 45%, transparent 100%);
+  display:flex; flex-direction:column; gap:10px; align-items:flex-start;
+}
+.play-body .arena-hero-label{
+  font-family: var(--font-nav); font-size:11px; font-weight:800; letter-spacing:.16em;
+  color: var(--gold); text-transform:uppercase;
+}
+.play-body .arena-hero-desc{
+  font-family: var(--font-body); font-size:14px; color: rgba(242,235,220,.85);
+  max-width:560px; margin:0;
+}
+.play-body .arena-hero-ctas{ display:flex; flex-wrap:wrap; gap:10px; margin-top:4px; }
+.play-body .arena-btn-primary{
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  border-radius:12px; padding:11px 22px;
+  box-shadow: 0 10px 22px -10px rgba(193,18,31,.7), 0 0 0 1px rgba(184,144,62,.3);
+  transition: transform .2s var(--ease), box-shadow .2s ease;
+}
+.play-body .arena-btn-primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -12px rgba(193,18,31,.75), 0 0 22px -4px rgba(184,144,62,.55);
+}
+.play-body .arena-btn-secondary{
+  background: rgba(255,255,255,.08); border:1px solid rgba(184,144,62,.4);
+  border-radius:12px; padding:10px 20px; color:#F2EBDC;
+  transition: background .2s ease, border-color .2s ease, transform .2s var(--ease);
+}
+.play-body .arena-btn-secondary:hover{ background: rgba(255,255,255,.14); border-color: var(--gold); transform: translateY(-2px); }
+@media (max-width:640px){
+  .play-body .arena-hero-banner{ max-height:280px; }
+  .play-body .arena-hero-desc{ font-size:12.5px; }
+}
+
+/* ---------- Stats réelles ---------- */
+.play-body .arena-stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:22px;
+}
+.play-body .arena-stat-card{
+  display:flex; flex-direction:column; align-items:center; gap:4px; padding:16px 8px;
+  background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border:1px solid rgba(184,144,62,.3); border-radius:14px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 14px 26px -18px rgba(0,0,0,.7);
+  transition: border-color .3s ease, transform .25s var(--ease);
+}
+.play-body .arena-stat-card:hover{ transform: translateY(-3px); border-color: rgba(184,144,62,.55); }
+.play-body .arena-stat-icon{ font-size:18px; }
+.play-body .arena-stat-value{
+  font-family: var(--font-display); font-size:21px; font-weight:700; color:#F2EBDC;
+  font-variant-numeric: tabular-nums;
+}
+.play-body .arena-stat-label{
+  font-family: var(--font-nav); font-size:9.5px; text-transform:uppercase;
+  letter-spacing:.05em; color: rgba(242,235,220,.6); text-align:center;
+}
+@media (max-width:700px){ .play-body .arena-stats{ grid-template-columns:repeat(2,1fr); } }
+
+/* ---------- Types de match ---------- */
+.play-body .arena-modes{ margin:32px 0 8px; }
+.play-body .arena-mode-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
+}
+.play-body .arena-mode-card{
+  position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:6px;
+  padding:18px 16px; border-radius:14px; text-align:left; font-family:inherit; cursor:pointer;
+  background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border:1px solid rgba(184,144,62,.3);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 14px 26px -18px rgba(0,0,0,.7);
+  transition: transform .25s var(--ease), box-shadow .25s ease, border-color .25s ease;
+}
+.play-body .arena-mode-card.is-active:hover{
+  transform: translateY(-4px); border-color: var(--gold);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 20px 36px -16px rgba(0,0,0,.8), 0 0 26px -8px rgba(184,144,62,.55);
+}
+.play-body .arena-mode-card.is-soon{ cursor:not-allowed; opacity:.6; }
+.play-body .arena-mode-icon{ font-size:24px; }
+.play-body .arena-mode-name{ font-family: var(--font-display); font-size:15px; color:#F2EBDC; }
+.play-body .arena-mode-desc{ font-family: var(--font-body); font-size:11.5px; color: rgba(242,235,220,.65); }
+.play-body .arena-mode-soon-badge{
+  margin-top:4px; font-family: var(--font-nav); font-size:9px; text-transform:uppercase; letter-spacing:.04em;
+  color: var(--gold); background: rgba(184,144,62,.15); border:1px solid rgba(184,144,62,.4);
+  padding:3px 8px; border-radius:20px;
+}
+@media (max-width:860px){ .play-body .arena-mode-grid{ grid-template-columns:repeat(2,1fr); } }
+
+.play-body .arena-picker-card .quiz-btn-primary{ margin-top:2px; }
+
+/* ---------- Adversaires récents / Matchs en direct — carrousels et
+   grilles premium, même langage visuel que les autres cartes .arena-*
+   ---------- */
+.play-body .arena-recent-opponents-block,
+.play-body .arena-live-block{ margin-top:34px; }
+.play-body .arena-carousel{
+  display:flex; gap:14px; overflow-x:auto; padding:8px 4px 14px; scroll-snap-type:x proximity;
+  -webkit-overflow-scrolling:touch;
+}
+.play-body .arena-carousel::-webkit-scrollbar{ height:6px; }
+.play-body .arena-carousel::-webkit-scrollbar-thumb{ background: rgba(184,144,62,.4); border-radius:3px; }
+.play-body .arena-opponent-card{
+  flex:0 0 148px; scroll-snap-align:start; display:flex; flex-direction:column; align-items:center; gap:8px;
+  padding:16px 12px; border-radius:14px; text-align:center;
+  background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border:1px solid rgba(184,144,62,.3);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 14px 26px -18px rgba(0,0,0,.7);
+  transition: transform .25s var(--ease), border-color .25s ease;
+}
+.play-body .arena-opponent-card:hover{ transform: translateY(-6px); border-color: rgba(184,144,62,.55); }
+.play-body .arena-opponent-avatar{
+  width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:22px; background: rgba(184,144,62,.15); border:2px solid rgba(184,144,62,.4);
+}
+.play-body .arena-opponent-name{ font-family: var(--font-display); font-size:13px; color:#F2EBDC; }
+.play-body .arena-opponent-meta{ font-family: var(--font-nav); font-size:9.5px; color: rgba(242,235,220,.6); text-transform:uppercase; letter-spacing:.03em; }
+.play-body .arena-opponent-rematch-btn{
+  margin-top:2px; font-family: var(--font-nav); font-size:10.5px; font-weight:700; color: var(--gold);
+  background: rgba(184,144,62,.14); border:1px solid rgba(184,144,62,.4); border-radius:20px; padding:5px 12px;
+  cursor:pointer; transition: background .2s ease, color .2s ease;
+}
+.play-body .arena-opponent-rematch-btn:hover{ background: var(--gold); color:#1a1207; }
+
+.play-body .arena-live-grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px;
+}
+.play-body .arena-live-card{
+  position:relative; padding:16px; border-radius:14px;
+  background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border:1px solid rgba(184,144,62,.3);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 14px 26px -18px rgba(0,0,0,.7);
+  transition: transform .25s var(--ease), border-color .25s ease;
+}
+.play-body .arena-live-card:hover{ transform: translateY(-4px); border-color: rgba(184,144,62,.55); }
+.play-body .arena-live-badge{
+  position:absolute; top:12px; right:12px; display:inline-flex; align-items:center; gap:5px;
+  font-family: var(--font-nav); font-size:9px; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
+  color:#ff8f8f; background: rgba(193,18,31,.18); border:1px solid rgba(193,18,31,.5);
+  padding:3px 8px 3px 6px; border-radius:20px;
+}
+.play-body .arena-live-badge::before{
+  content:''; width:6px; height:6px; border-radius:50%; background:#ff4d4d;
+  animation: arena-live-pulse 1.4s ease-in-out infinite;
+}
+@keyframes arena-live-pulse{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.4; transform:scale(.7); } }
+.play-body .arena-live-players{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin:10px 0 6px; }
+.play-body .arena-live-player{ font-family: var(--font-display); font-size:13px; color:#F2EBDC; text-align:center; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.play-body .arena-live-score{ font-family: var(--font-nav); font-weight:800; font-size:16px; color: var(--gold); flex-shrink:0; padding:0 6px; }
+.play-body .arena-live-topic{ font-family: var(--font-nav); font-size:10px; text-transform:uppercase; letter-spacing:.03em; color: rgba(242,235,220,.6); text-align:center; }
+
+/* ---------- Classement premium (médailles top 3 + utilisateur
+   surligné) ---------- */
+.play-body .arena-leaderboard-list .quiz-leaderboard-row{ position:relative; }
+.play-body .arena-leaderboard-list .quiz-leaderboard-row.is-me{
+  border-color: var(--gold); background: rgba(184,144,62,.14);
+}
+.play-body .arena-leaderboard-list .quiz-leaderboard-row.is-me .quiz-leaderboard-name::after{
+  content:'TOI'; margin-left:6px; font-family: var(--font-nav); font-size:8.5px; font-weight:800;
+  color:#1a1207; background: var(--gold); padding:2px 6px; border-radius:10px; vertical-align:middle;
+}
+
+/* ---------- Tournoi / Récompenses (honnêtes, "Bientôt disponible") ---------- */
+.play-body .arena-tournament-card{ position:relative; overflow:hidden; }
+.play-body .arena-tournament-card::before{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(80% 60% at 100% 0%, rgba(184,144,62,.18), transparent 60%);
+}
+.play-body .arena-tournament-badge{
+  display:inline-block; font-family: var(--font-nav); font-size:9px; font-weight:800; text-transform:uppercase;
+  letter-spacing:.05em; color: var(--gold); background: rgba(184,144,62,.15); border:1px solid rgba(184,144,62,.4);
+  padding:3px 9px; border-radius:20px; margin-bottom:8px;
+}
+.play-body .arena-rewards-soon{
+  font-family: var(--font-nav); font-size:10.5px; color: rgba(242,235,220,.55); font-style:italic; margin:8px 0 0;
+}
+
+/* ---------- Modale de matchmaking — branchée sur le vrai flux
+   "créer un duel -> salle d'attente -> un ami rejoint" déjà existant
+   (aucun adversaire simulé). Repositionnement CSS pur d'un écran déjà
+   géré par showScreens() en overlay plein écran premium — zéro
+   changement de logique JS. ---------- */
+.play-body .arena-matchmaking-overlay{
+  position:fixed; inset:0; z-index:95; display:flex; align-items:center; justify-content:center;
+  padding:20px; background: rgba(6,5,4,.86); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  animation: arena-overlay-in .3s var(--ease);
+}
+@keyframes arena-overlay-in{ from{ opacity:0; } to{ opacity:1; } }
+.play-body .arena-matchmaking-card{
+  width:100%; max-width:560px; padding:32px clamp(18px,4vw,36px); border-radius:20px; text-align:center;
+  background: linear-gradient(160deg, rgba(255,255,255,.09), rgba(255,255,255,.03)), var(--stadium-night, #0E0C0A);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border:1px solid rgba(184,144,62,.4);
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,.9), 0 0 50px -14px rgba(184,144,62,.4);
+  animation: arena-card-in .35s var(--ease);
+}
+@keyframes arena-card-in{ from{ opacity:0; transform: scale(.92) translateY(14px); } to{ opacity:1; transform:scale(1) translateY(0); } }
+.play-body .arena-matchmaking-eyebrow{
+  font-family: var(--font-nav); font-size:10.5px; font-weight:800; letter-spacing:.18em;
+  color: var(--gold); text-transform:uppercase;
+}
+.play-body .arena-vs-row{ display:flex; align-items:center; justify-content:center; gap:clamp(10px,3vw,26px); margin:16px 0 6px; }
+.play-body .arena-vs-side{ display:flex; flex-direction:column; align-items:center; gap:8px; width:100px; }
+.play-body .arena-vs-avatar{
+  width:76px; height:76px; border-radius:50%; overflow:hidden; position:relative;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(255,255,255,.06); border:2px solid rgba(184,144,62,.4);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.4), 0 10px 20px -10px rgba(0,0,0,.7);
+}
+.play-body .arena-vs-avatar-glyph{ font-size:34px; opacity:.85; }
+.play-body .arena-vs-avatar-opponent{
+  background-image:url('../img/play/online/unknown-opponent.png');
+  background-size:cover; background-position:top center;
+  animation: arena-socket-breathe 2.6s ease-in-out infinite;
+}
+@keyframes arena-socket-breathe{
+  0%,100%{ box-shadow: 0 0 0 1px rgba(0,0,0,.4), 0 10px 20px -10px rgba(0,0,0,.7), 0 0 0 rgba(184,144,62,0); }
+  50%{ box-shadow: 0 0 0 1px rgba(0,0,0,.4), 0 10px 20px -10px rgba(0,0,0,.7), 0 0 18px 2px rgba(184,144,62,.5); }
+}
+.play-body .arena-vs-avatar-opponent.is-revealed{
+  background-image:url('../img/play/online/online-opponent.png');
+  animation: arena-reveal-pop .6s var(--ease);
+  border-color: var(--gold);
+}
+@keyframes arena-reveal-pop{
+  0%{ transform:scale(.85); opacity:.3; filter:brightness(1.8) saturate(0); }
+  60%{ transform:scale(1.08); filter:brightness(1.3) saturate(1); }
+  100%{ transform:scale(1); opacity:1; filter:brightness(1) saturate(1); }
+}
+.play-body .arena-vs-name{ font-family: var(--font-display); font-size:13px; color:#F2EBDC; max-width:100px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.play-body .arena-vs-center{ flex-shrink:0; }
+.play-body .arena-vs-art{ width:clamp(70px,14vw,110px); height:auto; filter: drop-shadow(0 8px 18px rgba(0,0,0,.6)); animation: arena-vs-float 3.2s ease-in-out infinite; }
+@keyframes arena-vs-float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-5px); } }
+.play-body .arena-matchmaking-status{
+  font-family: var(--font-nav); font-size:12.5px; color: rgba(242,235,220,.75); margin:10px 0 16px;
+}
+.play-body .arena-dots span{ animation: arena-dot-blink 1.4s infinite; opacity:0; }
+.play-body .arena-dots span:nth-child(2){ animation-delay:.2s; }
+.play-body .arena-dots span:nth-child(3){ animation-delay:.4s; }
+@keyframes arena-dot-blink{ 0%,80%,100%{ opacity:0; } 40%{ opacity:1; } }
+
+@media (prefers-reduced-motion: reduce){
+  .play-body .arena-stat-card:hover,
+  .play-body .arena-mode-card:hover,
+  .play-body .arena-opponent-card:hover,
+  .play-body .arena-live-card:hover,
+  .play-body .arena-btn-primary:hover,
+  .play-body .arena-btn-secondary:hover{
+    transform:none !important;
+  }
+  .play-body .arena-overlay-in,
+  .play-body .arena-matchmaking-overlay,
+  .play-body .arena-matchmaking-card,
+  .play-body .arena-live-badge::before,
+  .play-body .arena-vs-avatar-opponent,
+  .play-body .arena-vs-avatar-opponent.is-revealed,
+  .play-body .arena-vs-art,
+  .play-body .arena-dots span{
+    animation:none;
+  }
+  .play-body .arena-dots span{ opacity:1; }
+}

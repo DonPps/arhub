@@ -86,6 +86,7 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
     // ces écrans de duel se remplacent entre eux au sein du même onglet
     // — le retour au picker se fait par navigation complète (lien
     // "Retour aux duels"), pas par un état à restaurer ici.
+    if (!map['quiz-duel-waiting']) stopWaitingStatusRotation();
     [pickerScreen, joinScreen, waitingScreen, playerScreen, resultScreen, loadingScreen, leaderboardSection, duelLoginGate].forEach(function (el) {
       if (el) el.hidden = true;
     });
@@ -144,30 +145,73 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
     if (!user) return;
     showScreens({ 'quiz-duel-loading': true });
     myNickname(user).then(function (nickname) {
-      return createDuel(topicMode, topicSlug, topicName, user.uid, nickname);
-    }).then(function (duelId) {
-      enterWaitingRoom(duelId, true);
+      return createDuel(topicMode, topicSlug, topicName, user.uid, nickname).then(function (duelId) {
+        return { duelId: duelId, nickname: nickname };
+      });
+    }).then(function (r) {
+      enterWaitingRoom(r.duelId, true, r.nickname);
     }).catch(function () {
       showScreens({ 'quiz-duel-picker': true });
       alert('Impossible de créer le duel pour le moment. Réessaie.');
     });
   }
 
-  /* ---------- Salle d'attente (hôte) ---------- */
+  /* ---------- Salle d'attente (hôte) — écran de matchmaking premium :
+   * la silhouette (unknown-opponent.png) ne bascule vers un vrai
+   * portrait (online-opponent.png) + le vrai pseudo de l'invité que
+   * lorsque Firestore signale qu'un véritable ami a rejoint (jamais de
+   * délai simulé faisant croire à une recherche active). ---------- */
 
-  function enterWaitingRoom(duelId, isHost) {
+  var waitingStatusInterval = null;
+  var WAITING_STATUS_PHRASES = ["En attente d'un adversaire", 'Ton lien est actif', "Prêt dès qu'il rejoint"];
+
+  function stopWaitingStatusRotation() {
+    if (waitingStatusInterval) { clearInterval(waitingStatusInterval); waitingStatusInterval = null; }
+  }
+
+  function startWaitingStatusRotation() {
+    stopWaitingStatusRotation();
+    var statusEl = document.getElementById('arena-matchmaking-status');
+    if (!statusEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var i = 0;
+    waitingStatusInterval = setInterval(function () {
+      i = (i + 1) % WAITING_STATUS_PHRASES.length;
+      var dots = statusEl.querySelector('.arena-dots');
+      statusEl.textContent = WAITING_STATUS_PHRASES[i];
+      if (dots) statusEl.appendChild(dots);
+      else statusEl.innerHTML = WAITING_STATUS_PHRASES[i] + '<span class="arena-dots"><span>.</span><span>.</span><span>.</span></span>';
+    }, 2400);
+  }
+
+  function enterWaitingRoom(duelId, isHost, hostNickname) {
     showScreens({ 'quiz-duel-waiting': true });
     var link = buildInviteLink(duelId);
     var linkEl = document.getElementById('quiz-duel-invite-link');
     if (linkEl) linkEl.value = link;
+
+    var myNameEl = document.getElementById('arena-my-name');
+    var oppNameEl = document.getElementById('arena-opponent-name');
+    var oppAvatarEl = document.getElementById('arena-opponent-avatar');
+    if (oppAvatarEl) oppAvatarEl.classList.remove('is-revealed');
+    if (oppNameEl) oppNameEl.textContent = 'En attente…';
+    if (myNameEl) {
+      if (hostNickname) myNameEl.textContent = hostNickname;
+      else { var u = currentUser(); if (u) myNickname(u).then(function (n) { myNameEl.textContent = n; }); }
+    }
+    startWaitingStatusRotation();
 
     unsubDuel = firestoreFns.onSnapshot(firestoreFns.doc(db, 'quizDuels', duelId), function (snap) {
       if (!snap.exists()) return;
       var data = snap.data();
       if (data.guestUid && data.status === 'in_progress') {
         if (unsubDuel) unsubDuel();
-        showScreens({ 'quiz-duel-loading': true });
-        startDuelPlay(duelId, data, isHost);
+        stopWaitingStatusRotation();
+        if (oppNameEl) oppNameEl.textContent = data.guestNickname || 'Adversaire';
+        if (oppAvatarEl) oppAvatarEl.classList.add('is-revealed');
+        setTimeout(function () {
+          showScreens({ 'quiz-duel-loading': true });
+          startDuelPlay(duelId, data, isHost);
+        }, 900);
       }
     });
   }
@@ -392,7 +436,56 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
         return tb - ta;
       });
       renderHistory(duels.slice(0, 10), uid);
+      renderRecentOpponents(duels, uid);
     }).catch(function () {});
+  }
+
+  /* ---------- Adversaires récents (Online Arena) — réutilise le même
+   * historique déjà chargé par loadHistory (aucune requête
+   * supplémentaire) : pas de liste d'amis inventée, uniquement les
+   * vrais adversaires déjà affrontés. ---------- */
+  function renderRecentOpponents(duels, uid) {
+    var el = document.getElementById('arena-recent-opponents');
+    if (!el) return;
+    if (!duels.length) {
+      el.innerHTML = '<p class="quizx-sidebar-empty">Aucun duel joué pour l\'instant — crée ton premier duel ci-dessus.</p>';
+      return;
+    }
+    var seen = {};
+    var opponents = [];
+    duels.forEach(function (d) {
+      var amHost = d.hostUid === uid;
+      var oppUid = amHost ? d.guestUid : d.hostUid;
+      var oppName = amHost ? d.guestNickname : d.hostNickname;
+      if (!oppUid || seen[oppUid]) return;
+      seen[oppUid] = true;
+      opponents.push({
+        name: oppName || 'Joueur', mode: d.topicMode, slug: d.topicSlug, topicName: d.topicName,
+      });
+    });
+    if (!opponents.length) {
+      el.innerHTML = '<p class="quizx-sidebar-empty">Aucun duel joué pour l\'instant — crée ton premier duel ci-dessus.</p>';
+      return;
+    }
+    el.innerHTML = opponents.slice(0, 10).map(function (o) {
+      return '<div class="arena-opponent-card">' +
+        '<span class="arena-opponent-avatar">🧑</span>' +
+        '<span class="arena-opponent-name">' + escapeHtml(o.name) + '</span>' +
+        '<span class="arena-opponent-meta">' + escapeHtml(o.topicName || '') + '</span>' +
+        '<button type="button" class="arena-opponent-rematch-btn" data-rematch-mode="' + escapeHtml(o.mode || 'rank') + '" data-rematch-slug="' + escapeHtml(o.slug || '') + '">Défier à nouveau</button>' +
+        '</div>';
+    }).join('');
+    Array.prototype.forEach.call(el.querySelectorAll('.arena-opponent-rematch-btn'), function (btn) {
+      btn.addEventListener('click', function () {
+        var mode = btn.getAttribute('data-rematch-mode');
+        var slug = btn.getAttribute('data-rematch-slug');
+        activateDuelMode(mode);
+        var select = document.getElementById(mode === 'theme' ? 'quiz-duel-theme-select' : 'quiz-duel-rank-select');
+        if (select && slug) select.value = slug;
+        var picker = document.getElementById('quiz-duel-picker');
+        if (picker) picker.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   }
 
   function renderHistory(duels, uid) {
@@ -454,6 +547,17 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
     tab.addEventListener('click', function () { activateDuelMode(tab.getAttribute('data-mode')); });
   });
 
+  // Carte de mode "Classique" (seul mode réel pour l'instant) : amène
+  // au vrai formulaire de création. Les cartes "Bientôt disponible"
+  // (Classé/Blitz/Championnat) n'ont volontairement aucun listener.
+  var arenaModeCard = document.querySelector('.arena-mode-card[data-scroll-target]');
+  if (arenaModeCard) {
+    arenaModeCard.addEventListener('click', function () {
+      var target = document.getElementById(arenaModeCard.getAttribute('data-scroll-target'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
   // Cartes catégories (thèmes) : préselectionne le thème du duel et amène
   // l'utilisateur directement sur le formulaire de création.
   Array.prototype.slice.call(document.querySelectorAll('.quizx-category-card')).forEach(function (card) {
@@ -498,9 +602,11 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
         return;
       }
       rows.sort(function (a, b) { return (b.points || 0) - (a.points || 0); });
+      var me = currentUser();
       listEl.innerHTML = rows.map(function (r, i) {
-        return '<div class="quiz-leaderboard-row"><span class="quiz-leaderboard-rank">' + (i + 1) + '</span>' +
-          '<span class="quiz-leaderboard-name">' + (r.nickname || 'Joueur') + '</span>' +
+        var isMe = me && r.uid === me.uid;
+        return '<div class="quiz-leaderboard-row' + (isMe ? ' is-me' : '') + '"><span class="quiz-leaderboard-rank">' + (i + 1) + '</span>' +
+          '<span class="quiz-leaderboard-name">' + escapeHtml(r.nickname || 'Joueur') + '</span>' +
           '<span class="quiz-leaderboard-points">' + (r.points || 0) + ' pts</span></div>';
       }).join('');
     });
@@ -569,6 +675,117 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
     });
   }
 
+  /* ---------- Stats de l'Online Arena (onglet Défi en ligne) — toutes
+   * réelles : joueurs classés + points moyens (déjà calculés par
+   * loadLeaderboardStats), duels aujourd'hui (calcul client sur le
+   * même lot que loadRecentAndPopular, pas de requête supplémentaire),
+   * duels en direct (vrai compte des quizDuels "in_progress"). Aucun
+   * indicateur de présence/temps d'attente inventé : pas d'équivalent
+   * réel, donc pas affiché. ---------- */
+  function isToday(timestamp) {
+    if (!timestamp || !timestamp.toDate) return false;
+    var d = timestamp.toDate();
+    var now = new Date();
+    return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth() && d.getDate() === now.getDate();
+  }
+
+  function loadArenaStats() {
+    var rankedEl = document.getElementById('arena-stat-ranked');
+    var todayEl = document.getElementById('arena-stat-today');
+    var liveEl = document.getElementById('arena-stat-live');
+    var avgEl = document.getElementById('arena-stat-avgpoints');
+    if (!rankedEl && !todayEl && !liveEl && !avgEl) return;
+
+    loadLeaderboardStats(db, firestoreFns).then(function (stats) {
+      if (rankedEl) rankedEl.textContent = stats.count;
+      if (avgEl) avgEl.textContent = stats.avgPoints;
+    });
+
+    if (todayEl) {
+      var qRecent = firestoreFns.query(
+        firestoreFns.collection(db, 'quizDuels'),
+        firestoreFns.orderBy('createdAt', 'desc'),
+        firestoreFns.limit(60)
+      );
+      firestoreFns.getDocs(qRecent).then(function (snap) {
+        var count = 0;
+        snap.forEach(function (d) { if (isToday(d.data().createdAt)) count++; });
+        todayEl.textContent = count;
+      }).catch(function () { todayEl.textContent = '–'; });
+    }
+
+    if (liveEl) {
+      var qLive = firestoreFns.query(firestoreFns.collection(db, 'quizDuels'), firestoreFns.where('status', '==', 'in_progress'));
+      firestoreFns.getDocs(qLive).then(function (snap) {
+        liveEl.textContent = snap.size;
+      }).catch(function () { liveEl.textContent = '–'; });
+    }
+  }
+
+  /* ---------- Matchs en direct — réels : quizDuels "in_progress" sont
+   * publiquement lisibles (firestore.rules), et players/{uid} lisible
+   * par tout utilisateur connecté (lecture seule, jamais l'écriture).
+   * Aucun spectateur interactif (pas d'écran de jeu en lecture seule
+   * construit pour cette passe) : uniquement l'affichage du score qui
+   * bouge en direct. ---------- */
+  var liveMatchUnsubs = [];
+
+  function clearLiveMatchListeners() {
+    liveMatchUnsubs.forEach(function (fn) { fn(); });
+    liveMatchUnsubs = [];
+  }
+
+  function loadLiveMatches() {
+    var gridEl = document.getElementById('arena-live-matches');
+    if (!gridEl) return;
+    var qLive = firestoreFns.query(firestoreFns.collection(db, 'quizDuels'), firestoreFns.where('status', '==', 'in_progress'), firestoreFns.limit(30));
+    firestoreFns.getDocs(qLive).then(function (snap) {
+      clearLiveMatchListeners();
+      var duels = [];
+      snap.forEach(function (d) { duels.push({ id: d.id, data: d.data() }); });
+      duels.sort(function (a, b) {
+        var ta = a.data.createdAt ? a.data.createdAt.toMillis() : 0;
+        var tb = b.data.createdAt ? b.data.createdAt.toMillis() : 0;
+        return tb - ta;
+      });
+      duels = duels.slice(0, 6);
+
+      if (!duels.length) {
+        gridEl.innerHTML = '<p class="quizx-sidebar-empty">Aucun duel en direct pour l\'instant — reviens un peu plus tard.</p>';
+        return;
+      }
+
+      gridEl.innerHTML = duels.map(function (d) {
+        return '<div class="arena-live-card" data-duel-id="' + d.id + '">' +
+          '<span class="arena-live-badge">En direct</span>' +
+          '<div class="arena-live-players">' +
+          '<span class="arena-live-player" id="arena-live-host-' + d.id + '">' + escapeHtml(d.data.hostNickname || '?') + ' · 0</span>' +
+          '<span class="arena-live-vs">vs</span>' +
+          '<span class="arena-live-player" id="arena-live-guest-' + d.id + '">' + escapeHtml(d.data.guestNickname || '?') + ' · 0</span>' +
+          '</div>' +
+          '<p class="arena-live-topic">' + escapeHtml(d.data.topicName || '') + '</p>' +
+          '</div>';
+      }).join('');
+
+      duels.forEach(function (d) {
+        if (d.data.hostUid) {
+          liveMatchUnsubs.push(firestoreFns.onSnapshot(firestoreFns.doc(db, 'quizDuels', d.id, 'players', d.data.hostUid), function (snap) {
+            var el = document.getElementById('arena-live-host-' + d.id);
+            if (el && snap.exists()) el.textContent = (d.data.hostNickname || '?') + ' · ' + (snap.data().score || 0);
+          }));
+        }
+        if (d.data.guestUid) {
+          liveMatchUnsubs.push(firestoreFns.onSnapshot(firestoreFns.doc(db, 'quizDuels', d.id, 'players', d.data.guestUid), function (snap) {
+            var el = document.getElementById('arena-live-guest-' + d.id);
+            if (el && snap.exists()) el.textContent = (d.data.guestNickname || '?') + ' · ' + (snap.data().score || 0);
+          }));
+        }
+      });
+    }).catch(function () {
+      gridEl.innerHTML = '<p class="quizx-sidebar-empty">Indisponible pour l\'instant.</p>';
+    });
+  }
+
   var copyBtn = document.getElementById('quiz-duel-copy-btn');
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
@@ -590,7 +807,10 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
     // par la porte de connexion generale du quiz (voir quiz.js).
     initFirestore().then(function () {
       loadHeroStats();
+      loadArenaStats();
       loadRecentAndPopular();
+      loadLiveMatches();
+      setInterval(function () { loadArenaStats(); loadLiveMatches(); }, 20000);
     });
 
     var user = currentUser();

@@ -588,14 +588,40 @@
 
 <div class="quiz-duel-page quizx-page" id="quiz-duel-page">
 
-  <!-- ---------- Hero ---------- -->
-  <section class="quizx-hero">
-    <span class="eyebrow">Atlas Quiz</span>
-    <h1>Défie tes amis en duel Atlas Quiz</h1>
-    <p class="quizx-hero-subtitle">Choisis un rang ou un thème, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
-    <div class="quizx-hero-ctas">
-      <a href="#quiz-duel-picker-anchor" class="quiz-btn-primary">Créer un duel</a>
-      <a href="play.html?tab=quiz-solo" class="quizx-btn-secondary">Mode Solo</a>
+  <!-- ---------- Hero — Online Arena ---------- -->
+  <section class="arena-hero">
+    <img class="arena-hero-banner" src="static/img/play/online/online-banner.png" alt="Défi en ligne — Atlas Rising">
+    <div class="arena-hero-overlay">
+      <span class="arena-hero-label">⚡ ONLINE ARENA</span>
+      <p class="arena-hero-desc">Choisis un rang ou un thème, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
+      <div class="arena-hero-ctas">
+        <a href="#quiz-duel-picker-anchor" class="quiz-btn-primary arena-btn-primary">🔥 Trouver un adversaire</a>
+        <a href="#quiz-duel-picker-anchor" class="quizx-btn-secondary arena-btn-secondary">+ Inviter un ami</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Stats de l'arène (réelles) ---------- -->
+  <section class="arena-stats" aria-label="Statistiques de l'arène en ligne">
+    <div class="arena-stat-card">
+      <span class="arena-stat-icon">🏅</span>
+      <span class="arena-stat-value" id="arena-stat-ranked">–</span>
+      <span class="arena-stat-label">Joueurs classés</span>
+    </div>
+    <div class="arena-stat-card">
+      <span class="arena-stat-icon">⚔️</span>
+      <span class="arena-stat-value" id="arena-stat-today">–</span>
+      <span class="arena-stat-label">Duels aujourd'hui</span>
+    </div>
+    <div class="arena-stat-card">
+      <span class="arena-stat-icon">🔴</span>
+      <span class="arena-stat-value" id="arena-stat-live">–</span>
+      <span class="arena-stat-label">Duels en direct</span>
+    </div>
+    <div class="arena-stat-card">
+      <span class="arena-stat-icon">⭐</span>
+      <span class="arena-stat-value" id="arena-stat-avgpoints">–</span>
+      <span class="arena-stat-label">Points moyens</span>
     </div>
   </section>
 
@@ -614,9 +640,40 @@
   <div class="quizx-layout">
     <div class="quizx-main">
 
+      <!-- ---------- Types de match ---------- -->
+      <section class="arena-modes">
+        <h2 class="grid-title">Types de match</h2>
+        <p class="quizx-hero-desc quizx-section-intro">Choisis ton format — un duel classique par rang ou par thème dès maintenant.</p>
+        <div class="arena-mode-grid">
+          <button type="button" class="arena-mode-card is-active" data-scroll-target="quiz-duel-picker">
+            <span class="arena-mode-icon">⚔️</span>
+            <span class="arena-mode-name">Classique</span>
+            <span class="arena-mode-desc">Duel 1 contre 1, par rang ou thème</span>
+          </button>
+          <div class="arena-mode-card is-soon" aria-disabled="true">
+            <span class="arena-mode-icon">🏆</span>
+            <span class="arena-mode-name">Classé</span>
+            <span class="arena-mode-desc">Ligue avec classement saisonnier</span>
+            <span class="arena-mode-soon-badge">Bientôt disponible</span>
+          </div>
+          <div class="arena-mode-card is-soon" aria-disabled="true">
+            <span class="arena-mode-icon">⚡</span>
+            <span class="arena-mode-name">Blitz</span>
+            <span class="arena-mode-desc">Réponses ultra-rapides, temps limité</span>
+            <span class="arena-mode-soon-badge">Bientôt disponible</span>
+          </div>
+          <div class="arena-mode-card is-soon" aria-disabled="true">
+            <span class="arena-mode-icon">🎗️</span>
+            <span class="arena-mode-name">Championnat</span>
+            <span class="arena-mode-desc">Tournois à élimination directe</span>
+            <span class="arena-mode-soon-badge">Bientôt disponible</span>
+          </div>
+        </div>
+      </section>
+
       <!-- ---------- Mode Duel : défier un ami ---------- -->
-      <div class="quiz-duel-section quizx-card-block" id="quiz-duel-picker" hidden>
-        <h2 class="grid-title">Défier un ami</h2>
+      <div class="quiz-duel-section quizx-card-block arena-picker-card" id="quiz-duel-picker" hidden>
+        <h2 class="grid-title">Configurer ton duel</h2>
         <p class="quiz-duel-intro">Choisis un rang ou un thème, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
 
         <div class="quiz-duel-mode-tabs">
@@ -627,12 +684,30 @@
         <div class="quiz-duel-picker-row">
           <select id="quiz-duel-rank-select"></select>
           <select id="quiz-duel-theme-select" hidden></select>
-          <button type="button" class="quiz-btn-primary" id="quiz-duel-create-btn">Créer un duel</button>
+          <button type="button" class="quiz-btn-primary arena-btn-primary" id="quiz-duel-create-btn">🔥 Créer un duel</button>
         </div>
 
         <h3 class="quiz-duel-history-title">Mes duels récents</h3>
         <div class="quiz-duel-history" id="quiz-duel-history-list"></div>
       </div>
+
+      <!-- ---------- Adversaires récents ---------- -->
+      <section class="arena-recent-opponents-block">
+        <h2 class="grid-title">Adversaires récents</h2>
+        <p class="quizx-hero-desc quizx-section-intro">Tes derniers vrais adversaires — défie-les à nouveau en un clic.</p>
+        <div class="arena-carousel" id="arena-recent-opponents">
+          <p class="quizx-sidebar-empty">Connecte-toi pour voir tes adversaires récents.</p>
+        </div>
+      </section>
+
+      <!-- ---------- Matchs en direct ---------- -->
+      <section class="arena-live-block">
+        <h2 class="grid-title">Matchs en direct</h2>
+        <p class="quizx-hero-desc quizx-section-intro">Des duels Atlas Quiz en cours, en ce moment même.</p>
+        <div class="arena-live-grid" id="arena-live-matches">
+          <p class="quizx-sidebar-empty">Chargement…</p>
+        </div>
+      </section>
 
       <!-- ---------- Thèmes de duel ---------- -->
       
@@ -735,10 +810,24 @@
 
     <aside class="quizx-sidebar">
       <!-- ---------- Classement ---------- -->
-      <div class="quizx-sidebar-card" id="quiz-leaderboard-section" hidden>
-        <h3 class="quizx-sidebar-title">Classement</h3>
+      <div class="quizx-sidebar-card arena-leaderboard-card" id="quiz-leaderboard-section" hidden>
+        <h3 class="quizx-sidebar-title">🏆 Top Joueurs</h3>
         <p class="quizx-sidebar-subtitle">Meilleurs joueurs, tous rangs et duels confondus.</p>
-        <div class="quiz-leaderboard-list" id="quiz-leaderboard-list"></div>
+        <div class="quiz-leaderboard-list arena-leaderboard-list" id="quiz-leaderboard-list"></div>
+      </div>
+
+      <!-- ---------- Tournoi (à venir) ---------- -->
+      <div class="quizx-sidebar-card arena-tournament-card">
+        <span class="arena-tournament-badge">Bientôt disponible</span>
+        <h3 class="quizx-sidebar-title">🎗️ Tournoi Atlas Rising</h3>
+        <p class="quizx-sidebar-subtitle">Un vrai tournoi à élimination directe, avec classement dédié et récompenses exclusives — en préparation.</p>
+      </div>
+
+      <!-- ---------- Récompenses ---------- -->
+      <div class="quizx-sidebar-card arena-rewards-card">
+        <h3 class="quizx-sidebar-title">🎁 En jeu dans ce duel</h3>
+        <p class="quizx-sidebar-subtitle">Une victoire fait progresser ton score réel au classement général.</p>
+        <p class="arena-rewards-soon">Bientôt : XP, Atlas Points et packs de cartes à gagner.</p>
       </div>
     </aside>
   </div>
@@ -762,11 +851,29 @@
     </div>
   </div>
 
-  <!-- ---------- Salle d'attente (hôte) ---------- -->
-  <div class="quiz-login-gate" id="quiz-duel-waiting" hidden>
-    <div class="quiz-login-gate-card">
-      <p class="quiz-login-gate-icon">⏳</p>
-      <h2>En attente d'un adversaire…</h2>
+  <!-- ---------- Salle d'attente (hôte) — matchmaking premium, branché
+       sur le vrai flux temps réel (aucun adversaire n'est simulé : le
+       visuel bascule uniquement quand un vrai ami rejoint via le
+       lien). ---------- -->
+  <div class="quiz-login-gate arena-matchmaking-overlay" id="quiz-duel-waiting" hidden>
+    <div class="quiz-login-gate-card arena-matchmaking-card">
+      <span class="arena-matchmaking-eyebrow">ONLINE ARENA</span>
+      <div class="arena-vs-row">
+        <div class="arena-vs-side">
+          <div class="arena-vs-avatar arena-vs-avatar-me"><span class="arena-vs-avatar-glyph">🧑</span></div>
+          <span class="arena-vs-name" id="arena-my-name">Toi</span>
+        </div>
+        <div class="arena-vs-center">
+          <img src="static/img/play/online/versus-duel.png" alt="" class="arena-vs-art">
+        </div>
+        <div class="arena-vs-side">
+          <div class="arena-vs-avatar arena-vs-avatar-opponent" id="arena-opponent-avatar"></div>
+          <span class="arena-vs-name" id="arena-opponent-name">En attente…</span>
+        </div>
+      </div>
+      <p class="arena-matchmaking-status" id="arena-matchmaking-status">
+        En attente d'un adversaire<span class="arena-dots"><span>.</span><span>.</span><span>.</span></span>
+      </p>
       <p>Envoie ce lien à un ami pour qu'il te rejoigne :</p>
       <div class="quiz-duel-link-row">
         <input type="text" id="quiz-duel-invite-link" readonly>

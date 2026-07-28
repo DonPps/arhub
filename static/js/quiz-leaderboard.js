@@ -62,7 +62,7 @@ export function loadTopPlayers(db, firestoreFns, count) {
   );
   return firestoreFns.getDocs(q).then(function (snap) {
     var rows = [];
-    snap.forEach(function (d) { rows.push(d.data()); });
+    snap.forEach(function (d) { rows.push(Object.assign({ uid: d.id }, d.data())); });
     return rows;
   }).catch(function () { return []; });
 }
