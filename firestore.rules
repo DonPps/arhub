@@ -244,12 +244,20 @@ service cloud.firestore {
     // chaque carte (donnée statique, hors Firestore). Compromis accepté :
     // fonctionnalité cosmétique/sociale, aucun enjeu de points ou d'objets —
     // au pire un visiteur voit un onze "impossible", sans conséquence.
+    //
+    // `value` (classement par valeur d'équipe) est recalculé et renvoyé en
+    // entier par le client à chaque modification — exactement le même
+    // principe non vérifié que `leaderboard.points` (déjà en place) : la
+    // règle borne juste le type/signe, pas l'exactitude du calcul.
     match /dreamTeams/{userId} {
       allow read: if true;
       allow write: if request.auth != null && request.auth.uid == userId
         && request.resource.data.formation is string
         && request.resource.data.slots is map
-        && request.resource.data.slots.size() <= 11;
+        && request.resource.data.slots.size() <= 11
+        && request.resource.data.value is number
+        && request.resource.data.value >= 0
+        && request.resource.data.nickname is string;
     }
 
   }

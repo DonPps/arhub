@@ -51,3 +51,23 @@ export function getLevel(balance) {
 }
 
 export const RARITIES = ['Common', 'Rare', 'Epic', 'Legendary', 'Mythic', 'Limited Edition', 'Event Exclusive'];
+
+// Valeur d'une carte pour le classement Dream Team (somme des 11 cartes
+// placées). Une carte peut définir son propre champ "value" (ex. cartes
+// vedettes plus fortes que la moyenne de leur rareté) ; à défaut, cette
+// table sert de repli par rareté.
+export const RARITY_DEFAULT_VALUE = {
+  Common: 10,
+  Rare: 25,
+  Epic: 50,
+  Legendary: 100,
+  Mythic: 200,
+  'Limited Edition': 150,
+  'Event Exclusive': 175,
+};
+
+export function cardValue(card) {
+  if (!card) return 0;
+  if (typeof card.value === 'number') return card.value;
+  return RARITY_DEFAULT_VALUE[card.rarity] || 0;
+}
