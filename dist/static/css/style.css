@@ -2195,7 +2195,7 @@ body.drawer-open{ overflow:hidden; }
   cursor:pointer; transition: background .2s, transform .2s var(--ease);
 }
 .shop-buy-btn:hover:not(:disabled){ background: var(--red-dark); transform: translateY(-1px); }
-.shop-buy-btn:disabled{ background: var(--border); color: var(--ink-soft); cursor:default; }
+.shop-buy-btn:disabled{ background: transparent; border: 1.5px solid var(--border); color: var(--ink-soft); cursor:not-allowed; }
 .shop-equip-btn.is-equipped{ background: var(--gold); color: var(--ink); cursor:default; }
 .shop-equip-btn.is-equipped:hover{ background: var(--gold); transform:none; }
 
