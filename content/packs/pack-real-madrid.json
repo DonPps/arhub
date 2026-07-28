@@ -1,0 +1,19 @@
+{
+  "name": "Pack Real Madrid",
+  "description": "Les stars actuelles de Real Madrid.",
+  "price": 180,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "real-madrid",
+  "cardPool": [
+    "thibaut-courtois-real-madrid",
+    "ferland-mendy-real-madrid",
+    "antonio-rudiger-real-madrid",
+    "dani-carvajal-real-madrid",
+    "aurelien-tchouameni-real-madrid",
+    "jude-bellingham-real-madrid",
+    "vinicius-junior-real-madrid",
+    "rodrygo-real-madrid",
+    "kylian-mbappe-real-madrid"
+  ]
+}
