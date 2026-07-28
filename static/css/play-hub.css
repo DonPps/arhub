@@ -415,6 +415,240 @@
 .play-body .quiz-duel-history-défaite{ background: rgba(193,18,31,.18); color:#ff8f8f; }
 .play-body .quiz-duel-history-égalité{ background: rgba(255,255,255,.1); color: rgba(242,235,220,.7); }
 
+/* ================================================================
+   DREAM TEAM — refonte "Ultimate Team AAA" (onglet Play uniquement)
+   Tout ce bloc est scoppé à #dreamteam-page / .dreamteam-* : ne
+   redéfinit jamais .shop-card / .quiz-leaderboard-row eux-mêmes
+   (utilisés ailleurs dans Play), seulement des règles composées
+   .dreamteam-page X, comme fait pour Quiz/Boutique plus haut.
+   ================================================================ */
+
+/* ---------- Bouton premium (Partager) ---------- */
+.play-body #dreamteam-page .quiz-btn-primary{
+  border-radius:12px; padding:11px 22px;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  box-shadow: 0 10px 22px -10px rgba(193,18,31,.7), 0 0 0 1px rgba(184,144,62,.3);
+  transition: transform .2s var(--ease), box-shadow .2s ease;
+}
+.play-body #dreamteam-page .quiz-btn-primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -12px rgba(193,18,31,.75), 0 0 22px -4px rgba(184,144,62,.55);
+}
+.play-body .dreamteam-own-link{
+  color: var(--gold); font-weight:700; transition: color .2s ease;
+}
+.play-body .dreamteam-own-link:hover{ color:#F2EBDC; }
+.play-body .dreamteam-formation{ color: rgba(242,235,220,.6); }
+.play-body #dreamteam-page .grid-title{ color:#F2EBDC; }
+
+/* ---------- Terrain : bandeau LED + lumière volumétrique ---------- */
+.play-body .dreamteam-field-wrap{
+  position:relative; padding-top:8px; margin-bottom:26px; z-index:0;
+}
+.play-body .dreamteam-field-wrap::before{
+  content:''; position:absolute; left:-8%; right:-8%; top:-6%; height:65%;
+  background:
+    radial-gradient(45% 65% at 15% 0%, rgba(184,144,62,.22), transparent 72%),
+    radial-gradient(45% 65% at 85% 0%, rgba(184,144,62,.22), transparent 72%);
+  pointer-events:none; z-index:0; animation: dt-volumetric-pulse 6s ease-in-out infinite;
+}
+@keyframes dt-volumetric-pulse{ 0%,100%{ opacity:.7; } 50%{ opacity:1; } }
+.play-body .dreamteam-led-strip{
+  position:relative; z-index:1; overflow:hidden; height:26px; border-radius:7px;
+  margin-bottom:18px; max-width:560px; margin-inline:auto;
+  background: linear-gradient(90deg, rgba(193,18,31,.28), rgba(184,144,62,.4), rgba(193,18,31,.28));
+  border:1px solid rgba(184,144,62,.4);
+  box-shadow: 0 0 16px -4px rgba(184,144,62,.55), inset 0 0 10px rgba(0,0,0,.45);
+}
+.play-body .dreamteam-led-strip-track{
+  position:absolute; inset:0; display:flex; align-items:center; white-space:nowrap;
+  animation: dt-led-scroll 16s linear infinite;
+  font-family: var(--font-nav); font-size:11px; font-weight:800; letter-spacing:.16em;
+  color:#F2EBDC; text-shadow: 0 0 8px rgba(184,144,62,.85);
+}
+.play-body .dreamteam-led-strip-track span{ padding:0 22px; }
+@keyframes dt-led-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+/* ---------- Panneau de stats d'équipe ---------- */
+.play-body .dreamteam-stats-panel{
+  position:relative; z-index:1; display:grid; grid-template-columns:repeat(6,1fr);
+  gap:10px; max-width:640px; margin:0 auto 22px;
+}
+.play-body .dreamteam-stat{
+  display:flex; flex-direction:column; align-items:center; gap:2px; padding:14px 6px;
+  background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border:1px solid rgba(184,144,62,.3); border-radius:12px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 14px 26px -18px rgba(0,0,0,.7);
+  transition: border-color .3s ease, box-shadow .3s ease;
+}
+.play-body .dreamteam-stat-value{
+  font-family: var(--font-display); font-size:19px; font-weight:700; color:#F2EBDC;
+  font-variant-numeric: tabular-nums;
+}
+.play-body .dreamteam-stat-label{
+  font-family: var(--font-nav); font-size:9px; text-transform:uppercase;
+  letter-spacing:.05em; color: rgba(242,235,220,.6); text-align:center;
+}
+.play-body .dreamteam-stat-value.is-chem-low{ color:#ff8f8f; }
+.play-body .dreamteam-stat-value.is-chem-mid{ color:#f2b866; }
+.play-body .dreamteam-stat-value.is-chem-high{ color:#7fd99b; }
+@media (max-width:700px){
+  .play-body .dreamteam-stats-panel{ grid-template-columns:repeat(3,1fr); }
+}
+
+/* ---------- Terrain — vraie texture générée (Higgsfield), pas un
+   simple dégradé plat (retour utilisateur : "le terrain paraît plat").
+   ------- */
+.play-body .dreamteam-pitch{
+  position:relative; z-index:1; max-width:560px; border-radius:22px;
+  background: url('../img/play/dreamteam-pitch.jpg') center/cover, linear-gradient(180deg,#2f8f4e,#256f3d);
+  box-shadow: 0 34px 64px -26px rgba(0,0,0,.85), 0 0 0 1px rgba(184,144,62,.35), 0 0 44px -12px rgba(184,144,62,.4);
+}
+.play-body .dreamteam-pitch::before{
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:1; border-radius:inherit;
+  background:
+    radial-gradient(120% 55% at 50% 0%, rgba(255,244,214,.22), transparent 55%),
+    radial-gradient(140% 80% at 50% 122%, rgba(0,0,0,.6), transparent 62%),
+    linear-gradient(180deg, rgba(0,0,0,.32) 0%, transparent 16%, transparent 84%, rgba(0,0,0,.32) 100%);
+}
+.play-body .dreamteam-pitch::after{
+  content:''; position:absolute; left:0; right:0; bottom:0; height:20%; pointer-events:none; z-index:1;
+  background: linear-gradient(0deg, rgba(230,240,220,.14), transparent);
+  animation: dt-mist-drift 9s ease-in-out infinite;
+}
+@keyframes dt-mist-drift{
+  0%,100%{ opacity:.65; transform:translateY(0); }
+  50%{ opacity:1; transform:translateY(-4%); }
+}
+.play-body #dreamteam-particles-canvas{
+  position:absolute; inset:0; z-index:2; pointer-events:none; border-radius:inherit;
+}
+.play-body .dreamteam-chemistry-svg{
+  position:absolute; inset:0; z-index:3; pointer-events:none; overflow:visible;
+}
+.play-body .dreamteam-chemistry-link{
+  stroke:url(#dt-chemistry-gradient); stroke-width:.6; fill:none; vector-effect:non-scaling-stroke;
+  stroke-dasharray:2.2 1.6; opacity:.9;
+  filter: drop-shadow(0 0 3px rgba(184,144,62,.7));
+  animation: dt-chem-flow 1.4s linear infinite;
+}
+@keyframes dt-chem-flow{ to{ stroke-dashoffset:-7.6; } }
+
+/* ---------- Emplacements joueurs — socle premium ---------- */
+.play-body .dreamteam-slot{ z-index:4; width:60px; }
+.play-body .dreamteam-slot::before{
+  content:''; position:absolute; left:50%; top:18px; transform:translate(-50%,-50%);
+  width:52px; height:52px; border-radius:50%; pointer-events:none;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.32), rgba(184,144,62,.12) 55%, transparent 72%);
+  border:2px solid rgba(205,205,215,.5);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.4), 0 4px 10px -2px rgba(0,0,0,.6), 0 0 18px -4px rgba(184,144,62,.5);
+  animation: dt-socket-breathe 3.2s ease-in-out infinite;
+}
+@keyframes dt-socket-breathe{
+  0%,100%{ box-shadow:0 0 0 1px rgba(0,0,0,.4),0 4px 10px -2px rgba(0,0,0,.6),0 0 18px -4px rgba(184,144,62,.45); }
+  50%{ box-shadow:0 0 0 1px rgba(0,0,0,.4),0 4px 10px -2px rgba(0,0,0,.6),0 0 26px -2px rgba(184,144,62,.8); }
+}
+.play-body .dreamteam-slot::after{
+  content:''; position:absolute; left:50%; top:18px; transform:translate(-50%,-50%);
+  width:58px; height:58px; border-radius:50%; pointer-events:none; mix-blend-mode:screen;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(255,224,150,.85) 14deg, transparent 42deg, transparent 360deg);
+  animation: dt-socket-spin 4.2s linear infinite;
+}
+@keyframes dt-socket-spin{ to{ transform:translate(-50%,-50%) rotate(360deg); } }
+.play-body .dreamteam-slot.is-filled::before{
+  border-color: rgba(255,214,120,.85);
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.5), rgba(184,144,62,.3) 55%, transparent 72%);
+}
+.play-body .dreamteam-slot-plus{
+  position:relative; z-index:1; width:44px; height:44px; border-radius:50%;
+  border:2px dashed rgba(184,144,62,.55); background: rgba(8,6,4,.4); backdrop-filter: blur(2px);
+  transition: border-color .3s ease, background .3s ease;
+}
+.play-body .dreamteam-slot-label{ color: rgba(242,235,220,.85); }
+.play-body .dreamteam-slot-name{ color:#F2EBDC; }
+/* Hologramme Atlas Rising quand le slot est vide */
+.play-body .dreamteam-slot:not(.is-filled) .dreamteam-slot-plus{
+  color:transparent; font-size:0; border-color: rgba(120,220,255,.55); background: rgba(18,45,58,.42);
+  animation: dt-holo-flicker 2.6s ease-in-out infinite;
+}
+.play-body .dreamteam-slot:not(.is-filled) .dreamteam-slot-plus::before{
+  content:''; position:absolute; top:9px; left:50%; transform:translateX(-50%);
+  width:10px; height:10px; border-radius:50%; background: rgba(150,232,255,.9);
+  box-shadow:0 0 7px rgba(150,232,255,.85);
+}
+.play-body .dreamteam-slot:not(.is-filled) .dreamteam-slot-plus::after{
+  content:''; position:absolute; bottom:8px; left:50%; transform:translateX(-50%);
+  width:22px; height:12px; border-radius:12px 12px 0 0; background: rgba(150,232,255,.7);
+  box-shadow:0 0 9px rgba(150,232,255,.65);
+}
+@keyframes dt-holo-flicker{ 0%,100%{ opacity:.9; } 45%{ opacity:.5; } 50%{ opacity:1; } 78%{ opacity:.6; } }
+.play-body .dreamteam-slot img{
+  position:relative; z-index:1;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.6)) drop-shadow(0 0 10px rgba(184,144,62,.5));
+  transition: transform .25s var(--ease);
+}
+.play-body .dreamteam-slot.is-filled:hover img{ transform: scale(1.08) translateY(-2px); }
+.play-body .dreamteam-slot.is-editable{ cursor:pointer; }
+
+/* Retour visuel pendant un glisser-déposer carte -> slot */
+.play-body .dreamteam-slot.is-accepting::before{
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.4), 0 4px 10px -2px rgba(0,0,0,.6), 0 0 22px 0 rgba(184,144,62,.9);
+}
+.play-body .dreamteam-slot.is-rejecting{ opacity:.35; }
+.play-body .dreamteam-slot.is-drop-target::before{
+  transform: translate(-50%,-50%) scale(1.15);
+}
+.dreamteam-drag-ghost{ transition:none; }
+
+/* ---------- Carrousel de collection ---------- */
+.play-body .dreamteam-collection-block{ margin-top:8px; }
+.play-body .dreamteam-carousel{
+  display:flex; gap:14px; overflow-x:auto; padding:10px 4px 20px;
+  scroll-snap-type:x proximity; cursor:grab; -webkit-overflow-scrolling:touch;
+}
+.play-body .dreamteam-carousel.is-dragging{ cursor:grabbing; scroll-snap-type:none; user-select:none; }
+.play-body .dreamteam-carousel::-webkit-scrollbar{ height:6px; }
+.play-body .dreamteam-carousel::-webkit-scrollbar-track{ background:transparent; }
+.play-body .dreamteam-carousel::-webkit-scrollbar-thumb{ background: rgba(184,144,62,.4); border-radius:3px; }
+.play-body .dreamteam-collection-card{
+  flex:0 0 130px; scroll-snap-align:start; cursor:grab; position:relative;
+}
+.play-body .dreamteam-collection-card:active{ cursor:grabbing; }
+.play-body .dreamteam-collection-card:hover{ transform: perspective(700px) translateY(-8px); }
+.play-body .dreamteam-collection-card.is-dragging-card{ opacity:.45; }
+.play-body .dreamteam-collection-empty{ color: rgba(242,235,220,.65); font-family: var(--font-body); font-size:13.5px; }
+
+/* Aperçu au survol — nom / poste / rareté / note / sélection réels
+   (cards.json n'a ni description ni sous-stats détaillées : on
+   n'invente rien). */
+.play-body .dreamteam-card-preview{
+  position:absolute; left:0; right:0; bottom:0; z-index:5; border-radius:0 0 12px 12px;
+  padding:9px 10px 10px;
+  background: linear-gradient(0deg, rgba(8,6,4,.97), rgba(8,6,4,.85) 65%, transparent);
+  opacity:0; transform:translateY(6px); pointer-events:none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.play-body .dreamteam-collection-card:hover .dreamteam-card-preview,
+.play-body .dreamteam-collection-card:focus-within .dreamteam-card-preview{
+  opacity:1; transform:translateY(0);
+}
+.play-body .dreamteam-card-preview-name{
+  font-family: var(--font-display); font-size:13px; color:#F2EBDC; display:block; margin-bottom:3px;
+}
+.play-body .dreamteam-card-preview-meta{
+  display:flex; flex-wrap:wrap; gap:5px; font-family: var(--font-nav); font-size:9px;
+  text-transform:uppercase; letter-spacing:.03em; color: rgba(242,235,220,.72);
+}
+.play-body .dreamteam-card-preview-meta span{
+  background: rgba(255,255,255,.12); padding:2px 7px; border-radius:20px;
+}
+
+@media (max-width:700px){
+  .play-body .dreamteam-collection-card{ flex-basis:110px; }
+}
+
 @media (prefers-reduced-motion: reduce){
   .play-panel:not([hidden]){ animation:none; }
   .play-body .shop-card-media, .play-body .pack-reveal-card img{ animation:none; }
@@ -429,5 +663,19 @@
   .play-body .quizx-category-card,
   .play-body .pack-reveal-card{
     animation:none; transform:none !important;
+  }
+  .play-body .dreamteam-field-wrap::before,
+  .play-body .dreamteam-pitch::after,
+  .play-body .dreamteam-slot::before,
+  .play-body .dreamteam-slot::after,
+  .play-body .dreamteam-slot-plus,
+  .play-body .dreamteam-led-strip-track,
+  .play-body .dreamteam-chemistry-link{
+    animation:none;
+  }
+  .play-body .dreamteam-slot::after{ display:none; }
+  .play-body .dreamteam-collection-card:hover,
+  .play-body .dreamteam-slot.is-filled:hover img{
+    transform:none !important;
   }
 }

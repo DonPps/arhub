@@ -26,11 +26,40 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
   var pickerGrid = document.getElementById('dreamteam-picker-grid');
   var pickerTitle = document.getElementById('dreamteam-picker-title');
 
+  /* ---------- Refonte AAA : panneau de stats, chimie, carrousel de
+   * collection — éléments additionnels ajoutés dans templates/play.html,
+   * uniquement à l'intérieur de #dreamteam-page. ---------- */
+  var fieldWrap = document.getElementById('dreamteam-field-wrap');
+  var collectionBlock = document.getElementById('dreamteam-collection-block');
+  var carousel = document.getElementById('dreamteam-carousel');
+  var chemistrySvg = document.getElementById('dreamteam-chemistry-svg');
+  var statOverall = document.getElementById('dreamteam-stat-overall');
+  var statChemistry = document.getElementById('dreamteam-stat-chemistry');
+  var statValue = document.getElementById('dreamteam-stat-value');
+  var statCards = document.getElementById('dreamteam-stat-cards');
+  var statLegendary = document.getElementById('dreamteam-stat-legendary');
+
   var SLOT_POSITIONS = {
     GK: ['GK'], LB: ['LB'], RB: ['RB'], CB1: ['CB'], CB2: ['CB'],
     CM1: ['CDM', 'CM', 'CAM'], CM2: ['CDM', 'CM', 'CAM'], CM3: ['CDM', 'CM', 'CAM'],
     LW: ['LW'], RW: ['RW'], ST: ['ST'],
   };
+
+  /* Coordonnées (%) des 11 slots — dupliquées depuis style.css
+   * (.dreamteam-slot[data-slot="..."]) pour tracer les liens de chimie
+   * sur le SVG superposé (viewBox 0 0 100 100, preserveAspectRatio="none"
+   * pour correspondre exactement au positionnement en % du CSS). */
+  var SLOT_COORDS = {
+    GK: [50, 92], LB: [15, 74], CB1: [38, 78], CB2: [62, 78], RB: [85, 74],
+    CM1: [25, 50], CM2: [50, 48], CM3: [75, 50],
+    LW: [15, 22], ST: [50, 14], RW: [85, 22],
+  };
+
+  var LEGENDARY_RARITIES = ['legendary', 'mythic', 'limited-edition', 'event-exclusive'];
+
+  function rarityIsLegendary(rarity) {
+    return LEGENDARY_RARITIES.indexOf(rarityClass(rarity).replace('rarity-', '')) !== -1;
+  }
 
   function escapeHtml(str) {
     var div = document.createElement('div');
@@ -51,6 +80,7 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
   var allCards = [];
   var cardsBySlug = {};
   var ownedSlugs = [];
+  var ownedSlugsLoaded = false;
   var teamData = { formation: '4-3-3', slots: {} };
   var editable = false;
   var targetUid = null;
@@ -68,6 +98,48 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
       total += cardValue(cardsBySlug[slots[slotId]]);
     });
     return total;
+  }
+
+  /* ---------- Stats dérivées (panneau AAA) — calculées uniquement à
+   * partir des données réelles déjà chargées (cards.json + slots),
+   * jamais de valeur inventée. ---------- */
+  function filledCards(slots) {
+    var out = [];
+    Object.keys(slots || {}).forEach(function (slotId) {
+      var c = cardsBySlug[slots[slotId]];
+      if (c) out.push(c);
+    });
+    return out;
+  }
+
+  function computeOverall(slots) {
+    var cards = filledCards(slots);
+    if (!cards.length) return null;
+    var sum = cards.reduce(function (s, c) { return s + (c.rating || 0); }, 0);
+    return Math.round(sum / cards.length);
+  }
+
+  function computeLegendaryCount(slots) {
+    return filledCards(slots).filter(function (c) { return rarityIsLegendary(c.rarity); }).length;
+  }
+
+  /* Chimie = proportion de paires de titulaires partageant la même
+   * sélection nationale (seule donnée de regroupement réelle dispo dans
+   * cards.json). 0 ou 1 titulaire => pas de paire possible => null. */
+  function computeChemistryPairs(slots) {
+    var entries = Object.keys(slots || {}).map(function (slotId) {
+      return { slotId: slotId, card: cardsBySlug[slots[slotId]] };
+    }).filter(function (e) { return !!e.card; });
+    var pairs = [];
+    for (var i = 0; i < entries.length; i++) {
+      for (var j = i + 1; j < entries.length; j++) {
+        if (entries[i].card.collection && entries[i].card.collection === entries[j].card.collection) {
+          pairs.push([entries[i].slotId, entries[j].slotId]);
+        }
+      }
+    }
+    var possible = entries.length > 1 ? (entries.length * (entries.length - 1)) / 2 : 0;
+    return { pairs: pairs, percent: possible ? Math.round(pairs.length / possible * 100) : null };
   }
 
   /* Pseudo dénormalisé sur le document dreamTeams (même principe que
@@ -122,6 +194,50 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
         btn.innerHTML = '<span class="dreamteam-slot-plus">' + (editable ? '+' : '') + '</span>' +
           '<span class="dreamteam-slot-label">' + escapeHtml(btn.getAttribute('data-label')) + '</span>';
       }
+    });
+    renderStats();
+    renderChemistry();
+  }
+
+  var lastFilledCount = 0;
+
+  function renderStats() {
+    if (!statOverall) return;
+    var slots = teamData.slots || {};
+    var filledCount = filledCards(slots).length;
+    var overall = computeOverall(slots);
+    var chem = computeChemistryPairs(slots);
+
+    statOverall.textContent = overall === null ? '–' : overall;
+    statValue.textContent = computeValue(slots);
+    statCards.textContent = filledCount + '/11';
+    statLegendary.textContent = computeLegendaryCount(slots);
+
+    statChemistry.textContent = chem.percent === null ? '–' : chem.percent + '%';
+    statChemistry.classList.remove('is-chem-low', 'is-chem-mid', 'is-chem-high');
+    if (chem.percent !== null) {
+      statChemistry.classList.add(chem.percent < 34 ? 'is-chem-low' : chem.percent < 67 ? 'is-chem-mid' : 'is-chem-high');
+    }
+
+    if (filledCount === 11 && lastFilledCount < 11) {
+      document.dispatchEvent(new CustomEvent('dreamteam-team-complete'));
+    }
+    lastFilledCount = filledCount;
+  }
+
+  function renderChemistry() {
+    if (!chemistrySvg) return;
+    Array.prototype.forEach.call(chemistrySvg.querySelectorAll('.dreamteam-chemistry-link'), function (el) { el.remove(); });
+    var chem = computeChemistryPairs(teamData.slots || {});
+    var svgNS = 'http://www.w3.org/2000/svg';
+    chem.pairs.forEach(function (pair) {
+      var a = SLOT_COORDS[pair[0]], b = SLOT_COORDS[pair[1]];
+      if (!a || !b) return;
+      var line = document.createElementNS(svgNS, 'line');
+      line.setAttribute('class', 'dreamteam-chemistry-link');
+      line.setAttribute('x1', a[0]); line.setAttribute('y1', a[1]);
+      line.setAttribute('x2', b[0]); line.setAttribute('y2', b[1]);
+      chemistrySvg.appendChild(line);
     });
   }
 
@@ -217,6 +333,8 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
 
     loginGate.hidden = !!targetUid;
     pitch.hidden = !targetUid;
+    if (fieldWrap) fieldWrap.hidden = !targetUid;
+    if (collectionBlock) collectionBlock.hidden = !editable;
     shareBtn.hidden = !editable;
     ownLink.hidden = !(viewingOther && loggedIn);
     emptyNote.hidden = true;
@@ -229,7 +347,9 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
     if (editable) {
       loadOwnedCardSlugs(currentUser.uid).then(function (slugs) {
         ownedSlugs = slugs;
+        ownedSlugsLoaded = true;
         emptyNote.hidden = slugs.length > 0;
+        renderCollectionCarousel();
       });
     }
   }
@@ -251,6 +371,107 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
     pitch.addEventListener('click', function (e) {
       var btn = e.target.closest('.dreamteam-slot');
       if (btn && editable) openPicker(btn.getAttribute('data-slot'));
+    });
+  }
+
+  /* ---------- Carrousel de collection : toutes les cartes possédées,
+   * scroll horizontal natif + glisser-déposer vers un slot (pointer
+   * events, s'appuie sur assignSlot() déjà existant — le clic sur un
+   * slot vide reste le chemin principal, inchangé). ---------- */
+  function slotAccepts(slotId, position) {
+    return (SLOT_POSITIONS[slotId] || []).indexOf(position) !== -1;
+  }
+
+  function highlightAcceptingSlots(position, on) {
+    if (!pitch) return;
+    Array.prototype.forEach.call(pitch.querySelectorAll('.dreamteam-slot'), function (s) {
+      var accepts = !!(on && position && slotAccepts(s.getAttribute('data-slot'), position));
+      s.classList.toggle('is-accepting', accepts);
+      s.classList.toggle('is-rejecting', !!on && !accepts);
+    });
+  }
+
+  function setupCardDrag(cardEl, cardSlug, cardPosition) {
+    var pointerId = null, startX = 0, startY = 0, dragging = false, ghost = null;
+
+    cardEl.addEventListener('pointerdown', function (e) {
+      if (!editable || e.button === 2) return;
+      pointerId = e.pointerId; startX = e.clientX; startY = e.clientY; dragging = false;
+    });
+
+    cardEl.addEventListener('pointermove', function (e) {
+      if (pointerId === null || e.pointerId !== pointerId || !editable) return;
+      var dx = e.clientX - startX, dy = e.clientY - startY;
+      if (!dragging && Math.sqrt(dx * dx + dy * dy) > 16) {
+        dragging = true;
+        try { cardEl.setPointerCapture(pointerId); } catch (err) {}
+        cardEl.classList.add('is-dragging-card');
+        ghost = cardEl.cloneNode(true);
+        ghost.className = 'dreamteam-drag-ghost';
+        ghost.style.cssText = 'position:fixed;z-index:999;pointer-events:none;width:112px;opacity:.92;left:0;top:0;';
+        document.body.appendChild(ghost);
+        highlightAcceptingSlots(cardPosition, true);
+      }
+      if (dragging && ghost) {
+        ghost.style.transform = 'translate(' + (e.clientX - 56) + 'px,' + (e.clientY - 70) + 'px)';
+        var el = document.elementFromPoint(e.clientX, e.clientY);
+        var slotEl = el && el.closest && el.closest('.dreamteam-slot');
+        Array.prototype.forEach.call(document.querySelectorAll('.dreamteam-slot.is-drop-target'), function (s) {
+          s.classList.remove('is-drop-target');
+        });
+        if (slotEl && slotAccepts(slotEl.getAttribute('data-slot'), cardPosition)) {
+          slotEl.classList.add('is-drop-target');
+        }
+      }
+    });
+
+    function endDrag(e) {
+      if (pointerId === null) return;
+      if (dragging) {
+        var el = document.elementFromPoint(e.clientX, e.clientY);
+        var slotEl = el && el.closest && el.closest('.dreamteam-slot');
+        if (slotEl && slotAccepts(slotEl.getAttribute('data-slot'), cardPosition)) {
+          assignSlot(slotEl.getAttribute('data-slot'), cardSlug);
+        }
+        cardEl.classList.remove('is-dragging-card');
+        if (ghost) { ghost.remove(); ghost = null; }
+        highlightAcceptingSlots(null, false);
+        Array.prototype.forEach.call(document.querySelectorAll('.dreamteam-slot.is-drop-target'), function (s) {
+          s.classList.remove('is-drop-target');
+        });
+      }
+      pointerId = null; dragging = false;
+    }
+    cardEl.addEventListener('pointerup', endDrag);
+    cardEl.addEventListener('pointercancel', endDrag);
+  }
+
+  function renderCollectionCarousel() {
+    if (!carousel) return;
+    if (!allCards.length || !ownedSlugsLoaded) return;
+    if (!ownedSlugs.length) {
+      carousel.innerHTML = '<p class="dreamteam-collection-empty">Aucune carte possédée pour l\'instant.</p>';
+      return;
+    }
+    var owned = ownedSlugs.map(function (slug) { return cardsBySlug[slug]; }).filter(Boolean);
+    carousel.innerHTML = owned.map(function (c) {
+      return '<div class="shop-card dreamteam-collection-card" data-card-slug="' + escapeHtml(c.slug) + '" ' +
+        'data-position="' + escapeHtml(c.position || '') + '" tabindex="0">' +
+        '<div class="shop-card-media"><img src="' + root + escapeHtml(c.image) + '" alt="' + escapeHtml(c.name || '') + '" loading="lazy">' +
+        ratingBadge(c) +
+        '<span class="shop-card-rarity ' + rarityClass(c.rarity) + '">' + escapeHtml(c.rarity || '') + '</span></div>' +
+        '<div class="shop-card-body"><h3>' + escapeHtml(c.name || '') + '</h3></div>' +
+        '<div class="dreamteam-card-preview">' +
+        '<span class="dreamteam-card-preview-name">' + escapeHtml(c.name || '') + '</span>' +
+        '<span class="dreamteam-card-preview-meta">' +
+        '<span>' + escapeHtml(c.position || '') + '</span>' +
+        '<span>' + escapeHtml(String(c.rating || '')) + ' OVR</span>' +
+        '<span>' + escapeHtml(c.rarity || '') + '</span>' +
+        '<span>' + escapeHtml(c.team || '') + '</span>' +
+        '</span></div></div>';
+    }).join('');
+    Array.prototype.forEach.call(carousel.querySelectorAll('.dreamteam-collection-card'), function (el) {
+      setupCardDrag(el, el.getAttribute('data-card-slug'), el.getAttribute('data-position'));
     });
   }
 
@@ -277,6 +498,7 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
     cardsBySlug = {};
     cards.forEach(function (c) { cardsBySlug[c.slug] = c; });
     renderPitch();
+    renderCollectionCarousel();
   });
 
   renderRanking();
