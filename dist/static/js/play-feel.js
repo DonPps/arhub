@@ -31,6 +31,56 @@
   if (reduceMotion) return; // le retour de pression (déjà quasi-instantané) reste utile,
   // mais on s'arrête là : pas de roulement de compteur ni d'effets en boucle.
 
+  /* ---------- Tilt 3D au survol des panneaux (--tilt-x/--tilt-y lus par
+   * play-hub.css) — même liste de sélecteurs que le système de panneaux. ---------- */
+  var TILTABLE = '.shop-card, .quiz-rank-card, .quizx-stat-card, .quizx-featured, ' +
+    '.dreamteam-picker-card, .pack-reveal-card';
+  var tiltedEl = null;
+
+  document.addEventListener('pointermove', function (e) {
+    var el = e.target.closest(TILTABLE);
+    if (el !== tiltedEl) {
+      if (tiltedEl) resetTilt(tiltedEl);
+      tiltedEl = el;
+    }
+    if (!el) return;
+    var rect = el.getBoundingClientRect();
+    var px = (e.clientX - rect.left) / rect.width - 0.5;
+    var py = (e.clientY - rect.top) / rect.height - 0.5;
+    el.style.setProperty('--tilt-y', (px * 8).toFixed(2) + 'deg');
+    el.style.setProperty('--tilt-x', (-py * 8).toFixed(2) + 'deg');
+  });
+  function resetTilt(el) {
+    el.style.setProperty('--tilt-x', '0deg');
+    el.style.setProperty('--tilt-y', '0deg');
+  }
+  document.addEventListener('pointerleave', function () {
+    if (tiltedEl) { resetTilt(tiltedEl); tiltedEl = null; }
+  }, true);
+
+  /* ---------- Confettis légers sur gain (pas sur dépense) ---------- */
+  function spawnConfetti(originEl) {
+    var rect = originEl.getBoundingClientRect();
+    var cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2;
+    var colors = ['#C1121F', '#B8903E', '#F2EBDC'];
+    for (var i = 0; i < 16; i++) {
+      var p = document.createElement('span');
+      var angle = Math.random() * Math.PI * 2;
+      var dist = 40 + Math.random() * 70;
+      p.style.cssText = 'position:fixed;left:' + cx + 'px;top:' + cy + 'px;width:6px;height:6px;' +
+        'background:' + colors[i % colors.length] + ';border-radius:2px;pointer-events:none;z-index:999;' +
+        'transition:transform .7s cubic-bezier(.25,.46,.45,.94), opacity .7s ease;opacity:1;';
+      document.body.appendChild(p);
+      requestAnimationFrame(function (el, dx, dy) {
+        return function () {
+          el.style.transform = 'translate(' + dx + 'px,' + dy + 'px) rotate(' + (Math.random() * 360) + 'deg)';
+          el.style.opacity = '0';
+        };
+      }(p, Math.cos(angle) * dist, Math.sin(angle) * dist - 30));
+      setTimeout(function (el) { el.remove(); }, 750, p);
+    }
+  }
+
   /* ---------- Compteurs qui roulent au lieu de sauter ---------- */
   function animateRoll(el, fromVal, toVal, duration) {
     var start = performance.now();
@@ -72,6 +122,7 @@
     if (watchers[el.id]) watchers[el.id].disconnect();
     el.classList.add('play-counter-rolling');
     animateRoll(el, oldVal, newVal, 320);
+    if (newVal > oldVal) spawnConfetti(el);
   }
 
   function initCounter(id) {
@@ -93,4 +144,26 @@
     });
   }, 1500);
   window.addEventListener('beforeunload', function () { clearInterval(lateInit); });
+
+  /* ---------- Confettis quand une carte haute rareté sort d'un pack ----------
+   * Observe le contenu déjà rendu par pack-opening.js (jamais modifié) :
+   * dès qu'une carte .rarity-legendary/.rarity-mythic/.rarity-limited-
+   * edition/.rarity-event-exclusive apparaît, un burst se déclenche une
+   * seule fois par ouverture. */
+  var packBody = document.getElementById('pack-opening-body');
+  if (packBody) {
+    var celebratedThisOpen = false;
+    var packObserver = new MutationObserver(function () {
+      if (celebratedThisOpen) return;
+      var rare = packBody.querySelector('.rarity-legendary, .rarity-mythic, .rarity-limited-edition, .rarity-event-exclusive');
+      if (rare) {
+        celebratedThisOpen = true;
+        spawnConfetti(packBody.closest('.pack-opening-panel') || packBody);
+      }
+    });
+    packObserver.observe(packBody, { childList: true, subtree: true });
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('.shop-open-btn')) celebratedThisOpen = false;
+    });
+  }
 })();
