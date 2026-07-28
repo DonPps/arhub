@@ -1,0 +1,19 @@
+{
+  "name": "Pack Équipe de France",
+  "description": "Les stars actuelles de Équipe de France.",
+  "price": 160,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "france",
+  "cardPool": [
+    "mike-maignan-france",
+    "theo-hernandez-france",
+    "william-saliba-france",
+    "jules-kounde-france",
+    "aurelien-tchouameni-france",
+    "adrien-rabiot-france",
+    "antoine-griezmann-france",
+    "ousmane-dembele-france",
+    "kylian-mbappe-france"
+  ]
+}
