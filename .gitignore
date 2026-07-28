@@ -1,0 +1,7 @@
+# Local Netlify folder
+.netlify
+
+# Skills/agents installés localement (npx skills add ...) — pas du code du site
+.agents/
+.claude/
+skills-lock.json

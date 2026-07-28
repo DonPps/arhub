@@ -1,0 +1,140 @@
+/* ============================================================
+   Atlas Rising — PLAY (Football Gaming Hub)
+   Feuille dédiée, séparée de style.css : Play est un monde à part
+   visuellement (coquille de stade, HUD, réponse aux interactions),
+   le site média n'en hérite jamais rien. Toujours construite sur les
+   tokens de style.css (--red/--ink/--gold/--border/--font-*) — aucune
+   nouvelle teinte.
+
+   Chargée uniquement par base-play.html, jamais par base.html.
+   ============================================================ */
+
+/* ---------- Coquille stade (fond global) ---------- */
+.play-body{
+  --stadium-night: #0E0C0A;
+  --stadium-night-2: #17130E;
+  background: var(--stadium-night);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+.play-body::before{
+  /* Nuit de stade + faisceaux de projecteurs depuis les coins hauts */
+  content:''; position: fixed; inset:0; z-index:-2; pointer-events:none;
+  background:
+    conic-gradient(from 205deg at 0% 0%, rgba(184,144,62,.16), transparent 24%),
+    conic-gradient(from 335deg at 100% 0%, rgba(184,144,62,.16), transparent 24%),
+    radial-gradient(120% 90% at 50% 0%, var(--stadium-night-2), var(--stadium-night) 70%);
+}
+.play-body::after{
+  /* Silhouette de tribune, légère et répétée en bas d'écran */
+  content:''; position: fixed; left:0; right:0; bottom:0; height:220px; z-index:-1; pointer-events:none;
+  opacity:.5;
+  background-image: repeating-linear-gradient(
+    100deg,
+    rgba(0,0,0,.55) 0 22px,
+    rgba(0,0,0,.28) 22px 44px
+  );
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,.9), transparent);
+  mask-image: linear-gradient(to top, rgba(0,0,0,.9), transparent);
+}
+#play-atmosphere-canvas{
+  position: fixed; inset:0; z-index:-1; pointer-events:none; opacity:.55;
+}
+
+/* ---------- HUD ---------- */
+.play-hud{
+  position: sticky; top:0; z-index:40;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:12px clamp(16px,4vw,40px);
+  background: linear-gradient(180deg, rgba(14,12,10,.92), rgba(14,12,10,.75));
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(184,144,62,.22);
+}
+.play-hud-quit{
+  display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+  color: rgba(242,235,220,.72); font-family: var(--font-nav); font-size:12.5px; font-weight:700;
+  transition: color .2s, transform .2s var(--ease);
+}
+.play-hud-quit:hover{ color:#fff; transform: translateX(-2px); }
+.play-hud-crest{
+  display:inline-flex; align-items:center; gap:10px; text-decoration:none;
+  position:absolute; left:50%; transform:translateX(-50%);
+}
+.play-hud-crest img{ border-radius:50%; box-shadow: 0 0 0 2px rgba(184,144,62,.5), 0 0 18px -4px rgba(184,144,62,.6); }
+.play-hud-wordmark{
+  font-family: var(--font-nav); font-weight:800; font-size:15px; letter-spacing:.14em;
+  color:#F2EBDC;
+}
+.play-hud-side{ display:flex; align-items:center; gap:10px; margin-left:auto; }
+.play-hud .points-badge{ background: rgba(184,144,62,.16); color:#F2EBDC; border:1px solid rgba(184,144,62,.35); }
+.play-hud .icon-btn{ color:#F2EBDC; }
+.play-hud .icon-btn:hover{ color: var(--gold); }
+@media (max-width:640px){
+  .play-hud-wordmark{ display:none; }
+  .play-hud-quit span{ display:none; }
+}
+
+/* ---------- Contenu principal ---------- */
+.play-main{
+  max-width:1180px; margin:0 auto; padding: 28px clamp(16px,4vw,40px) 100px;
+  position:relative;
+}
+
+/* ---------- Tab bar : plus "manette de jeu" ---------- */
+.play-tabs{
+  display:flex; gap:4px; margin-bottom:28px; padding:5px;
+  background: rgba(255,255,255,.04); border:1px solid rgba(184,144,62,.2);
+  border-radius:14px; overflow-x:auto;
+}
+.play-tab{
+  background:none; border:none; cursor:pointer; white-space:nowrap; border-radius:10px;
+  font-family: var(--font-nav); font-size:13.5px; font-weight:700;
+  color: rgba(242,235,220,.6); padding:10px 18px;
+  transition: color .2s, background .2s, transform .15s var(--ease);
+}
+.play-tab:hover{ color:#F2EBDC; }
+.play-tab.active{
+  color:#fff; background: linear-gradient(135deg, var(--red), var(--red-dark));
+  box-shadow: 0 8px 18px -8px rgba(193,18,31,.6);
+}
+/* ---------- Transition d'entrée des panneaux (aucune modif de play-tabs.js —
+   l'animation se déclenche automatiquement à chaque fois qu'un panneau
+   redevient visible, via [hidden] qui bascule display:none) ---------- */
+@keyframes play-panel-in{
+  from{ opacity:0; transform: translateY(10px); }
+  to{ opacity:1; transform:none; }
+}
+.play-panel:not([hidden]){ animation: play-panel-in .36s cubic-bezier(.25,.46,.45,.94) both; }
+.play-panel[hidden]{ display:none; }
+
+/* Le contenu Play est sombre — on repasse les blocs texte en clair */
+.play-main h1, .play-main h2, .play-main h3{ color:#F2EBDC; }
+.play-main{ color: rgba(242,235,220,.85); }
+
+/* ---------- Réponse globale : pression/rebond (classe posée par play-feel.js) ---------- */
+.play-pressed{ transform: scale(.96) !important; transition: transform .1s ease-out; }
+
+/* ---------- Respiration douce des cartes (inventaire/collection) ---------- */
+@keyframes play-card-breathe{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.015); } }
+.play-body .shop-card-media,
+.play-body .pack-reveal-card img{
+  animation: play-card-breathe 4.5s ease-in-out infinite;
+}
+
+/* ---------- Halo des raretés hautes, uniquement dans Play ---------- */
+@keyframes play-halo-pulse{ 0%,100%{ filter:brightness(1); } 50%{ filter:brightness(1.25); } }
+.play-body .rarity-legendary,
+.play-body .rarity-mythic{
+  animation: play-halo-pulse 2.4s ease-in-out infinite;
+}
+
+/* ---------- Compteur qui roule (classe posée par play-feel.js pendant l'animation) ---------- */
+.play-counter-rolling{ display:inline-block; }
+
+@media (prefers-reduced-motion: reduce){
+  .play-panel:not([hidden]){ animation:none; }
+  .play-body .shop-card-media, .play-body .pack-reveal-card img{ animation:none; }
+  .play-body .rarity-legendary, .play-body .rarity-mythic{ animation:none; }
+  .play-pressed{ transition:none; }
+}
