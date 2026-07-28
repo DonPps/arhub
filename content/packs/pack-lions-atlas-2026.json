@@ -1,0 +1,17 @@
+{
+  "name": "Pack Route Mondial 2026",
+  "description": "L'effectif actuel des Lions de l'Atlas.",
+  "price": 100,
+  "rarity": "Rare",
+  "cardsPerPack": 3,
+  "collectionSlug": "lions-atlas-2026",
+  "cardPool": [
+    "yassine-bounou",
+    "achraf-hakimi",
+    "nayef-aguerd",
+    "romain-saiss",
+    "sofyan-amrabat",
+    "azzedine-ounahi",
+    "hakim-ziyech"
+  ]
+}
