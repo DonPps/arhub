@@ -13,7 +13,7 @@
   /* ---------- Pression/rebond sur tout élément d'action ---------- */
   var PRESSABLE = '.quiz-btn-primary, .shop-buy-btn, .play-tab, .dreamteam-slot, ' +
     '.quizx-category-card, .quiz-duel-mode-tab, .filter-tab, .quiz-rank-play, ' +
-    '.quiz-answer, .admin-cancel-btn';
+    '.quiz-answer, .admin-cancel-btn, .dreamteam-coach-card, .dreamteam-collection-card';
 
   function press(e) {
     var el = e.target.closest(PRESSABLE);

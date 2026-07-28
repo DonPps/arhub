@@ -361,6 +361,20 @@ DREAMTEAM_SLOTS = [
     {"id": "RW", "label": "Ailier droit"},
 ]
 
+# Roster d'entraîneurs Dream Team — contenu original propre à l'univers
+# Atlas Rising (même logique que le catalogue de cartes joueurs : pas une
+# donnée réelle détournée). "formation" et "bonus" sont des attributs
+# d'affichage uniquement — aucun impact sur la formation réelle (toujours
+# 4-3-3, unique) ni sur le calcul de chimie, tous deux inchangés.
+COACHES = [
+    {"slug": "hakim-belmadi", "name": "Hakim Belmadi", "flag": "🇲🇦", "formation": "4-3-3", "rarity": "epic", "bonus": "Vision Tactique"},
+    {"slug": "marc-aubry", "name": "Marc Aubry", "flag": "🇫🇷", "formation": "4-4-2", "rarity": "rare", "bonus": "Boost Défense"},
+    {"slug": "samuel-okoye", "name": "Samuel Okoye", "flag": "🇳🇬", "formation": "4-3-3", "rarity": "common", "bonus": "Focus Jeunes"},
+    {"slug": "elena-vidal", "name": "Elena Vidal", "flag": "🇪🇸", "formation": "4-1-4-1", "rarity": "rare", "bonus": "Expérience Compétition"},
+    {"slug": "joao-medeiros", "name": "João Medeiros", "flag": "🇧🇷", "formation": "3-5-2", "rarity": "mythic", "bonus": "+2 Chemistry"},
+    {"slug": "kenji-watanabe", "name": "Kenji Watanabe", "flag": "🇯🇵", "formation": "4-2-3-1", "rarity": "legendary", "bonus": "Boost Attaque"},
+]
+
 
 def build_cards_catalog():
     """Catalogue des cartes Atlas Points — jamais générées, déposées par
@@ -627,6 +641,7 @@ def build():
         quiz_question_count=quiz_question_count,
         quiz_themes=quiz_themes,
         dreamteam_slots=DREAMTEAM_SLOTS,
+        dreamteam_coaches=COACHES,
     )
     (DIST_DIR / "play.html").write_text(html, encoding="utf-8")
 

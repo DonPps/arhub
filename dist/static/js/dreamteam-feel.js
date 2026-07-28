@@ -34,8 +34,38 @@
     }
   }
 
+  function spawnGoldBurst(originEl) {
+    if (!originEl) return;
+    var rect = originEl.getBoundingClientRect();
+    var cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2;
+    for (var i = 0; i < 10; i++) {
+      var p = document.createElement('span');
+      var angle = Math.random() * Math.PI * 2;
+      var dist = 20 + Math.random() * 34;
+      p.style.cssText = 'position:fixed;left:' + cx + 'px;top:' + cy + 'px;width:4px;height:4px;' +
+        'background:#EBCB84;border-radius:50%;pointer-events:none;z-index:999;box-shadow:0 0 4px rgba(235,203,132,.9);' +
+        'transition:transform .5s cubic-bezier(.25,.46,.45,.94), opacity .5s ease;opacity:1;';
+      document.body.appendChild(p);
+      requestAnimationFrame(function (el, dx, dy) {
+        return function () {
+          el.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+          el.style.opacity = '0';
+        };
+      }(p, Math.cos(angle) * dist, Math.sin(angle) * dist - 16));
+      setTimeout(function (el) { el.remove(); }, 520, p);
+    }
+  }
+
   document.addEventListener('dreamteam-team-complete', function () {
     spawnConfetti(document.getElementById('dreamteam-pitch'));
+  });
+  document.addEventListener('dreamteam-coach-added', function () {
+    spawnConfetti(document.getElementById('dreamteam-coach-card'));
+  });
+  document.addEventListener('dreamteam-card-added', function (e) {
+    var slotId = e.detail && e.detail.slotId;
+    var slotEl = slotId && document.querySelector('.dreamteam-slot[data-slot="' + slotId + '"]');
+    if (slotEl) spawnGoldBurst(slotEl);
   });
   var shareBtn = document.getElementById('dreamteam-share-btn');
   if (shareBtn) {
@@ -47,6 +77,10 @@
   /* ---------- Poussière/fumée légère confinée au terrain ---------- */
   var pitch = document.getElementById('dreamteam-pitch');
   if (!pitch) return;
+
+  var sweep = document.createElement('div');
+  sweep.className = 'dreamteam-pitch-sweep';
+  pitch.appendChild(sweep);
 
   var canvas = document.createElement('canvas');
   canvas.id = 'dreamteam-particles-canvas';
@@ -65,7 +99,7 @@
   resize();
   window.addEventListener('resize', resize);
 
-  var DUST_COUNT = 16;
+  var DUST_COUNT = window.matchMedia('(min-width:860px)').matches ? 26 : 16;
   var dust = [];
   for (var i = 0; i < DUST_COUNT; i++) {
     dust.push({
