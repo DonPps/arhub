@@ -1,0 +1,19 @@
+{
+  "name": "Pack Argentine",
+  "description": "Les stars actuelles de Argentine.",
+  "price": 160,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "argentina",
+  "cardPool": [
+    "emiliano-martinez-argentina",
+    "nicolas-tagliafico-argentina",
+    "cristian-romero-argentina",
+    "nahuel-molina-argentina",
+    "rodrigo-de-paul-argentina",
+    "enzo-fernandez-argentina",
+    "nicolas-gonzalez-argentina",
+    "giovani-lo-celso-argentina",
+    "julian-alvarez-argentina"
+  ]
+}
