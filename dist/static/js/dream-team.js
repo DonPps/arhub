@@ -6,6 +6,8 @@
  * connecté. */
 
 import { ensureFirestore, getFirestoreRefs, loadOwnedCardSlugs } from './points.js';
+import { cardValue } from './points-config.js';
+import { loadTopDreamTeams } from './dreamteam-ranking.js';
 
 (function () {
   var page = document.getElementById('dreamteam-page');
@@ -49,9 +51,55 @@ import { ensureFirestore, getFirestoreRefs, loadOwnedCardSlugs } from './points.
   var targetUid = null;
   var unsubscribeTeam = null;
   var activeSlotId = null;
+  var myNicknamePromise = null;
 
   function loadCardsIndex() {
     return fetch(root + 'static/data/cards.json').then(function (r) { return r.json(); }).catch(function () { return []; });
+  }
+
+  function computeValue(slots) {
+    var total = 0;
+    Object.keys(slots || {}).forEach(function (slotId) {
+      total += cardValue(cardsBySlug[slots[slotId]]);
+    });
+    return total;
+  }
+
+  /* Pseudo dénormalisé sur le document dreamTeams (même principe que
+   * leaderboard.nickname, voir quiz-leaderboard.js) — évite une lecture
+   * supplémentaire pour chaque ligne du classement. Résolu une seule fois
+   * par chargement de page. */
+  function getMyNickname() {
+    if (myNicknamePromise) return myNicknamePromise;
+    myNicknamePromise = ensureFirestore().then(function (ok) {
+      if (!ok || !currentUser) return 'Joueur';
+      var refs = getFirestoreRefs();
+      var ref = refs.firestoreFns.doc(refs.db, 'users', currentUser.uid);
+      return refs.firestoreFns.getDoc(ref).then(function (snap) {
+        var data = snap.exists() ? snap.data() : {};
+        return data.nickname || currentUser.displayName || (currentUser.email || 'Joueur').split('@')[0];
+      }).catch(function () { return 'Joueur'; });
+    });
+    return myNicknamePromise;
+  }
+
+  function renderRanking() {
+    var listEl = document.getElementById('dreamteam-ranking-list');
+    if (!listEl) return;
+    ensureFirestore().then(function (ok) {
+      if (!ok) return;
+      var refs = getFirestoreRefs();
+      loadTopDreamTeams(refs.db, refs.firestoreFns, 20).then(function (rows) {
+        rows = rows.filter(function (r) { return r.value > 0; });
+        if (!rows.length) return;
+        listEl.innerHTML = rows.map(function (r, i) {
+          return '<a class="quiz-leaderboard-row" href="' + root + 'dream-team.html?u=' + encodeURIComponent(r.uid) + '">' +
+            '<span class="quiz-leaderboard-rank">' + (i + 1) + '</span>' +
+            '<span class="quiz-leaderboard-name">' + escapeHtml(r.nickname || 'Joueur') + '</span>' +
+            '<span class="quiz-leaderboard-points">' + r.value + '</span></a>';
+        }).join('');
+      });
+    });
   }
 
   function renderPitch() {
@@ -114,22 +162,32 @@ import { ensureFirestore, getFirestoreRefs, loadOwnedCardSlugs } from './points.
     var ref = refs.firestoreFns.doc(refs.db, 'dreamTeams', uid);
     return refs.firestoreFns.getDoc(ref).then(function (snap) {
       if (snap.exists()) return ref;
-      return refs.firestoreFns.setDoc(ref, { formation: '4-3-3', slots: {} }).then(function () { return ref; });
+      // nickname/value réels écrits juste après par assignSlot — ce
+      // placeholder ne sert qu'à satisfaire la règle Firestore (types).
+      return refs.firestoreFns.setDoc(ref, { formation: '4-3-3', slots: {}, value: 0, nickname: '' }).then(function () { return ref; });
     });
   }
 
   function assignSlot(slotId, cardSlug) {
     if (!editable || !currentUser) return;
-    ensureFirestore().then(function () {
-      return ensureTeamDoc(currentUser.uid);
-    }).then(function (ref) {
-      var refs = getFirestoreRefs();
-      var update = {};
-      update.formation = '4-3-3';
-      update['slots.' + slotId] = cardSlug;
-      update.updatedAt = refs.firestoreFns.serverTimestamp();
-      return refs.firestoreFns.updateDoc(ref, update);
-    }).catch(function (e) { console.error('Échec sauvegarde Dream Team:', e); });
+    var nextSlots = Object.assign({}, teamData.slots || {});
+    nextSlots[slotId] = cardSlug;
+    var nextValue = computeValue(nextSlots);
+    Promise.all([ensureFirestore().then(function () { return ensureTeamDoc(currentUser.uid); }), getMyNickname()])
+      .then(function (results) {
+        var ref = results[0];
+        var nickname = results[1];
+        var refs = getFirestoreRefs();
+        var update = {};
+        update.formation = '4-3-3';
+        update['slots.' + slotId] = cardSlug;
+        update.value = nextValue;
+        update.nickname = nickname;
+        update.updatedAt = refs.firestoreFns.serverTimestamp();
+        return refs.firestoreFns.updateDoc(ref, update);
+      }).then(function () {
+        renderRanking();
+      }).catch(function (e) { console.error('Échec sauvegarde Dream Team:', e); });
   }
 
   function watchTeam(uid) {
