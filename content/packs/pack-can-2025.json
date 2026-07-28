@@ -1,0 +1,14 @@
+{
+  "name": "Pack CAN 2025 — Maroc",
+  "description": "L'ambiance de la CAN 2025 organisée au Maroc.",
+  "price": 200,
+  "rarity": "Event Exclusive",
+  "cardsPerPack": 4,
+  "collectionSlug": "can-2025",
+  "cardPool": [
+    "stade-hote-rabat",
+    "stade-hote-casablanca",
+    "supporters-atlas",
+    "trophee-can"
+  ]
+}
