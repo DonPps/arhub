@@ -10,6 +10,47 @@
   if (!root) return;
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Décor en couches (toujours posé, même en reduced-motion —
+   * seul le déplacement de parallaxe est coupé plus bas) ---------- */
+  var far = document.createElement('div');
+  far.className = 'play-bg-layer play-bg-far';
+  var lights = document.createElement('div');
+  lights.className = 'play-bg-layer play-bg-lights';
+  document.body.insertBefore(lights, document.body.firstChild);
+  document.body.insertBefore(far, lights);
+
+  var jumbotron = document.createElement('div');
+  jumbotron.className = 'play-bg-jumbotron';
+  var main = document.querySelector('.play-main');
+  if (main) main.style.position = main.style.position || 'relative';
+  (main || document.body).insertBefore(jumbotron, (main || document.body).firstChild);
+
+  if (!reduceMotion) {
+    var layers = [
+      { el: far, depth: 6 },
+      { el: lights, depth: 14 },
+      { el: jumbotron, depth: 22 },
+    ];
+    var targetX = 0, targetY = 0, curX = 0, curY = 0;
+    document.addEventListener('mousemove', function (e) {
+      targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+      targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+    function parallaxTick() {
+      requestAnimationFrame(parallaxTick);
+      curX += (targetX - curX) * 0.06;
+      curY += (targetY - curY) * 0.06;
+      var scrollFactor = Math.min(window.scrollY / 600, 1);
+      layers.forEach(function (l) {
+        var dx = curX * l.depth;
+        var dy = curY * l.depth * 0.6 - scrollFactor * l.depth * 1.4;
+        l.el.style.transform = 'translate3d(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px,0)';
+      });
+    }
+    parallaxTick();
+  }
+
   if (reduceMotion) return;
 
   /* ---------- Flicker discret des projecteurs (GSAP) ---------- */

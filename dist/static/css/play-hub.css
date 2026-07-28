@@ -9,37 +9,47 @@
    Chargée uniquement par base-play.html, jamais par base.html.
    ============================================================ */
 
-/* ---------- Coquille stade (fond global) ---------- */
+/* ---------- Coquille stade (fond global — vrai décor illustré) ----------
+   3 images générées (Higgsfield), en couches de profondeur, décalées
+   légèrement au mousemove/scroll par play-atmosphere.js (aucune classe
+   ici n'anime seule — le JS pose les transform). Jamais un simple
+   dégradé CSS : le stade est une vraie illustration. */
 .play-body{
   --stadium-night: #0E0C0A;
-  --stadium-night-2: #17130E;
   background: var(--stadium-night);
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
 }
-.play-body::before{
-  /* Nuit de stade + faisceaux de projecteurs depuis les coins hauts */
-  content:''; position: fixed; inset:0; z-index:-2; pointer-events:none;
-  background:
-    conic-gradient(from 205deg at 0% 0%, rgba(184,144,62,.16), transparent 24%),
-    conic-gradient(from 335deg at 100% 0%, rgba(184,144,62,.16), transparent 24%),
-    radial-gradient(120% 90% at 50% 0%, var(--stadium-night-2), var(--stadium-night) 70%);
+.play-bg-layer{
+  position: fixed; inset:-4%; z-index:-3; pointer-events:none;
+  background-repeat:no-repeat; background-position:center bottom; background-size:cover;
+  will-change: transform;
+}
+.play-bg-far{
+  background-image: url('../img/play/stadium-far.jpg');
+  opacity:.62;
+}
+.play-bg-lights{
+  background-image: url('../img/play/stadium-lights.jpg');
+  mix-blend-mode: screen; opacity:.85; z-index:-2;
 }
 .play-body::after{
-  /* Silhouette de tribune, légère et répétée en bas d'écran */
-  content:''; position: fixed; left:0; right:0; bottom:0; height:220px; z-index:-1; pointer-events:none;
-  opacity:.5;
-  background-image: repeating-linear-gradient(
-    100deg,
-    rgba(0,0,0,.55) 0 22px,
-    rgba(0,0,0,.28) 22px 44px
-  );
-  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,.9), transparent);
-  mask-image: linear-gradient(to top, rgba(0,0,0,.9), transparent);
+  /* Assombrit le bas de l'écran pour que le texte au-dessus reste lisible */
+  content:''; position: fixed; inset:0; z-index:-1; pointer-events:none;
+  background: linear-gradient(180deg, rgba(14,12,10,.15) 0%, rgba(14,12,10,.55) 55%, rgba(14,12,10,.92) 100%);
 }
+.play-bg-jumbotron{
+  position:absolute; top:64px; right:clamp(8px,3vw,40px); width:min(340px,32vw);
+  aspect-ratio: 16/9; background-image:url('../img/play/stadium-jumbotron.jpg');
+  background-size:cover; background-position:center; border-radius:10px;
+  box-shadow: 0 24px 50px -20px rgba(0,0,0,.7), 0 0 30px -6px rgba(184,144,62,.35);
+  opacity:.9; z-index:-1; pointer-events:none; will-change: transform;
+  display:none;
+}
+@media (min-width:920px){ .play-bg-jumbotron{ display:block; } }
 #play-atmosphere-canvas{
-  position: fixed; inset:0; z-index:-1; pointer-events:none; opacity:.55;
+  position: fixed; inset:0; z-index:-1; pointer-events:none; opacity:.5;
 }
 
 /* ---------- HUD ---------- */
@@ -112,6 +122,39 @@
 .play-main h1, .play-main h2, .play-main h3{ color:#F2EBDC; }
 .play-main{ color: rgba(242,235,220,.85); }
 
+/* ---------- Hiérarchie organique (casse la grille uniforme) ----------
+   Toujours les mêmes 4 stat-cards / le même bloc "à la une" déjà rendus
+   par le template — seule leur disposition change, tailles inégales et
+   léger décalage plutôt qu'une grille parfaitement régulière. */
+.play-body .quizx-stats{
+  grid-template-columns: repeat(6, 1fr);
+  align-items: end;
+}
+.play-body .quizx-stat-card:nth-child(1){ grid-column: span 2; transform: translateY(-8px); }
+.play-body .quizx-stat-card:nth-child(2){ grid-column: span 1; }
+.play-body .quizx-stat-card:nth-child(3){ grid-column: span 2; transform: translateY(6px); }
+.play-body .quizx-stat-card:nth-child(4){ grid-column: span 1; }
+@media (max-width:760px){
+  .play-body .quizx-stats{ grid-template-columns: repeat(2,1fr); }
+  .play-body .quizx-stat-card{ grid-column: span 1 !important; transform:none !important; }
+}
+.play-body .quizx-featured{
+  margin-top:-14px; margin-bottom:32px;
+  transform: rotate(-.3deg);
+}
+.play-body .quizx-featured:hover{ transform: rotate(-.3deg) perspective(700px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateY(-2px); }
+
+/* ---------- Ouverture de pack — flash à l'ouverture (déclenché par la
+   classe .is-open déjà posée par pack-opening.js, aucune modif de ce
+   fichier) ---------- */
+.play-body .pack-opening-modal.is-open .pack-opening-panel::before{
+  content:''; position:absolute; inset:0; border-radius:inherit; z-index:5;
+  background: radial-gradient(circle, rgba(255,255,255,.9), rgba(255,255,255,0) 65%);
+  animation: play-pack-flash .5s ease-out;
+  pointer-events:none;
+}
+@keyframes play-pack-flash{ from{ opacity:1; } to{ opacity:0; } }
+
 /* ---------- Réponse globale : pression/rebond (classe posée par play-feel.js) ---------- */
 .play-pressed{ transform: scale(.96) !important; transition: transform .1s ease-out; }
 
@@ -132,9 +175,58 @@
 /* ---------- Compteur qui roule (classe posée par play-feel.js pendant l'animation) ---------- */
 .play-counter-rolling{ display:inline-block; }
 
+/* ---------- Panneaux façon jeu vidéo (pas de nouveau markup — ciblage
+   direct des cartes déjà rendues par shop.js/collection.js/quiz.js/
+   pack-opening.js/dream-team.js). Profondeur, verre subtil, bordure
+   lumineuse pulsée, tilt 3D au survol (--tilt-x/--tilt-y posés par
+   play-feel.js). Le sélecteur composé ".play-body X" est déjà plus
+   spécifique que "X" seul dans style.css — pas besoin de !important. ---------- */
+.play-body .shop-card,
+.play-body .quiz-rank-card,
+.play-body .quizx-stat-card,
+.play-body .quizx-featured,
+.play-body .dreamteam-picker-card,
+.play-body .pack-reveal-card{
+  background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(184,144,62,.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 20px 40px -22px rgba(0,0,0,.7),
+    0 0 22px -10px rgba(184,144,62,.35);
+  transition: transform .32s cubic-bezier(.25,.46,.45,.94), box-shadow .32s ease, border-color .3s ease;
+  animation: play-panel-border-glow 3.6s ease-in-out infinite;
+  transform: perspective(700px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateZ(0);
+}
+@keyframes play-panel-border-glow{
+  0%,100%{ border-color: rgba(184,144,62,.32); }
+  50%{ border-color: rgba(184,144,62,.68); }
+}
+.play-body .shop-card:hover,
+.play-body .quiz-rank-card:hover,
+.play-body .quizx-stat-card:hover,
+.play-body .quizx-featured:hover,
+.play-body .dreamteam-picker-card:hover,
+.play-body .pack-reveal-card:hover{
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 30px 60px -22px rgba(0,0,0,.8),
+    0 0 34px -6px rgba(184,144,62,.55);
+}
+.play-body .quizx-featured:hover{ transform: perspective(700px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateY(-2px); }
+
 @media (prefers-reduced-motion: reduce){
   .play-panel:not([hidden]){ animation:none; }
   .play-body .shop-card-media, .play-body .pack-reveal-card img{ animation:none; }
   .play-body .rarity-legendary, .play-body .rarity-mythic{ animation:none; }
   .play-pressed{ transition:none; }
+  .play-body .shop-card,
+  .play-body .quiz-rank-card,
+  .play-body .quizx-stat-card,
+  .play-body .quizx-featured,
+  .play-body .dreamteam-picker-card,
+  .play-body .pack-reveal-card{
+    animation:none; transform:none !important;
+  }
 }
