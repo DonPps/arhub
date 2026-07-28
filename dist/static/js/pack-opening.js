@@ -33,6 +33,11 @@ import { openPack } from './points.js';
   function rarityClass(rarity) {
     return 'rarity-' + (rarity || 'common').toLowerCase().replace(/[^a-z0-9]+/g, '-');
   }
+  function ratingBadge(c) {
+    if (!c.rating || !c.position) return '';
+    return '<div class="shop-card-rating"><span class="shop-card-rating-value">' + escapeHtml(c.rating) +
+      '</span><span class="shop-card-rating-pos">' + escapeHtml(c.position) + '</span></div>';
+  }
 
   function pickRandomCards(pool, count) {
     var shuffled = pool.slice().sort(function () { return Math.random() - 0.5; });
@@ -60,7 +65,8 @@ import { openPack } from './points.js';
     body.innerHTML = '<h2 class="pack-reveal-title">Nouvelles cartes !</h2><div class="pack-reveal-grid">' +
       cards.map(function (c, i) {
         return '<div class="pack-reveal-card ' + rarityClass(c.rarity) + '" style="animation-delay:' + (i * 0.15) + 's">' +
-          '<img src="' + root + escapeHtml(c.image) + '" alt="' + escapeHtml(c.name || '') + '">' +
+          '<div class="pack-reveal-card-media"><img src="' + root + escapeHtml(c.image) + '" alt="' + escapeHtml(c.name || '') + '">' +
+          ratingBadge(c) + '</div>' +
           '<div class="pack-reveal-card-name">' + escapeHtml(c.name || '') + '</div>' +
           '<div class="pack-reveal-card-rarity">' + escapeHtml(c.rarity || '') + '</div>' +
           '</div>';
