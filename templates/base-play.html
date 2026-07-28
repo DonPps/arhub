@@ -52,13 +52,43 @@
       <span class="points-badge-icon" aria-hidden="true">⭐</span>
       <span id="points-badge-value">0</span>
     </a>
-    <button type="button" class="icon-btn" id="account-toggle" aria-label="Mon compte" aria-expanded="false" aria-controls="account-overlay">
+    <button type="button" class="icon-btn play-hud-account" id="account-toggle" aria-label="Mon compte" aria-expanded="false" aria-controls="account-overlay">
       <svg id="account-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
       <span class="account-avatar" id="account-avatar" hidden></span>
-      <span class="icon-btn-label" id="account-label">Compte</span>
+      <span class="play-hud-account-text">
+        <span class="icon-btn-label" id="account-label">Compte</span>
+        <span class="play-hud-level" id="play-hud-level" hidden></span>
+      </span>
     </button>
   </div>
 </header>
+
+<nav class="play-bottom-nav" id="play-bottom-nav" aria-label="Navigation Play">
+  <button type="button" class="play-bottom-nav-item" data-goto="quiz" data-scroll-top="1">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+    <span>Accueil</span>
+  </button>
+  <button type="button" class="play-bottom-nav-item" data-goto="quiz">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.6 6.2L21 9l-5 4.4L17.4 20 12 16.6 6.6 20 8 13.4 3 9l6.4-.8z"/></svg>
+    <span>Quiz</span>
+  </button>
+  <button type="button" class="play-bottom-nav-item" data-goto="collection">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+    <span>Collection</span>
+  </button>
+  <button type="button" class="play-bottom-nav-item" data-goto="dreamteam">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+    <span>Dream Team</span>
+  </button>
+  <button type="button" class="play-bottom-nav-item" data-goto="boutique">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l1.5-5h15L21 9M3 9v10a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18M9 13a3 3 0 006 0"/></svg>
+    <span>Boutique</span>
+  </button>
+  <button type="button" class="play-bottom-nav-item" data-goto="quiz" data-scroll-target="quiz-duel-picker">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 3l11 11M17.5 3l-11 11M4 17l4 4M20 17l-4 4"/></svg>
+    <span>Duels</span>
+  </button>
+</nav>
 
 <div class="account-overlay" id="account-overlay" aria-hidden="true">
   <div class="account-panel">
@@ -114,6 +144,7 @@
 
 <script type="module" src="{{ root }}static/js/auth.js?v={{ asset_version }}"></script>
 <script type="module" src="{{ root }}static/js/points-daily.js?v={{ asset_version }}"></script>
+<script type="module" src="{{ root }}static/js/play-hud.js?v={{ asset_version }}"></script>
 {% block extra_scripts %}{% endblock %}
 </body>
 </html>
