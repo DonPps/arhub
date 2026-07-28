@@ -40,6 +40,11 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
   function rarityClass(rarity) {
     return 'rarity-' + (rarity || 'common').toLowerCase().replace(/[^a-z0-9]+/g, '-');
   }
+  function ratingBadge(c) {
+    if (!c.rating || !c.position) return '';
+    return '<div class="shop-card-rating"><span class="shop-card-rating-value">' + escapeHtml(c.rating) +
+      '</span><span class="shop-card-rating-pos">' + escapeHtml(c.position) + '</span></div>';
+  }
 
   var queryUid = new URLSearchParams(window.location.search).get('u');
   var currentUser = null;
