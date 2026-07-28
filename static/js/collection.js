@@ -30,6 +30,12 @@ import { loadOwnedCardSlugs } from './points.js';
     return 'rarity-' + (rarity || 'common').toLowerCase().replace(/[^a-z0-9]+/g, '-');
   }
 
+  function ratingBadge(c) {
+    if (!c.rating || !c.position) return '';
+    return '<div class="shop-card-rating"><span class="shop-card-rating-value">' + escapeHtml(c.rating) +
+      '</span><span class="shop-card-rating-pos">' + escapeHtml(c.position) + '</span></div>';
+  }
+
   function loadCardsIndex() {
     return fetch(root + 'static/data/cards.json').then(function (r) { return r.json(); }).catch(function () { return []; });
   }
@@ -78,6 +84,7 @@ import { loadOwnedCardSlugs } from './points.js';
     grid.innerHTML = filtered.map(function (c) {
       return '<div class="shop-card">' +
         '<div class="shop-card-media"><img src="' + root + escapeHtml(c.image) + '" alt="' + escapeHtml(c.name || '') + '" loading="lazy">' +
+        ratingBadge(c) +
         '<span class="shop-card-rarity ' + rarityClass(c.rarity) + '">' + escapeHtml(c.rarity || '') + '</span></div>' +
         '<div class="shop-card-body"><h3>' + escapeHtml(c.name || '') + '</h3>' +
         '<p>' + [c.team, c.competition, c.season].filter(Boolean).map(escapeHtml).join(' · ') + '</p></div></div>';

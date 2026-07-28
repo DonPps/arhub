@@ -40,6 +40,11 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
   function rarityClass(rarity) {
     return 'rarity-' + (rarity || 'common').toLowerCase().replace(/[^a-z0-9]+/g, '-');
   }
+  function ratingBadge(c) {
+    if (!c.rating || !c.position) return '';
+    return '<div class="shop-card-rating"><span class="shop-card-rating-value">' + escapeHtml(c.rating) +
+      '</span><span class="shop-card-rating-pos">' + escapeHtml(c.position) + '</span></div>';
+  }
 
   var queryUid = new URLSearchParams(window.location.search).get('u');
   var currentUser = null;
@@ -135,6 +140,7 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
       pickerGrid.innerHTML = options.map(function (c) {
         return '<div class="shop-card dreamteam-picker-card" data-card-slug="' + escapeHtml(c.slug) + '">' +
           '<div class="shop-card-media"><img src="' + root + escapeHtml(c.image) + '" alt="' + escapeHtml(c.name || '') + '" loading="lazy">' +
+          ratingBadge(c) +
           '<span class="shop-card-rarity ' + rarityClass(c.rarity) + '">' + escapeHtml(c.rarity || '') + '</span></div>' +
           '<div class="shop-card-body"><h3>' + escapeHtml(c.name || '') + '</h3></div></div>';
       }).join('');
