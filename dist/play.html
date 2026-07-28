@@ -21,260 +21,44 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="static/img/favicon.png">
 <link rel="stylesheet" href="static/css/style.css?v=911e711932">
-<!-- Google AdSense (à activer après approbation) -->
-<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<!--
+  base-play.html — coquille dédiée à Play (Football Gaming Hub).
+  Volontairement SANS la nav éditoriale, le footer news, la recherche
+  d'articles, le ticker, les widgets flottants et les publicités de
+  base.html : Play doit donner l'impression de quitter le site média,
+  pas de le prolonger. base.html lui-même n'est pas touché — le site
+  média reste intact. Le compte (#account-toggle/#account-overlay) et
+  le badge de solde (#points-badge/#points-badge-value) sont repris à
+  l'identique (mêmes IDs) pour que auth.js/points-daily.js fonctionnent
+  sans aucune modification.
+-->
+<link rel="stylesheet" href="static/css/play-hub.css?v=911e711932">
 </head>
-<body data-root="">
+<body data-root="" class="play-body">
 
-<header class="masthead">
-  <div class="wrap masthead-top">
-    <div class="masthead-side masthead-left">
-      <div class="masthead-left-row">
-        <span class="date-strip">28/07/2026</span>
-        <span class="social-row" aria-label="Atlas Rising sur les réseaux sociaux">
-          <a href="https://www.instagram.com/atlasrisingma/" target="_blank" rel="noopener" aria-label="Atlas Rising sur Instagram"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-          <a href="https://www.tiktok.com/@yochart007" target="_blank" rel="noopener" aria-label="Atlas Rising sur TikTok"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3v10.5a3.5 3.5 0 11-3-3.46"/><path d="M14 3a5 5 0 005 5"/></svg></a>
-          <a href="https://web.facebook.com/AtlasrisingMa" target="_blank" rel="noopener" aria-label="Atlas Rising sur Facebook"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h-2a4 4 0 00-4 4v3H7v4h2v7h4v-7h2.5l.5-4h-3V7a1 1 0 011-1h2z"/></svg></a>
-          <a href="https://www.youtube.com/@atlasrisingma/shorts" target="_blank" rel="noopener" aria-label="Atlas Rising sur YouTube"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="12" rx="3.5"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></a>
-        </span>
-      </div>
-      <span class="brand-badge">Atlas Rising</span>
-    </div>
+<header class="play-hud">
+  <a href="index.html" class="play-hud-quit" aria-label="Quitter Play — retour au site Atlas Rising">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    <span>Quitter Play</span>
+  </a>
 
-    <a href="index.html" class="masthead-logo" aria-label="Atlas Rising — À la une">
-      <img src="static/img/logo.png" alt="Atlas Rising" width="116" height="116">
+  <a href="play.html" class="play-hud-crest" aria-label="Atlas Rising Play">
+    <img src="static/img/logo.png" alt="" width="34" height="34">
+    <span class="play-hud-wordmark">PLAY</span>
+  </a>
+
+  <div class="play-hud-side">
+    <a href="play.html?tab=boutique" class="points-badge" id="points-badge" aria-label="Mes Atlas Points" hidden>
+      <span class="points-badge-icon" aria-hidden="true">⭐</span>
+      <span id="points-badge-value">0</span>
     </a>
-
-    <div class="masthead-side masthead-right">
-      <a href="play.html?tab=boutique" class="points-badge" id="points-badge" aria-label="Mes Atlas Points" hidden>
-        <span class="points-badge-icon" aria-hidden="true">⭐</span>
-        <span id="points-badge-value">0</span>
-      </a>
-      <button type="button" class="icon-btn" id="search-toggle" aria-label="Rechercher" aria-expanded="false" aria-controls="search-overlay">
-        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-        <span class="icon-btn-label">Rechercher</span>
-      </button>
-      <button type="button" class="icon-btn" id="account-toggle" aria-label="Mon compte" aria-expanded="false" aria-controls="account-overlay">
-        <svg id="account-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
-        <span class="account-avatar" id="account-avatar" hidden></span>
-        <span class="icon-btn-label" id="account-label">Compte</span>
-      </button>
-      <a href="index.html#newsletter" class="btn-newsletter">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-        <span class="btn-newsletter-label">Newsletter</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="wrap nav-row">
-    <button type="button" class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <button type="button" class="icon-btn" id="account-toggle" aria-label="Mon compte" aria-expanded="false" aria-controls="account-overlay">
+      <svg id="account-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+      <span class="account-avatar" id="account-avatar" hidden></span>
+      <span class="icon-btn-label" id="account-label">Compte</span>
     </button>
-    <nav class="nav" id="site-nav">
-      <a href="index.html" class="">
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
-        À la une
-      </a>
-      <a href="categorie/can-caf.html" class="">
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4z"/><path d="M17 5h3a2 2 0 01-2 4M7 5H4a2 2 0 002 4"/></svg>
-        CAN / CAF
-      </a>
-      <a href="categorie/football-mondial.html" class="">
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18 15 15 0 010-18z"/></svg>
-        Football Mondial
-      </a>
-      <a href="categorie/transferts.html" class="">
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2l4 4-4 4M3 6h18M7 22l-4-4 4-4M21 18H3"/></svg>
-        Transferts
-      </a>
-      <a href="matchs.html" class="">
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-        Matchs
-      </a>
-      <a href="blog.html" class="">
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h11l5 5v11H4z"/><path d="M14 4v6h6M8 13h8M8 17h5"/></svg>
-        Blog
-      </a>
-      <a href="categorie/fc26.html" class="">
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="8" width="20" height="9" rx="4"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="16" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="18.5" cy="13.5" r="1" fill="currentColor" stroke="none"/></svg>
-        FC26
-      </a>
-      <a href="play.html" class="active">
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.6 6.2L21 9l-5 4.4L17.4 20 12 16.6 6.6 20 8 13.4 3 9l6.4-.8z"/></svg>
-        Play
-      </a>
-    </nav>
   </div>
 </header>
-
-
-<div class="news-ticker-outer">
-<div class="news-ticker" aria-label="Dernières actualités">
-  <span class="news-ticker-label">En continu</span>
-  <div class="news-ticker-track">
-    <div class="news-ticker-list">
-      
-      <a href="article/milei-accuse-bresil-mexique-campagne-anti-argentine.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Milei accuse le Brésil d&#39;une campagne anti-Argentine
-      </a>
-      
-      <a href="article/pirlo-ecarte-selectionneur-italie.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Italie : la candidature de Pirlo abandonnée par la FIGC
-      </a>
-      
-      <a href="article/fc-barcelone-mercato-crucial-hegemonie-liga.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Mercato crucial pour le Barça, entre Liga et C1
-      </a>
-      
-      <a href="article/haaland-viking-row-mariage-donnarumma.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Haaland lance le &#34;viking row&#34; au mariage de Donnarumma
-      </a>
-      
-      <a href="article/kalilou-traore-ancien-milieu-sochaux-mort-38-ans.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Kalilou Traoré, ex-milieu de Sochaux, mort à 38 ans
-      </a>
-      
-      <a href="article/maroc-can-feminine-troisieme-fois-consecutive.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        CAN féminine 2026 : le Maroc, hôte pour la 3e fois de suite
-      </a>
-      
-      <a href="article/mercato-bilal-nadir-signe-hambourg.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Mercato: Bilal Nadir quitte l&#39;OM et rejoint Hambourg
-      </a>
-      
-      <a href="article/mercato-liverpool-barcola-psg-prix-record.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Mercato : Liverpool relance pour Barcola, prix fixé par le PSG
-      </a>
-      
-      <a href="article/motsepe-arrive-rabat-can-feminine-2026.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        CAN féminine 2026 : Patrice Motsepe arrivé à Rabat
-      </a>
-      
-      <a href="article/neymar-double-santos-chapecoense-poker.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Neymar critiqué, il répond par un doublé avec Santos
-      </a>
-      
-    </div>
-    <div class="news-ticker-list" aria-hidden="true">
-      
-      <a href="article/milei-accuse-bresil-mexique-campagne-anti-argentine.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Milei accuse le Brésil d&#39;une campagne anti-Argentine
-      </a>
-      
-      <a href="article/pirlo-ecarte-selectionneur-italie.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Italie : la candidature de Pirlo abandonnée par la FIGC
-      </a>
-      
-      <a href="article/fc-barcelone-mercato-crucial-hegemonie-liga.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Mercato crucial pour le Barça, entre Liga et C1
-      </a>
-      
-      <a href="article/haaland-viking-row-mariage-donnarumma.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Haaland lance le &#34;viking row&#34; au mariage de Donnarumma
-      </a>
-      
-      <a href="article/kalilou-traore-ancien-milieu-sochaux-mort-38-ans.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Kalilou Traoré, ex-milieu de Sochaux, mort à 38 ans
-      </a>
-      
-      <a href="article/maroc-can-feminine-troisieme-fois-consecutive.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        CAN féminine 2026 : le Maroc, hôte pour la 3e fois de suite
-      </a>
-      
-      <a href="article/mercato-bilal-nadir-signe-hambourg.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Mercato: Bilal Nadir quitte l&#39;OM et rejoint Hambourg
-      </a>
-      
-      <a href="article/mercato-liverpool-barcola-psg-prix-record.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Mercato : Liverpool relance pour Barcola, prix fixé par le PSG
-      </a>
-      
-      <a href="article/motsepe-arrive-rabat-can-feminine-2026.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        CAN féminine 2026 : Patrice Motsepe arrivé à Rabat
-      </a>
-      
-      <a href="article/neymar-double-santos-chapecoense-poker.html">
-        
-        <svg class="ticker-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.3 2.4-1.3 4h-4l-1.3-4z" fill="currentColor" stroke="none"/><path d="M12 3v5M4.3 9.3l4.4 1.3M4.6 15.6l4.1-1.3M19.7 9.3l-4.4 1.3M19.4 15.6l-4.1-1.3M12 21v-5"/></svg>
-        
-        Neymar critiqué, il répond par un doublé avec Santos
-      </a>
-      
-    </div>
-  </div>
-</div>
-</div>
-
-
-<div class="search-overlay" id="search-overlay" aria-hidden="true">
-  <div class="search-panel">
-    <div class="search-panel-head">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      <input type="text" id="search-input" placeholder="Rechercher un article..." autocomplete="off" aria-label="Rechercher un article">
-      <button type="button" class="search-close" id="search-close" aria-label="Fermer la recherche">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-    <div class="search-results" id="search-results"></div>
-  </div>
-</div>
 
 <div class="account-overlay" id="account-overlay" aria-hidden="true">
   <div class="account-panel">
@@ -340,7 +124,7 @@
 </div>
 
 
-<main class="wrap">
+<main class="play-main">
 
 
 <div class="play-tabs" role="tablist" aria-label="Sections Play">
@@ -1050,94 +834,8 @@
 
 </main>
 
-<footer class="site-footer">
-  <div class="wrap footer-top">
-
-    <div class="footer-brand">
-      <a href="index.html" class="footer-logo">
-        <img src="static/img/logo.png" alt="Atlas Rising" width="40" height="40">
-        <span class="footer-wordmark">ATLAS<span class="accent">RISING</span></span>
-      </a>
-      <p class="footer-slogan">Football marocain · Africain · Mondial</p>
-      <div class="social-row social-row-footer" aria-label="Atlas Rising sur les réseaux sociaux">
-        <a href="https://www.instagram.com/atlasrisingma/" target="_blank" rel="noopener" aria-label="Atlas Rising sur Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a href="https://www.tiktok.com/@yochart007" target="_blank" rel="noopener" aria-label="Atlas Rising sur TikTok"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3v10.5a3.5 3.5 0 11-3-3.46"/><path d="M14 3a5 5 0 005 5"/></svg></a>
-        <a href="https://web.facebook.com/AtlasrisingMa" target="_blank" rel="noopener" aria-label="Atlas Rising sur Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h-2a4 4 0 00-4 4v3H7v4h2v7h4v-7h2.5l.5-4h-3V7a1 1 0 011-1h2z"/></svg></a>
-        <a href="https://www.youtube.com/@atlasrisingma/shorts" target="_blank" rel="noopener" aria-label="Atlas Rising sur YouTube"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="12" rx="3.5"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://x.com/YochStudio" target="_blank" rel="noopener" aria-label="Atlas Rising sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <div class="footer-col-title">Rubriques</div>
-      <a href="play.html">Play</a>
-      
-      <a href="categorie/can-caf.html">CAN / CAF</a>
-      
-      <a href="categorie/transferts.html">Transferts</a>
-      
-      <a href="categorie/football-mondial.html">Football Mondial</a>
-      
-    </div>
-
-    <div class="footer-col">
-      <div class="footer-col-title">&nbsp;</div>
-      
-      <a href="categorie/fc26.html">FC26</a>
-      
-    </div>
-
-    <div class="footer-newsletter">
-      <div class="footer-col-title">Newsletter</div>
-      <p>L'essentiel de l'actualité, chaque matin.</p>
-      <form class="newsletter-form newsletter-form-compact" data-newsletter>
-        <input type="email" placeholder="Votre email" required aria-label="Adresse email">
-        <button type="submit">S'abonner</button>
-      </form>
-    </div>
-
-  </div>
-
-  <div class="wrap footer-bottom">
-    <div class="footer-links">
-      <a href="a-propos.html">À propos</a>
-      <a href="contact.html">Contact</a>
-      <a href="confidentialite.html">Politique de confidentialité</a>
-      <a href="mentions-legales.html">Mentions légales</a>
-    </div>
-    <div class="footer-copyright">© 2026 Atlas Rising. Tous droits réservés.</div>
-  </div>
-</footer>
-
-<div class="floating-widgets">
-  <div class="floating-widget">
-    <button type="button" class="floating-bubble" id="podcast-bubble-toggle" aria-label="Écouter le podcast Atlas Rising" data-tooltip="Écouter le podcast" aria-expanded="false" aria-controls="podcast-popup">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3a4 4 0 00-4 4v4a4 4 0 008 0V7a4 4 0 00-4-4z"/><path d="M5 11v1a7 7 0 0014 0v-1M12 19v3"/></svg>
-    </button>
-    <div class="floating-popup" id="podcast-popup" hidden>
-      <div class="floating-popup-header">
-        <span>Podcast Atlas Rising</span>
-        <button type="button" class="floating-popup-close" id="podcast-popup-close" aria-label="Fermer">&times;</button>
-      </div>
-      <div class="floating-popup-body">
-        
-        <img src="static/podcast/cover.jpg" alt="" class="floating-podcast-cover">
-        <audio controls preload="none" class="floating-podcast-player"><source src="static/podcast/episode.m4a"></audio>
-        
-      </div>
-    </div>
-  </div>
-
-  <a href="play.html" class="floating-bubble" aria-label="Jouer à l'Atlas Quiz" data-tooltip="Jouer à l'Atlas Quiz">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10v4M5 12h4"/><circle cx="16" cy="10.5" r="1" fill="#fff" stroke="none"/><circle cx="18.5" cy="13" r="1" fill="#fff" stroke="none"/></svg>
-  </a>
-</div>
-
-<script src="static/js/main.js?v=911e711932"></script>
-<script src="static/js/floating-widgets.js?v=911e711932"></script>
 <script type="module" src="static/js/auth.js?v=911e711932"></script>
 <script type="module" src="static/js/points-daily.js?v=911e711932"></script>
-<script type="module" src="static/js/ads/ad-manager.js?v=911e711932"></script>
 
 <script type="module" src="static/js/quiz.js?v=911e711932"></script>
 <script type="module" src="static/js/quiz-duel.js?v=911e711932"></script>
@@ -1146,6 +844,8 @@
 <script type="module" src="static/js/collection.js?v=911e711932"></script>
 <script type="module" src="static/js/dream-team.js?v=911e711932"></script>
 <script type="module" src="static/js/play-tabs.js?v=911e711932"></script>
+<script type="module" src="static/js/play-atmosphere.js?v=911e711932"></script>
+<script type="module" src="static/js/play-feel.js?v=911e711932"></script>
 
 </body>
 </html>

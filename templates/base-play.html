@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Atlas Rising{% endblock %}</title>
+<meta name="description" content="{% block description %}Atlas Rising — l'actualité du football marocain et africain, sans détour.{% endblock %}">
+<link rel="canonical" href="{{ site_url }}{{ canonical_path }}">
+<meta property="og:type" content="{% block og_type %}website{% endblock %}">
+<meta property="og:site_name" content="Atlas Rising">
+<meta property="og:title" content="{% block og_title %}{{ self.title() }}{% endblock %}">
+<meta property="og:description" content="{% block og_description %}{{ self.description() }}{% endblock %}">
+<meta property="og:url" content="{{ site_url }}{{ canonical_path }}">
+<meta property="og:image" content="{{ site_url }}/static/img/logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ self.og_title() }}">
+<meta name="twitter:description" content="{{ self.og_description() }}">
+{% block structured_data %}{% endblock %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="{{ root }}static/img/favicon.png">
+<link rel="stylesheet" href="{{ root }}static/css/style.css?v={{ asset_version }}">
+<!--
+  base-play.html — coquille dédiée à Play (Football Gaming Hub).
+  Volontairement SANS la nav éditoriale, le footer news, la recherche
+  d'articles, le ticker, les widgets flottants et les publicités de
+  base.html : Play doit donner l'impression de quitter le site média,
+  pas de le prolonger. base.html lui-même n'est pas touché — le site
+  média reste intact. Le compte (#account-toggle/#account-overlay) et
+  le badge de solde (#points-badge/#points-badge-value) sont repris à
+  l'identique (mêmes IDs) pour que auth.js/points-daily.js fonctionnent
+  sans aucune modification.
+-->
+<link rel="stylesheet" href="{{ root }}static/css/play-hub.css?v={{ asset_version }}">
+</head>
+<body data-root="{{ root }}" class="play-body">
+
+<header class="play-hud">
+  <a href="{{ root }}index.html" class="play-hud-quit" aria-label="Quitter Play — retour au site Atlas Rising">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    <span>Quitter Play</span>
+  </a>
+
+  <a href="{{ root }}play.html" class="play-hud-crest" aria-label="Atlas Rising Play">
+    <img src="{{ root }}static/img/logo.png" alt="" width="34" height="34">
+    <span class="play-hud-wordmark">PLAY</span>
+  </a>
+
+  <div class="play-hud-side">
+    <a href="{{ root }}play.html?tab=boutique" class="points-badge" id="points-badge" aria-label="Mes Atlas Points" hidden>
+      <span class="points-badge-icon" aria-hidden="true">⭐</span>
+      <span id="points-badge-value">0</span>
+    </a>
+    <button type="button" class="icon-btn" id="account-toggle" aria-label="Mon compte" aria-expanded="false" aria-controls="account-overlay">
+      <svg id="account-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+      <span class="account-avatar" id="account-avatar" hidden></span>
+      <span class="icon-btn-label" id="account-label">Compte</span>
+    </button>
+  </div>
+</header>
+
+<div class="account-overlay" id="account-overlay" aria-hidden="true">
+  <div class="account-panel">
+    <button type="button" class="account-close" id="account-close" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <div id="account-logged-out">
+      <button type="button" class="account-google-btn" id="google-signin-btn">
+        <svg viewBox="0 0 48 48" width="18" height="18" aria-hidden="true">
+          <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 8 3l6-6C34.5 5.1 29.5 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21c0-1.2-.1-2.3-.4-3.5z"/>
+          <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.5 18.9 13 24 13c3.1 0 5.8 1.1 8 3l6-6C34.5 5.1 29.5 3 24 3 15.9 3 8.9 7.6 6.3 14.7z"/>
+          <path fill="#4CAF50" d="M24 45c5.4 0 10.3-2.1 14-5.4l-6.5-5.4C29.5 35.9 26.9 37 24 37c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9 40.4 15.9 45 24 45z"/>
+          <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.2 4.2-4.1 5.6l6.5 5.4C41.4 35.9 45 30.4 45 24c0-1.2-.1-2.3-.4-3.5z"/>
+        </svg>
+        Continuer avec Google
+      </button>
+      <div class="account-divider"><span>ou</span></div>
+      <div class="account-tabs">
+        <button type="button" class="account-tab active" data-tab="login">Connexion</button>
+        <button type="button" class="account-tab" data-tab="signup">Inscription</button>
+      </div>
+
+      <form id="login-form" class="account-form">
+        <input type="email" placeholder="Email" required autocomplete="email">
+        <input type="password" placeholder="Mot de passe" required autocomplete="current-password">
+        <button type="submit">Se connecter</button>
+        <p class="account-error" hidden></p>
+      </form>
+
+      <form id="signup-form" class="account-form" hidden>
+        <input type="email" placeholder="Email" required autocomplete="email">
+        <input type="password" placeholder="Mot de passe (6 caractères min.)" required autocomplete="new-password" minlength="6">
+        <button type="submit">Créer mon compte</button>
+        <p class="account-error" hidden></p>
+      </form>
+    </div>
+
+    <div id="account-logged-in" hidden>
+      <p class="account-logged-in-title">Connecté en tant que</p>
+      <p class="account-email-display" id="account-email-display"></p>
+      <a href="{{ root }}profil.html" class="account-profile-link">Voir mon profil</a>
+      <button type="button" class="account-logout-btn" id="logout-btn">Se déconnecter</button>
+    </div>
+  </div>
+</div>
+
+{% block modals %}{% endblock %}
+
+<main class="play-main">
+{% block content %}{% endblock %}
+</main>
+
+<script type="module" src="{{ root }}static/js/auth.js?v={{ asset_version }}"></script>
+<script type="module" src="{{ root }}static/js/points-daily.js?v={{ asset_version }}"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

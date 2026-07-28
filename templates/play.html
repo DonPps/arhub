@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base-play.html" %}
 {% block title %}Play — Atlas Quiz, Boutique & Dream Team{% endblock %}
 {% block description %}Atlas Quiz, la boutique de cartes, ta collection et ton Dream Team — tout Atlas Rising à jouer, au même endroit.{% endblock %}
 {% block content %}
@@ -426,4 +426,6 @@
 <script type="module" src="{{ root }}static/js/collection.js?v={{ asset_version }}"></script>
 <script type="module" src="{{ root }}static/js/dream-team.js?v={{ asset_version }}"></script>
 <script type="module" src="{{ root }}static/js/play-tabs.js?v={{ asset_version }}"></script>
+<script type="module" src="{{ root }}static/js/play-atmosphere.js?v={{ asset_version }}"></script>
+<script type="module" src="{{ root }}static/js/play-feel.js?v={{ asset_version }}"></script>
 {% endblock %}
