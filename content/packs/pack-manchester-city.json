@@ -1,0 +1,19 @@
+{
+  "name": "Pack Manchester City",
+  "description": "Les stars actuelles de Manchester City.",
+  "price": 170,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "manchester-city",
+  "cardPool": [
+    "ederson-manchester-city",
+    "josko-gvardiol-manchester-city",
+    "ruben-dias-manchester-city",
+    "rico-lewis-manchester-city",
+    "rodri-manchester-city",
+    "mateo-kovacic-manchester-city",
+    "jeremy-doku-manchester-city",
+    "savinho-manchester-city",
+    "erling-haaland-manchester-city"
+  ]
+}
