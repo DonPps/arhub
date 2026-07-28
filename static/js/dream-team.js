@@ -39,6 +39,13 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
   var statCards = document.getElementById('dreamteam-stat-cards');
   var statLegendary = document.getElementById('dreamteam-stat-legendary');
 
+  var coachBlock = document.getElementById('dreamteam-coach-block');
+  var coachCard = document.getElementById('dreamteam-coach-card');
+  var coachPickerModal = document.getElementById('dreamteam-coach-picker-modal');
+  var coachPickerOverlay = document.getElementById('dreamteam-coach-picker-overlay');
+  var coachPickerClose = document.getElementById('dreamteam-coach-picker-close');
+  var coachPickerGrid = document.getElementById('dreamteam-coach-picker-grid');
+
   var SLOT_POSITIONS = {
     GK: ['GK'], LB: ['LB'], RB: ['RB'], CB1: ['CB'], CB2: ['CB'],
     CM1: ['CDM', 'CM', 'CAM'], CM2: ['CDM', 'CM', 'CAM'], CM3: ['CDM', 'CM', 'CAM'],
@@ -54,6 +61,16 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
     CM1: [25, 50], CM2: [50, 48], CM3: [75, 50],
     LW: [15, 22], ST: [50, 14], RW: [85, 22],
   };
+  /* Desktop (terrain paysage, buts gauche/droite) — mêmes valeurs que
+   * la surcharge CSS @media (min-width:860px) de play-hub.css, pour
+   * que les liens de chimie (dessinés en JS) restent alignés sur les
+   * slots réellement affichés. */
+  var SLOT_COORDS_DESKTOP = {
+    GK: [8, 50], LB: [25, 18], CB1: [18, 38], CB2: [18, 62], RB: [25, 82],
+    CM1: [50, 25], CM2: [50, 50], CM3: [50, 75],
+    LW: [76, 18], ST: [90, 50], RW: [76, 82],
+  };
+  var desktopMedia = window.matchMedia('(min-width:860px)');
 
   var LEGENDARY_RARITIES = ['legendary', 'mythic', 'limited-edition', 'event-exclusive'];
 
@@ -179,11 +196,15 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
     });
   }
 
+  var prevSlots = {};
+  var pitchRenderedOnce = false;
+
   function renderPitch() {
     Array.prototype.forEach.call(pitch.querySelectorAll('.dreamteam-slot'), function (btn) {
       var slotId = btn.getAttribute('data-slot');
       var cardSlug = teamData.slots && teamData.slots[slotId];
       var card = cardSlug && cardsBySlug[cardSlug];
+      var justFilled = pitchRenderedOnce && cardSlug && cardSlug !== prevSlots[slotId];
       btn.classList.toggle('is-filled', !!card);
       btn.classList.toggle('is-editable', editable);
       btn.disabled = !editable;
@@ -194,9 +215,17 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
         btn.innerHTML = '<span class="dreamteam-slot-plus">' + (editable ? '+' : '') + '</span>' +
           '<span class="dreamteam-slot-label">' + escapeHtml(btn.getAttribute('data-label')) + '</span>';
       }
+      if (justFilled) {
+        btn.classList.add('is-just-filled');
+        document.dispatchEvent(new CustomEvent('dreamteam-card-added', { detail: { slotId: slotId } }));
+        setTimeout(function () { btn.classList.remove('is-just-filled'); }, 550);
+      }
     });
+    prevSlots = Object.assign({}, teamData.slots || {});
+    pitchRenderedOnce = true;
     renderStats();
     renderChemistry();
+    renderCoach();
   }
 
   var lastFilledCount = 0;
@@ -229,15 +258,102 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
     if (!chemistrySvg) return;
     Array.prototype.forEach.call(chemistrySvg.querySelectorAll('.dreamteam-chemistry-link'), function (el) { el.remove(); });
     var chem = computeChemistryPairs(teamData.slots || {});
+    var tierClass = chem.percent === null ? 'is-chem-mid' : chem.percent < 34 ? 'is-chem-low' : chem.percent < 67 ? 'is-chem-mid' : 'is-chem-high';
+    var coords = desktopMedia.matches ? SLOT_COORDS_DESKTOP : SLOT_COORDS;
     var svgNS = 'http://www.w3.org/2000/svg';
     chem.pairs.forEach(function (pair) {
-      var a = SLOT_COORDS[pair[0]], b = SLOT_COORDS[pair[1]];
+      var a = coords[pair[0]], b = coords[pair[1]];
       if (!a || !b) return;
       var line = document.createElementNS(svgNS, 'line');
-      line.setAttribute('class', 'dreamteam-chemistry-link');
+      line.setAttribute('class', 'dreamteam-chemistry-link ' + tierClass);
       line.setAttribute('x1', a[0]); line.setAttribute('y1', a[1]);
       line.setAttribute('x2', b[0]); line.setAttribute('y2', b[1]);
       chemistrySvg.appendChild(line);
+    });
+  }
+  if (desktopMedia.addEventListener) desktopMedia.addEventListener('change', renderChemistry);
+  else if (desktopMedia.addListener) desktopMedia.addListener(renderChemistry);
+
+  /* ---------- Coach — même carte de sélection que les joueurs, mais
+   * un seul champ dénormalisé (coachSlug) sur le document dreamTeams
+   * déjà existant. Le roster (nom/nation/formation/rareté/bonus) est
+   * rendu côté serveur une seule fois dans la modale (generator.py
+   * COACHES) — on lit ces données déjà en DOM plutôt que de les
+   * dupliquer en JS. "Formation" et "bonus" restent des attributs
+   * d'affichage : aucune incidence sur la formation réelle (4-3-3,
+   * inchangée) ni sur le calcul de chimie. ---------- */
+  var prevCoachSlug;
+  var coachRenderedOnce = false;
+
+  function renderCoach() {
+    if (!coachCard) return;
+    coachCard.disabled = !editable;
+    var slug = teamData.coachSlug;
+    var source = slug && coachPickerGrid && coachPickerGrid.querySelector('[data-coach-slug="' + slug + '"]');
+    if (!source) {
+      coachCard.classList.add('is-empty');
+      coachCard.innerHTML = '<span class="dreamteam-coach-placeholder-icon">👔</span>' +
+        '<span class="dreamteam-coach-placeholder-text">' + (editable ? 'Choisir un Coach' : 'Aucun coach') + '</span>';
+    } else {
+      var imgEl = source.querySelector('img');
+      var rarityEl = source.querySelector('.shop-card-rarity');
+      var name = source.querySelector('h3').textContent;
+      var meta = source.querySelector('.dreamteam-coach-picker-meta').textContent;
+      var rarityClass2 = rarityEl ? rarityEl.className.replace('shop-card-rarity', '').trim() : '';
+      coachCard.classList.remove('is-empty');
+      coachCard.innerHTML =
+        '<div class="dreamteam-coach-media"><img src="' + imgEl.src + '" alt="' + escapeHtml(name) + '">' +
+        '<span class="dreamteam-coach-rarity ' + rarityClass2 + '">' + escapeHtml(rarityEl ? rarityEl.textContent : '') + '</span></div>' +
+        '<div class="dreamteam-coach-body"><h3 class="dreamteam-coach-name">' + escapeHtml(name) + '</h3>' +
+        '<p class="dreamteam-coach-meta"><span>' + escapeHtml(meta) + '</span></p></div>';
+    }
+    if (coachRenderedOnce && slug && slug !== prevCoachSlug) {
+      document.dispatchEvent(new CustomEvent('dreamteam-coach-added'));
+    }
+    prevCoachSlug = slug;
+    coachRenderedOnce = true;
+  }
+
+  function assignCoach(coachSlug) {
+    if (!editable || !currentUser) return;
+    Promise.all([ensureFirestore().then(function () { return ensureTeamDoc(currentUser.uid); }), getMyNickname()])
+      .then(function (results) {
+        var ref = results[0];
+        var nickname = results[1];
+        var refs = getFirestoreRefs();
+        return refs.firestoreFns.updateDoc(ref, {
+          coachSlug: coachSlug, nickname: nickname, updatedAt: refs.firestoreFns.serverTimestamp(),
+        });
+      }).catch(function (e) { console.error('Échec sauvegarde du coach Dream Team:', e); });
+  }
+
+  function openCoachPicker() {
+    if (!editable || !coachPickerModal) return;
+    coachPickerModal.hidden = false;
+    requestAnimationFrame(function () { coachPickerModal.classList.add('is-open'); });
+    document.body.classList.add('drawer-open');
+  }
+  function closeCoachPicker() {
+    if (!coachPickerModal) return;
+    coachPickerModal.classList.remove('is-open');
+    document.body.classList.remove('drawer-open');
+    setTimeout(function () { coachPickerModal.hidden = true; }, 250);
+  }
+  if (coachPickerClose) coachPickerClose.addEventListener('click', closeCoachPicker);
+  if (coachPickerOverlay) coachPickerOverlay.addEventListener('click', closeCoachPicker);
+  if (coachCard) {
+    coachCard.addEventListener('click', function () {
+      coachCard.classList.add('is-clicked');
+      setTimeout(function () { coachCard.classList.remove('is-clicked'); }, 320);
+      openCoachPicker();
+    });
+  }
+  if (coachPickerGrid) {
+    Array.prototype.forEach.call(coachPickerGrid.querySelectorAll('.dreamteam-coach-picker-card'), function (el) {
+      el.addEventListener('click', function () {
+        assignCoach(el.getAttribute('data-coach-slug'));
+        closeCoachPicker();
+      });
     });
   }
 
@@ -335,6 +451,7 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
     pitch.hidden = !targetUid;
     if (fieldWrap) fieldWrap.hidden = !targetUid;
     if (collectionBlock) collectionBlock.hidden = !editable;
+    if (coachBlock) coachBlock.hidden = !targetUid;
     shareBtn.hidden = !editable;
     ownLink.hidden = !(viewingOther && loggedIn);
     emptyNote.hidden = true;
