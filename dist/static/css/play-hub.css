@@ -28,20 +28,11 @@
 }
 .play-bg-far{
   background-image: url('../img/play/stadium-far.jpg');
-  opacity:.92;
+  opacity:1;
 }
 .play-bg-lights{
   background-image: url('../img/play/stadium-lights.jpg');
   mix-blend-mode: screen; opacity:.85; z-index:-2;
-}
-.play-body::after{
-  /* Le décor doit rester vif et coloré (retour utilisateur) — juste un
-     voile très léger en haut/bas pour que le HUD et le bord d'écran
-     restent lisibles, jamais un lavage sombre sur toute la page. Le
-     texte compte sur les panneaux (verre + scrim) pour son contraste,
-     pas sur un overlay global. */
-  content:''; position: fixed; inset:0; z-index:-1; pointer-events:none;
-  background: linear-gradient(180deg, rgba(14,12,10,.35) 0%, transparent 18%, transparent 82%, rgba(14,12,10,.4) 100%);
 }
 .play-bg-jumbotron{
   position:absolute; top:64px; right:clamp(8px,3vw,40px); width:min(340px,32vw);
