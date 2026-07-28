@@ -15,22 +15,11 @@
    * seul le déplacement de parallaxe est coupé plus bas) ---------- */
   var far = document.createElement('div');
   far.className = 'play-bg-layer play-bg-far';
-  var lights = document.createElement('div');
-  lights.className = 'play-bg-layer play-bg-lights';
-  document.body.insertBefore(lights, document.body.firstChild);
-  document.body.insertBefore(far, lights);
-
-  var jumbotron = document.createElement('div');
-  jumbotron.className = 'play-bg-jumbotron';
-  var main = document.querySelector('.play-main');
-  if (main) main.style.position = main.style.position || 'relative';
-  (main || document.body).insertBefore(jumbotron, (main || document.body).firstChild);
+  document.body.insertBefore(far, document.body.firstChild);
 
   if (!reduceMotion) {
     var layers = [
       { el: far, depth: 6 },
-      { el: lights, depth: 14 },
-      { el: jumbotron, depth: 22 },
     ];
     var targetX = 0, targetY = 0, curX = 0, curY = 0;
     document.addEventListener('mousemove', function (e) {
