@@ -32,22 +32,11 @@
   will-change: transform;
 }
 .play-bg-far{
-  background-image: url('../img/play/stadium-far.jpg');
+  /* static/img/gamebackground.png — nom fixe, remplaçable à tout moment
+     sans toucher au code (juste écraser le fichier). */
+  background-image: url('../img/gamebackground.png');
   opacity:1;
 }
-.play-bg-lights{
-  background-image: url('../img/play/stadium-lights.jpg');
-  mix-blend-mode: screen; opacity:.85; z-index:-2;
-}
-.play-bg-jumbotron{
-  position:absolute; top:64px; right:clamp(8px,3vw,40px); width:min(340px,32vw);
-  aspect-ratio: 16/9; background-image:url('../img/play/stadium-jumbotron.jpg');
-  background-size:cover; background-position:center; border-radius:10px;
-  box-shadow: 0 24px 50px -20px rgba(0,0,0,.7), 0 0 30px -6px rgba(184,144,62,.35);
-  opacity:.9; z-index:-1; pointer-events:none; will-change: transform;
-  display:none;
-}
-@media (min-width:920px){ .play-bg-jumbotron{ display:block; } }
 #play-atmosphere-canvas{
   position: fixed; inset:0; z-index:-1; pointer-events:none; opacity:.5;
 }
@@ -288,6 +277,25 @@
 .play-body .quiz-rank-desc{ color: rgba(242,235,220,.78); }
 .play-body .quizx-quiz-card-meta span{ background: rgba(255,255,255,.14); color:#fff; }
 .play-body .quiz-rank-progress-track{ background: rgba(255,255,255,.2); }
+
+/* ---------- Rang verrouillé — doit se lire au premier coup d'oeil comme
+   bloqué (retour utilisateur : "les niveaux ne sont pas grisés"). La
+   bordure or pulsée et le tilt du système de panneau générique donnent
+   l'impression inverse (carte "vivante"/invitante) : on les coupe ici,
+   en plus d'un assombrissement/désaturation plus marqué que le style.css
+   de base (le fond photo dilue trop un simple opacity:.55). ---------- */
+.play-body .quiz-rank-card.is-locked{
+  filter: grayscale(1) brightness(.45);
+  opacity: 1;
+  animation: none;
+  border-color: rgba(242,235,220,.16);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 14px 26px -18px rgba(0,0,0,.7);
+  cursor: not-allowed;
+}
+.play-body .quiz-rank-card.is-locked:hover{
+  transform: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 14px 26px -18px rgba(0,0,0,.7);
+}
 
 /* ---------- Stats — badge circulaire coloré par nature de statistique
    (repère visuel rapide, comme les jeux de référence cités) — posé en
