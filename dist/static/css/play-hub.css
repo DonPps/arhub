@@ -21,6 +21,11 @@
   overflow-x: hidden;
   position: relative;
 }
+/* style.css pose un voile crème sur <body> pour l'habillage Sahara du
+   site média (body::before, non scopé à une classe) — sur Play ce
+   voile masquait le décor stade en le lavant de blanc. On le neutralise
+   ici, jamais dans style.css lui-même (le site média n'est pas touché). */
+.play-body::before{ content:none; }
 .play-bg-layer{
   position: fixed; inset:-4%; z-index:-3; pointer-events:none;
   background-repeat:no-repeat; background-position:center bottom; background-size:cover;
@@ -152,8 +157,8 @@
     display:flex; flex-direction:column; justify-content:center;
   }
   .play-body .quizx-hero::before{
-    content:''; position:absolute; left:-24px; bottom:-36px;
-    width:min(420px,34vw); aspect-ratio:640/857;
+    content:''; position:absolute; left:-12px; bottom:0;
+    height:100%; max-height:340px; width:auto; aspect-ratio:640/857;
     background-image:url('../img/play/hero-character.png');
     background-size:contain; background-repeat:no-repeat; background-position:bottom left;
     filter: drop-shadow(0 22px 26px rgba(0,0,0,.5));
