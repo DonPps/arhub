@@ -1,0 +1,19 @@
+{
+  "name": "Pack Portugal",
+  "description": "Les stars actuelles de Portugal.",
+  "price": 160,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "portugal",
+  "cardPool": [
+    "diogo-costa-portugal",
+    "nuno-mendes-portugal",
+    "ruben-dias-portugal",
+    "joao-cancelo-portugal",
+    "joao-palhinha-portugal",
+    "vitinha-portugal",
+    "rafael-leao-portugal",
+    "bernardo-silva-portugal",
+    "goncalo-ramos-portugal"
+  ]
+}
