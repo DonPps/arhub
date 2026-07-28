@@ -1,0 +1,19 @@
+{
+  "name": "Pack Allemagne",
+  "description": "Les stars actuelles de Allemagne.",
+  "price": 160,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "germany",
+  "cardPool": [
+    "manuel-neuer-germany",
+    "david-raum-germany",
+    "jonathan-tah-germany",
+    "benjamin-henrichs-germany",
+    "joshua-kimmich-germany",
+    "ilkay-gundogan-germany",
+    "leroy-sane-germany",
+    "serge-gnabry-germany",
+    "kai-havertz-germany"
+  ]
+}
