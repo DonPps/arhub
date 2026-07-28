@@ -1,0 +1,19 @@
+{
+  "name": "Pack FC Barcelone",
+  "description": "Les stars actuelles de FC Barcelone.",
+  "price": 180,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "barcelona",
+  "cardPool": [
+    "marc-andre-ter-stegen-barcelona",
+    "alejandro-balde-barcelona",
+    "pau-cubarsi-barcelona",
+    "jules-kounde-barcelona",
+    "frenkie-de-jong-barcelona",
+    "pedri-barcelona",
+    "raphinha-barcelona",
+    "lamine-yamal-barcelona",
+    "robert-lewandowski-barcelona"
+  ]
+}
