@@ -234,5 +234,23 @@ service cloud.firestore {
       allow write: if request.auth != null && request.auth.token.email == 'ochfy.youssef@gmail.com';
     }
 
+    // ---------- Dream Team (composition d'un onze avec les cartes possédées) ----------
+    //
+    // Partageable publiquement (décision utilisateur) — même principe que
+    // `leaderboard`. La légitimité de chaque carte placée (possédée par
+    // l'utilisateur + poste compatible avec le slot) N'EST PAS vérifiée ici :
+    // il faudrait parcourir la sous-collection `points/{uid}/openedPacks`
+    // (pas faisable en une seule lecture de règle) et connaître le poste de
+    // chaque carte (donnée statique, hors Firestore). Compromis accepté :
+    // fonctionnalité cosmétique/sociale, aucun enjeu de points ou d'objets —
+    // au pire un visiteur voit un onze "impossible", sans conséquence.
+    match /dreamTeams/{userId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId
+        && request.resource.data.formation is string
+        && request.resource.data.slots is map
+        && request.resource.data.slots.size() <= 11;
+    }
+
   }
 }

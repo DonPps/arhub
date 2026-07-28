@@ -161,6 +161,22 @@ export function loadOpenedPackIds(uid) {
   });
 }
 
+/* Slugs (dédupliqués) de toutes les cartes obtenues via l'ouverture de
+ * packs — calculé en aplatissant points/{uid}/openedPacks/*.grantedCards.
+ * Partagé par collection.js et dream-team.js (même besoin exact). */
+export function loadOwnedCardSlugs(uid) {
+  return ensureFirestore().then(function (ok) {
+    if (!ok) return [];
+    return firestoreFns.getDocs(firestoreFns.collection(db, 'points', uid, 'openedPacks')).then(function (snap) {
+      var slugs = {};
+      snap.forEach(function (d) {
+        (d.data().grantedCards || []).forEach(function (s) { slugs[s] = true; });
+      });
+      return Object.keys(slugs);
+    }).catch(function () { return []; });
+  });
+}
+
 export function openPack(instanceId, packSlug, grantedCards) {
   var user = currentUser();
   if (!user) return Promise.reject(new Error('not logged in'));
