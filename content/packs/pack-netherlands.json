@@ -1,0 +1,19 @@
+{
+  "name": "Pack Pays-Bas",
+  "description": "Les stars actuelles de Pays-Bas.",
+  "price": 160,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "netherlands",
+  "cardPool": [
+    "bart-verbruggen-netherlands",
+    "nathan-ake-netherlands",
+    "virgil-van-dijk-netherlands",
+    "denzel-dumfries-netherlands",
+    "jerdy-schouten-netherlands",
+    "frenkie-de-jong-netherlands",
+    "cody-gakpo-netherlands",
+    "xavi-simons-netherlands",
+    "memphis-depay-netherlands"
+  ]
+}
