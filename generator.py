@@ -344,6 +344,23 @@ def build_teams_and_competitions_index():
 CARDS_DIR = CONTENT_DIR / "cards"
 PACKS_DIR = CONTENT_DIR / "packs"
 
+# Terrain Dream Team — une seule formation (4-3-3) pour cette première
+# passe ; les 11 postes sont fixes côté template, static/js/dream-team.js
+# associe chaque slot à la/les position(s) de carte compatibles.
+DREAMTEAM_SLOTS = [
+    {"id": "GK", "label": "Gardien"},
+    {"id": "LB", "label": "Arrière gauche"},
+    {"id": "CB1", "label": "Défenseur central"},
+    {"id": "CB2", "label": "Défenseur central"},
+    {"id": "RB", "label": "Arrière droit"},
+    {"id": "CM1", "label": "Milieu"},
+    {"id": "CM2", "label": "Milieu"},
+    {"id": "CM3", "label": "Milieu"},
+    {"id": "LW", "label": "Ailier gauche"},
+    {"id": "ST", "label": "Attaquant"},
+    {"id": "RW", "label": "Ailier droit"},
+]
+
 
 def build_cards_catalog():
     """Catalogue des cartes Atlas Points — jamais générées, déposées par
@@ -609,6 +626,16 @@ def build():
         active_nav="boutique",
     )
     (DIST_DIR / "collection.html").write_text(html, encoding="utf-8")
+
+    tpl = env.get_template("dream-team.html")
+    html = tpl.render(
+        **common,
+        root="",
+        canonical_path="/dream-team.html",
+        active_nav="dream-team",
+        dreamteam_slots=DREAMTEAM_SLOTS,
+    )
+    (DIST_DIR / "dream-team.html").write_text(html, encoding="utf-8")
 
     # ---------- Page Atlas Quiz ----------
     quiz_ranks = load_quiz_ranks()
