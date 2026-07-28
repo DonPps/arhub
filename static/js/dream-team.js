@@ -273,4 +273,5 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
     renderPitch();
   });
 
-  ren
+  renderRanking();
+})();
