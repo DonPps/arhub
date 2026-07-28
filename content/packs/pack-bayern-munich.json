@@ -1,0 +1,19 @@
+{
+  "name": "Pack Bayern Munich",
+  "description": "Les stars actuelles de Bayern Munich.",
+  "price": 170,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "bayern-munich",
+  "cardPool": [
+    "manuel-neuer-bayern-munich",
+    "alphonso-davies-bayern-munich",
+    "dayot-upamecano-bayern-munich",
+    "josip-stanisic-bayern-munich",
+    "joshua-kimmich-bayern-munich",
+    "jamal-musiala-bayern-munich",
+    "michael-olise-bayern-munich",
+    "serge-gnabry-bayern-munich",
+    "harry-kane-bayern-munich"
+  ]
+}
