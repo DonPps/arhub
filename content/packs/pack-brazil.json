@@ -1,0 +1,19 @@
+{
+  "name": "Pack Brésil",
+  "description": "Les stars actuelles de Brésil.",
+  "price": 160,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "brazil",
+  "cardPool": [
+    "alisson-becker-brazil",
+    "guilherme-arana-brazil",
+    "marquinhos-brazil",
+    "danilo-brazil",
+    "casemiro-brazil",
+    "bruno-guimaraes-brazil",
+    "vinicius-junior-brazil",
+    "raphinha-brazil",
+    "endrick-brazil"
+  ]
+}
