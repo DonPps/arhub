@@ -72,13 +72,15 @@ import { ensureFirestore, getFirestoreRefs, watchPoints, buyItem, buyPack, loadO
     }
     packsGrid.innerHTML = packsCatalog.map(function (p) {
       var canAfford = currentUser && currentBalance >= p.price;
+      var label = !currentUser
+        ? ('<span class="points-badge-icon" aria-hidden="true">⭐</span> ' + p.price)
+        : (canAfford ? ('<span class="points-badge-icon" aria-hidden="true">⭐</span> ' + p.price) : 'Solde insuffisant');
       return '<div class="shop-card">' +
         '<div class="shop-card-media"><img src="' + root + escapeHtml(p.image) + '" alt="' + escapeHtml(p.name) + '" loading="lazy">' +
         '<span class="shop-card-rarity ' + rarityClass(p.rarity) + '">' + escapeHtml(p.rarity || '') + '</span></div>' +
         '<div class="shop-card-body"><h3>' + escapeHtml(p.name) + '</h3><p>' + escapeHtml(p.description || '') + '</p>' +
         '<button type="button" class="shop-buy-btn" data-type="pack" data-slug="' + escapeHtml(p.slug) + '" data-price="' + p.price + '"' +
-        (canAfford ? '' : ' disabled') + '>' +
-        '<span class="points-badge-icon" aria-hidden="true">⭐</span> ' + p.price + '</button></div></div>';
+        (canAfford ? '' : ' disabled') + '>' + label + '</button></div></div>';
     }).join('');
 
     Array.prototype.forEach.call(packsGrid.querySelectorAll('.shop-buy-btn'), function (btn) {
@@ -103,8 +105,11 @@ import { ensureFirestore, getFirestoreRefs, watchPoints, buyItem, buyPack, loadO
       } else if (owned) {
         actionBtn = '<button type="button" class="shop-buy-btn" disabled>Possédé</button>';
       } else {
+        var itemLabel = (!currentUser || canAfford || it.status !== 'available')
+          ? ('⭐ ' + it.price)
+          : 'Solde insuffisant';
         actionBtn = '<button type="button" class="shop-buy-btn" data-type="item" data-slug="' + escapeHtml(it.id) + '" data-price="' + it.price + '"' +
-          (canAfford ? '' : ' disabled') + '>⭐ ' + it.price + '</button>';
+          (canAfford ? '' : ' disabled') + '>' + itemLabel + '</button>';
       }
       return '<div class="shop-card">' +
         '<div class="shop-card-media"><img src="' + escapeHtml(it.imageUrl || '') + '" alt="' + escapeHtml(it.name) + '" loading="lazy">' +
