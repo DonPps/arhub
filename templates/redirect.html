@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <title>Redirection — Atlas Rising</title>
 <meta name="robots" content="noindex">
-<meta http-equiv="refresh" content="0;url=play.html?tab=quiz">
+<meta http-equiv="refresh" content="0;url={{ root }}play.html?tab={{ target_tab }}">
 <style>body{font-family:system-ui,sans-serif;text-align:center;padding:80px 20px;color:#333}a{color:#c1121f}</style>
 </head>
 <body>
-<p>Cette page a déménagé. Redirection vers <a id="redirect-link" href="play.html?tab=quiz">Play</a>…</p>
+<p>Cette page a déménagé. Redirection vers <a id="redirect-link" href="{{ root }}play.html?tab={{ target_tab }}">Play</a>…</p>
 <script>
 (function () {
-  var target = "play.html?tab=quiz";
+  var target = "{{ root }}play.html?tab={{ target_tab }}";
   var extraParams = window.location.search.replace(/^\?/, '');
   if (extraParams) target += '&' + extraParams;
   document.getElementById('redirect-link').href = target;

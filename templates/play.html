@@ -1,7 +1,16 @@
 {% extends "base.html" %}
-{% block title %}Atlas Quiz — le mode carrière du football{% endblock %}
-{% block description %}Atlas Quiz : progressez de Cadet à Atlas Rising Legend à travers 9 rangs et 225 questions sur le football mondial, africain et marocain.{% endblock %}
+{% block title %}Play — Atlas Quiz, Boutique & Dream Team{% endblock %}
+{% block description %}Atlas Quiz, la boutique de cartes, ta collection et ton Dream Team — tout Atlas Rising à jouer, au même endroit.{% endblock %}
 {% block content %}
+
+<div class="play-tabs" role="tablist" aria-label="Sections Play">
+  <button type="button" class="play-tab active" data-tab="quiz" role="tab" aria-selected="true">Quiz</button>
+  <button type="button" class="play-tab" data-tab="boutique" role="tab" aria-selected="false">Boutique</button>
+  <button type="button" class="play-tab" data-tab="collection" role="tab" aria-selected="false">Ma Collection</button>
+  <button type="button" class="play-tab" data-tab="dreamteam" role="tab" aria-selected="false">Dream Team</button>
+</div>
+
+<section class="play-panel" data-tab-panel="quiz">
 
 <div class="quiz-page quizx-page" id="quiz-page" data-quiz-data="{{ root }}static/data/quiz-questions.json">
 
@@ -266,14 +275,155 @@
       <div class="quiz-result-icon">⚔️</div>
       <h2 id="quiz-duel-result-title"></h2>
       <p class="quiz-result-score" id="quiz-duel-result-score"></p>
-      <a class="quiz-btn-primary" href="{{ root }}quiz.html">Retour à Atlas Quiz</a>
+      <a class="quiz-btn-primary play-tab-link" data-tab="quiz" href="{{ root }}play.html?tab=quiz">Retour à Atlas Quiz</a>
     </div>
   </div>
 
 </div>
 
+</section>
+
+<section class="play-panel" data-tab-panel="boutique" hidden>
+
+<div class="shop-page" id="shop-page">
+  <div class="shop-head">
+    <h1 class="grid-title">Boutique</h1>
+    <div class="shop-balance" id="shop-balance-display" hidden>
+      <span class="points-badge-icon" aria-hidden="true">⭐</span>
+      <span id="shop-balance-value">0</span> Atlas Points
+    </div>
+  </div>
+
+  <div class="shop-login-gate" id="shop-login-gate">
+    <p>Connecte-toi pour dépenser tes Atlas Points.</p>
+    <button type="button" class="quiz-btn-primary" id="shop-login-btn">Se connecter</button>
+  </div>
+
+  <section class="shop-section">
+    <h2 class="grid-title">Packs de cartes</h2>
+    <p class="shop-section-intro">Le contenu d'un pack reste secret tant qu'il n'est pas ouvert.</p>
+    <div class="shop-grid" id="shop-packs-grid">
+      <p class="matches-loading">Chargement…</p>
+    </div>
+  </section>
+
+  <section class="shop-section">
+    <h2 class="grid-title">Badges, avatars &amp; cosmétiques</h2>
+    <div class="shop-grid" id="shop-items-grid">
+      <p class="matches-loading">Chargement…</p>
+    </div>
+  </section>
+
+  <section class="shop-section" id="shop-inventory-section" hidden>
+    <h2 class="grid-title">Mon inventaire</h2>
+    <div class="shop-inventory" id="shop-inventory"></div>
+  </section>
+</div>
+
+</section>
+
+<section class="play-panel" data-tab-panel="collection" hidden>
+
+<div class="collection-page" id="collection-page">
+  <div class="matches-head">
+    <h1 class="grid-title">Ma Collection</h1>
+  </div>
+
+  <div class="quiz-login-gate" id="collection-login-gate">
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">🔒</p>
+      <h2>Connecte-toi pour voir ta collection</h2>
+      <button type="button" class="quiz-btn-primary" id="collection-login-btn">Se connecter / S'inscrire</button>
+    </div>
+  </div>
+
+  <div id="collection-content" hidden>
+    <div class="matches-search-row">
+      <div class="matches-search">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" id="collection-search-input" placeholder="Carte, joueur, équipe, saison..." aria-label="Rechercher une carte">
+      </div>
+      <div class="filter-tabs" id="collection-rarity-tabs" role="tablist" aria-label="Filtrer par rareté">
+        <button type="button" class="filter-tab is-active" data-rarity="all" role="tab" aria-selected="true">Toutes</button>
+      </div>
+    </div>
+    <div class="shop-grid" id="collection-grid"></div>
+  </div>
+</div>
+
+</section>
+
+<section class="play-panel" data-tab-panel="dreamteam" hidden>
+
+<div class="dreamteam-page" id="dreamteam-page">
+
+  <div class="dreamteam-head">
+    <div>
+      <h1 class="grid-title">Dream Team</h1>
+      <p class="dreamteam-formation" id="dreamteam-formation-label">Formation 4-3-3</p>
+    </div>
+    <div class="dreamteam-head-actions">
+      <button type="button" class="quiz-btn-primary" id="dreamteam-share-btn" hidden>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-3.8M8.6 13.4l6.8 3.8"/></svg>
+        Partager
+      </button>
+      <a href="{{ root }}play.html?tab=dreamteam" class="dreamteam-own-link" id="dreamteam-own-link" hidden>Voir mon Dream Team</a>
+    </div>
+  </div>
+
+  <div class="quiz-login-gate" id="dreamteam-login-gate" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">⚽</p>
+      <h2>Connecte-toi pour composer ton Dream Team</h2>
+      <p>Place tes cartes possédées sur le terrain selon leur poste.</p>
+      <button type="button" class="quiz-btn-primary" id="dreamteam-login-gate-btn">Se connecter / S'inscrire</button>
+    </div>
+  </div>
+
+  <p class="dreamteam-empty-note" id="dreamteam-empty-note" hidden>Aucune carte possédée pour l'instant — ouvre des packs depuis la <a href="{{ root }}play.html?tab=boutique">Boutique</a> pour commencer ton Dream Team.</p>
+
+  <div class="dreamteam-pitch" id="dreamteam-pitch" hidden>
+    {% for slot in dreamteam_slots %}
+    <button type="button" class="dreamteam-slot" data-slot="{{ slot.id }}" data-label="{{ slot.label }}" aria-label="{{ slot.label }}">
+      <span class="dreamteam-slot-plus">+</span>
+      <span class="dreamteam-slot-label">{{ slot.label }}</span>
+    </button>
+    {% endfor %}
+  </div>
+
+  <h2 class="grid-title">Classement — valeur d'équipe</h2>
+  <div class="quiz-leaderboard-list" id="dreamteam-ranking-list">
+    <p class="quiz-duel-history-empty">Le classement se remplira au fil des premières équipes complétées.</p>
+  </div>
+
+</div>
+
+</section>
+
+{% endblock %}
+{% block modals %}
+<div class="pack-opening-modal" id="pack-opening-modal" hidden>
+  <div class="pack-opening-overlay" id="pack-opening-overlay"></div>
+  <div class="pack-opening-panel">
+    <button type="button" class="match-drawer-close" id="pack-opening-close" aria-label="Fermer">&times;</button>
+    <div class="pack-opening-body" id="pack-opening-body"></div>
+  </div>
+</div>
+<div class="pack-opening-modal" id="dreamteam-picker-modal" hidden>
+  <div class="pack-opening-overlay" id="dreamteam-picker-overlay"></div>
+  <div class="pack-opening-panel">
+    <button type="button" class="match-drawer-close" id="dreamteam-picker-close" aria-label="Fermer">&times;</button>
+    <h2 class="pack-reveal-title" id="dreamteam-picker-title">Choisir un joueur</h2>
+    <div class="shop-grid dreamteam-picker-grid" id="dreamteam-picker-grid"></div>
+  </div>
+</div>
 {% endblock %}
 {% block extra_scripts %}
 <script type="module" src="{{ root }}static/js/quiz.js?v={{ asset_version }}"></script>
 <script type="module" src="{{ root }}static/js/quiz-duel.js?v={{ asset_version }}"></script>
+<script type="module" src="{{ root }}static/js/shop.js?v={{ asset_version }}"></script>
+<script type="module" src="{{ root }}static/js/pack-opening.js?v={{ asset_version }}"></script>
+<script type="module" src="{{ root }}static/js/collection.js?v={{ asset_version }}"></script>
+<script type="module" src="{{ root }}static/js/dream-team.js?v={{ asset_version }}"></script>
+<script type="module" src="{{ root }}static/js/play-tabs.js?v={{ asset_version }}"></script>
 {% endblock %}

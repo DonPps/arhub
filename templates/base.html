@@ -46,7 +46,7 @@
     </a>
 
     <div class="masthead-side masthead-right">
-      <a href="{{ root }}boutique.html" class="points-badge" id="points-badge" aria-label="Mes Atlas Points" hidden>
+      <a href="{{ root }}play.html?tab=boutique" class="points-badge" id="points-badge" aria-label="Mes Atlas Points" hidden>
         <span class="points-badge-icon" aria-hidden="true">⭐</span>
         <span id="points-badge-value">0</span>
       </a>
@@ -99,17 +99,9 @@
         <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="8" width="20" height="9" rx="4"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="16" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="18.5" cy="13.5" r="1" fill="currentColor" stroke="none"/></svg>
         {{ categories_by_slug['fc26'].name }}
       </a>
-      <a href="{{ root }}quiz.html" class="{% if active_nav=='quiz' %}active{% endif %}">
+      <a href="{{ root }}play.html" class="{% if active_nav=='play' %}active{% endif %}">
         <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.6 6.2L21 9l-5 4.4L17.4 20 12 16.6 6.6 20 8 13.4 3 9l6.4-.8z"/></svg>
-        Atlas Quiz
-      </a>
-      <a href="{{ root }}boutique.html" class="{% if active_nav=='boutique' %}active{% endif %}">
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l1.5-5h15L21 9M3 9v10a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18M9 13a3 3 0 006 0"/></svg>
-        Boutique
-      </a>
-      <a href="{{ root }}dream-team.html" class="{% if active_nav=='dream-team' %}active{% endif %}">
-        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
-        Dream Team
+        Play
       </a>
     </nav>
   </div>
@@ -234,7 +226,7 @@
 
     <div class="footer-col">
       <div class="footer-col-title">Rubriques</div>
-      <a href="{{ root }}quiz.html">Atlas Quiz</a>
+      <a href="{{ root }}play.html">Play</a>
       {% for cat in categories[:3] %}
       <a href="{{ root }}categorie/{{ cat.slug }}.html">{{ cat.name }}</a>
       {% endfor %}
@@ -290,7 +282,7 @@
     </div>
   </div>
 
-  <a href="{{ root }}quiz.html" class="floating-bubble" aria-label="Jouer à l'Atlas Quiz" data-tooltip="Jouer à l'Atlas Quiz">
+  <a href="{{ root }}play.html" class="floating-bubble" aria-label="Jouer à l'Atlas Quiz" data-tooltip="Jouer à l'Atlas Quiz">
     <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10v4M5 12h4"/><circle cx="16" cy="10.5" r="1" fill="#fff" stroke="none"/><circle cx="18.5" cy="13" r="1" fill="#fff" stroke="none"/></svg>
   </a>
 </div>
