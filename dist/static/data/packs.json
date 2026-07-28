@@ -1,1 +1,1 @@
-[]
+[{"name": "Pack Légendes des Lions", "description": "Les plus grandes figures historiques du football marocain.", "price": 150, "rarity": "Epic", "cardsPerPack": 3, "collectionSlug": "legendes-atlas", "cardPool": ["larbi-benbarek", "ahmed-faras", "badou-zaki", "mustapha-hadji", "noureddine-naybet", "salaheddine-bassir", "hicham-zerouali"], "slug": "pack-legendes-atlas", "image": "static/img/packs/pack-legendes-atlas.jpg"}]
