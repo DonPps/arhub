@@ -272,4 +272,6 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
     cards.forEach(function (c) { cardsBySlug[c.slug] = c; });
     renderPitch();
   });
+
+  renderRanking();
 })();
