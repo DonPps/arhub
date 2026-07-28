@@ -1,0 +1,19 @@
+{
+  "name": "Pack Angleterre",
+  "description": "Les stars actuelles de Angleterre.",
+  "price": 160,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "england",
+  "cardPool": [
+    "jordan-pickford-england",
+    "luke-shaw-england",
+    "john-stones-england",
+    "trent-alexander-arnold-england",
+    "declan-rice-england",
+    "jude-bellingham-england",
+    "anthony-gordon-england",
+    "bukayo-saka-england",
+    "harry-kane-england"
+  ]
+}
