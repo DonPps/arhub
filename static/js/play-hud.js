@@ -44,7 +44,7 @@ import { getLevel } from './points-config.js';
     });
   });
 
-  var initialTab = new URLSearchParams(window.location.search).get('tab') || 'quiz';
+  var initialTab = new URLSearchParams(window.location.search).get('tab') || 'quiz-solo';
   setActive(initialTab);
 
   /* ---------- Niveau réel dans le HUD (compte) ---------- */

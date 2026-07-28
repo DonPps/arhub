@@ -28,6 +28,7 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
   var resultScreen = document.getElementById('quiz-duel-result');
   var loadingScreen = document.getElementById('quiz-duel-loading');
   var leaderboardSection = document.getElementById('quiz-leaderboard-section');
+  var duelLoginGate = document.getElementById('quiz-duel-login-gate');
   var historyList = document.getElementById('quiz-duel-history-list');
 
   var db = null;
@@ -81,12 +82,11 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
   }
 
   function showScreens(map) {
-    // Coordination avec quiz.js : ces écrans de duel remplacent
-    // temporairement la vue "rangs" (et donc le sélecteur de duel
-    // lui-même) tant qu'un duel est en cours — le retour se fait par
-    // navigation complète (lien "Retour à Atlas Quiz"), pas par un état
-    // à restaurer ici.
-    [pickerScreen, joinScreen, waitingScreen, playerScreen, resultScreen, loadingScreen, leaderboardSection, document.getElementById('quiz-ranks')].forEach(function (el) {
+    // Onglet Défi en ligne, indépendant de l'onglet Quiz Solo (quiz.js) :
+    // ces écrans de duel se remplacent entre eux au sein du même onglet
+    // — le retour au picker se fait par navigation complète (lien
+    // "Retour aux duels"), pas par un état à restaurer ici.
+    [pickerScreen, joinScreen, waitingScreen, playerScreen, resultScreen, loadingScreen, leaderboardSection, duelLoginGate].forEach(function (el) {
       if (el) el.hidden = true;
     });
     Object.keys(map).forEach(function (id) {
@@ -135,7 +135,7 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
 
   function buildInviteLink(duelId) {
     var url = new URL(window.location.href);
-    url.search = '?duel=' + duelId;
+    url.search = '?tab=quiz-duel&duel=' + duelId;
     return url.toString();
   }
 
@@ -180,7 +180,7 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
     if (!duelId) return;
 
     var user = currentUser();
-    if (!user) return; // la porte de connexion générale du quiz gère déjà ce cas
+    if (!user) return; // init() a déjà affiché la porte de connexion du duel dans ce cas
 
     firestoreFns.getDoc(firestoreFns.doc(db, 'quizDuels', duelId)).then(function (snap) {
       if (!snap.exists()) {
@@ -594,12 +594,24 @@ import { refreshLeaderboardEntry, loadTopPlayers, loadLeaderboardStats } from '.
     });
 
     var user = currentUser();
-    if (!user) return;
+    if (!user) {
+      showScreens({ 'quiz-duel-login-gate': true });
+      return;
+    }
+    showScreens({ 'quiz-duel-picker': true });
     initFirestore().then(function () {
       renderPicker();
       loadHistory(user.uid);
       loadLeaderboard();
       checkJoinFromUrl();
+    });
+  }
+
+  var duelGateBtn = document.getElementById('quiz-duel-login-gate-btn');
+  if (duelGateBtn) {
+    duelGateBtn.addEventListener('click', function () {
+      var toggle = document.getElementById('account-toggle');
+      if (toggle) toggle.click();
     });
   }
 

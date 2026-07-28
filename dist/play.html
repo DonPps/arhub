@@ -64,11 +64,11 @@
 </header>
 
 <nav class="play-bottom-nav" id="play-bottom-nav" aria-label="Navigation Play">
-  <button type="button" class="play-bottom-nav-item" data-goto="quiz" data-scroll-top="1">
+  <button type="button" class="play-bottom-nav-item" data-goto="quiz-solo" data-scroll-top="1">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
     <span>Accueil</span>
   </button>
-  <button type="button" class="play-bottom-nav-item" data-goto="quiz">
+  <button type="button" class="play-bottom-nav-item" data-goto="quiz-solo">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.6 6.2L21 9l-5 4.4L17.4 20 12 16.6 6.6 20 8 13.4 3 9l6.4-.8z"/></svg>
     <span>Quiz</span>
   </button>
@@ -84,7 +84,7 @@
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l1.5-5h15L21 9M3 9v10a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18M9 13a3 3 0 006 0"/></svg>
     <span>Boutique</span>
   </button>
-  <button type="button" class="play-bottom-nav-item" data-goto="quiz" data-scroll-target="quiz-duel-picker">
+  <button type="button" class="play-bottom-nav-item" data-goto="quiz-duel">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 3l11 11M17.5 3l-11 11M4 17l4 4M20 17l-4 4"/></svg>
     <span>Duels</span>
   </button>
@@ -158,13 +158,14 @@
 
 
 <div class="play-tabs" role="tablist" aria-label="Sections Play">
-  <button type="button" class="play-tab active" data-tab="quiz" role="tab" aria-selected="true">Quiz</button>
+  <button type="button" class="play-tab active" data-tab="quiz-solo" role="tab" aria-selected="true">Quiz Solo</button>
+  <button type="button" class="play-tab" data-tab="quiz-duel" role="tab" aria-selected="false">Défi en ligne</button>
   <button type="button" class="play-tab" data-tab="boutique" role="tab" aria-selected="false">Boutique</button>
   <button type="button" class="play-tab" data-tab="collection" role="tab" aria-selected="false">Ma Collection</button>
   <button type="button" class="play-tab" data-tab="dreamteam" role="tab" aria-selected="false">Dream Team</button>
 </div>
 
-<section class="play-panel" data-tab-panel="quiz">
+<section class="play-panel" data-tab-panel="quiz-solo">
 
 <div class="quiz-page quizx-page" id="quiz-page" data-quiz-data="static/data/quiz-questions.json">
 
@@ -172,11 +173,11 @@
   <section class="quizx-hero">
     <span class="eyebrow">Atlas Quiz</span>
     <h1>Le grand quiz du football marocain, africain et mondial</h1>
-    <p class="quizx-hero-subtitle">9 rangs, 225 questions, un mode carrière solo et des duels en temps réel entre amis.</p>
-    <p class="quizx-hero-desc">Progressez de Cadet à Atlas Rising Legend, défiez un ami sur le rang ou le thème de votre choix, et grimpez dans le classement général.</p>
+    <p class="quizx-hero-subtitle">9 rangs, 225 questions à ton rythme, en solo.</p>
+    <p class="quizx-hero-desc">Progresse de Cadet à Atlas Rising Legend en validant chaque rang l'un après l'autre.</p>
     <div class="quizx-hero-ctas">
       <a href="#quiz-ranks-anchor" class="quiz-btn-primary">Jouer maintenant</a>
-      <a href="#quiz-duel-picker" class="quizx-btn-secondary">Défier un ami</a>
+      <a href="play.html?tab=quiz-duel" class="quizx-btn-secondary">Défier un ami</a>
     </div>
     <div class="quiz-badges" id="quiz-badges" aria-label="Mes badges"></div>
   </section>
@@ -453,26 +454,6 @@
         
       </div>
 
-      <!-- ---------- Mode Duel : défier un ami ---------- -->
-      <div class="quiz-duel-section quizx-card-block" id="quiz-duel-picker" hidden>
-        <h2 class="grid-title">Défier un ami</h2>
-        <p class="quiz-duel-intro">Choisis un rang ou un thème, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
-
-        <div class="quiz-duel-mode-tabs">
-          <button type="button" class="quiz-duel-mode-tab active" data-mode="rank">Par rang</button>
-          <button type="button" class="quiz-duel-mode-tab" data-mode="theme">Par thème</button>
-        </div>
-
-        <div class="quiz-duel-picker-row">
-          <select id="quiz-duel-rank-select"></select>
-          <select id="quiz-duel-theme-select" hidden></select>
-          <button type="button" class="quiz-btn-primary" id="quiz-duel-create-btn">Créer un duel</button>
-        </div>
-
-        <h3 class="quiz-duel-history-title">Mes duels récents</h3>
-        <div class="quiz-duel-history" id="quiz-duel-history-list"></div>
-      </div>
-
     </div>
 
     <aside class="quizx-sidebar">
@@ -482,143 +463,7 @@
           <p class="quizx-sidebar-empty">Connecte-toi pour suivre ta progression.</p>
         </div>
       </div>
-
-      <!-- ---------- Classement ---------- -->
-      <div class="quizx-sidebar-card" id="quiz-leaderboard-section" hidden>
-        <h3 class="quizx-sidebar-title">Classement</h3>
-        <p class="quizx-sidebar-subtitle">Meilleurs joueurs, tous rangs et duels confondus.</p>
-        <div class="quiz-leaderboard-list" id="quiz-leaderboard-list"></div>
-      </div>
     </aside>
-  </div>
-
-  <!-- ---------- Thèmes de duel ---------- -->
-  
-  <section class="quizx-categories">
-    <h2 class="grid-title">Thèmes de duel</h2>
-    <p class="quizx-hero-desc quizx-section-intro">Choisis un thème pour défier un ami directement dessus.</p>
-    <div class="quizx-category-grid">
-      
-      <button type="button" class="quizx-category-card" data-theme="Arbitrage">
-        <span class="quizx-category-icon">🟨</span>
-        <span class="quizx-category-name">Arbitrage</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="CAF">
-        <span class="quizx-category-icon">🏅</span>
-        <span class="quizx-category-name">CAF</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="Clubs">
-        <span class="quizx-category-icon">🛡️</span>
-        <span class="quizx-category-name">Clubs</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="Coupe du Monde">
-        <span class="quizx-category-icon">🌐</span>
-        <span class="quizx-category-name">Coupe du Monde</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="Entraîneurs">
-        <span class="quizx-category-icon">📋</span>
-        <span class="quizx-category-name">Entraîneurs</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="FIFA">
-        <span class="quizx-category-icon">⚽</span>
-        <span class="quizx-category-name">FIFA</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="Football Africain">
-        <span class="quizx-category-icon">🌍</span>
-        <span class="quizx-category-name">Football Africain</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="Histoire">
-        <span class="quizx-category-icon">📜</span>
-        <span class="quizx-category-name">Histoire</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="Joueurs">
-        <span class="quizx-category-icon">⭐</span>
-        <span class="quizx-category-name">Joueurs</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="Ligue des Champions">
-        <span class="quizx-category-icon">👑</span>
-        <span class="quizx-category-name">Ligue des Champions</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="Maroc">
-        <span class="quizx-category-icon">🇲🇦</span>
-        <span class="quizx-category-name">Maroc</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="Records">
-        <span class="quizx-category-icon">🏆</span>
-        <span class="quizx-category-name">Records</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="Statistiques">
-        <span class="quizx-category-icon">📊</span>
-        <span class="quizx-category-name">Statistiques</span>
-      </button>
-      
-      <button type="button" class="quizx-category-card" data-theme="Tactique">
-        <span class="quizx-category-icon">♟️</span>
-        <span class="quizx-category-name">Tactique</span>
-      </button>
-      
-    </div>
-  </section>
-  
-
-  <!-- ---------- Activité récente ---------- -->
-  <section class="quizx-activity">
-    <div class="quizx-activity-col">
-      <h2 class="grid-title">Duels récents</h2>
-      <div class="quizx-recent-list" id="quizx-recent-duels">
-        <p class="quizx-sidebar-empty">Chargement…</p>
-      </div>
-    </div>
-    <div class="quizx-activity-col">
-      <h2 class="grid-title">Thèmes populaires</h2>
-      <div class="quizx-popular-list" id="quizx-popular-themes">
-        <p class="quizx-sidebar-empty">Chargement…</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------- Chargement (entrée en partie) ---------- -->
-  <div class="quiz-login-gate" id="quiz-duel-loading" hidden>
-    <div class="quiz-login-gate-card">
-      <div class="quiz-spinner" aria-hidden="true"></div>
-      <h2>Entrée dans la partie…</h2>
-      <p>Un instant, on prépare le duel.</p>
-    </div>
-  </div>
-
-  <!-- ---------- Rejoindre un duel via lien ---------- -->
-  <div class="quiz-login-gate" id="quiz-duel-join" hidden>
-    <div class="quiz-login-gate-card">
-      <p class="quiz-login-gate-icon">⚔️</p>
-      <h2>Duel Atlas Quiz</h2>
-      <p id="quiz-duel-join-message"></p>
-      <button type="button" class="quiz-btn-primary" id="quiz-duel-join-btn" hidden>Rejoindre le duel</button>
-    </div>
-  </div>
-
-  <!-- ---------- Salle d'attente (hôte) ---------- -->
-  <div class="quiz-login-gate" id="quiz-duel-waiting" hidden>
-    <div class="quiz-login-gate-card">
-      <p class="quiz-login-gate-icon">⏳</p>
-      <h2>En attente d'un adversaire…</h2>
-      <p>Envoie ce lien à un ami pour qu'il te rejoigne :</p>
-      <div class="quiz-duel-link-row">
-        <input type="text" id="quiz-duel-invite-link" readonly>
-        <button type="button" class="admin-cancel-btn" id="quiz-duel-copy-btn">Copier le lien</button>
-      </div>
-    </div>
   </div>
 
   <!-- ---------- Écran de jeu ---------- -->
@@ -659,6 +504,201 @@
     </div>
   </div>
 
+</div>
+
+</section>
+
+<section class="play-panel" data-tab-panel="quiz-duel" hidden>
+
+<div class="quiz-duel-page quizx-page" id="quiz-duel-page">
+
+  <!-- ---------- Hero ---------- -->
+  <section class="quizx-hero">
+    <span class="eyebrow">Atlas Quiz</span>
+    <h1>Défie tes amis en duel Atlas Quiz</h1>
+    <p class="quizx-hero-subtitle">Choisis un rang ou un thème, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
+    <div class="quizx-hero-ctas">
+      <a href="#quiz-duel-picker-anchor" class="quiz-btn-primary">Créer un duel</a>
+      <a href="play.html?tab=quiz-solo" class="quizx-btn-secondary">Mode Solo</a>
+    </div>
+  </section>
+
+  <!-- ---------- Verrou connexion ---------- -->
+  <div class="quiz-login-gate" id="quiz-duel-login-gate" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">🔒</p>
+      <h2>Connecte-toi pour défier tes amis</h2>
+      <p>Un compte Atlas Rising est nécessaire pour créer ou rejoindre un duel.</p>
+      <button type="button" class="quiz-btn-primary" id="quiz-duel-login-gate-btn">Se connecter / S'inscrire</button>
+    </div>
+  </div>
+
+  <span id="quiz-duel-picker-anchor" class="quizx-anchor" aria-hidden="true"></span>
+
+  <div class="quizx-layout">
+    <div class="quizx-main">
+
+      <!-- ---------- Mode Duel : défier un ami ---------- -->
+      <div class="quiz-duel-section quizx-card-block" id="quiz-duel-picker" hidden>
+        <h2 class="grid-title">Défier un ami</h2>
+        <p class="quiz-duel-intro">Choisis un rang ou un thème, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
+
+        <div class="quiz-duel-mode-tabs">
+          <button type="button" class="quiz-duel-mode-tab active" data-mode="rank">Par rang</button>
+          <button type="button" class="quiz-duel-mode-tab" data-mode="theme">Par thème</button>
+        </div>
+
+        <div class="quiz-duel-picker-row">
+          <select id="quiz-duel-rank-select"></select>
+          <select id="quiz-duel-theme-select" hidden></select>
+          <button type="button" class="quiz-btn-primary" id="quiz-duel-create-btn">Créer un duel</button>
+        </div>
+
+        <h3 class="quiz-duel-history-title">Mes duels récents</h3>
+        <div class="quiz-duel-history" id="quiz-duel-history-list"></div>
+      </div>
+
+      <!-- ---------- Thèmes de duel ---------- -->
+      
+      <section class="quizx-categories">
+        <h2 class="grid-title">Thèmes de duel</h2>
+        <p class="quizx-hero-desc quizx-section-intro">Choisis un thème pour défier un ami directement dessus.</p>
+        <div class="quizx-category-grid">
+          
+          <button type="button" class="quizx-category-card" data-theme="Arbitrage">
+            <span class="quizx-category-icon">🟨</span>
+            <span class="quizx-category-name">Arbitrage</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="CAF">
+            <span class="quizx-category-icon">🏅</span>
+            <span class="quizx-category-name">CAF</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Clubs">
+            <span class="quizx-category-icon">🛡️</span>
+            <span class="quizx-category-name">Clubs</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Coupe du Monde">
+            <span class="quizx-category-icon">🌐</span>
+            <span class="quizx-category-name">Coupe du Monde</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Entraîneurs">
+            <span class="quizx-category-icon">📋</span>
+            <span class="quizx-category-name">Entraîneurs</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="FIFA">
+            <span class="quizx-category-icon">⚽</span>
+            <span class="quizx-category-name">FIFA</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Football Africain">
+            <span class="quizx-category-icon">🌍</span>
+            <span class="quizx-category-name">Football Africain</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Histoire">
+            <span class="quizx-category-icon">📜</span>
+            <span class="quizx-category-name">Histoire</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Joueurs">
+            <span class="quizx-category-icon">⭐</span>
+            <span class="quizx-category-name">Joueurs</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Ligue des Champions">
+            <span class="quizx-category-icon">👑</span>
+            <span class="quizx-category-name">Ligue des Champions</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Maroc">
+            <span class="quizx-category-icon">🇲🇦</span>
+            <span class="quizx-category-name">Maroc</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Records">
+            <span class="quizx-category-icon">🏆</span>
+            <span class="quizx-category-name">Records</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Statistiques">
+            <span class="quizx-category-icon">📊</span>
+            <span class="quizx-category-name">Statistiques</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Tactique">
+            <span class="quizx-category-icon">♟️</span>
+            <span class="quizx-category-name">Tactique</span>
+          </button>
+          
+        </div>
+      </section>
+      
+
+      <!-- ---------- Activité récente ---------- -->
+      <section class="quizx-activity">
+        <div class="quizx-activity-col">
+          <h2 class="grid-title">Duels récents</h2>
+          <div class="quizx-recent-list" id="quizx-recent-duels">
+            <p class="quizx-sidebar-empty">Chargement…</p>
+          </div>
+        </div>
+        <div class="quizx-activity-col">
+          <h2 class="grid-title">Thèmes populaires</h2>
+          <div class="quizx-popular-list" id="quizx-popular-themes">
+            <p class="quizx-sidebar-empty">Chargement…</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <aside class="quizx-sidebar">
+      <!-- ---------- Classement ---------- -->
+      <div class="quizx-sidebar-card" id="quiz-leaderboard-section" hidden>
+        <h3 class="quizx-sidebar-title">Classement</h3>
+        <p class="quizx-sidebar-subtitle">Meilleurs joueurs, tous rangs et duels confondus.</p>
+        <div class="quiz-leaderboard-list" id="quiz-leaderboard-list"></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ---------- Chargement (entrée en partie) ---------- -->
+  <div class="quiz-login-gate" id="quiz-duel-loading" hidden>
+    <div class="quiz-login-gate-card">
+      <div class="quiz-spinner" aria-hidden="true"></div>
+      <h2>Entrée dans la partie…</h2>
+      <p>Un instant, on prépare le duel.</p>
+    </div>
+  </div>
+
+  <!-- ---------- Rejoindre un duel via lien ---------- -->
+  <div class="quiz-login-gate" id="quiz-duel-join" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">⚔️</p>
+      <h2>Duel Atlas Quiz</h2>
+      <p id="quiz-duel-join-message"></p>
+      <button type="button" class="quiz-btn-primary" id="quiz-duel-join-btn" hidden>Rejoindre le duel</button>
+    </div>
+  </div>
+
+  <!-- ---------- Salle d'attente (hôte) ---------- -->
+  <div class="quiz-login-gate" id="quiz-duel-waiting" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">⏳</p>
+      <h2>En attente d'un adversaire…</h2>
+      <p>Envoie ce lien à un ami pour qu'il te rejoigne :</p>
+      <div class="quiz-duel-link-row">
+        <input type="text" id="quiz-duel-invite-link" readonly>
+        <button type="button" class="admin-cancel-btn" id="quiz-duel-copy-btn">Copier le lien</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ---------- Écran de jeu Duel ---------- -->
   <div class="quiz-player quiz-duel-player" id="quiz-duel-player" hidden>
     <div class="quiz-duel-scoreboard">
@@ -686,7 +726,7 @@
       <div class="quiz-result-icon">⚔️</div>
       <h2 id="quiz-duel-result-title"></h2>
       <p class="quiz-result-score" id="quiz-duel-result-score"></p>
-      <a class="quiz-btn-primary play-tab-link" data-tab="quiz" href="play.html?tab=quiz">Retour à Atlas Quiz</a>
+      <a class="quiz-btn-primary play-tab-link" data-tab="quiz-duel" href="play.html?tab=quiz-duel">Retour aux duels</a>
     </div>
   </div>
 

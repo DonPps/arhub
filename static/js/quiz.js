@@ -205,13 +205,9 @@ import { awardPoints } from './points.js';
     ranksScreen.hidden = name !== 'ranks';
     playerScreen.hidden = name !== 'player';
     resultScreen.hidden = name !== 'result';
-    // Le sélecteur de duel et le classement (quiz-duel.js) ne doivent
-    // s'afficher qu'aux côtés de l'écran des rangs — jamais pendant la
-    // connexion, une partie solo ou son résultat.
-    var duelPicker = document.getElementById('quiz-duel-picker');
-    if (duelPicker) duelPicker.hidden = name !== 'ranks';
-    var leaderboard = document.getElementById('quiz-leaderboard-section');
-    if (leaderboard) leaderboard.hidden = name !== 'ranks';
+    // Le mode Duel (quiz-duel.js) vit désormais sur son propre onglet
+    // Play (quiz-duel) et gère sa propre visibilité indépendamment —
+    // ne plus le coupler à l'écran solo actif ici.
     var myStats = document.getElementById('quizx-my-stats');
     if (myStats) myStats.hidden = name !== 'ranks';
   }
