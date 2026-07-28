@@ -107,7 +107,7 @@
 
 /* ---------- Tab bar : plus "manette de jeu" ---------- */
 .play-tabs{
-  display:flex; gap:4px; margin-bottom:28px; padding:5px;
+  display:flex; justify-content:center; gap:4px; margin-bottom:28px; padding:5px;
   background: rgba(255,255,255,.04); border:1px solid rgba(184,144,62,.2);
   border-radius:14px; overflow-x:auto;
 }
@@ -151,11 +151,19 @@
     background-image:url('../img/play/hero-character.png');
     background-size:contain; background-repeat:no-repeat; background-position:bottom left;
     filter: drop-shadow(0 22px 26px rgba(0,0,0,.5));
-    z-index:1; pointer-events:none;
+    z-index:1; pointer-events:auto;
+    transition: transform .4s cubic-bezier(.25,.46,.45,.94);
+  }
+  .play-body .quizx-hero::before:hover{
+    transform: translateY(-6px) rotate(-1.5deg) scale(1.02);
   }
   .play-body .quizx-hero-desc{ margin-left:0; margin-right:0; }
   .play-body .quizx-hero-ctas{ justify-content:flex-start; }
   .play-body .quiz-badges{ justify-content:flex-start; }
+}
+@media (min-width:860px) and (prefers-reduced-motion: reduce){
+  .play-body .quizx-hero::before{ transition:none; }
+  .play-body .quizx-hero::before:hover{ transform:none; }
 }
 
 /* ---------- Hiérarchie organique (casse la grille uniforme) ----------
@@ -268,7 +276,7 @@
 }
 .play-body .quiz-rank-card::before{
   content:''; position:absolute; inset:0; z-index:1; pointer-events:none; border-radius:inherit;
-  background: linear-gradient(to top, rgba(8,6,4,.95) 0%, rgba(8,6,4,.8) 30%, rgba(8,6,4,.2) 60%, transparent 82%);
+  background: linear-gradient(to top, rgba(8,6,4,.92) 0%, rgba(8,6,4,.55) 18%, rgba(8,6,4,.12) 38%, transparent 55%);
 }
 .play-body .quizx-quiz-card-body,
 .play-body .quiz-rank-status{ position:relative; z-index:2; }
@@ -285,7 +293,7 @@
    en plus d'un assombrissement/désaturation plus marqué que le style.css
    de base (le fond photo dilue trop un simple opacity:.55). ---------- */
 .play-body .quiz-rank-card.is-locked{
-  filter: grayscale(1) brightness(.45);
+  filter: grayscale(.75) brightness(.6);
   opacity: 1;
   animation: none;
   border-color: rgba(242,235,220,.16);
