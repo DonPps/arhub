@@ -2236,9 +2236,10 @@ body.drawer-open{ overflow:hidden; }
   animation: pack-card-reveal .5s var(--ease) forwards;
 }
 @keyframes pack-card-reveal{ to{ opacity:1; transform:none; } }
+.pack-reveal-card-media{ position:relative; margin-bottom:8px; }
 .pack-reveal-card img{
   width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:10px;
-  box-shadow: var(--shadow-card); margin-bottom:8px;
+  box-shadow: var(--shadow-card); display:block;
 }
 .pack-reveal-card-name{ font-family: var(--font-display); font-weight:700; font-size:13px; }
 .pack-reveal-card-rarity{ font-family: var(--font-nav); font-size:10px; text-transform:uppercase; letter-spacing:.05em; color: var(--ink-soft); }
