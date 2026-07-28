@@ -1,0 +1,43 @@
+/* Atlas Rising — Play : bascule entre les 4 onglets (Quiz / Boutique /
+ * Collection / Dream Team) au sein d'une seule page. Chaque section
+ * garde son propre script (quiz.js, shop.js, collection.js,
+ * dream-team.js, etc.) totalement inchangé — ce module ne fait que
+ * montrer/masquer les wrappers .play-panel, jamais les éléments
+ * internes déjà gérés par ces scripts. */
+
+(function () {
+  var tabs = document.querySelectorAll('.play-tab');
+  var panels = document.querySelectorAll('.play-panel');
+  if (!tabs.length || !panels.length) return;
+
+  var VALID_TABS = ['quiz', 'boutique', 'collection', 'dreamteam'];
+
+  function currentTabFromUrl() {
+    var tab = new URLSearchParams(window.location.search).get('tab');
+    return VALID_TABS.indexOf(tab) !== -1 ? tab : 'quiz';
+  }
+
+  function showTab(tab) {
+    panels.forEach(function (panel) {
+      panel.hidden = panel.getAttribute('data-tab-panel') !== tab;
+    });
+    tabs.forEach(function (btn) {
+      var active = btn.getAttribute('data-tab') === tab;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var tab = btn.getAttribute('data-tab');
+      showTab(tab);
+      var url = new URL(window.location.href);
+      url.searchParams.set('tab', tab);
+      window.history.replaceState({}, '', url);
+    });
+  });
+
+  var initial = currentTabFromUrl();
+  if (initial !== 'quiz') showTab(initial);
+})();

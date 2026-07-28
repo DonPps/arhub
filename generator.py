@@ -609,49 +609,37 @@ def build():
     (data_dir / "cards.json").write_text(json.dumps(cards_catalog, ensure_ascii=False), encoding="utf-8")
     (data_dir / "packs.json").write_text(json.dumps(packs_catalog, ensure_ascii=False), encoding="utf-8")
 
-    tpl = env.get_template("boutique.html")
-    html = tpl.render(
-        **common,
-        root="",
-        canonical_path="/boutique.html",
-        active_nav="boutique",
-    )
-    (DIST_DIR / "boutique.html").write_text(html, encoding="utf-8")
-
-    tpl = env.get_template("collection.html")
-    html = tpl.render(
-        **common,
-        root="",
-        canonical_path="/collection.html",
-        active_nav="boutique",
-    )
-    (DIST_DIR / "collection.html").write_text(html, encoding="utf-8")
-
-    tpl = env.get_template("dream-team.html")
-    html = tpl.render(
-        **common,
-        root="",
-        canonical_path="/dream-team.html",
-        active_nav="dream-team",
-        dreamteam_slots=DREAMTEAM_SLOTS,
-    )
-    (DIST_DIR / "dream-team.html").write_text(html, encoding="utf-8")
-
-    # ---------- Page Atlas Quiz ----------
+    # ---------- Page Play (Atlas Quiz + Boutique + Collection + Dream Team) ----------
+    # Fusionnées en une seule page à onglets (décision utilisateur) — les
+    # 4 anciennes URLs restent servies mais redirigent désormais vers le
+    # bon onglet de play.html (voir plus bas), pour ne pas casser les
+    # liens déjà partagés (notamment dream-team.html?u=<uid>).
     quiz_ranks = load_quiz_ranks()
     quiz_question_count = load_quiz_question_count()
     quiz_themes = load_quiz_themes()
-    tpl = env.get_template("quiz.html")
+    tpl = env.get_template("play.html")
     html = tpl.render(
         **common,
         root="",
-        canonical_path="/quiz.html",
-        active_nav="quiz",
+        canonical_path="/play.html",
+        active_nav="play",
         quiz_ranks=quiz_ranks,
         quiz_question_count=quiz_question_count,
         quiz_themes=quiz_themes,
+        dreamteam_slots=DREAMTEAM_SLOTS,
     )
-    (DIST_DIR / "quiz.html").write_text(html, encoding="utf-8")
+    (DIST_DIR / "play.html").write_text(html, encoding="utf-8")
+
+    # ---------- Redirections des anciennes URLs vers le bon onglet ----------
+    redirect_tpl = env.get_template("redirect.html")
+    for old_page, target_tab in (
+        ("quiz", "quiz"),
+        ("boutique", "boutique"),
+        ("collection", "collection"),
+        ("dream-team", "dreamteam"),
+    ):
+        html = redirect_tpl.render(root="", target_tab=target_tab)
+        (DIST_DIR / f"{old_page}.html").write_text(html, encoding="utf-8")
 
     # ---------- Page Profil ----------
     tpl = env.get_template("profil.html")
@@ -703,7 +691,7 @@ def build():
     url_entries += [(f"/categorie/{c['slug']}.html", today_iso) for c in config["categories"]]
     url_entries += [(f"/{p['slug']}.html", today_iso) for p in config["static_pages"]]
     url_entries += [("/matchs.html", today_iso)]
-    url_entries += [("/quiz.html", today_iso)]
+    url_entries += [("/play.html", today_iso)]
     url_entries += [("/profil.html", today_iso)]
     sitemap_entries = "\n".join(
         f"  <url><loc>{config['site_url']}{u}</loc><lastmod>{lm}</lastmod></url>"

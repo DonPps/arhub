@@ -2312,3 +2312,17 @@ body.drawer-open{ overflow:hidden; }
 
 .dreamteam-picker-grid.shop-grid{ margin-top:12px; }
 .dreamteam-picker-card{ cursor:pointer; }
+
+/* ---------- Play (Quiz / Boutique / Collection / Dream Team réunis) ---------- */
+.play-tabs{
+  display:flex; gap:6px; margin-bottom:28px; border-bottom:1px solid var(--border);
+  overflow-x:auto;
+}
+.play-tab{
+  background:none; border:none; cursor:pointer; white-space:nowrap;
+  font-family: var(--font-nav); font-size:14px; font-weight:700;
+  color: var(--ink-soft); padding:10px 18px 12px;
+  border-bottom:2px solid transparent; transition: color .2s, border-color .2s;
+}
+.play-tab.active{ color: var(--red); border-bottom-color: var(--red); }
+.play-panel[hidden]{ display:none; }
