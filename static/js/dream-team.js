@@ -208,4 +208,10 @@ import { ensureFirestore, getFirestoreRefs, loadOwnedCardSlugs } from './points.
     });
   }
 
-  loadCardsIndex().then(fu
+  loadCardsIndex().then(function (cards) {
+    allCards = cards;
+    cardsBySlug = {};
+    cards.forEach(function (c) { cardsBySlug[c.slug] = c; });
+    renderPitch();
+  });
+})();

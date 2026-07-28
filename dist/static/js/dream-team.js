@@ -110,10 +110,11 @@ import { ensureFirestore, getFirestoreRefs, loadOwnedCardSlugs } from './points.
   if (pickerOverlay) pickerOverlay.addEventListener('click', closePicker);
 
   function ensureTeamDoc(uid) {
-    var ref = firestoreFns.doc(db, 'dreamTeams', uid);
-    return firestoreFns.getDoc(ref).then(function (snap) {
+    var refs = getFirestoreRefs();
+    var ref = refs.firestoreFns.doc(refs.db, 'dreamTeams', uid);
+    return refs.firestoreFns.getDoc(ref).then(function (snap) {
       if (snap.exists()) return ref;
-      return firestoreFns.setDoc(ref, { formation: '4-3-3', slots: {} }).then(function () { return ref; });
+      return refs.firestoreFns.setDoc(ref, { formation: '4-3-3', slots: {} }).then(function () { return ref; });
     });
   }
 
@@ -122,11 +123,12 @@ import { ensureFirestore, getFirestoreRefs, loadOwnedCardSlugs } from './points.
     ensureFirestore().then(function () {
       return ensureTeamDoc(currentUser.uid);
     }).then(function (ref) {
+      var refs = getFirestoreRefs();
       var update = {};
       update.formation = '4-3-3';
       update['slots.' + slotId] = cardSlug;
-      update.updatedAt = firestoreFns.serverTimestamp();
-      return firestoreFns.updateDoc(ref, update);
+      update.updatedAt = refs.firestoreFns.serverTimestamp();
+      return refs.firestoreFns.updateDoc(ref, update);
     }).catch(function (e) { console.error('Échec sauvegarde Dream Team:', e); });
   }
 
@@ -134,8 +136,9 @@ import { ensureFirestore, getFirestoreRefs, loadOwnedCardSlugs } from './points.
     if (unsubscribeTeam) { unsubscribeTeam(); unsubscribeTeam = null; }
     ensureFirestore().then(function (ok) {
       if (!ok) return;
-      var ref = firestoreFns.doc(db, 'dreamTeams', uid);
-      unsubscribeTeam = firestoreFns.onSnapshot(ref, function (snap) {
+      var refs = getFirestoreRefs();
+      var ref = refs.firestoreFns.doc(refs.db, 'dreamTeams', uid);
+      unsubscribeTeam = refs.firestoreFns.onSnapshot(ref, function (snap) {
         teamData = snap.data() || { formation: '4-3-3', slots: {} };
         renderPitch();
       });
