@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Dream Team — Atlas Rising{% endblock %}
+{% block description %}Compose ton onze avec tes cartes Atlas Rising et partage-le.{% endblock %}
+{% block content %}
+
+<div class="dreamteam-page" id="dreamteam-page">
+
+  <div class="dreamteam-head">
+    <div>
+      <h1 class="grid-title">Dream Team</h1>
+      <p class="dreamteam-formation" id="dreamteam-formation-label">Formation 4-3-3</p>
+    </div>
+    <div class="dreamteam-head-actions">
+      <button type="button" class="quiz-btn-primary" id="dreamteam-share-btn" hidden>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-3.8M8.6 13.4l6.8 3.8"/></svg>
+        Partager
+      </button>
+      <a href="{{ root }}dream-team.html" class="dreamteam-own-link" id="dreamteam-own-link" hidden>Voir mon Dream Team</a>
+    </div>
+  </div>
+
+  <div class="quiz-login-gate" id="dreamteam-login-gate" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">⚽</p>
+      <h2>Connecte-toi pour composer ton Dream Team</h2>
+      <p>Place tes cartes possédées sur le terrain selon leur poste.</p>
+      <button type="button" class="quiz-btn-primary" id="dreamteam-login-gate-btn">Se connecter / S'inscrire</button>
+    </div>
+  </div>
+
+  <p class="dreamteam-empty-note" id="dreamteam-empty-note" hidden>Aucune carte possédée pour l'instant — ouvre des packs depuis la <a href="{{ root }}boutique.html">Boutique</a> pour commencer ton Dream Team.</p>
+
+  <div class="dreamteam-pitch" id="dreamteam-pitch" hidden>
+    {% for slot in dreamteam_slots %}
+    <button type="button" class="dreamteam-slot" data-slot="{{ slot.id }}" data-label="{{ slot.label }}" aria-label="{{ slot.label }}">
+      <span class="dreamteam-slot-plus">+</span>
+      <span class="dreamteam-slot-label">{{ slot.label }}</span>
+    </button>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% endblock %}
+{% block modals %}
+<div class="pack-opening-modal" id="dreamteam-picker-modal" hidden>
+  <div class="pack-opening-overlay" id="dreamteam-picker-overlay"></div>
+  <div class="pack-opening-panel">
+    <button type="button" class="match-drawer-close" id="dreamteam-picker-close" aria-label="Fermer">&times;</button>
+    <h2 class="pack-reveal-title" id="dreamteam-picker-title">Choisir un joueur</h2>
+    <div class="shop-grid dreamteam-picker-grid" id="dreamteam-picker-grid"></div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}
+<script type="module" src="{{ root }}static/js/dream-team.js?v={{ asset_version }}"></script>
+{% endblock %}

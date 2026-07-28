@@ -2242,3 +2242,63 @@ body.drawer-open{ overflow:hidden; }
   .shop-grid{ grid-template-columns: repeat(2, 1fr); gap:14px; }
   .points-panel-head{ align-items:flex-start; }
 }
+
+/* ---------- Dream Team ---------- */
+.dreamteam-page{ display:flex; flex-direction:column; gap:20px; }
+.dreamteam-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.dreamteam-formation{ font-family: var(--font-nav); font-size:12px; color: var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; margin:4px 0 0; }
+.dreamteam-head-actions{ display:flex; align-items:center; gap:12px; }
+.dreamteam-own-link{ font-family: var(--font-nav); font-size:12.5px; font-weight:700; color: var(--red); }
+.dreamteam-empty-note{ font-family: var(--font-body); color: var(--ink-soft); font-size:13.5px; }
+.dreamteam-empty-note a{ color: var(--red); font-weight:700; }
+
+/* Terrain illustré dédié — contrairement à .matches-pitch-bg (motif de
+   fond plein-écran à opacité .05), celui-ci doit réellement contenir les
+   11 slots, donc un vrai terrain vert avec lignes blanches (couleur
+   thématique standard, pas une extension de la palette Atlas Rising au
+   reste du site). */
+.dreamteam-pitch{
+  position:relative; width:100%; max-width:520px; margin:0 auto;
+  aspect-ratio: 2/3; border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, #2f8f4e, #256f3d);
+  box-shadow: var(--shadow-card); overflow:hidden;
+}
+.dreamteam-pitch::before{
+  content:''; position:absolute; inset:6%; border:2px solid rgba(255,255,255,.35); border-radius:4px; pointer-events:none;
+}
+.dreamteam-pitch::after{
+  content:''; position:absolute; top:50%; left:6%; right:6%; height:2px; background: rgba(255,255,255,.35); pointer-events:none;
+}
+.dreamteam-slot{
+  position:absolute; transform: translate(-50%,-50%);
+  display:flex; flex-direction:column; align-items:center; gap:3px;
+  width:64px; border:none; background:transparent; cursor:default; padding:0;
+  font-family: var(--font-nav); color:#fff;
+}
+.dreamteam-slot.is-editable{ cursor:pointer; }
+.dreamteam-slot-plus{
+  width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  border:2px dashed rgba(255,255,255,.6); font-size:18px; font-weight:700; background: rgba(0,0,0,.15);
+}
+.dreamteam-slot.is-filled .dreamteam-slot-plus{ display:none; }
+.dreamteam-slot img{
+  width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow: var(--shadow-soft);
+}
+.dreamteam-slot-label, .dreamteam-slot-name{
+  font-size:9.5px; text-transform:uppercase; letter-spacing:.04em; text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  max-width:70px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-align:center;
+}
+.dreamteam-slot[data-slot="GK"]{ top:92%; left:50%; }
+.dreamteam-slot[data-slot="LB"]{ top:74%; left:15%; }
+.dreamteam-slot[data-slot="CB1"]{ top:78%; left:38%; }
+.dreamteam-slot[data-slot="CB2"]{ top:78%; left:62%; }
+.dreamteam-slot[data-slot="RB"]{ top:74%; left:85%; }
+.dreamteam-slot[data-slot="CM1"]{ top:50%; left:25%; }
+.dreamteam-slot[data-slot="CM2"]{ top:48%; left:50%; }
+.dreamteam-slot[data-slot="CM3"]{ top:50%; left:75%; }
+.dreamteam-slot[data-slot="LW"]{ top:22%; left:15%; }
+.dreamteam-slot[data-slot="ST"]{ top:14%; left:50%; }
+.dreamteam-slot[data-slot="RW"]{ top:22%; left:85%; }
+
+.dreamteam-picker-grid.shop-grid{ margin-top:12px; }
+.dreamteam-picker-card{ cursor:pointer; }
