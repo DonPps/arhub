@@ -28,16 +28,20 @@
 }
 .play-bg-far{
   background-image: url('../img/play/stadium-far.jpg');
-  opacity:.62;
+  opacity:.92;
 }
 .play-bg-lights{
   background-image: url('../img/play/stadium-lights.jpg');
   mix-blend-mode: screen; opacity:.85; z-index:-2;
 }
 .play-body::after{
-  /* Assombrit le bas de l'écran pour que le texte au-dessus reste lisible */
+  /* Le décor doit rester vif et coloré (retour utilisateur) — juste un
+     voile très léger en haut/bas pour que le HUD et le bord d'écran
+     restent lisibles, jamais un lavage sombre sur toute la page. Le
+     texte compte sur les panneaux (verre + scrim) pour son contraste,
+     pas sur un overlay global. */
   content:''; position: fixed; inset:0; z-index:-1; pointer-events:none;
-  background: linear-gradient(180deg, rgba(14,12,10,.15) 0%, rgba(14,12,10,.55) 55%, rgba(14,12,10,.92) 100%);
+  background: linear-gradient(180deg, rgba(14,12,10,.35) 0%, transparent 18%, transparent 82%, rgba(14,12,10,.4) 100%);
 }
 .play-bg-jumbotron{
   position:absolute; top:64px; right:clamp(8px,3vw,40px); width:min(340px,32vw);
@@ -215,6 +219,47 @@
     0 0 34px -6px rgba(184,144,62,.55);
 }
 .play-body .quizx-featured:hover{ transform: perspective(700px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateY(-2px); }
+
+/* ---------- Cartes de rang Quiz — photo plein cadre, pas un panneau de
+   verre (retour utilisateur : "on dirait des cartes PDF"). Même markup
+   que rendu par le template (aucune modif de quiz.js) — juste une
+   redistribution en superposition : photo en fond, dégradé de lisibilité,
+   texte ancré en bas. Remplace (ne cumule pas) le fond verre générique
+   ci-dessus pour spécifiquement .quiz-rank-card. ---------- */
+.play-body .quiz-rank-card{
+  background:none; backdrop-filter:none; -webkit-backdrop-filter:none;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  min-height:300px; padding:0;
+}
+.play-body .quizx-quiz-card-image{
+  position:absolute; inset:0; aspect-ratio:unset; margin:0; border:none; z-index:0;
+}
+.play-body .quiz-rank-card::before{
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none; border-radius:inherit;
+  background: linear-gradient(to top, rgba(8,6,4,.95) 0%, rgba(8,6,4,.8) 30%, rgba(8,6,4,.2) 60%, transparent 82%);
+}
+.play-body .quizx-quiz-card-body,
+.play-body .quiz-rank-status{ position:relative; z-index:2; }
+.play-body .quizx-quiz-card-body{ padding:16px 18px 0; }
+.play-body .quiz-rank-name{ color:#fff; }
+.play-body .quiz-rank-desc{ color: rgba(242,235,220,.78); }
+.play-body .quizx-quiz-card-meta span{ background: rgba(255,255,255,.14); color:#fff; }
+.play-body .quiz-rank-progress-track{ background: rgba(255,255,255,.2); }
+
+/* ---------- Stats — badge circulaire coloré par nature de statistique
+   (repère visuel rapide, comme les jeux de référence cités) — posé en
+   ::before pur CSS, aucun markup ajouté dans le template. ---------- */
+.play-body .quizx-stat-card{ position:relative; padding-top:46px; }
+.play-body .quizx-stat-card::before{
+  content:'🏆'; position:absolute; top:14px; left:50%; transform:translateX(-50%);
+  width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:14px; background: var(--red); box-shadow: 0 6px 14px -6px rgba(0,0,0,.6);
+}
+.play-body .quizx-stat-card:nth-child(2)::before{ content:'⭐'; background:#9B6BD9; }
+.play-body .quizx-stat-card:nth-child(3)::before{ content:'📖'; background: var(--gold); }
+.play-body .quizx-stat-card:nth-child(4)::before{ content:'📈'; background:#4FAE6E; }
+.play-body .quizx-stat-value{ color:#F2EBDC; }
+.play-body .quizx-stat-label{ color: rgba(242,235,220,.6); }
 
 @media (prefers-reduced-motion: reduce){
   .play-panel:not([hidden]){ animation:none; }
