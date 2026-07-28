@@ -1,0 +1,19 @@
+{
+  "name": "Pack Paris Saint-Germain",
+  "description": "Les stars actuelles de Paris Saint-Germain.",
+  "price": 170,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "psg",
+  "cardPool": [
+    "gianluigi-donnarumma-psg",
+    "nuno-mendes-psg",
+    "marquinhos-psg",
+    "achraf-hakimi-psg",
+    "vitinha-psg",
+    "fabian-ruiz-psg",
+    "bradley-barcola-psg",
+    "ousmane-dembele-psg",
+    "goncalo-ramos-psg"
+  ]
+}
