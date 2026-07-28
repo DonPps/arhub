@@ -1,0 +1,19 @@
+{
+  "name": "Pack Italie",
+  "description": "Les stars actuelles de Italie.",
+  "price": 160,
+  "rarity": "Epic",
+  "cardsPerPack": 3,
+  "collectionSlug": "italy",
+  "cardPool": [
+    "gianluigi-donnarumma-italy",
+    "federico-dimarco-italy",
+    "alessandro-bastoni-italy",
+    "giovanni-di-lorenzo-italy",
+    "nicolo-barella-italy",
+    "sandro-tonali-italy",
+    "federico-chiesa-italy",
+    "matteo-politano-italy",
+    "moise-kean-italy"
+  ]
+}
