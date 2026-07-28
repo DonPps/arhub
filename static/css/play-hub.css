@@ -230,6 +230,7 @@
 .play-body .quizx-stat-card,
 .play-body .quizx-featured,
 .play-body .dreamteam-picker-card,
+.play-body .quizx-sidebar-card,
 .play-body .pack-reveal-card{
   background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
   backdrop-filter: blur(8px);
@@ -252,6 +253,7 @@
 .play-body .quizx-stat-card:hover,
 .play-body .quizx-featured:hover,
 .play-body .dreamteam-picker-card:hover,
+.play-body .quizx-sidebar-card:hover,
 .play-body .pack-reveal-card:hover{
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.12),
@@ -286,14 +288,15 @@
 .play-body .quizx-quiz-card-meta span{ background: rgba(255,255,255,.14); color:#fff; }
 .play-body .quiz-rank-progress-track{ background: rgba(255,255,255,.2); }
 
-/* ---------- Rang verrouillé — doit se lire au premier coup d'oeil comme
-   bloqué (retour utilisateur : "les niveaux ne sont pas grisés"). La
-   bordure or pulsée et le tilt du système de panneau générique donnent
-   l'impression inverse (carte "vivante"/invitante) : on les coupe ici,
-   en plus d'un assombrissement/désaturation plus marqué que le style.css
-   de base (le fond photo dilue trop un simple opacity:.55). ---------- */
+/* ---------- Rang verrouillé — la photo doit rester colorée (retour
+   utilisateur : "ils sont toujours grisés" après un premier essai trop
+   sombre). Le verrouillage se lit désormais via le badge cadenas et le
+   bouton "Verrouillé" (rendus bien visibles ci-dessous), pas via un
+   filtre qui écrase l'image. Seuls la bordure or pulsée et le tilt du
+   système de panneau générique sont coupés (une carte bloquée ne doit
+   pas paraître aussi "vivante" qu'une carte jouable). ---------- */
 .play-body .quiz-rank-card.is-locked{
-  filter: grayscale(.75) brightness(.6);
+  filter: saturate(.9) brightness(.8);
   opacity: 1;
   animation: none;
   border-color: rgba(242,235,220,.16);
@@ -303,6 +306,17 @@
 .play-body .quiz-rank-card.is-locked:hover{
   transform: none;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 14px 26px -18px rgba(0,0,0,.7);
+}
+.play-body .quiz-rank-badge-state{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border-radius:50%; font-size:15px;
+  background: rgba(8,6,4,.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(242,235,220,.22);
+}
+.play-body .quiz-rank-badge-state:empty{ display:none; }
+.play-body .quiz-rank-play:disabled{
+  background: rgba(8,6,4,.55); color: rgba(242,235,220,.75);
+  border: 1px solid rgba(242,235,220,.2); opacity:1;
 }
 
 /* ---------- Stats — badge circulaire coloré par nature de statistique
@@ -320,6 +334,41 @@
 .play-body .quizx-stat-value{ color:#F2EBDC; }
 .play-body .quizx-stat-label{ color: rgba(242,235,220,.6); }
 
+/* ---------- Barre latérale (Ma progression / Classement) — même
+   panneau verre que le reste (retour utilisateur : "ne doivent plus
+   rester blanches comme des cartes PDF"), icône de repère par carte,
+   texte reculé vers les tons clairs pour rester lisible sur fond
+   sombre. ---------- */
+.play-body .quizx-sidebar-card{ padding:22px; }
+.play-body .quizx-sidebar-title{
+  color:#F2EBDC; display:flex; align-items:center; gap:8px;
+}
+.play-body .quizx-sidebar-title::before{
+  width:26px; height:26px; border-radius:50%; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; font-size:13px;
+  background: var(--red); box-shadow: 0 4px 10px -4px rgba(0,0,0,.6);
+}
+#quizx-my-stats .quizx-sidebar-title::before{ content:'📈'; }
+#quiz-leaderboard-section .quizx-sidebar-title::before{ content:'🏆'; background: var(--gold); }
+.play-body .quizx-sidebar-subtitle,
+.play-body .quizx-sidebar-empty{ color: rgba(242,235,220,.6); }
+.play-body .quizx-my-rank-icon{ background: rgba(255,255,255,.08); border:1px solid rgba(184,144,62,.3); }
+.play-body .quizx-my-rank-name{ color:#F2EBDC; }
+.play-body .quizx-my-rank-sub{ color: rgba(242,235,220,.55); }
+.play-body .quizx-my-progress-track{ background: rgba(255,255,255,.14); }
+.play-body .quiz-leaderboard-row{
+  background: rgba(255,255,255,.05); border:1px solid rgba(184,144,62,.2);
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.play-body .quiz-leaderboard-row:hover{
+  background: rgba(255,255,255,.09); border-color: rgba(184,144,62,.4); transform: translateX(2px);
+}
+.play-body .quiz-leaderboard-rank{ background: rgba(255,255,255,.1); color: rgba(242,235,220,.75); }
+.play-body .quiz-leaderboard-row:nth-child(1) .quiz-leaderboard-rank{ background: var(--gold); color:#241a04; }
+.play-body .quiz-leaderboard-row:nth-child(2) .quiz-leaderboard-rank{ background:#C7CDD6; color:#20242b; }
+.play-body .quiz-leaderboard-row:nth-child(3) .quiz-leaderboard-rank{ background:#C88A4E; color:#2a1706; }
+.play-body .quiz-leaderboard-name{ color:#F2EBDC; }
+
 @media (prefers-reduced-motion: reduce){
   .play-panel:not([hidden]){ animation:none; }
   .play-body .shop-card-media, .play-body .pack-reveal-card img{ animation:none; }
@@ -330,6 +379,7 @@
   .play-body .quizx-stat-card,
   .play-body .quizx-featured,
   .play-body .dreamteam-picker-card,
+  .play-body .quizx-sidebar-card,
   .play-body .pack-reveal-card{
     animation:none; transform:none !important;
   }

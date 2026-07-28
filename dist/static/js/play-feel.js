@@ -34,7 +34,7 @@
   /* ---------- Tilt 3D au survol des panneaux (--tilt-x/--tilt-y lus par
    * play-hub.css) — même liste de sélecteurs que le système de panneaux. ---------- */
   var TILTABLE = '.shop-card, .quiz-rank-card, .quizx-stat-card, .quizx-featured, ' +
-    '.dreamteam-picker-card, .pack-reveal-card';
+    '.dreamteam-picker-card, .pack-reveal-card, .quizx-sidebar-card';
   var tiltedEl = null;
 
   document.addEventListener('pointermove', function (e) {
