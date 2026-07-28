@@ -2,7 +2,7 @@
  * (points/{uid}/openedPacks/*.grantedCards, dédupliquées), recherche +
  * filtre par rareté. */
 
-import { ensureFirestore, getFirestoreRefs } from './points.js';
+import { loadOwnedCardSlugs } from './points.js';
 
 (function () {
   var page = document.getElementById('collection-page');
@@ -32,20 +32,6 @@ import { ensureFirestore, getFirestoreRefs } from './points.js';
 
   function loadCardsIndex() {
     return fetch(root + 'static/data/cards.json').then(function (r) { return r.json(); }).catch(function () { return []; });
-  }
-
-  function loadOwnedCards(uid) {
-    return ensureFirestore().then(function (ok) {
-      if (!ok) return [];
-      var refs = getFirestoreRefs();
-      return refs.firestoreFns.getDocs(refs.firestoreFns.collection(refs.db, 'points', uid, 'openedPacks')).then(function (snap) {
-        var slugs = {};
-        snap.forEach(function (d) {
-          (d.data().grantedCards || []).forEach(function (s) { slugs[s] = true; });
-        });
-        return Object.keys(slugs);
-      }).catch(function () { return []; });
-    });
   }
 
   function renderRarityTabs() {
@@ -114,7 +100,7 @@ import { ensureFirestore, getFirestoreRefs } from './points.js';
     }
     if (loginGate) loginGate.hidden = true;
     if (content) content.hidden = false;
-    Promise.all([loadCardsIndex(), loadOwnedCards(user.uid)]).then(function (results) {
+    Promise.all([loadCardsIndex(), loadOwnedCardSlugs(user.uid)]).then(function (results) {
       allCards = results[0];
       ownedSlugs = results[1];
       renderRarityTabs();
