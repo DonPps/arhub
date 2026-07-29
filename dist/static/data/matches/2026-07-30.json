@@ -1,6 +1,6 @@
 {
   "date": "2026-07-30",
-  "updated_at": "2026-07-29T00:04:03Z",
+  "updated_at": "2026-07-29T06:09:04Z",
   "matches": [
     {
       "id": 1556540,
@@ -1067,7 +1067,7 @@
       "team_b": "HJK Helsinki",
       "team_a_crest": "https://media.api-sports.io/football/teams/669.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/649.png",
-      "venue": "The Showgrounds",
+      "venue": "Inver Park",
       "kickoff_utc": "2026-07-30T18:45:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
