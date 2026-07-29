@@ -362,8 +362,10 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
     activeSlotId = slotId;
     var accepted = SLOT_POSITIONS[slotId] || [];
     var slotBtn = pitch.querySelector('[data-slot="' + slotId + '"]');
+    var slots = teamData.slots || {};
+    var usedElsewhere = Object.keys(slots).filter(function (id) { return id !== slotId; }).map(function (id) { return slots[id]; });
     var options = allCards.filter(function (c) {
-      return ownedSlugs.indexOf(c.slug) !== -1 && accepted.indexOf(c.position) !== -1;
+      return ownedSlugs.indexOf(c.slug) !== -1 && accepted.indexOf(c.position) !== -1 && usedElsewhere.indexOf(c.slug) === -1;
     });
     pickerTitle.textContent = 'Choisir : ' + (slotBtn ? slotBtn.getAttribute('data-label') : slotId);
     if (!options.length) {
@@ -409,6 +411,8 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
   function assignSlot(slotId, cardSlug) {
     if (!editable || !currentUser) return;
     var nextSlots = Object.assign({}, teamData.slots || {});
+    var vacatedSlotIds = Object.keys(nextSlots).filter(function (id) { return id !== slotId && nextSlots[id] === cardSlug; });
+    vacatedSlotIds.forEach(function (id) { delete nextSlots[id]; });
     nextSlots[slotId] = cardSlug;
     var nextValue = computeValue(nextSlots);
     Promise.all([ensureFirestore().then(function () { return ensureTeamDoc(currentUser.uid); }), getMyNickname()])
@@ -418,6 +422,7 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
         var refs = getFirestoreRefs();
         var update = {};
         update.formation = '4-3-3';
+        vacatedSlotIds.forEach(function (id) { update['slots.' + id] = refs.firestoreFns.deleteField(); });
         update['slots.' + slotId] = cardSlug;
         update.value = nextValue;
         update.nickname = nickname;
