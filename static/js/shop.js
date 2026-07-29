@@ -173,8 +173,16 @@ import { ensureFirestore, getFirestoreRefs, watchPoints, buyItem, buyPack, loadO
     if (!currentUser) return;
     var slug = btn.getAttribute('data-slug');
     var price = parseInt(btn.getAttribute('data-price'), 10);
+    var pack = packsCatalog.filter(function (p) { return p.slug === slug; })[0];
     btn.disabled = true;
-    buyPack(slug, price).catch(function (e) {
+    buyPack(slug, price).then(function (instanceId) {
+      btn.disabled = false;
+      if (pack) {
+        document.dispatchEvent(new CustomEvent('atlas-open-pack', {
+          detail: { instanceId: instanceId, pack: pack },
+        }));
+      }
+    }).catch(function (e) {
       console.error('Échec achat pack:', e);
       btn.disabled = false;
     });

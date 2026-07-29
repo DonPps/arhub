@@ -1027,15 +1027,15 @@ body.drawer-open{ overflow:hidden; }
 
 /* ---------- Footer ---------- */
 .site-footer{
-  margin-top: 64px;
+  margin-top: 40px;
   background: linear-gradient(160deg, var(--footer-sand-1) 0%, var(--footer-sand-2) 45%, var(--footer-sand-3) 100%);
   color: var(--footer-ink);
 }
 .footer-top{
   display:grid;
   grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
-  gap: 40px;
-  padding: 56px 0 40px;
+  gap: 32px;
+  padding: 34px 0 26px;
 }
 .footer-brand{ display:flex; flex-direction:column; gap: 14px; }
 .footer-logo{ display:flex; align-items:center; gap: 12px; }
@@ -1093,7 +1093,7 @@ body.drawer-open{ overflow:hidden; }
 
 .footer-bottom{
   border-top: 1px solid rgba(255,255,255,.22);
-  padding: 22px 0 30px;
+  padding: 14px 0 18px;
   display:flex; justify-content:space-between; flex-wrap:wrap; gap: 12px;
   font-family: var(--font-nav);
   font-size: 12px;
@@ -1164,8 +1164,8 @@ body.drawer-open{ overflow:hidden; }
   .layout{ padding: 36px 0 56px; gap: 40px; }
   .list-item{ padding: 24px 0; gap: 18px; }
   .list-item h3{ font-size: 21px; }
-  .footer-top{ grid-template-columns: 1fr; padding: 40px 0 28px; gap: 28px; }
-  .site-footer{ margin-top: 40px; }
+  .footer-top{ grid-template-columns: 1fr; padding: 26px 0 20px; gap: 22px; }
+  .site-footer{ margin-top: 28px; }
 }
 @media (max-width: 480px){
   .masthead-logo img{ width: 42px; height: 42px; }
@@ -2081,7 +2081,9 @@ body.drawer-open{ overflow:hidden; }
   padding: 20px;
 }
 .podcast-cover-title{ font-family: var(--font-display); font-weight:700; font-size:16px; color:#fff; margin-bottom:12px; }
-.podcast-cover-player{ width:100%; color-scheme: dark; }
+.podcast-cover-player{ width:100%; color-scheme: dark; background: transparent; }
+.podcast-cover-player::-webkit-media-controls-enclosure{ background: transparent; border-radius: 8px; }
+.podcast-cover-player::-webkit-media-controls-panel{ background: rgba(10,10,10,.35); }
 .podcast-cover-body p{ margin:0; font-family: var(--font-body); font-size:13px; color: rgba(255,255,255,.85); }
 .podcast-cover-empty{ justify-content:center; text-align:center; }
 

@@ -122,6 +122,7 @@
   color:#fff; background: linear-gradient(135deg, var(--red), var(--red-dark));
   box-shadow: 0 8px 18px -8px rgba(193,18,31,.6);
 }
+@media (max-width:859px){ .play-tabs{ display:none; } }
 /* ---------- Transition d'entrée des panneaux (aucune modif de play-tabs.js —
    l'animation se déclenche automatiquement à chaque fois qu'un panneau
    redevient visible, via [hidden] qui bascule display:none) ---------- */
@@ -514,10 +515,15 @@
   50%{ box-shadow: 0 34px 64px -26px rgba(0,0,0,.85), 0 0 0 1px rgba(184,144,62,.5), 0 0 58px -10px rgba(184,144,62,.6); }
 }
 @media (min-width:860px){
+  .play-body .dreamteam-field-wrap{
+    width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw;
+  }
+  .play-body .dreamteam-field-wrap::before{ left:0; right:0; }
   .play-body .dreamteam-pitch{
-    max-width:900px; aspect-ratio:1672/941;
+    width:80vw; max-width:1280px; margin-inline:auto; aspect-ratio:1672/941;
     background-image: url('../img/play/dreamteam-pitch-desktop.png');
   }
+  .play-body .dreamteam-slot{ width:clamp(60px, 6vw, 92px); }
 }
 .play-body .dreamteam-pitch::before{
   content:''; position:absolute; inset:0; pointer-events:none; z-index:1; border-radius:inherit;
