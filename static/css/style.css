@@ -156,7 +156,7 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 
 .btn-newsletter{
   display:inline-flex; align-items:center; gap:9px;
-  background: var(--red); color:#fff;
+  background: var(--red); color:#fff; border:none; cursor:pointer;
   font-family: var(--font-nav); font-size: 13px; font-weight:600;
   text-transform: uppercase; letter-spacing: .6px;
   padding: 13px 24px; border-radius: 3px;
@@ -326,6 +326,48 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   font-size: 16px;
   color: var(--ink);
 }
+
+/* ---------- Popup newsletter (icône du bandeau) ---------- */
+.newsletter-popup{
+  display:none;
+  position: fixed; inset: 0;
+  background: rgba(17,17,17,.55);
+  z-index: 100;
+  padding: 90px 20px 20px;
+}
+.newsletter-popup.is-open{ display:block; }
+.newsletter-popup-panel{
+  max-width: 380px;
+  margin: 0 auto;
+  background: var(--overlay);
+  border-radius: 10px;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.5);
+  padding: 32px 28px;
+  position: relative;
+  text-align: center;
+}
+.newsletter-popup-close{
+  position: absolute; top: 16px; right: 16px;
+  background:none; border:none; cursor:pointer;
+  color: var(--ink-soft); padding: 4px;
+  transition: color .2s;
+}
+.newsletter-popup-close:hover{ color: var(--red); }
+.newsletter-popup-icon{ color: var(--red); margin-bottom: 14px; }
+.newsletter-popup-title{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+.newsletter-popup-desc{
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+.newsletter-popup .newsletter-form{ text-align: left; }
 
 /* ---------- Compte (connexion / inscription) ---------- */
 .account-overlay{
