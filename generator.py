@@ -478,7 +478,10 @@ def build():
     # dédiée). Chevauchement volontaire entre sections assumé (stock
     # d'articles encore limité) : voir le plan de refonte homepage pour
     # le détail de ce choix.
-    hero_slides = articles[:5]
+    # GEOMAROC (géopolitique) ne doit jamais apparaître "à la une" dans le
+    # hero, quelle que soit sa fraîcheur — rubrique volontairement
+    # secondaire, jamais au centre du site.
+    hero_slides = [a for a in articles if a["category_slug"] != "geomaroc"][:5]
     trending = articles[:TRENDING_COUNT]
 
     canaf_all = [a for a in articles if a["category_slug"] == "can-caf"]
@@ -486,7 +489,7 @@ def build():
     canaf_articles = canaf_all[:6]
 
     monde_articles = [a for a in articles if a["category_slug"] == "football-mondial"][:6]
-    fc26_articles = [a for a in articles if a["category_slug"] == "fc26"][:4]
+    geomaroc_articles = [a for a in articles if a["category_slug"] == "geomaroc"][:4]
     mercato_articles = [a for a in articles if a["category_slug"] == "transferts"][:4]
 
     quiz_themes_home = load_quiz_themes()
@@ -500,7 +503,7 @@ def build():
         active_nav="home",
         hero_slides=hero_slides,
         trending=trending,
-        fc26_articles=fc26_articles,
+        geomaroc_articles=geomaroc_articles,
         mercato_articles=mercato_articles,
         canaf_articles=canaf_articles,
         maroc_articles=maroc_articles,
