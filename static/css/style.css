@@ -437,7 +437,12 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   align-items: start;
 }
 @media (max-width: 860px){
-  .layout{ grid-template-columns: 1fr; }
+  /* minmax(0, 1fr), pas juste 1fr : sans le minimum explicite à 0, une
+     grid track garde un min-width:auto implicite et se laisse pousser par
+     le contenu le plus large de la colonne (ex. le H1 du hero) au lieu de
+     l'envelopper — provoquait un débordement horizontal de toute la page
+     en mobile (colonne principale ~764px dans un viewport à 375px). */
+  .layout{ grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ---------- Hero slider / lead stories ---------- */
