@@ -204,19 +204,6 @@
       {% endfor %}
     </div>
 
-    <div class="newsletter-cover-card" id="newsletter">
-      <img src="{{ root }}static/img/newsletter-cover.jpg" alt="" class="newsletter-cover-bg" loading="lazy">
-      <div class="newsletter-cover-overlay" aria-hidden="true"></div>
-      <div class="newsletter-cover-body">
-        <div class="newsletter-title">Newsletter Atlas Rising</div>
-        <p>Recevez chaque matin l'essentiel de l'actualité.</p>
-        <form class="newsletter-form" data-newsletter>
-          <input type="email" placeholder="Votre email" required aria-label="Adresse email">
-          <button type="submit">S'abonner</button>
-        </form>
-      </div>
-    </div>
-
     <div class="podcast-cover-card">
       {% if podcast and podcast.cover_url %}<img src="{{ root }}{{ podcast.cover_url }}" alt="" class="podcast-cover-bg">{% endif %}
       <div class="podcast-cover-overlay" aria-hidden="true"></div>

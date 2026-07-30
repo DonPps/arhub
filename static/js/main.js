@@ -95,6 +95,40 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* --- Popup newsletter (déclenché par l'icône du bandeau, sur toutes les pages) --- */
+  var newsletterToggle = document.getElementById('newsletter-toggle');
+  var newsletterPopup = document.getElementById('newsletter-popup');
+  var newsletterPopupClose = document.getElementById('newsletter-popup-close');
+
+  function openNewsletterPopup() {
+    newsletterPopup.classList.add('is-open');
+    newsletterPopup.setAttribute('aria-hidden', 'false');
+    newsletterToggle.setAttribute('aria-expanded', 'true');
+    setTimeout(function () {
+      var input = newsletterPopup.querySelector('input[type="email"]');
+      if (input) input.focus();
+    }, 50);
+  }
+
+  function closeNewsletterPopup() {
+    newsletterPopup.classList.remove('is-open');
+    newsletterPopup.setAttribute('aria-hidden', 'true');
+    newsletterToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  if (newsletterToggle && newsletterPopup) {
+    newsletterToggle.addEventListener('click', openNewsletterPopup);
+    newsletterPopupClose.addEventListener('click', closeNewsletterPopup);
+
+    newsletterPopup.addEventListener('click', function (e) {
+      if (e.target === newsletterPopup) closeNewsletterPopup();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && newsletterPopup.classList.contains('is-open')) closeNewsletterPopup();
+    });
+  }
+
   /* --- Formulaires newsletter (inscription via Brevo, proxée par une Netlify Function) --- */
   var forms = document.querySelectorAll('[data-newsletter]');
   forms.forEach(function (form) {
