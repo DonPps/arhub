@@ -1127,7 +1127,12 @@ body.drawer-open{ overflow:hidden; }
     padding: 14px 0;
     gap: 8px;
   }
-  .masthead-side{ flex: 1 1 0; min-width: 0; }
+  /* flex:0 1 auto (pas flex:1 1 0) : chaque côté prend la largeur que son
+     contenu réclame plutôt qu'un partage forcé 50/50 — avec le badge
+     Atlas Points visible (utilisateur connecté), le côté droit a plus de
+     contenu que le gauche ; un partage égal le faisait déborder par-dessus
+     le logo central (flex-shrink:0, largeur fixe). */
+  .masthead-side{ flex: 0 1 auto; min-width: 0; }
   .masthead-left{ flex-direction: row; align-items: center; gap: 8px; }
   .masthead-left-row{ flex-direction: row; gap: 8px; }
   .date-strip{ display: none; }
