@@ -2,21 +2,39 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* --- Menu mobile --- */
+  /* --- Menu mobile : tiroir latéral (glisse depuis la gauche, fond
+     assombri, verrouille le scroll de la page pendant l'ouverture) --- */
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('site-nav');
+  var navBackdrop = document.getElementById('nav-backdrop');
+  var navDrawerClose = document.getElementById('nav-drawer-close');
 
   if (toggle && nav) {
+    function openNav() {
+      nav.classList.add('is-open');
+      if (navBackdrop) navBackdrop.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('drawer-open');
+    }
+    function closeNav() {
+      nav.classList.remove('is-open');
+      if (navBackdrop) navBackdrop.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('drawer-open');
+    }
+
     toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (nav.classList.contains('is-open')) closeNav(); else openNav();
     });
+    if (navDrawerClose) navDrawerClose.addEventListener('click', closeNav);
+    if (navBackdrop) navBackdrop.addEventListener('click', closeNav);
 
     nav.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
+      if (e.target.tagName === 'A') closeNav();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) closeNav();
     });
   }
 

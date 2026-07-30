@@ -197,6 +197,8 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .nav a:hover, .nav a.active{ color: var(--red); }
 .nav a:hover::after, .nav a.active::after{ right:0; }
 .nav-icon{ flex-shrink:0; vertical-align:-2px; }
+.nav-backdrop{ display:none; }
+.nav-drawer-head{ display:none; }
 
 /* ---------- Bande d'actualités défilante ----------
    .news-ticker-outer porte le fond/les bordures pleine largeur (même
@@ -1153,20 +1155,57 @@ body.drawer-open{ overflow:hidden; }
   .btn-newsletter-label{ display: none; }
 
   .nav-row{ justify-content:center; padding: 2px 0; }
-  .nav{
-    display:none;
-    position:absolute; left:0; right:0; top:100%;
-    flex-direction:column; flex-wrap:nowrap;
-    align-items:flex-start; justify-content:flex-start; gap:0;
-    background: var(--overlay);
-    padding: 8px 24px 20px;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 16px 30px -16px rgba(17,17,17,.25);
-    z-index: 20;
+
+  /* Tiroir latéral (au lieu du dropdown sous le bandeau) : reste hors-écran
+     via translateX plutôt que display:none, pour permettre la transition
+     de glissement ; fond assombri cliquable en superposition. */
+  .nav-backdrop{
+    display:block;
+    position: fixed; inset:0;
+    background: rgba(17,17,17,.5);
+    z-index: 19;
+    opacity:0; visibility:hidden;
+    transition: opacity .3s var(--ease), visibility 0s linear .3s;
   }
-  .nav.is-open{ display:flex; }
-  .nav a{ width:100%; padding: 12px 0; }
+  .nav-backdrop.is-open{ opacity:1; visibility:visible; transition: opacity .3s var(--ease); }
+
+  .nav{
+    position: fixed; top:0; bottom:0; left:0;
+    width: min(300px, 82vw);
+    flex-direction:column; flex-wrap:nowrap;
+    align-items:stretch; justify-content:flex-start; gap:0;
+    background: var(--overlay);
+    padding: 0 0 24px;
+    box-shadow: 0 0 44px -10px rgba(17,17,17,.45);
+    z-index: 20;
+    transform: translateX(-100%);
+    transition: transform .32s var(--ease);
+    overflow-y: auto;
+  }
+  .nav.is-open{ transform: translateX(0); }
+
+  .nav-drawer-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 20px 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 6px;
+  }
+  .nav-drawer-logo{
+    display:flex; align-items:center; gap:10px;
+    font-family: var(--font-display); font-weight:700; font-size:15.5px; color: var(--ink);
+  }
+  .nav-drawer-logo img{ width:32px; height:32px; object-fit:contain; }
+  .nav-drawer-close{
+    background:none; border:none; cursor:pointer;
+    color: var(--ink-soft); padding:4px;
+    transition: color .2s;
+  }
+  .nav-drawer-close:hover{ color: var(--red); }
+
+  .nav a{ width:100%; padding: 14px 20px; gap:12px; border-left:3px solid transparent; }
   .nav a::after{ display:none; }
+  .nav a.active{ background: rgba(193,18,31,.08); border-left-color: var(--red); }
+  .nav .nav-icon{ width:17px; height:17px; }
 
   .hero h1{ font-size: 28px; }
   .hero p.dek{ font-size: 16px; }
