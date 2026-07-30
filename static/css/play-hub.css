@@ -137,6 +137,34 @@
 .play-main h1, .play-main h2, .play-main h3{ color:#F2EBDC; }
 .play-main{ color: rgba(242,235,220,.85); }
 
+/* ---------- Héros illustré (personnage) — Quiz uniquement.
+   Mobile (≤859px) : l'avatar (même image/asset que sur desktop) remplace
+   visuellement le H1 "Le grand quiz..." — le H1 reste dans le DOM
+   (accessibilité/SEO) mais masqué visuellement (clip sr-only), l'avatar
+   prend sa place dans la mise en page via ::before + ordre flex explicite
+   avec les autres éléments du hero. Aucun markup ajouté. ---------- */
+@media (max-width:859px){
+  .play-body .quizx-hero{ display:flex; flex-direction:column; align-items:center; }
+  .play-body .quizx-hero .eyebrow{ order:1; }
+  .play-body .quizx-hero::before{
+    content:''; order:2;
+    height:200px; width:auto; aspect-ratio:832/1179;
+    background-image:url('../img/play/hero-character.png');
+    background-size:contain; background-repeat:no-repeat; background-position:bottom center;
+    filter: drop-shadow(0 14px 18px rgba(0,0,0,.45));
+    margin: 6px 0 24px;
+  }
+  .play-body .quizx-hero h1{
+    order:3;
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+  .play-body .quizx-hero-subtitle{ order:4; }
+  .play-body .quizx-hero-desc{ order:5; }
+  .play-body .quizx-hero-ctas{ order:6; }
+  .play-body .quiz-badges{ order:7; }
+}
+
 /* ---------- Héros illustré (personnage) — Quiz uniquement, écran large.
    Aucun markup ajouté : image posée en ::before sur .quizx-hero déjà
    rendu, le texte se décale simplement pour lui laisser la place. ---------- */
