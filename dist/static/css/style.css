@@ -1154,7 +1154,19 @@ body.drawer-open{ overflow:hidden; }
   .btn-newsletter{ padding: 8px 10px; }
   .btn-newsletter-label{ display: none; }
 
-  .nav-row{ justify-content:center; padding: 2px 0; }
+  /* Badge Atlas Points : sorti du bandeau du haut (trop près du logo,
+     confusion visuelle) et repositionné dans la bande du menu juste
+     en dessous — position:absolute par rapport à header.masthead (déjà
+     position:relative), sans toucher au DOM ni au desktop, où le badge
+     reste à sa place normale dans .masthead-right. */
+  .points-badge{
+    position: absolute;
+    top: 78px; right: 16px;
+    z-index: 10; /* sous le fond assombri (19) et le tiroir (20) du menu */
+    padding: 5px 10px; font-size: 11.5px;
+  }
+
+  .nav-row{ justify-content:space-between; padding: 2px 0; }
 
   /* Tiroir latéral (au lieu du dropdown sous le bandeau) : reste hors-écran
      via translateX plutôt que display:none, pour permettre la transition
