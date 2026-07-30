@@ -137,6 +137,18 @@
 .play-main h1, .play-main h2, .play-main h3{ color:#F2EBDC; }
 .play-main{ color: rgba(242,235,220,.85); }
 
+/* Audit contraste (30/07/2026) : deux cas où le texte restait sombre sur
+   fond sombre, invisible.
+   1) .quizx-hero-subtitle a une couleur var(--ink) explicite dans
+      style.css (#111 sur #111) — jamais couverte par la règle générale
+      ci-dessus (h1/h2/h3 seulement, pas les <p>).
+   2) .quiz-login-gate-card garde son fond blanc "carte site-média"
+      (voulu, contraste avec le fond sombre de Play), mais son <h2> hérite
+      quand même de la règle générale ci-dessus (cream sur blanc,
+      illisible) — on le repasse en sombre pour ce contexte précis. */
+.play-body .quizx-hero-subtitle{ color:#F2EBDC; }
+.play-body .quiz-login-gate-card h2{ color: var(--ink); }
+
 /* ---------- Héros illustré (personnage) — Quiz uniquement.
    Mobile (≤859px) : l'avatar (même image/asset que sur desktop) remplace
    visuellement le H1 "Le grand quiz..." — le H1 reste dans le DOM
