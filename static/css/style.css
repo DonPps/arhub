@@ -1145,7 +1145,18 @@ body.drawer-open{ overflow:hidden; }
   .social-row{ gap: 10px; }
   .social-row svg{ width: 15px; height: 15px; }
 
-  .masthead-logo{ order: 0; }
+  /* Le logo doit rester exactement centré même quand les deux côtés
+     n'ont pas la même largeur (ex. badge Atlas Points visible à droite) —
+     flex:0 1 auto sur .masthead-side (juste au-dessus) résout le
+     chevauchement avec le logo mais, avec justify-content:space-between,
+     pousse le logo hors du centre réel si un côté est plus large que
+     l'autre. Sorti du flux flex et centré en absolu par rapport à
+     .masthead-top pour rester indépendant de la largeur de chaque
+     côté. */
+  .masthead-top{ position: relative; }
+  .masthead-logo{
+    position: absolute; left:50%; top:50%; transform: translate(-50%,-50%);
+  }
   .masthead-logo img{ width: 48px; height: 48px; }
 
   .masthead-right{ gap: 8px; }
