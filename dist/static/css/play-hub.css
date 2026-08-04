@@ -317,6 +317,11 @@
 .play-body .shop-card-status{ color: rgba(242,235,220,.75); }
 .play-body .shop-buy-btn:disabled{ background: rgba(255,255,255,.06); border-color: rgba(184,144,62,.35); color: rgba(242,235,220,.6); }
 .play-body .shop-section-intro{ color: rgba(242,235,220,.72); }
+/* .shop-balance (badge "Atlas Points" du header Boutique) a son propre
+   fond clair (var(--illus-bg)) mais héritait du texte crème par défaut
+   de .play-main — texte quasi invisible sur fond clair. Même traitement
+   que .quiz-timer/.shop-card-rating : texte sombre sur ce chip clair. */
+.play-body .shop-balance{ color: var(--ink); }
 .play-body .matches-search{ color: rgba(242,235,220,.6); border-bottom-color: rgba(184,144,62,.35); }
 .play-body .matches-search:focus-within{ border-bottom-color: var(--gold); color: var(--gold); }
 .play-body .matches-search input{ color:#F2EBDC; }
@@ -324,6 +329,24 @@
 .play-body .filter-tab{ color: rgba(242,235,220,.65); }
 .play-body .filter-tab:hover{ color: var(--gold); }
 .play-body .filter-tab.is-active{ background: rgba(184,144,62,.18); color: var(--gold); }
+
+/* ---------- Mobile : scroll horizontal sur la page Collection (retour
+   utilisateur). Cause réelle : .matches-search et .filter-tabs (ce
+   dernier passe en flex-wrap:nowrap + overflow-x:auto sous 640px, voir
+   style.css) sont des enfants flex de .matches-search-row sans
+   min-width:0 — par défaut un enfant flex ne rétrécit jamais sous la
+   largeur de son contenu (ici tous les onglets de rareté sur une seule
+   ligne), donc overflow-x:auto ne peut jamais s'activer : le contenu
+   pousse toute la page plus large que l'écran au lieu de scroller
+   uniquement à l'intérieur du bandeau d'onglets. min-width:0 permet à
+   ces enfants de vraiment se contraindre à la largeur disponible.
+   Scopé à .play-body : matchs.html (même classes, page claire séparée)
+   n'est pas concerné. ---------- */
+@media (max-width:640px){
+  .play-body .matches-search-row{ flex-direction:column; align-items:stretch; gap:12px; }
+  .play-body .matches-search{ min-width:0; max-width:100%; }
+  .play-body .filter-tabs{ min-width:0; max-width:100%; }
+}
 .play-body .matches-loading,
 .play-body .matches-empty{ color: rgba(242,235,220,.65); }
 .play-body .quizx-featured-tag{ color:#ff8f8f; }
@@ -356,6 +379,26 @@
 .play-body .quiz-rank-desc{ color: rgba(242,235,220,.78); }
 .play-body .quizx-quiz-card-meta span{ background: rgba(255,255,255,.14); color:#fff; }
 .play-body .quiz-rank-progress-track{ background: rgba(255,255,255,.2); }
+
+/* ---------- Mobile : badges superposés au titre/description (retour
+   utilisateur). Cause réelle : .quiz-rank-status a margin-top:auto
+   (style.css) qui absorbe tout l'espace libre du flex avant que
+   justify-content:flex-end n'agisse — le bloc titre/desc/badges se
+   retrouvait donc collé en HAUT de la carte, dans la zone du dégradé
+   encore quasi transparente, posé directement sur la photo brute plutôt
+   que sur le fond assombri prévu en bas. Fix : neutraliser cet
+   auto-margin sur mobile pour que le bloc texte s'ancre réellement en
+   bas (comme prévu), + dégradé renforcé pour garantir la lisibilité
+   même avec un titre/description sur 2 lignes. Desktop non touché. ---------- */
+@media (max-width:640px){
+  .play-body .quiz-rank-status{ margin-top:0; }
+  .play-body .quiz-rank-card{ min-height:340px; }
+  .play-body .quiz-rank-card::before{
+    background: linear-gradient(to top, rgba(8,6,4,.96) 0%, rgba(8,6,4,.9) 32%, rgba(8,6,4,.4) 58%, transparent 80%);
+  }
+  .play-body .quizx-quiz-card-meta{ gap:6px; }
+  .play-body .quizx-quiz-card-meta span{ font-size:9.5px; padding:3px 7px; }
+}
 
 /* ---------- Rang verrouillé — la photo doit rester colorée (retour
    utilisateur : "ils sont toujours grisés" après un premier essai trop
@@ -1169,6 +1212,19 @@
   color:#F2EBDC; border-color: rgba(184,144,62,.4); background: rgba(255,255,255,.06);
 }
 .play-body .arena-matchmaking-card .admin-cancel-btn:hover{ background: rgba(255,255,255,.12); border-color: var(--gold); }
+
+/* ---------- Mobile : le bouton "Copier le lien" dépasse du modal
+   (retour utilisateur). .quiz-duel-link-row met input (flex:1) et
+   bouton côte à côte ; le bouton garde sa largeur naturelle (texte +
+   padding) et ne rétrécit pas assez sous ~340px de large, il déborde
+   du cadre de la carte. Colonne sur mobile : chaque élément prend toute
+   la largeur disponible, plus aucun risque de dépassement quelle que
+   soit la longueur du lien. Desktop non touché. ---------- */
+@media (max-width:640px){
+  .play-body .quiz-duel-link-row{ flex-direction:column; gap:8px; }
+  .play-body .quiz-duel-link-row input{ width:100%; box-sizing:border-box; }
+  .play-body .quiz-duel-link-row .admin-cancel-btn{ width:100%; }
+}
 .play-body .arena-dots span{ animation: arena-dot-blink 1.4s infinite; opacity:0; }
 .play-body .arena-dots span:nth-child(2){ animation-delay:.2s; }
 .play-body .arena-dots span:nth-child(3){ animation-delay:.4s; }
