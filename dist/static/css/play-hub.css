@@ -427,6 +427,20 @@
 .play-body .quiz-duel-history-title{ color:#F2EBDC; }
 .play-body .quiz-duel-history-empty{ color: rgba(242,235,220,.72); }
 
+/* ---------- Écran de jeu Duel (retour : "adapter police et couleurs
+   pour être clairement visibles sur fond sombre") — .quiz-duel-scoreboard,
+   .quiz-duel-vs, #quiz-duel-opponent-score et .quiz-player-meta sont
+   repris de l'écran Quiz Solo (texte var(--ink)/var(--ink-soft) prévu
+   pour une page claire) mais flottent ici directement sur le fond sombre
+   de l'arène, sans carte derrière — texte quasi invisible pendant une
+   vraie partie. Scopé à .quiz-duel-player uniquement : .quiz-player-meta
+   reste inchangé sur l'écran Quiz Solo (fond clair, texte sombre correct
+   là-bas). */
+.play-body .quiz-duel-scoreboard{ color:#F2EBDC; }
+.play-body .quiz-duel-vs{ color: rgba(242,235,220,.6); }
+.play-body #quiz-duel-opponent-score{ color: rgba(242,235,220,.6); }
+.play-body .quiz-duel-player .quiz-player-meta{ color:#F2EBDC; }
+
 .play-body .quizx-category-card{
   background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -1033,8 +1047,22 @@
 .play-body .arena-live-topic{ font-family: var(--font-nav); font-size:10px; text-transform:uppercase; letter-spacing:.03em; color: rgba(242,235,220,.6); text-align:center; }
 
 /* ---------- Classement premium (médailles top 3 + utilisateur
-   surligné) ---------- */
-.play-body .arena-leaderboard-list .quiz-leaderboard-row{ position:relative; }
+   surligné) ----------
+   .quiz-leaderboard-row est stylé pour la page Quiz Solo (fond blanc,
+   texte var(--ink) sombre) — repris tel quel ici sans adaptation, le nom
+   devenait quasi illisible sur le fond sombre de l'arène (encore pire sur
+   la ligne "is-me", fond doré translucide + texte noir). Même traitement
+   verre dépoli que les autres cartes .arena-* : fond sombre, texte
+   crème/or. */
+.play-body .arena-leaderboard-list .quiz-leaderboard-row{
+  position:relative;
+  background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border:1px solid rgba(184,144,62,.3);
+}
+.play-body .arena-leaderboard-list .quiz-leaderboard-name{ color:#F2EBDC; }
+.play-body .arena-leaderboard-list .quiz-leaderboard-points{ color:#ff8f8f; }
+.play-body .arena-leaderboard-list .quiz-leaderboard-rank{ background: rgba(184,144,62,.15); color:#F2EBDC; }
+.play-body .arena-leaderboard-list .quiz-leaderboard-row:nth-child(1) .quiz-leaderboard-rank{ background: var(--gold); color:#1a1207; }
 .play-body .arena-leaderboard-list .quiz-leaderboard-row.is-me{
   border-color: var(--gold); background: rgba(184,144,62,.14);
 }
@@ -1117,6 +1145,14 @@
 .play-body .arena-matchmaking-status{
   font-family: var(--font-nav); font-size:12.5px; color: rgba(242,235,220,.75); margin:10px 0 16px;
 }
+/* .quiz-login-gate-card p / .admin-cancel-btn sont stylés pour le fond
+   clair par défaut (var(--ink-soft)/var(--ink)) — invisibles sur cette
+   carte de matchmaking volontairement sombre. */
+.play-body .arena-matchmaking-card p{ color: rgba(242,235,220,.75); }
+.play-body .arena-matchmaking-card .admin-cancel-btn{
+  color:#F2EBDC; border-color: rgba(184,144,62,.4); background: rgba(255,255,255,.06);
+}
+.play-body .arena-matchmaking-card .admin-cancel-btn:hover{ background: rgba(255,255,255,.12); border-color: var(--gold); }
 .play-body .arena-dots span{ animation: arena-dot-blink 1.4s infinite; opacity:0; }
 .play-body .arena-dots span:nth-child(2){ animation-delay:.2s; }
 .play-body .arena-dots span:nth-child(3){ animation-delay:.4s; }
