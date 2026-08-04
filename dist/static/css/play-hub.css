@@ -860,15 +860,28 @@
    comme partout ailleurs dans ce fichier.
    ================================================================ */
 
-/* ---------- Hero ---------- */
+/* ---------- Hero ----------
+   Pas de photo (03/08/2026) : fond dessiné (dégradé + halo lumière stade
+   + lignes de vitesse en surimpression) plutôt qu'une image de tunnel —
+   ambiance sport/esport jeune, texte et les deux CTA restent le seul
+   sujet de la scène. */
 .play-body .arena-hero{
   position:relative; border-radius:20px; overflow:hidden; margin-bottom:22px;
+  min-height:230px; display:flex; align-items:flex-end;
   box-shadow: 0 30px 60px -26px rgba(0,0,0,.85), 0 0 0 1px rgba(184,144,62,.3);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(184,144,62,.4), transparent 46%),
+    radial-gradient(circle at 88% 82%, rgba(193,18,31,.45), transparent 52%),
+    linear-gradient(135deg, #1d0f0e 0%, #100a08 55%, #050403 100%);
 }
-.play-body .arena-hero-banner{ width:100%; height:auto; display:block; max-height:520px; object-fit:cover; }
+.play-body .arena-hero::before{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background-image: repeating-linear-gradient(115deg, rgba(255,255,255,.045) 0 2px, transparent 2px 34px);
+  mix-blend-mode: overlay;
+}
 .play-body .arena-hero-overlay{
-  position:absolute; left:0; right:0; bottom:0; padding:22px clamp(16px,4vw,40px) 26px;
-  background: linear-gradient(0deg, rgba(6,5,4,.94) 0%, rgba(6,5,4,.6) 45%, transparent 100%);
+  position:relative; z-index:1; width:100%;
+  padding:30px clamp(16px,4vw,40px) 32px;
   display:flex; flex-direction:column; gap:10px; align-items:flex-start;
 }
 .play-body .arena-hero-label{
@@ -897,7 +910,8 @@
 }
 .play-body .arena-btn-secondary:hover{ background: rgba(255,255,255,.14); border-color: var(--gold); transform: translateY(-2px); }
 @media (max-width:640px){
-  .play-body .arena-hero-banner{ max-height:280px; }
+  .play-body .arena-hero{ min-height:190px; }
+  .play-body .arena-hero-overlay{ padding:22px 16px 24px; }
   .play-body .arena-hero-desc{ font-size:12.5px; }
 }
 
