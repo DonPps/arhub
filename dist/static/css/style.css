@@ -1268,6 +1268,16 @@ body.drawer-open{ overflow:hidden; }
   .article-head h1{ font-size: 28px; }
   .article-head{ padding: 32px 0 8px; }
   .article-body{ font-size: 16.5px; }
+  /* Photos à la une / article en plein bord + plus hautes sur mobile,
+     façon appli d'actu (retour utilisateur). L'aspect-ratio est fixé en
+     inline dans le HTML (ratio réel de l'image, ~16:9) — !important
+     nécessaire pour le remplacer en media query. */
+  .hero-media, .article-media{
+    width: calc(100% + 32px); max-width: calc(100% + 32px);
+    margin-left: -16px; margin-right: -16px;
+    border-radius: 0;
+    aspect-ratio: 4/3 !important;
+  }
   .grid-title{ font-size: 20px; margin-bottom: 24px; }
   .layout{ padding: 36px 0 56px; gap: 40px; }
   .list-item{ padding: 24px 0; gap: 18px; }
