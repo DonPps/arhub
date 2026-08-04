@@ -3,6 +3,8 @@
 {% block title %}{{ article.title }} — Atlas Rising{% endblock %}
 {% block description %}{{ article.dek }}{% endblock %}
 {% block og_type %}article{% endblock %}
+{% block og_image %}{% if article.image %}{{ site_url }}/{{ article.image }}{% else %}{{ site_url }}/static/img/logo.png{% endif %}{% endblock %}
+{% block twitter_card %}{% if article.image %}summary_large_image{% else %}summary{% endif %}{% endblock %}
 {% block structured_data %}
 <script type="application/ld+json">
 {
@@ -10,9 +12,15 @@
   "@type": "NewsArticle",
   "headline": {{ article.title|tojson|safe }},
   "description": {{ article.dek|tojson|safe }},
+  {% if article.image %}"image": [{{ (site_url ~ "/" ~ article.image)|tojson|safe }}],{% endif %}
   "datePublished": {{ article.date|tojson|safe }},
+  "dateModified": {{ article.date|tojson|safe }},
   "articleSection": {{ article.category|tojson|safe }},
   "keywords": {{ article.tags|join(", ")|tojson|safe }},
+  "author": {
+    "@type": "Organization",
+    "name": "Atlas Rising"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "Atlas Rising",

@@ -1,12 +1,39 @@
 {% extends "base.html" %}
 {% from "_ads.html" import ad_leaderboard, ad_sidebar, ad_inline, sponsor_hero %}
 {% block title %}Atlas Rising — À la une{% endblock %}
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Atlas Rising",
+  "url": "{{ site_url }}/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Atlas Rising",
+  "url": "{{ site_url }}/",
+  "logo": "{{ site_url }}/static/img/logo.png",
+  "sameAs": [
+    "https://www.instagram.com/atlasrisingma/",
+    "https://web.facebook.com/AtlasrisingMa",
+    "https://www.tiktok.com/@yochart007",
+    "https://www.youtube.com/@atlasrisingma/shorts"
+  ]
+}
+</script>
+{% endblock %}
 {% block content %}
 
 {{ ad_leaderboard('home_header_leaderboard') }}
 
 <div class="layout">
   <div>
+
+    <h1 class="sr-only">Atlas Rising — l'actualité du football marocain et africain, sans détour</h1>
 
     {% if hero_slides %}
     <div class="hero-slider" id="hero-slider" data-autoplay="6000">
@@ -21,7 +48,7 @@
             {% endif %}
           </a>
           <span class="eyebrow">{{ a.category }}</span>
-          <h1><a href="article/{{ a.slug }}.html">{{ a.title }}</a></h1>
+          <h2><a href="article/{{ a.slug }}.html">{{ a.title }}</a></h2>
           <p class="dek">{{ a.dek }}</p>
           <a href="article/{{ a.slug }}.html" class="hero-slide-cta">
             Lire l'article
