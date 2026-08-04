@@ -724,6 +724,31 @@ def build():
     robots = f"User-agent: *\nAllow: /\nSitemap: {config['site_url']}/sitemap.xml\n"
     (DIST_DIR / "robots.txt").write_text(robots, encoding="utf-8")
 
+    # ---------- PWA : manifest.json + service-worker.js ----------
+    manifest = {
+        "name": "Atlas Rising",
+        "short_name": "Atlas Rising",
+        "description": "Atlas Rising — l'actualité du football marocain et africain, sans détour.",
+        "start_url": "/",
+        "scope": "/",
+        "display": "standalone",
+        "background_color": "#0E0C0A",
+        "theme_color": "#0E0C0A",
+        "lang": "fr",
+        "icons": [
+            {"src": "/static/img/pwa/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+            {"src": "/static/img/pwa/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+            {"src": "/static/img/pwa/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"},
+        ],
+    }
+    (DIST_DIR / "manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    sw_tpl = env.get_template("service-worker.js")
+    (DIST_DIR / "service-worker.js").write_text(
+        sw_tpl.render(asset_version=common["asset_version"]), encoding="utf-8"
+    )
+
     print(f"✅ Site généré dans {DIST_DIR} — {len(articles)} article(s).")
 
 
