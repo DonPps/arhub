@@ -1298,52 +1298,19 @@ body.drawer-open{ overflow:hidden; }
    Atlas Quiz
    ============================================================ */
 
-/* ---------- Carte promo (page d'accueil) ---------- */
-.quiz-promo-card{
-  position:relative;
-  display:block;
-  min-height: 340px;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow: var(--shadow-soft);
-  margin: 28px 0 40px;
-  text-decoration:none;
-  color:inherit;
-  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
-}
-.quiz-promo-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow-card); }
-.quiz-promo-bg{
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit:cover;
-  z-index:0;
-}
-.quiz-promo-overlay{
-  position:absolute; inset:0;
-  background: linear-gradient(to top, rgba(10,10,10,.55) 0%, rgba(10,10,10,0) 22%);
-  z-index:1;
-}
-.quiz-promo-body{
-  position:absolute; inset:0; z-index:2;
-  display:flex; flex-direction:column;
-  align-items:flex-start; justify-content:flex-end;
-  gap:10px;
-  padding: 28px 32px 32px;
-}
-.quiz-promo-body .eyebrow{ color: var(--gold); }
-.quiz-promo-theme{
-  display:inline-block; color:#fff; background: rgba(0,0,0,.35);
-  font-family: var(--font-nav); font-size:12.5px; font-weight:600;
-  padding:6px 14px; border-radius:20px;
-}
+/* ---------- CTA Atlas Quiz (page d'accueil) — juste un bouton, plus de
+   photo/carte (retour utilisateur : "enlève la photo gaming, on laisse
+   que le bouton"). ---------- */
+.section-quiz-cta-only{ text-align:center; }
 .quiz-promo-cta{
   display:inline-flex; align-items:center; gap:6px;
   background: var(--red); color:#fff;
   font-family: var(--font-nav); font-size:13px; font-weight:600;
   padding: 10px 18px; border-radius:5px;
+  text-decoration:none;
   transition: background .2s, transform .2s;
 }
-.quiz-promo-card:hover .quiz-promo-cta{ background: var(--red-dark); transform: translateX(2px); }
+.quiz-promo-cta:hover{ background: var(--red-dark); transform: translateX(2px); }
 
 /* ---------- Page /quiz : en-tête + badges ---------- */
 .quiz-page{ padding: 44px 0 64px; }
@@ -1927,9 +1894,6 @@ body.drawer-open{ overflow:hidden; }
   .profile-header{ flex-direction:column; text-align:center; }
   .profile-rank-row{ flex-wrap:wrap; }
   .profile-rank-status{ width:100%; text-align:right; }
-  .quiz-promo-card{ min-height:260px; }
-  .quiz-promo-body{ padding:20px 22px 24px; }
-  .quiz-promo-body h2{ font-size:24px; }
   .quiz-hero h1{ font-size:32px; }
   .quiz-subtitle{ font-size:15px; }
   .quiz-answers{ grid-template-columns: 1fr; }

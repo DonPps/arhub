@@ -489,9 +489,6 @@ def build():
     geomaroc_articles = [a for a in articles if a["category_slug"] == "geomaroc"][:4]
     mercato_articles = [a for a in articles if a["category_slug"] == "transferts"][:4]
 
-    quiz_themes_home = load_quiz_themes()
-    quiz_popular_theme = quiz_themes_home[0] if quiz_themes_home else None
-
     tpl = env.get_template("index.html")
     html = tpl.render(
         **common,
@@ -505,7 +502,6 @@ def build():
         canaf_articles=canaf_articles,
         maroc_articles=maroc_articles,
         monde_articles=monde_articles,
-        quiz_popular_theme=quiz_popular_theme,
     )
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
 
