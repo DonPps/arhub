@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block title %}{{ category.name }} — Atlas Rising{% endblock %}
+{% block description %}Toute l'actualité {{ category.name }} sur Atlas Rising : dernières nouvelles, analyses et résultats.{% endblock %}
 {% block content %}
 
 <div class="layout">
   <div>
-    <h2 class="grid-title">{{ category.name }}</h2>
+    <h1 class="grid-title">{{ category.name }}</h1>
     <div class="article-list">
       {% for a in articles %}
       <article class="list-item">
