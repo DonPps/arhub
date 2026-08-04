@@ -139,11 +139,14 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 }
 .icon-btn:hover{ color: var(--red); }
 .pwa-ios-tip{
-  position:fixed; top:70px; right:16px; z-index:60;
+  position:fixed; bottom:88px; right:20px; z-index:65;
   max-width:240px; background: var(--ink); color:#fff;
   font-family: var(--font-body); font-size:12.5px; line-height:1.5;
   padding:12px 28px 12px 14px; border-radius:8px;
   box-shadow: var(--shadow-card);
+}
+@media (max-width: 640px){
+  .pwa-ios-tip{ bottom:78px; right:14px; }
 }
 .pwa-ios-tip strong{ color: var(--gold); }
 .pwa-ios-tip-close{
@@ -157,6 +160,13 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+/* Garde-fou CSS : auth.js masque déjà #account-icon en JS quand un
+   utilisateur est connecté (photo de profil affichée à la place), mais
+   un utilisateur a vu les deux visibles en même temps (probablement une
+   course JS/état intermédiaire). Cette règle garantit que l'icône
+   générique disparaît dès que l'avatar est visible, indépendamment du
+   timing du JS. */
+#account-toggle:has(#account-avatar:not([hidden])) #account-icon{ display:none; }
 .account-avatar{
   width:24px; height:24px; border-radius:50%; flex-shrink:0;
   background: var(--red); color:#fff;
@@ -1142,8 +1152,8 @@ body.drawer-open{ overflow:hidden; }
   .masthead-top{
     flex-wrap: nowrap;
     justify-content: space-between;
-    padding: 14px 0;
-    gap: 8px;
+    padding: 16px 0;
+    gap: 10px;
   }
   /* flex:0 1 auto (pas flex:1 1 0) : chaque côté prend la largeur que son
      contenu réclame plutôt qu'un partage forcé 50/50 — avec le badge
@@ -1172,7 +1182,7 @@ body.drawer-open{ overflow:hidden; }
   }
   .masthead-logo img{ width: 48px; height: 48px; }
 
-  .masthead-right{ gap: 8px; }
+  .masthead-right{ gap: 11px; }
   .icon-btn-label{ display:none; }
   .icon-btn{ padding: 6px; }
   .btn-newsletter{ padding: 8px 10px; }
