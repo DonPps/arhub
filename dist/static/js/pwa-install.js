@@ -1,21 +1,37 @@
-/* pwa-install.js — petit bouton "Installer" dans le header.
+/* pwa-install.js — petit bouton "Installer" avec les bulles flottantes.
    Deux comportements selon le navigateur, un seul bouton :
    - Chrome/Edge/Android (supportent beforeinstallprompt) : le clic
      déclenche l'invite native d'installation.
    - iOS Safari (aucune API d'installation programmable) : le clic
      affiche une petite bulle avec l'instruction manuelle
      (Partager -> Sur l'écran d'accueil).
-   Le bouton reste caché si l'app tourne déjà en standalone (déjà
-   installée) ou si le navigateur ne supporte ni l'un ni l'autre. */
+   Le bouton ne s'affiche que sur mobile (retour utilisateur : inutile
+   sur desktop), et reste caché si l'app tourne déjà en standalone
+   (déjà installée) — vérifié à la fois au chargement et en continu via
+   matchMedia (le passage en standalone peut arriver sans rechargement
+   complet de la page juste après l'installation). */
 
 (function () {
   const btn = document.getElementById('pwa-install-btn');
   if (!btn) return;
 
-  const isStandalone =
-    window.matchMedia('(display-mode: standalone)').matches ||
-    window.navigator.standalone === true;
-  if (isStandalone) return;
+  const isMobile = /android|iphone|ipad|ipod/i.test(window.navigator.userAgent);
+  if (!isMobile) return;
+
+  const standaloneQuery = window.matchMedia(
+    '(display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui)'
+  );
+  const isInstalled = () => standaloneQuery.matches || window.navigator.standalone === true;
+
+  if (isInstalled()) return;
+
+  standaloneQuery.addEventListener('change', () => {
+    if (isInstalled()) {
+      btn.hidden = true;
+      const tip = document.getElementById('pwa-ios-tip');
+      if (tip) tip.hidden = true;
+    }
+  });
 
   const isIOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
 
@@ -35,6 +51,7 @@
   }
 
   window.addEventListener('beforeinstallprompt', (event) => {
+    if (isInstalled()) return;
     event.preventDefault();
     deferredPrompt = event;
     btn.hidden = false;
