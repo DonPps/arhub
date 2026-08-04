@@ -478,10 +478,7 @@ def build():
     # dédiée). Chevauchement volontaire entre sections assumé (stock
     # d'articles encore limité) : voir le plan de refonte homepage pour
     # le détail de ce choix.
-    # GEOMAROC (géopolitique) ne doit jamais apparaître "à la une" dans le
-    # hero, quelle que soit sa fraîcheur — rubrique volontairement
-    # secondaire, jamais au centre du site.
-    hero_slides = [a for a in articles if a["category_slug"] != "geomaroc"][:5]
+    hero_slides = articles[:5]
     trending = articles[:TRENDING_COUNT]
 
     canaf_all = [a for a in articles if a["category_slug"] == "can-caf"]
