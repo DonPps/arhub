@@ -57,14 +57,6 @@
         <span class="points-badge-icon" aria-hidden="true">⭐</span>
         <span id="points-badge-value">0</span>
       </a>
-      <button type="button" class="icon-btn" id="pwa-install-btn" aria-label="Installer l'application" hidden>
-        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0l-4.5-4.5M12 16l4.5-4.5"/><path d="M4 19.5h16"/></svg>
-        <span class="icon-btn-label">Installer</span>
-      </button>
-      <div class="pwa-ios-tip" id="pwa-ios-tip" hidden>
-        Pour installer : appuie sur <strong>Partager</strong> puis <strong>Sur l'écran d'accueil</strong>.
-        <button type="button" class="pwa-ios-tip-close" id="pwa-ios-tip-close" aria-label="Fermer">&times;</button>
-      </div>
       <button type="button" class="icon-btn" id="search-toggle" aria-label="Rechercher" aria-expanded="false" aria-controls="search-overlay">
         <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         <span class="icon-btn-label">Rechercher</span>
@@ -612,6 +604,16 @@
   <a href="play.html" class="floating-bubble" aria-label="Jouer à l'Atlas Quiz" data-tooltip="Jouer à l'Atlas Quiz">
     <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10v4M5 12h4"/><circle cx="16" cy="10.5" r="1" fill="#fff" stroke="none"/><circle cx="18.5" cy="13" r="1" fill="#fff" stroke="none"/></svg>
   </a>
+
+  <div class="floating-widget">
+    <button type="button" class="floating-bubble" id="pwa-install-btn" aria-label="Installer l'application" data-tooltip="Installer l'application" hidden>
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3v13m0 0l-4.5-4.5M12 16l4.5-4.5"/><path d="M4 19.5h16"/></svg>
+    </button>
+    <div class="pwa-ios-tip" id="pwa-ios-tip" hidden>
+      Pour installer : appuie sur <strong>Partager</strong> puis <strong>Sur l'écran d'accueil</strong>.
+      <button type="button" class="pwa-ios-tip-close" id="pwa-ios-tip-close" aria-label="Fermer">&times;</button>
+    </div>
+  </div>
 </div>
 
 <script src="static/js/main.js?v=ea105a19c8"></script>
