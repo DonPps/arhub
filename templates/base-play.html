@@ -59,6 +59,14 @@
       <span class="points-badge-icon" aria-hidden="true">⭐</span>
       <span id="points-badge-value">0</span>
     </a>
+    <button type="button" class="icon-btn" id="pwa-install-btn" aria-label="Installer l'application" hidden>
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0l-4.5-4.5M12 16l4.5-4.5"/><path d="M4 19.5h16"/></svg>
+      <span class="icon-btn-label">Installer</span>
+    </button>
+    <div class="pwa-ios-tip" id="pwa-ios-tip" hidden>
+      Pour installer : appuie sur <strong>Partager</strong> puis <strong>Sur l'écran d'accueil</strong>.
+      <button type="button" class="pwa-ios-tip-close" id="pwa-ios-tip-close" aria-label="Fermer">&times;</button>
+    </div>
     <button type="button" class="icon-btn play-hud-account" id="account-toggle" aria-label="Mon compte" aria-expanded="false" aria-controls="account-overlay">
       <svg id="account-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
       <span class="account-avatar" id="account-avatar" hidden></span>
@@ -146,6 +154,7 @@
 </main>
 
 <script type="module" src="{{ root }}static/js/auth.js?v={{ asset_version }}"></script>
+<script src="{{ root }}static/js/pwa-install.js?v={{ asset_version }}"></script>
 <script type="module" src="{{ root }}static/js/points-daily.js?v={{ asset_version }}"></script>
 <script type="module" src="{{ root }}static/js/play-hud.js?v={{ asset_version }}"></script>
 {% block extra_scripts %}{% endblock %}
