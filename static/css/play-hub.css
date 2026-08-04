@@ -303,6 +303,34 @@
 }
 .play-body .quizx-featured:hover{ transform: perspective(700px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateY(-2px); }
 
+/* ---------- Boutique & Collection — texte gris/sombre illisible sur fond
+   sombre (retour : "beaucoup de texte écrit en gris... pas visible").
+   .shop-card-body h3/p n'avaient aucune couleur adaptée au fond verre
+   sombre de .shop-card (h3 héritait du var(--ink) de body, p était en
+   var(--ink-soft)) ; .matches-search/.filter-tab/.matches-loading
+   flottent directement sur le fond sombre sans carte, mêmes classes
+   var(--ink)/var(--ink-soft) prévues pour matchs.html (page claire).
+   .shop-card-rating/.shop-card-rarity/.shop-login-gate ont leur propre
+   fond clair opaque et restent corrects tels quels, pas touchés ici. ---------- */
+.play-body .shop-card-body h3{ color:#F2EBDC; }
+.play-body .shop-card-body p{ color: rgba(242,235,220,.65); }
+.play-body .shop-card-status{ color: rgba(242,235,220,.75); }
+.play-body .shop-buy-btn:disabled{ background: rgba(255,255,255,.06); border-color: rgba(184,144,62,.35); color: rgba(242,235,220,.6); }
+.play-body .shop-section-intro{ color: rgba(242,235,220,.72); }
+.play-body .matches-search{ color: rgba(242,235,220,.6); border-bottom-color: rgba(184,144,62,.35); }
+.play-body .matches-search:focus-within{ border-bottom-color: var(--gold); color: var(--gold); }
+.play-body .matches-search input{ color:#F2EBDC; }
+.play-body .matches-search input::placeholder{ color: rgba(242,235,220,.45); }
+.play-body .filter-tab{ color: rgba(242,235,220,.65); }
+.play-body .filter-tab:hover{ color: var(--gold); }
+.play-body .filter-tab.is-active{ background: rgba(184,144,62,.18); color: var(--gold); }
+.play-body .matches-loading,
+.play-body .matches-empty{ color: rgba(242,235,220,.65); }
+.play-body .quizx-featured-tag{ color:#ff8f8f; }
+.play-body .quizx-featured-body h2{ color:#F2EBDC; }
+.play-body .quizx-featured-body p{ color: rgba(242,235,220,.68); }
+.play-body .quiz-rank-progress-label{ color: rgba(242,235,220,.7); }
+
 /* ---------- Cartes de rang Quiz — photo plein cadre, pas un panneau de
    verre (retour utilisateur : "on dirait des cartes PDF"). Même markup
    que rendu par le template (aucune modif de quiz.js) — juste une
@@ -397,6 +425,10 @@
 .play-body .quizx-my-rank-name{ color:#F2EBDC; }
 .play-body .quizx-my-rank-sub{ color: rgba(242,235,220,.55); }
 .play-body .quizx-my-progress-track{ background: rgba(255,255,255,.14); }
+/* .quiz-leaderboard-* est repris à 3 endroits dans Play (classement
+   sidebar Quiz Solo, classement duel en direct, classement Dream Team) —
+   partout sur fond sombre, donc scopé large à .play-body plutôt que
+   dupliqué par section. */
 .play-body .quiz-leaderboard-row{
   background: rgba(255,255,255,.05); border:1px solid rgba(184,144,62,.2);
   transition: background .2s ease, border-color .2s ease, transform .2s ease;
@@ -409,6 +441,14 @@
 .play-body .quiz-leaderboard-row:nth-child(2) .quiz-leaderboard-rank{ background:#C7CDD6; color:#20242b; }
 .play-body .quiz-leaderboard-row:nth-child(3) .quiz-leaderboard-rank{ background:#C88A4E; color:#2a1706; }
 .play-body .quiz-leaderboard-name{ color:#F2EBDC; }
+/* .quiz-leaderboard-points reste en var(--red) (#B61C1C) — trop sombre
+   sur fond quasi noir, remonté en rouge clair comme .arena-live-badge. */
+.play-body .quiz-leaderboard-points{ color:#ff8f8f; }
+.play-body .quiz-leaderboard-row.is-me{ border-color: var(--gold); background: rgba(184,144,62,.14); }
+.play-body .quiz-leaderboard-row.is-me .quiz-leaderboard-name::after{
+  content:'TOI'; margin-left:6px; font-family: var(--font-nav); font-size:8.5px; font-weight:800;
+  color:#1a1207; background: var(--gold); padding:2px 6px; border-radius:10px; vertical-align:middle;
+}
 
 /* ---------- Duel : thèmes, historique, activité récente — même
    panneau que le reste (retour utilisateur : "tout ca ne doit plus
@@ -495,6 +535,7 @@
 .play-body .dreamteam-own-link:hover{ color:#F2EBDC; }
 .play-body .dreamteam-formation{ color: rgba(242,235,220,.6); }
 .play-body #dreamteam-page .grid-title{ color:#F2EBDC; }
+.play-body .dreamteam-empty-note{ color: rgba(242,235,220,.68); }
 
 /* ---------- Terrain : bandeau LED + lumière volumétrique ---------- */
 .play-body .dreamteam-field-wrap{
@@ -1045,31 +1086,6 @@
 .play-body .arena-live-player{ font-family: var(--font-display); font-size:13px; color:#F2EBDC; text-align:center; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .play-body .arena-live-score{ font-family: var(--font-nav); font-weight:800; font-size:16px; color: var(--gold); flex-shrink:0; padding:0 6px; }
 .play-body .arena-live-topic{ font-family: var(--font-nav); font-size:10px; text-transform:uppercase; letter-spacing:.03em; color: rgba(242,235,220,.6); text-align:center; }
-
-/* ---------- Classement premium (médailles top 3 + utilisateur
-   surligné) ----------
-   .quiz-leaderboard-row est stylé pour la page Quiz Solo (fond blanc,
-   texte var(--ink) sombre) — repris tel quel ici sans adaptation, le nom
-   devenait quasi illisible sur le fond sombre de l'arène (encore pire sur
-   la ligne "is-me", fond doré translucide + texte noir). Même traitement
-   verre dépoli que les autres cartes .arena-* : fond sombre, texte
-   crème/or. */
-.play-body .arena-leaderboard-list .quiz-leaderboard-row{
-  position:relative;
-  background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-  border:1px solid rgba(184,144,62,.3);
-}
-.play-body .arena-leaderboard-list .quiz-leaderboard-name{ color:#F2EBDC; }
-.play-body .arena-leaderboard-list .quiz-leaderboard-points{ color:#ff8f8f; }
-.play-body .arena-leaderboard-list .quiz-leaderboard-rank{ background: rgba(184,144,62,.15); color:#F2EBDC; }
-.play-body .arena-leaderboard-list .quiz-leaderboard-row:nth-child(1) .quiz-leaderboard-rank{ background: var(--gold); color:#1a1207; }
-.play-body .arena-leaderboard-list .quiz-leaderboard-row.is-me{
-  border-color: var(--gold); background: rgba(184,144,62,.14);
-}
-.play-body .arena-leaderboard-list .quiz-leaderboard-row.is-me .quiz-leaderboard-name::after{
-  content:'TOI'; margin-left:6px; font-family: var(--font-nav); font-size:8.5px; font-weight:800;
-  color:#1a1207; background: var(--gold); padding:2px 6px; border-radius:10px; vertical-align:middle;
-}
 
 /* ---------- Tournoi / Récompenses (honnêtes, "Bientôt disponible") ---------- */
 .play-body .arena-tournament-card{ position:relative; overflow:hidden; }
