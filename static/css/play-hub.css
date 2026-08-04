@@ -137,17 +137,35 @@
 .play-main h1, .play-main h2, .play-main h3{ color:#F2EBDC; }
 .play-main{ color: rgba(242,235,220,.85); }
 
-/* Audit contraste (30/07/2026) : deux cas où le texte restait sombre sur
-   fond sombre, invisible.
+/* Audit contraste (30/07/2026, complété 04/08/2026) :
    1) .quizx-hero-subtitle a une couleur var(--ink) explicite dans
       style.css (#111 sur #111) — jamais couverte par la règle générale
       ci-dessus (h1/h2/h3 seulement, pas les <p>).
-   2) .quiz-login-gate-card garde son fond blanc "carte site-média"
-      (voulu, contraste avec le fond sombre de Play), mais son <h2> hérite
-      quand même de la règle générale ci-dessus (cream sur blanc,
-      illisible) — on le repasse en sombre pour ce contexte précis. */
+   2) Plusieurs "cartes site-média" (fond blanc voulu, contraste avec le
+      fond sombre de Play) contiennent du texte SANS couleur explicite
+      dans style.css — il hérite alors du crème/or ambiant de .play-main,
+      illisible sur blanc (retour utilisateur : "questions du quiz en
+      jaune sur fond blanc"). Fix au niveau du conteneur plutôt que
+      élément par élément : garantit que tout texte à l'intérieur de ces
+      cartes reste sombre par défaut, y compris tout texte qui y serait
+      ajouté plus tard sans y penser. Les enfants avec leur propre couleur
+      explicite (ex. badge catégorie rouge) ne sont pas affectés. */
 .play-body .quizx-hero-subtitle{ color:#F2EBDC; }
-.play-body .quiz-login-gate-card h2{ color: var(--ink); }
+.play-body .quiz-question-card,
+.play-body .quiz-result-card,
+.play-body .quiz-login-gate-card,
+.play-body .pack-opening-panel{
+  color: var(--ink);
+}
+/* La règle générale ".play-main h1,h2,h3{color:#F2EBDC}" cible ces titres
+   directement (pas par héritage) — un rappel au niveau conteneur ci-dessus
+   ne suffit pas à la battre, il faut re-cibler les mêmes éléments. */
+.play-body .quiz-question-card h1, .play-body .quiz-question-card h2, .play-body .quiz-question-card h3,
+.play-body .quiz-result-card h1, .play-body .quiz-result-card h2, .play-body .quiz-result-card h3,
+.play-body .quiz-login-gate-card h1, .play-body .quiz-login-gate-card h2, .play-body .quiz-login-gate-card h3,
+.play-body .pack-opening-panel h1, .play-body .pack-opening-panel h2, .play-body .pack-opening-panel h3{
+  color: var(--ink);
+}
 
 /* ---------- Héros illustré (personnage) — Quiz uniquement.
    Mobile (≤859px) : l'avatar (même image/asset que sur desktop) remplace
