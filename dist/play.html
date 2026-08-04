@@ -27,7 +27,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Atlas Rising">
 <link rel="apple-touch-icon" href="/static/img/pwa/apple-touch-icon.png">
-<link rel="stylesheet" href="static/css/style.css?v=8f3aa7c30f">
+<link rel="stylesheet" href="static/css/style.css?v=3afb15fd53">
 <!--
   base-play.html — coquille dédiée à Play (Football Gaming Hub).
   Volontairement SANS la nav éditoriale, le footer news, la recherche
@@ -39,7 +39,7 @@
   l'identique (mêmes IDs) pour que auth.js/points-daily.js fonctionnent
   sans aucune modification.
 -->
-<link rel="stylesheet" href="static/css/play-hub.css?v=8f3aa7c30f">
+<link rel="stylesheet" href="static/css/play-hub.css?v=3afb15fd53">
 </head>
 <body data-root="" class="play-body">
 
@@ -59,6 +59,14 @@
       <span class="points-badge-icon" aria-hidden="true">⭐</span>
       <span id="points-badge-value">0</span>
     </a>
+    <button type="button" class="icon-btn" id="pwa-install-btn" aria-label="Installer l'application" hidden>
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0l-4.5-4.5M12 16l4.5-4.5"/><path d="M4 19.5h16"/></svg>
+      <span class="icon-btn-label">Installer</span>
+    </button>
+    <div class="pwa-ios-tip" id="pwa-ios-tip" hidden>
+      Pour installer : appuie sur <strong>Partager</strong> puis <strong>Sur l'écran d'accueil</strong>.
+      <button type="button" class="pwa-ios-tip-close" id="pwa-ios-tip-close" aria-label="Fermer">&times;</button>
+    </div>
     <button type="button" class="icon-btn play-hud-account" id="account-toggle" aria-label="Mon compte" aria-expanded="false" aria-controls="account-overlay">
       <svg id="account-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
       <span class="account-avatar" id="account-avatar" hidden></span>
@@ -1155,20 +1163,21 @@
 
 </main>
 
-<script type="module" src="static/js/auth.js?v=8f3aa7c30f"></script>
-<script type="module" src="static/js/points-daily.js?v=8f3aa7c30f"></script>
-<script type="module" src="static/js/play-hud.js?v=8f3aa7c30f"></script>
+<script type="module" src="static/js/auth.js?v=3afb15fd53"></script>
+<script src="static/js/pwa-install.js?v=3afb15fd53"></script>
+<script type="module" src="static/js/points-daily.js?v=3afb15fd53"></script>
+<script type="module" src="static/js/play-hud.js?v=3afb15fd53"></script>
 
-<script type="module" src="static/js/quiz.js?v=8f3aa7c30f"></script>
-<script type="module" src="static/js/quiz-duel.js?v=8f3aa7c30f"></script>
-<script type="module" src="static/js/shop.js?v=8f3aa7c30f"></script>
-<script type="module" src="static/js/pack-opening.js?v=8f3aa7c30f"></script>
-<script type="module" src="static/js/collection.js?v=8f3aa7c30f"></script>
-<script type="module" src="static/js/dream-team.js?v=8f3aa7c30f"></script>
-<script type="module" src="static/js/dreamteam-feel.js?v=8f3aa7c30f"></script>
-<script type="module" src="static/js/play-tabs.js?v=8f3aa7c30f"></script>
-<script type="module" src="static/js/play-atmosphere.js?v=8f3aa7c30f"></script>
-<script type="module" src="static/js/play-feel.js?v=8f3aa7c30f"></script>
+<script type="module" src="static/js/quiz.js?v=3afb15fd53"></script>
+<script type="module" src="static/js/quiz-duel.js?v=3afb15fd53"></script>
+<script type="module" src="static/js/shop.js?v=3afb15fd53"></script>
+<script type="module" src="static/js/pack-opening.js?v=3afb15fd53"></script>
+<script type="module" src="static/js/collection.js?v=3afb15fd53"></script>
+<script type="module" src="static/js/dream-team.js?v=3afb15fd53"></script>
+<script type="module" src="static/js/dreamteam-feel.js?v=3afb15fd53"></script>
+<script type="module" src="static/js/play-tabs.js?v=3afb15fd53"></script>
+<script type="module" src="static/js/play-atmosphere.js?v=3afb15fd53"></script>
+<script type="module" src="static/js/play-feel.js?v=3afb15fd53"></script>
 
 <script>
 if ('serviceWorker' in navigator) {

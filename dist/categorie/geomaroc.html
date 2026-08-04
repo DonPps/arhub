@@ -27,7 +27,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Atlas Rising">
 <link rel="apple-touch-icon" href="/static/img/pwa/apple-touch-icon.png">
-<link rel="stylesheet" href="../static/css/style.css?v=8f3aa7c30f">
+<link rel="stylesheet" href="../static/css/style.css?v=3afb15fd53">
 <!-- Google AdSense (à activer après approbation) -->
 <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
@@ -57,6 +57,14 @@
         <span class="points-badge-icon" aria-hidden="true">⭐</span>
         <span id="points-badge-value">0</span>
       </a>
+      <button type="button" class="icon-btn" id="pwa-install-btn" aria-label="Installer l'application" hidden>
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0l-4.5-4.5M12 16l4.5-4.5"/><path d="M4 19.5h16"/></svg>
+        <span class="icon-btn-label">Installer</span>
+      </button>
+      <div class="pwa-ios-tip" id="pwa-ios-tip" hidden>
+        Pour installer : appuie sur <strong>Partager</strong> puis <strong>Sur l'écran d'accueil</strong>.
+        <button type="button" class="pwa-ios-tip-close" id="pwa-ios-tip-close" aria-label="Fermer">&times;</button>
+      </div>
       <button type="button" class="icon-btn" id="search-toggle" aria-label="Rechercher" aria-expanded="false" aria-controls="search-overlay">
         <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         <span class="icon-btn-label">Rechercher</span>
@@ -510,11 +518,12 @@
   </a>
 </div>
 
-<script src="../static/js/main.js?v=8f3aa7c30f"></script>
-<script src="../static/js/floating-widgets.js?v=8f3aa7c30f"></script>
-<script type="module" src="../static/js/auth.js?v=8f3aa7c30f"></script>
-<script type="module" src="../static/js/points-daily.js?v=8f3aa7c30f"></script>
-<script type="module" src="../static/js/ads/ad-manager.js?v=8f3aa7c30f"></script>
+<script src="../static/js/main.js?v=3afb15fd53"></script>
+<script src="../static/js/pwa-install.js?v=3afb15fd53"></script>
+<script src="../static/js/floating-widgets.js?v=3afb15fd53"></script>
+<script type="module" src="../static/js/auth.js?v=3afb15fd53"></script>
+<script type="module" src="../static/js/points-daily.js?v=3afb15fd53"></script>
+<script type="module" src="../static/js/ads/ad-manager.js?v=3afb15fd53"></script>
 
 <script>
 if ('serviceWorker' in navigator) {
