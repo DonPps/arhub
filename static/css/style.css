@@ -154,6 +154,12 @@ a:focus-visible, button:focus-visible, input:focus-visible{
   font-size:18px; line-height:1; cursor:pointer; padding:6px; opacity:.7;
 }
 .pwa-ios-tip-close:hover{ opacity:1; }
+/* Garde-fou CSS en plus de la logique JS (pwa-install.js) : si l'app
+   tourne déjà en standalone (installée), le bouton Installer ne doit
+   jamais être visible, même en cas de JS en retard/en cache. */
+@media (display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui){
+  #pwa-install-btn{ display:none !important; }
+}
 #account-label{
   max-width: 140px;
   overflow: hidden;
