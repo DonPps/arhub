@@ -1,6 +1,6 @@
 {
   "date": "2026-08-04",
-  "updated_at": "2026-08-04T22:40:03Z",
+  "updated_at": "2026-08-05T02:40:04Z",
   "matches": [
     {
       "id": 1605370,
@@ -59,7 +59,7 @@
       "team_b": "Dinamo Tirana",
       "team_a_crest": "https://media.api-sports.io/football/teams/4135.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/3326.png",
-      "venue": "Skonto",
+      "venue": "Skonto stadions",
       "kickoff_utc": "2026-08-04T16:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -107,7 +107,7 @@
       "team_b": "Kairat Almaty",
       "team_a_crest": "https://media.api-sports.io/football/teams/646.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/664.png",
-      "venue": "Georgi Asparuhov Stadium",
+      "venue": "Vivacom Arena Georgi Asparuhov",
       "kickoff_utc": "2026-08-04T17:30:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -155,7 +155,7 @@
       "team_b": "Bodo/Glimt",
       "team_a_crest": "https://media.api-sports.io/football/teams/1393.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/327.png",
-      "venue": "KVDO Arena",
+      "venue": "AlbertPark",
       "kickoff_utc": "2026-08-04T18:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -179,7 +179,7 @@
       "team_b": "Lyon",
       "team_a_crest": "https://media.api-sports.io/football/teams/628.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/80.png",
-      "venue": "Pragues Letna Hill",
+      "venue": "epet ARENA",
       "kickoff_utc": "2026-08-04T18:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
