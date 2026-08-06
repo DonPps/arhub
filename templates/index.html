@@ -85,7 +85,7 @@
       <div class="mercato-grid">
         <a href="article/{{ mercato_articles[0].slug }}.html" class="mercato-card-big">
           {% if mercato_articles[0].image %}
-          <div class="mercato-card-media has-image" style="aspect-ratio:{{ mercato_articles[0].image_ratio }}"><img src="{{ root }}{{ mercato_articles[0].image }}" alt="{{ mercato_articles[0].title }}" loading="lazy"></div>
+          <div class="mercato-card-media has-image"><img src="{{ root }}{{ mercato_articles[0].image }}" alt="{{ mercato_articles[0].title }}" loading="lazy"></div>
           {% endif %}
           <span class="eyebrow">{{ mercato_articles[0].category }}</span>
           <h3>{{ mercato_articles[0].title }}</h3>
@@ -115,7 +115,7 @@
       <div class="grid-3col">
         {% for a in canaf_articles %}
         <a href="article/{{ a.slug }}.html" class="grid-card">
-          {% if a.image %}<div class="grid-card-media has-image" style="aspect-ratio:{{ a.image_ratio }}"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
+          {% if a.image %}<div class="grid-card-media has-image"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
           <h3>{{ a.title }}</h3>
           <div class="meta">{{ a.category }} · {{ a.read_time }} min de lecture</div>
         </a>
@@ -133,7 +133,7 @@
       <div class="magazine-grid">
         <a href="article/{{ monde_articles[0].slug }}.html" class="magazine-card-lg">
           {% if monde_articles[0].image %}
-          <div class="magazine-card-media has-image" style="aspect-ratio:{{ monde_articles[0].image_ratio }}"><img src="{{ root }}{{ monde_articles[0].image }}" alt="{{ monde_articles[0].title }}" loading="lazy"></div>
+          <div class="magazine-card-media has-image"><img src="{{ root }}{{ monde_articles[0].image }}" alt="{{ monde_articles[0].title }}" loading="lazy"></div>
           {% endif %}
           <span class="eyebrow">{{ monde_articles[0].category }}</span>
           <h3>{{ monde_articles[0].title }}</h3>
@@ -156,7 +156,7 @@
       <div class="mercato-grid">
         <a href="article/{{ maroc_articles[0].slug }}.html" class="mercato-card-big">
           {% if maroc_articles[0].image %}
-          <div class="mercato-card-media has-image" style="aspect-ratio:{{ maroc_articles[0].image_ratio }}"><img src="{{ root }}{{ maroc_articles[0].image }}" alt="{{ maroc_articles[0].title }}" loading="lazy"></div>
+          <div class="mercato-card-media has-image"><img src="{{ root }}{{ maroc_articles[0].image }}" alt="{{ maroc_articles[0].title }}" loading="lazy"></div>
           {% endif %}
           <span class="eyebrow">{{ maroc_articles[0].category }}</span>
           <h3>{{ maroc_articles[0].title }}</h3>
