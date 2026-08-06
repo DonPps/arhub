@@ -1,6 +1,6 @@
 {
   "date": "2026-08-05",
-  "updated_at": "2026-08-06T04:00:05Z",
+  "updated_at": "2026-08-06T10:20:03Z",
   "matches": [
     {
       "id": 1607578,
@@ -35,7 +35,7 @@
       "team_b": "Sabah FA",
       "team_a_crest": "https://media.api-sports.io/football/teams/406.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/13976.png",
-      "venue": "Cepheus Park",
+      "venue": "Cepheus Park Randers",
       "kickoff_utc": "2026-08-05T17:10:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -59,7 +59,7 @@
       "team_b": "Sturm Graz",
       "team_a_crest": "https://media.api-sports.io/football/teams/611.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/637.png",
-      "venue": "Chobani Stadium Fenerbahce Sukru Saracoglu",
+      "venue": "Chobani Stadium",
       "kickoff_utc": "2026-08-05T18:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -107,7 +107,7 @@
       "team_b": "CSKA 1948",
       "team_a_crest": "https://media.api-sports.io/football/teams/617.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/1426.png",
-      "venue": "Olympic Stadium of Athens",
+      "venue": "Spiros Louis Olympic Stadium",
       "kickoff_utc": "2026-08-05T18:30:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
