@@ -2,20 +2,16 @@
   "site_url": "https://www.atlasrising.ma",
   "categories": [
     {
-      "slug": "can-caf",
-      "name": "CAN / CAF"
-    },
-    {
-      "slug": "transferts",
-      "name": "Transferts"
-    },
-    {
-      "slug": "football-mondial",
-      "name": "Football Mondial"
+      "slug": "football",
+      "name": "Football"
     },
     {
       "slug": "geomaroc",
       "name": "GEOPOLITICS"
+    },
+    {
+      "slug": "transferts",
+      "name": "Transferts"
     }
   ],
   "static_pages": [
