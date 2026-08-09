@@ -106,39 +106,21 @@
     </section>
     {% endif %}
 
-    {% if canaf_articles %}
-    <section class="content-section section-canaf" data-reveal>
-      <div class="section-head">
-        <h2 class="grid-title">CAN / CAF</h2>
-        <a href="{{ root }}categorie/can-caf.html" class="section-see-all">Voir tout →</a>
-      </div>
-      <div class="grid-3col">
-        {% for a in canaf_articles %}
-        <a href="article/{{ a.slug }}.html" class="grid-card">
-          {% if a.image %}<div class="grid-card-media has-image"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
-          <h3>{{ a.title }}</h3>
-          <div class="meta">{{ a.category }} · {{ a.read_time }} min de lecture</div>
-        </a>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-
-    {% if monde_articles %}
+    {% if football_articles %}
     <section class="content-section section-monde" data-reveal>
       <div class="section-head">
-        <h2 class="grid-title">Football Mondial</h2>
-        <a href="{{ root }}categorie/football-mondial.html" class="section-see-all">Voir tout →</a>
+        <h2 class="grid-title">Football</h2>
+        <a href="{{ root }}categorie/football.html" class="section-see-all">Voir tout →</a>
       </div>
       <div class="magazine-grid">
-        <a href="article/{{ monde_articles[0].slug }}.html" class="magazine-card-lg">
-          {% if monde_articles[0].image %}
-          <div class="magazine-card-media has-image"><img src="{{ root }}{{ monde_articles[0].image }}" alt="{{ monde_articles[0].title }}" loading="lazy"></div>
+        <a href="article/{{ football_articles[0].slug }}.html" class="magazine-card-lg">
+          {% if football_articles[0].image %}
+          <div class="magazine-card-media has-image"><img src="{{ root }}{{ football_articles[0].image }}" alt="{{ football_articles[0].title }}" loading="lazy"></div>
           {% endif %}
-          <span class="eyebrow">{{ monde_articles[0].category }}</span>
-          <h3>{{ monde_articles[0].title }}</h3>
+          <span class="eyebrow">{{ football_articles[0].category }}</span>
+          <h3>{{ football_articles[0].title }}</h3>
         </a>
-        {% for a in monde_articles[1:6] %}
+        {% for a in football_articles[1:6] %}
         <a href="article/{{ a.slug }}.html" class="magazine-card-sm">
           {% if a.image %}<div class="magazine-card-media"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
           <h4>{{ a.title }}</h4>

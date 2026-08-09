@@ -42,7 +42,7 @@ TRENDING_COUNT = 5   # nombre d'articles affichés dans le bloc "Tendances"
 RELATED_COUNT = 5    # nombre d'articles affichés dans "À lire aussi" (max demandé : 5)
 
 # Mots-clés utilisés pour repérer, parmi les articles déjà catégorisés
-# can-caf, ceux qui concernent spécifiquement le Maroc — il n'existe pas
+# football, ceux qui concernent spécifiquement le Maroc — il n'existe pas
 # de catégorie dédiée pour ce thème (juste des tags libres par article),
 # donc filtrage best-effort par mot-clé plutôt qu'un nouveau champ de
 # données.
@@ -481,11 +481,10 @@ def build():
     hero_slides = articles[:5]
     trending = articles[:TRENDING_COUNT]
 
-    canaf_all = [a for a in articles if a["category_slug"] == "can-caf"]
-    maroc_articles = [a for a in canaf_all if _matches_keywords(a, MAROC_KEYWORDS)][:4]
-    canaf_articles = canaf_all[:6]
+    football_all = [a for a in articles if a["category_slug"] == "football"]
+    maroc_articles = [a for a in football_all if _matches_keywords(a, MAROC_KEYWORDS)][:4]
+    football_articles = football_all[:6]
 
-    monde_articles = [a for a in articles if a["category_slug"] == "football-mondial"][:6]
     geomaroc_articles = [a for a in articles if a["category_slug"] == "geomaroc"][:4]
     mercato_articles = [a for a in articles if a["category_slug"] == "transferts"][:4]
 
@@ -499,16 +498,15 @@ def build():
         trending=trending,
         geomaroc_articles=geomaroc_articles,
         mercato_articles=mercato_articles,
-        canaf_articles=canaf_articles,
+        football_articles=football_articles,
         maroc_articles=maroc_articles,
-        monde_articles=monde_articles,
     )
     (DIST_DIR / "index.html").write_text(html, encoding="utf-8")
 
     # ---------- Blog (posts rédigés manuellement par le propriétaire,
     # tagués [BLOG] via Telegram — voir agents/blog_agent.py côté pipeline.
-    # Ne contient PAS les news du pipeline automatique (can-caf /
-    # football-mondial / transferts) : celles-ci restent uniquement sur
+    # Ne contient PAS les news du pipeline automatique (football /
+    # transferts) : celles-ci restent uniquement sur
     # l'accueil, leur page catégorie, et les pages articles individuelles.
     blog_posts = [a for a in articles if a.get("category_slug") == "blog"]
     tpl = env.get_template("blog.html")
