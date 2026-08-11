@@ -1,6 +1,6 @@
 {
   "date": "2026-08-11",
-  "updated_at": "2026-08-11T15:40:04Z",
+  "updated_at": "2026-08-11T16:00:06Z",
   "matches": [
     {
       "id": 1607170,
@@ -14,9 +14,9 @@
       "venue": "Turkestan Arena",
       "kickoff_utc": "2026-08-11T15:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
