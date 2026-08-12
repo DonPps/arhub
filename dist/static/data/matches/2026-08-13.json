@@ -1,6 +1,6 @@
 {
   "date": "2026-08-13",
-  "updated_at": "2026-08-12T05:40:04Z",
+  "updated_at": "2026-08-12T12:00:07Z",
   "matches": [
     {
       "id": 1607627,
@@ -227,7 +227,7 @@
       "team_b": "Red Bull Salzburg",
       "team_a_crest": "https://media.api-sports.io/football/teams/3403.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/571.png",
-      "venue": "Red Bull Arena",
+      "venue": "Alphamega Stadium",
       "kickoff_utc": "2026-08-13T17:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
@@ -827,7 +827,7 @@
       "team_b": "Shamrock Rovers",
       "team_a_crest": "https://media.api-sports.io/football/teams/3327.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/652.png",
-      "venue": "Demrozi Stadium",
+      "venue": "Arena Egnatia",
       "kickoff_utc": "2026-08-13T19:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",

@@ -1,6 +1,6 @@
 {
   "date": "2026-08-11",
-  "updated_at": "2026-08-12T05:40:03Z",
+  "updated_at": "2026-08-12T12:00:06Z",
   "matches": [
     {
       "id": 1607170,
@@ -155,7 +155,7 @@
       "team_b": "Olympiakos Piraeus",
       "team_a_crest": "https://media.api-sports.io/football/teams/413.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/553.png",
-      "venue": "Stadion de Goffert",
+      "venue": "Goffertstadion",
       "kickoff_utc": "2026-08-11T17:30:00.000000Z",
       "status": "RESULT",
       "status_short": "AET",
@@ -203,7 +203,7 @@
       "team_b": "Hapoel Beer Sheva",
       "team_a_crest": "https://media.api-sports.io/football/teams/598.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/563.png",
-      "venue": "Stadium Rajko Mitić",
+      "venue": "Stadion Rajko Mit",
       "kickoff_utc": "2026-08-11T18:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -275,7 +275,7 @@
       "team_b": "Fenerbahçe",
       "team_a_crest": "https://media.api-sports.io/football/teams/637.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/611.png",
-      "venue": "Merkur Arena",
+      "venue": "Merkur-Arena",
       "kickoff_utc": "2026-08-11T18:30:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -299,7 +299,7 @@
       "team_b": "Sparta Praha",
       "team_a_crest": "https://media.api-sports.io/football/teams/80.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/628.png",
-      "venue": "Groupama Stadium",
+      "venue": "Parc Olympique Lyonnais",
       "kickoff_utc": "2026-08-11T19:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
