@@ -1,6 +1,6 @@
 {
   "date": "2026-08-14",
-  "updated_at": "2026-08-14T19:20:03Z",
+  "updated_at": "2026-08-14T19:40:03Z",
   "matches": [
     {
       "id": 1607181,
@@ -16,9 +16,9 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 61,
+      "elapsed": 82,
       "score_a": 0,
-      "score_b": 2,
+      "score_b": 3,
       "score_ht_a": 0,
       "score_ht_b": 1,
       "score_et_a": null,
