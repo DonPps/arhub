@@ -1,6 +1,6 @@
 {
   "date": "2026-08-13",
-  "updated_at": "2026-08-13T22:40:03Z",
+  "updated_at": "2026-08-14T02:00:05Z",
   "matches": [
     {
       "id": 1607627,
@@ -353,12 +353,12 @@
       "status_short": "PEN",
       "status_long": "Match Finished",
       "elapsed": 120,
-      "score_a": 2,
-      "score_b": 1,
+      "score_a": 1,
+      "score_b": 0,
       "score_ht_a": 1,
       "score_ht_b": 0,
-      "score_et_a": 1,
-      "score_et_b": 1,
+      "score_et_a": null,
+      "score_et_b": null,
       "score_pen_a": 2,
       "score_pen_b": 4
     },
@@ -669,8 +669,8 @@
       "score_b": 2,
       "score_ht_a": 0,
       "score_ht_b": 1,
-      "score_et_a": 0,
-      "score_et_b": 0,
+      "score_et_a": null,
+      "score_et_b": null,
       "score_pen_a": 4,
       "score_pen_b": 2
     },
@@ -877,9 +877,9 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/347.png",
       "venue": null,
       "kickoff_utc": "2026-08-13T19:45:00.000000Z",
-      "status": "OTHER",
-      "status_short": "PST",
-      "status_long": "Match Postponed",
+      "status": "SCHEDULED",
+      "status_short": "NS",
+      "status_long": "Not Started",
       "elapsed": null,
       "score_a": null,
       "score_b": null,
