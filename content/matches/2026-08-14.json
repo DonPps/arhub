@@ -1,5 +1,30 @@
 {
   "date": "2026-08-14",
-  "updated_at": "2026-08-14T07:20:04Z",
-  "matches": []
+  "updated_at": "2026-08-14T07:40:04Z",
+  "matches": [
+    {
+      "id": 1607181,
+      "competition": "UEFA Europa League",
+      "competition_logo": "https://media.api-sports.io/football/leagues/3.png",
+      "competition_country": "World",
+      "team_a": "KI Klaksvik",
+      "team_b": "Lech Poznan",
+      "team_a_crest": "https://media.api-sports.io/football/teams/701.png",
+      "team_b_crest": "https://media.api-sports.io/football/teams/347.png",
+      "venue": null,
+      "kickoff_utc": "2026-08-14T18:00:00.000000Z",
+      "status": "SCHEDULED",
+      "status_short": "NS",
+      "status_long": "Not Started",
+      "elapsed": null,
+      "score_a": null,
+      "score_b": null,
+      "score_ht_a": null,
+      "score_ht_b": null,
+      "score_et_a": null,
+      "score_et_b": null,
+      "score_pen_a": null,
+      "score_pen_b": null
+    }
+  ]
 }
