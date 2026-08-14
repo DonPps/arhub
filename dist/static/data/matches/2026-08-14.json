@@ -1,6 +1,6 @@
 {
   "date": "2026-08-14",
-  "updated_at": "2026-08-14T18:20:04Z",
+  "updated_at": "2026-08-14T18:40:04Z",
   "matches": [
     {
       "id": 1607181,
@@ -11,16 +11,16 @@
       "team_b": "Lech Poznan",
       "team_a_crest": "https://media.api-sports.io/football/teams/701.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/347.png",
-      "venue": null,
+      "venue": "Torsvollur",
       "kickoff_utc": "2026-08-14T18:00:00.000000Z",
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
+      "elapsed": 39,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 0,
-      "score_ht_b": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
