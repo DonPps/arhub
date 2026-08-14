@@ -1,6 +1,6 @@
 {
   "date": "2026-08-14",
-  "updated_at": "2026-08-14T19:00:06Z",
+  "updated_at": "2026-08-14T19:20:03Z",
   "matches": [
     {
       "id": 1607181,
@@ -14,11 +14,11 @@
       "venue": "Torsvollur",
       "kickoff_utc": "2026-08-14T18:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 61,
       "score_a": 0,
-      "score_b": 1,
+      "score_b": 2,
       "score_ht_a": 0,
       "score_ht_b": 1,
       "score_et_a": null,
