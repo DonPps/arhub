@@ -1,6 +1,6 @@
 {
   "date": "2026-08-15",
-  "updated_at": "2026-08-15T18:20:04Z",
+  "updated_at": "2026-08-15T18:40:04Z",
   "matches": [
     {
       "id": 1570333,
@@ -14,9 +14,9 @@
       "venue": "Estadio Mendizorrotza",
       "kickoff_utc": "2026-08-15T17:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 49,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
