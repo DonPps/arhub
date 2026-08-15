@@ -1,6 +1,6 @@
 {
   "date": "2026-08-15",
-  "updated_at": "2026-08-15T20:40:03Z",
+  "updated_at": "2026-08-15T21:00:06Z",
   "matches": [
     {
       "id": 1570333,
@@ -38,10 +38,10 @@
       "venue": "Ramón Sánchez Pizjuán",
       "kickoff_utc": "2026-08-15T19:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
-      "score_a": 0,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 57,
+      "score_a": 1,
       "score_b": 1,
       "score_ht_a": 0,
       "score_ht_b": 1,
