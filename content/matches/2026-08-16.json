@@ -1,6 +1,6 @@
 {
   "date": "2026-08-16",
-  "updated_at": "2026-08-16T16:00:07Z",
+  "updated_at": "2026-08-16T16:20:04Z",
   "matches": [
     {
       "id": 1570339,
@@ -14,9 +14,9 @@
       "venue": "El Sardinero",
       "kickoff_utc": "2026-08-16T15:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 55,
       "score_a": 2,
       "score_b": 2,
       "score_ht_a": 2,
