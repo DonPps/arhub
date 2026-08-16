@@ -1,6 +1,6 @@
 {
   "date": "2026-08-16",
-  "updated_at": "2026-08-16T18:00:05Z",
+  "updated_at": "2026-08-16T18:20:03Z",
   "matches": [
     {
       "id": 1570339,
@@ -38,9 +38,9 @@
       "venue": "RCDE Stadium",
       "kickoff_utc": "2026-08-16T17:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 54,
       "score_a": 2,
       "score_b": 0,
       "score_ht_a": 2,
