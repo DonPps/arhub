@@ -1,6 +1,6 @@
 {
   "date": "2026-08-16",
-  "updated_at": "2026-08-16T16:40:04Z",
+  "updated_at": "2026-08-16T17:00:06Z",
   "matches": [
     {
       "id": 1570339,
@@ -13,10 +13,10 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/533.png",
       "venue": "El Sardinero",
       "kickoff_utc": "2026-08-16T15:00:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
-      "elapsed": 75,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
       "score_a": 2,
       "score_b": 2,
       "score_ht_a": 2,
