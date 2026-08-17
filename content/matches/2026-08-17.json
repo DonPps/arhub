@@ -1,6 +1,6 @@
 {
   "date": "2026-08-17",
-  "updated_at": "2026-08-17T19:20:03Z",
+  "updated_at": "2026-08-17T19:40:03Z",
   "matches": [
     {
       "id": 1570337,
@@ -11,15 +11,15 @@
       "team_b": "Elche",
       "team_a_crest": "https://media.api-sports.io/football/teams/544.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/797.png",
-      "venue": "Estadio Municipal de Riazor",
+      "venue": "Estadio Riazor",
       "kickoff_utc": "2026-08-17T19:00:00.000000Z",
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
-      "score_a": 0,
+      "elapsed": 39,
+      "score_a": 1,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
