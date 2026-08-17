@@ -1,6 +1,6 @@
 {
   "date": "2026-08-17",
-  "updated_at": "2026-08-17T19:40:03Z",
+  "updated_at": "2026-08-17T20:00:05Z",
   "matches": [
     {
       "id": 1570337,
@@ -14,9 +14,9 @@
       "venue": "Estadio Riazor",
       "kickoff_utc": "2026-08-17T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
