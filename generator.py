@@ -478,15 +478,29 @@ def build():
     # dédiée). Chevauchement volontaire entre sections assumé (stock
     # d'articles encore limité) : voir le plan de refonte homepage pour
     # le détail de ce choix.
-    hero_slides = articles[:5]
     trending = articles[:TRENDING_COUNT]
 
     football_all = [a for a in articles if a["category_slug"] == "football"]
-    maroc_articles = [a for a in football_all if _matches_keywords(a, MAROC_KEYWORDS)][:4]
+    football_maroc_all = [a for a in football_all if _matches_keywords(a, MAROC_KEYWORDS)]
+    maroc_articles = football_maroc_all[:4]
     football_articles = football_all[:6]
 
-    geomaroc_articles = [a for a in articles if a["category_slug"] == "geomaroc"][:4]
+    geomaroc_all = [a for a in articles if a["category_slug"] == "geomaroc"]
+    geomaroc_articles = geomaroc_all[:4]
     mercato_articles = [a for a in articles if a["category_slug"] == "transferts"][:4]
+
+    # À la une : recentrée sur le Maroc uniquement (retour utilisateur du
+    # 10/08/2026 — "les plus viraux" ; pas de mesure d'audience réelle sur
+    # ce site, donc proxy pragmatique = géopolitique + foot marocain,
+    # jamais le foot mondial générique, trié par actualité la plus
+    # récente). Complété par le reste si le pool Maroc est trop petit,
+    # pour ne jamais afficher moins de 5 slides.
+    hero_pool = sorted(geomaroc_all + football_maroc_all, key=lambda a: a["date"], reverse=True)
+    hero_slides = hero_pool[:5]
+    if len(hero_slides) < 5:
+        seen_slugs = {a["slug"] for a in hero_slides}
+        filler = [a for a in articles if a["slug"] not in seen_slugs][: 5 - len(hero_slides)]
+        hero_slides = hero_slides + filler
 
     tpl = env.get_template("index.html")
     html = tpl.render(
