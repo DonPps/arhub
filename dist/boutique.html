@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Redirection — Atlas Rising</title>
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0;url=play.html?tab=boutique">
+<style>body{font-family:system-ui,sans-serif;text-align:center;padding:80px 20px;color:#333}a{color:#c1121f}</style>
+</head>
+<body>
+<p>Cette page a déménagé. Redirection vers <a id="redirect-link" href="play.html?tab=boutique">Play</a>…</p>
+<script>
+(function () {
+  var target = "play.html?tab=boutique";
+  var extraParams = window.location.search.replace(/^\?/, '');
+  if (extraParams) target += '&' + extraParams;
+  document.getElementById('redirect-link').href = target;
+  window.location.replace(target);
+})();
+</script>
+</body>
+</html>
