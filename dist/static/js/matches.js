@@ -394,6 +394,32 @@ import { awardPoints } from './points.js';
     }).slice(0, 4);
   }
 
+  function eventIcon(type) {
+    if (type === 'But') return '⚽';
+    if (type === 'Carton') return '🟨';
+    if (type === 'Remplacement') return '🔄';
+    if (type === 'VAR') return '📺';
+    return '•';
+  }
+
+  function renderEvents(m) {
+    if (!m.events || !m.events.length) {
+      if (m.status === 'LIVE' || m.status === 'RESULT') return '<p>Événements pas encore disponibles.</p>';
+      return '<p>Disponible une fois le match commencé.</p>';
+    }
+    return '<ul class="match-drawer-events">' + m.events.map(function (e) {
+      var side = e.team_name === m.team_a ? 'match-event-a' : (e.team_name === m.team_b ? 'match-event-b' : '');
+      var minute = e.minute != null ? e.minute + (e.extra_minute ? '+' + e.extra_minute : '') + "'" : '';
+      var detail = e.detail && e.detail !== e.type ? ' (' + escapeHtml(e.detail) + ')' : '';
+      var assist = e.assist ? ' — passe décisive : ' + escapeHtml(e.assist) : '';
+      return '<li class="match-event ' + side + '">' +
+        '<span class="match-event-minute">' + escapeHtml(minute) + '</span>' +
+        '<span class="match-event-icon">' + eventIcon(e.type) + '</span>' +
+        '<span class="match-event-text"><strong>' + escapeHtml(e.player || e.team_name || '') + '</strong>' + detail + assist + '</span>' +
+        '</li>';
+    }).join('') + '</ul>';
+  }
+
   function openDrawer(matchId) {
     var m = state.matches.filter(function (x) { return String(x.id) === String(matchId); })[0];
     if (!m || !drawer) return;
@@ -407,8 +433,8 @@ import { awardPoints } from './points.js';
       '<div class="match-drawer-team">' + renderCrest(m.team_b_crest, m.team_b, 'match-drawer-crest') + '<span>' + escapeHtml(m.team_b) + '</span></div>' +
       '</div>' +
       (m.venue ? '<div class="match-drawer-meta">' + escapeHtml(m.venue) + '</div>' : '') +
+      '<div class="match-drawer-section"><h3>Événements</h3>' + renderEvents(m) + '</div>' +
       '<div class="match-drawer-section"><h3>Compositions</h3><p>Bientôt disponible.</p></div>' +
-      '<div class="match-drawer-section"><h3>Événements</h3><p>Bientôt disponible.</p></div>' +
       '<div class="match-drawer-section"><h3>Statistiques</h3><p>Bientôt disponible.</p></div>' +
       '<div class="match-drawer-section"><h3>Classement</h3><p>Bientôt disponible.</p></div>' +
       '<div class="match-drawer-section match-drawer-articles"><h3>Articles Atlas Rising liés</h3><div class="match-drawer-articles-list">Chargement…</div></div>';
