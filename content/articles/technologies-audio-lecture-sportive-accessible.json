@@ -1,0 +1,25 @@
+{
+  "slug": "technologies-audio-lecture-sportive-accessible",
+  "title": "Technologies audio : la lecture sportive accessible",
+  "dek": "Synthèse vocale et surlignage synchronisé aident les lecteurs dyslexiques ou TDAH à suivre analyses et actualités sportives sans se fatiguer.",
+  "category": "Football",
+  "category_slug": "football",
+  "date": "2026-08-20",
+  "read_time": 2,
+  "affiliate": false,
+  "tags": [
+    "Accessibilité",
+    "Technologies audio",
+    "Dyslexie",
+    "TDAH",
+    "Lecture sportive"
+  ],
+  "body_paragraphs": [
+    "Un match se vit en direct, mais la passion sportive continue bien après le coup de sifflet : analyses tactiques, portraits de joueurs, informations sur les transferts et récits historiques occupent chaque jour les écrans des supporters. Pourtant, tout le monde ne parcourt pas ces contenus avec la même facilité. Pour certains lecteurs dyslexiques ou ayant un trouble du déficit de l'attention avec ou sans hyperactivité (TDAH), un article dense peut rapidement devenir fatigant, non par manque d'intérêt pour le sujet, mais parce qu'une page qui multiplie longs paragraphes, encadrés et publicités animées peut faire perdre le fil au milieu d'une analyse de plusieurs centaines de mots. Sur un téléphone, un écran étroit et des notifications répétées accentuent souvent cette sensation.",
+    "L'Initiative pour l'accessibilité du Web du W3C rappelle que les troubles cognitifs et d'apprentissage peuvent affecter l'attention, la mémoire, le langage ou la compréhension. Elle souligne l'intérêt de proposer l'information sous différents formats, notamment le texte et l'audio — une souplesse qui ne remplace pas l'écrit, mais donne au lecteur une autre manière d'y accéder.",
+    "La synthèse vocale devient particulièrement utile lorsqu'elle reste liée à la page : entendre un article tout en suivant les phrases surlignées aide à retrouver sa position, à ralentir sur un passage complexe ou à reprendre après une interruption, à son propre rythme. Pour les amateurs de sport, l'usage est concret. Un supporter peut écouter une chronique pendant un trajet, suivre une longue interview en préparant le dîner, puis reprendre la lecture à l'écran lorsqu'un détail mérite plus d'attention. L'audio convient aussi aux biographies de sportifs, aux livres sur l'histoire du football et aux documents plus longs qui dépassent le format d'une brève d'actualité.",
+    "Des solutions comme CastReader transforment des pages web, des PDF et des livres Kindle en écoute sur ordinateur ou sur téléphone, avec un suivi visuel synchronisé lorsque le format le permet. L'objectif n'est pas de promettre une lecture identique pour tous les contenus, mais de réduire les manipulations entre la page, l'audio et l'appareil mobile. La technologie ne dispense cependant pas les médias de soigner leurs articles : titres explicites, paragraphes courts, contraste lisible, texte alternatif sur les images et structure claire restent indispensables. Les fonctions audio sont plus efficaces lorsqu'elles s'appuient sur une page bien conçue, plutôt que lorsqu'elles tentent de corriger une expérience confuse.",
+    "Rendre l'actualité sportive plus accessible ne consiste donc pas à créer un espace séparé pour certains lecteurs, mais à offrir plusieurs chemins vers la même information. Texte, audio et surlignage peuvent coexister sans appauvrir le travail journalistique. Au contraire, ils permettent à davantage de supporters de suivre une analyse, de découvrir une histoire et de rester proches du sport qu'ils aiment."
+  ],
+  "image": "static/img/articles/technologies-audio-lecture-sportive-accessible.jpg"
+}
