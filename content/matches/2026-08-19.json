@@ -1,6 +1,6 @@
 {
   "date": "2026-08-19",
-  "updated_at": "2026-08-19T22:40:03Z",
+  "updated_at": "2026-08-20T03:40:04Z",
   "matches": [
     {
       "id": 1570334,
@@ -11,7 +11,7 @@
       "team_b": "Malaga",
       "team_a_crest": "https://media.api-sports.io/football/teams/530.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/535.png",
-      "venue": "Riyadh Air Metropolitano",
+      "venue": "Metropolitano Stadium",
       "kickoff_utc": "2026-08-19T19:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -59,7 +59,7 @@
       "team_b": "Sabah FA",
       "team_a_crest": "https://media.api-sports.io/football/teams/563.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/13976.png",
-      "venue": "Rapid-Giulesti Stadium",
+      "venue": "Superbet Arena - Giulesti",
       "kickoff_utc": "2026-08-19T19:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -83,7 +83,7 @@
       "team_b": "Bodo/Glimt",
       "team_a_crest": "https://media.api-sports.io/football/teams/413.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/327.png",
-      "venue": "Stadion de Goffert",
+      "venue": "Goffertstadion",
       "kickoff_utc": "2026-08-19T19:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
