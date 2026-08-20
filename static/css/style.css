@@ -1010,6 +1010,12 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .match-drawer-section{ border-top:1px solid var(--border); padding:16px 0; }
 .match-drawer-section h3{ font-family: var(--font-display); font-size:14px; margin:0 0 6px; }
 .match-drawer-section p{ font-family: var(--font-body); font-size:13px; color: var(--ink-soft); margin:0; }
+.match-drawer-events{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.match-event{ display:flex; align-items:baseline; gap:8px; font-family: var(--font-body); font-size:13.5px; }
+.match-event-minute{ flex:0 0 auto; min-width:34px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.match-event-icon{ flex:0 0 auto; }
+.match-event-text{ color: var(--ink); }
+.match-event.match-event-b{ flex-direction:row-reverse; text-align:right; }
 .match-drawer-articles-list{ display:flex; flex-direction:column; gap:8px; }
 .match-drawer-article{ font-family: var(--font-body); font-size:13.5px; color: var(--ink); transition: color .2s; }
 .match-drawer-article:hover{ color: var(--red); }
