@@ -1,6 +1,6 @@
 {
   "date": "2026-08-20",
-  "updated_at": "2026-08-20T14:20:04Z",
+  "updated_at": "2026-08-20T14:40:03Z",
   "matches": [
     {
       "id": 1623435,
@@ -80,7 +80,7 @@
       "competition_logo": "https://media.api-sports.io/football/leagues/3.png",
       "competition_country": "World",
       "team_a": "Jagiellonia",
-      "team_b": "Saburtalo",
+      "team_b": "FC Iberia 1999",
       "team_a_crest": "https://media.api-sports.io/football/teams/336.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/3502.png",
       "venue": "Chorten Arena",
