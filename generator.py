@@ -732,6 +732,10 @@ def build():
     robots = f"User-agent: *\nAllow: /\nSitemap: {config['site_url']}/sitemap.xml\n"
     (DIST_DIR / "robots.txt").write_text(robots, encoding="utf-8")
 
+    # ---------- ads.txt (obligatoire pour qu'AdSense diffuse des pubs) ----------
+    ads_txt = "google.com, pub-7966410012892502, DIRECT, f08c47fec0942fa0\n"
+    (DIST_DIR / "ads.txt").write_text(ads_txt, encoding="utf-8")
+
     # ---------- PWA : manifest.json + service-worker.js ----------
     manifest = {
         "name": "Atlas Rising",
