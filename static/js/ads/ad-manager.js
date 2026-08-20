@@ -40,7 +40,7 @@ import { adsenseAdapter } from './ad-network.js';
 // valeur reste celle-ci, l'adaptateur AdSense se met en veille
 // (placeholder en dev, rien en prod) plutôt que d'appeler une régie
 // non configurée.
-const ADSENSE_CLIENT = 'ca-pub-REMPLACER';
+const ADSENSE_CLIENT = 'ca-pub-7966410012892502';
 const ADSENSE_CONFIGURED = ADSENSE_CLIENT !== 'ca-pub-REMPLACER';
 
 const NETWORK_ADAPTERS = {
