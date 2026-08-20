@@ -1,6 +1,6 @@
 {
   "date": "2026-08-20",
-  "updated_at": "2026-08-20T15:00:05Z",
+  "updated_at": "2026-08-20T15:20:04Z",
   "matches": [
     {
       "id": 1623435,
@@ -13,18 +13,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/554.png",
       "venue": "Almaty Central Stadium",
       "kickoff_utc": "2026-08-20T15:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 19,
+      "score_a": 0,
+      "score_b": 1,
+      "score_ht_a": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 2,
+          "extra_minute": null,
+          "team_name": "Anderlecht",
+          "type": "But",
+          "detail": "Contre son camp",
+          "player": "J. Oksanen",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1623395,
