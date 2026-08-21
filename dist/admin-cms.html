@@ -29,7 +29,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Atlas Rising">
 <link rel="apple-touch-icon" href="/static/img/pwa/apple-touch-icon.png">
-<link rel="stylesheet" href="static/css/style.css?v=74aaad5aa8">
+<link rel="stylesheet" href="static/css/style.css?v=1a7ba1fb74">
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7966410012892502" crossorigin="anonymous"></script>
 </head>
@@ -393,10 +393,7 @@
         <label for="edit-body">Texte (un paragraphe par ligne vide)</label>
         <textarea id="edit-body" rows="10"></textarea>
       </div>
-      <div class="admin-form-row">
-        <label for="edit-photo">Remplacer la photo (optionnel)</label>
-        <input type="file" id="edit-photo" accept="image/*">
-      </div>
+      <p class="admin-cms-note">Photo : réponds avec une nouvelle photo au message Telegram de publication de cet article pour la remplacer — l'upload direct est désactivé pour l'instant (Firebase Storage non activé).</p>
       <div class="admin-form-actions">
         <button type="submit" class="quiz-btn-primary">Enregistrer</button>
       </div>
@@ -479,10 +476,7 @@
           <label for="new-body">Texte (un paragraphe par ligne vide)</label>
           <textarea id="new-body" rows="8" required placeholder="Premier paragraphe...&#10;&#10;Deuxième paragraphe..."></textarea>
         </div>
-        <div class="admin-form-row">
-          <label for="new-photo">Photo (optionnel)</label>
-          <input type="file" id="new-photo" accept="image/*">
-        </div>
+        <p class="admin-cms-note">Photo : envoie-la sur Telegram (bot principal) après publication, comme pour un post [BLOG] classique — l'upload direct est désactivé pour l'instant (Firebase Storage non activé).</p>
         <div class="admin-form-actions">
           <button type="submit" class="quiz-btn-primary" id="new-submit-btn">Publier l'article</button>
         </div>
@@ -597,14 +591,14 @@
   </div>
 </div>
 
-<script src="static/js/main.js?v=74aaad5aa8"></script>
-<script src="static/js/pwa-install.js?v=74aaad5aa8"></script>
-<script src="static/js/floating-widgets.js?v=74aaad5aa8"></script>
-<script type="module" src="static/js/auth.js?v=74aaad5aa8"></script>
-<script type="module" src="static/js/points-daily.js?v=74aaad5aa8"></script>
-<script type="module" src="static/js/ads/ad-manager.js?v=74aaad5aa8"></script>
+<script src="static/js/main.js?v=1a7ba1fb74"></script>
+<script src="static/js/pwa-install.js?v=1a7ba1fb74"></script>
+<script src="static/js/floating-widgets.js?v=1a7ba1fb74"></script>
+<script type="module" src="static/js/auth.js?v=1a7ba1fb74"></script>
+<script type="module" src="static/js/points-daily.js?v=1a7ba1fb74"></script>
+<script type="module" src="static/js/ads/ad-manager.js?v=1a7ba1fb74"></script>
 
-<script type="module" src="static/js/admin-cms.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/admin-cms.js?v=1a7ba1fb74"></script>
 
 <script>
 if ('serviceWorker' in navigator) {
