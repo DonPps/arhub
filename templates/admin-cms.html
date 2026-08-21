@@ -86,7 +86,17 @@
 
 </div>
 
+{% endblock %}
+{% block modals %}
 <!-- ---------- Panneau d'édition (masqué par défaut) ---------- -->
+<!-- Placé dans le bloc `modals` (comme match-drawer sur /matchs.html) et
+     non dans `content` : un panneau position:fixed imbriqué dans le flux
+     normal du contenu reste piégé dans le contexte d'empilement de son
+     parent — le header (z-index:2, position:relative) passait par-dessus
+     malgré le z-index:200 du panneau (retour utilisateur du 21/08/2026,
+     capture d'écran montrant le bandeau rouge et le bouton newsletter
+     débordant sur le formulaire). `modals` est rendu juste avant
+     </body>, hors de tout contexte d'empilement du header. -->
 <div class="admin-cms-edit-panel" id="admin-cms-edit-panel" hidden>
   <div class="admin-cms-edit-overlay" id="admin-cms-edit-overlay"></div>
   <div class="admin-cms-edit-body">
@@ -144,7 +154,6 @@
     </div>
   </div>
 </div>
-
 {% endblock %}
 {% block extra_scripts %}
 <script type="module" src="{{ root }}static/js/admin-cms.js?v={{ asset_version }}"></script>
