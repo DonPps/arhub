@@ -1931,6 +1931,12 @@ body.drawer-open{ overflow:hidden; }
 .admin-cms-edit-panel{
   position:fixed; inset:0; z-index:200; display:flex; justify-content:flex-end;
 }
+/* Sans cette règle, l'attribut hidden ne suffit pas à cacher le panneau :
+   .admin-cms-edit-panel{ display:flex } (styles d'auteur) l'emporte sur
+   la règle par défaut du navigateur [hidden]{ display:none } malgré une
+   spécificité égale — même piège déjà rencontré ailleurs sur le site,
+   voir .quiz-login-gate[hidden] etc. plus haut dans ce fichier. */
+.admin-cms-edit-panel[hidden]{ display:none; }
 .admin-cms-edit-overlay{ position:absolute; inset:0; background: rgba(0,0,0,.45); }
 .admin-cms-edit-body{
   position:relative; z-index:1; width:min(560px, 100vw); height:100%; overflow-y:auto;
