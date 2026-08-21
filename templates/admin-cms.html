@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% block title %}Gestion des articles — Atlas Rising{% endblock %}
+{% block description %}Panneau d'administration des articles Atlas Rising.{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% block content %}
+
+<div class="admin-cms-page" id="admin-cms-page">
+
+  <!-- ---------- Verrou connexion ---------- -->
+  <div class="quiz-login-gate" id="admin-login-gate" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">🔒</p>
+      <h2>Accès réservé</h2>
+      <p>Cette page est réservée au propriétaire du site.</p>
+      <button type="button" class="quiz-btn-primary" id="admin-login-gate-btn">Se connecter</button>
+    </div>
+  </div>
+
+  <!-- ---------- Accès refusé (connecté mais pas propriétaire) ---------- -->
+  <div class="quiz-login-gate" id="admin-denied-gate" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">⛔</p>
+      <h2>Accès refusé</h2>
+      <p>Ce compte n'a pas accès à la gestion des articles.</p>
+    </div>
+  </div>
+
+  <!-- ---------- Contenu admin ---------- -->
+  <div class="admin-cms-content" id="admin-cms-content" hidden>
+    <span class="eyebrow">Administration</span>
+    <h1>Gestion des articles</h1>
+    <p class="admin-cms-note">
+      Les actions ci-dessous sont mises en file d'attente et exécutées par le serveur
+      dans les 2 minutes (le site n'est pas modifié en direct) — un badge de statut
+      s'affiche sur chaque action tant qu'elle n'est pas terminée.
+    </p>
+
+    <!-- ---------- Nouvel article ---------- -->
+    <details class="admin-cms-section">
+      <summary><h2 class="grid-title">Nouvel article</h2></summary>
+      <form class="admin-ads-form" id="admin-new-form">
+        <div class="admin-form-row">
+          <label for="new-title">Titre</label>
+          <input type="text" id="new-title" required placeholder="Titre de l'article">
+        </div>
+        <div class="admin-form-row admin-form-row-split">
+          <div>
+            <label for="new-category">Catégorie</label>
+            <select id="new-category">
+              <option value="football">Football</option>
+              <option value="transferts">Transferts</option>
+              <option value="geomaroc">GEOPOLITICS</option>
+              <option value="blog">Opinion</option>
+            </select>
+          </div>
+          <div>
+            <label for="new-tags">Tags (séparés par des virgules)</label>
+            <input type="text" id="new-tags" placeholder="Maroc, Ceuta, Diplomatie">
+          </div>
+        </div>
+        <div class="admin-form-row">
+          <label for="new-body">Texte (un paragraphe par ligne vide)</label>
+          <textarea id="new-body" rows="8" required placeholder="Premier paragraphe...&#10;&#10;Deuxième paragraphe..."></textarea>
+        </div>
+        <div class="admin-form-row">
+          <label for="new-photo">Photo (optionnel)</label>
+          <input type="file" id="new-photo" accept="image/*">
+        </div>
+        <div class="admin-form-actions">
+          <button type="submit" class="quiz-btn-primary" id="new-submit-btn">Publier l'article</button>
+        </div>
+        <p class="admin-form-feedback" id="new-form-feedback" hidden></p>
+      </form>
+    </details>
+
+    <!-- ---------- Liste des articles ---------- -->
+    <div class="admin-cms-section">
+      <h2 class="grid-title">Articles existants</h2>
+      <input type="text" id="admin-cms-search" class="admin-cms-search" placeholder="Rechercher par titre...">
+      <div class="admin-cms-list" id="admin-cms-list">
+        <p class="admin-ads-empty" id="admin-cms-loading">Chargement…</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ---------- Panneau d'édition (masqué par défaut) ---------- -->
+<div class="admin-cms-edit-panel" id="admin-cms-edit-panel" hidden>
+  <div class="admin-cms-edit-overlay" id="admin-cms-edit-overlay"></div>
+  <div class="admin-cms-edit-body">
+    <button type="button" class="match-drawer-close" id="admin-cms-edit-close" aria-label="Fermer">&times;</button>
+    <h2>Modifier l'article</h2>
+    <form id="admin-edit-form">
+      <input type="hidden" id="edit-slug">
+      <div class="admin-form-row">
+        <label for="edit-title">Titre</label>
+        <input type="text" id="edit-title" required>
+      </div>
+      <div class="admin-form-row">
+        <label for="edit-dek">Chapô</label>
+        <textarea id="edit-dek" rows="2"></textarea>
+      </div>
+      <div class="admin-form-row admin-form-row-split">
+        <div>
+          <label for="edit-category">Catégorie</label>
+          <select id="edit-category">
+            <option value="football">Football</option>
+            <option value="transferts">Transferts</option>
+            <option value="geomaroc">GEOPOLITICS</option>
+            <option value="blog">Opinion</option>
+          </select>
+        </div>
+        <div>
+          <label for="edit-tags">Tags (séparés par des virgules)</label>
+          <input type="text" id="edit-tags">
+        </div>
+      </div>
+      <div class="admin-form-row">
+        <label for="edit-body">Texte (un paragraphe par ligne vide)</label>
+        <textarea id="edit-body" rows="10"></textarea>
+      </div>
+      <div class="admin-form-row">
+        <label for="edit-photo">Remplacer la photo (optionnel)</label>
+        <input type="file" id="edit-photo" accept="image/*">
+      </div>
+      <div class="admin-form-actions">
+        <button type="submit" class="quiz-btn-primary">Enregistrer</button>
+      </div>
+      <p class="admin-form-feedback" id="edit-form-feedback" hidden></p>
+    </form>
+
+    <div class="admin-cms-ai-tools">
+      <h3>Outils IA</h3>
+      <div class="admin-cms-ai-row">
+        <button type="button" class="admin-cancel-btn" id="admin-gen-prompt-btn">Générer un prompt photo teaser (sarcastique)</button>
+        <div class="admin-cms-ai-result" id="admin-gen-prompt-result" hidden></div>
+      </div>
+      <div class="admin-cms-ai-row">
+        <button type="button" class="admin-cancel-btn" id="admin-gen-caption-btn">Générer une légende teaser</button>
+        <div class="admin-cms-ai-result" id="admin-gen-caption-result" hidden></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block extra_scripts %}
+<script type="module" src="{{ root }}static/js/admin-cms.js?v={{ asset_version }}"></script>
+{% endblock %}

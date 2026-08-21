@@ -234,6 +234,22 @@ service cloud.firestore {
       allow write: if request.auth != null && request.auth.token.email == 'ochfy.youssef@gmail.com';
     }
 
+    // ---------- CMS admin (page /admin-cms — gestion des articles) ----------
+    //
+    // File d'attente d'actions déposées par la page admin (lecture/écriture
+    // réservées au propriétaire, comme `ads`/`shop`/`packs`) et exécutées de
+    // façon asynchrone côté serveur par agents/admin_sync_agent.py (poll
+    // toutes les 2 min) — Firestore ne peut pas modifier des fichiers JSON
+    // ni pousser sur GitHub, d'où ce mécanisme de file d'attente plutôt
+    // qu'une action directe. Le champ `status` ('pending' -> 'done'/'error')
+    // et `result` (texte généré par Claude pour les actions
+    // generate_teaser_prompt/generate_caption) sont écrits par le serveur
+    // via la clé de service (Admin SDK, qui ignore ces règles) — la règle
+    // ci-dessous ne restreint donc que ce que LA PAGE ADMIN peut faire.
+    match /cms_actions/{actionId} {
+      allow read, write: if request.auth != null && request.auth.token.email == 'ochfy.youssef@gmail.com';
+    }
+
     // ---------- Dream Team (composition d'un onze avec les cartes possédées) ----------
     //
     // Partageable publiquement (décision utilisateur) — même principe que

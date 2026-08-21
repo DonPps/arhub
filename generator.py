@@ -495,8 +495,20 @@ def build():
     # jamais le foot mondial générique, trié par actualité la plus
     # récente). Complété par le reste si le pool Maroc est trop petit,
     # pour ne jamais afficher moins de 5 slides.
+    #
+    # Épinglage manuel (retour utilisateur du 21/08/2026, page /admin-cms) :
+    # un article avec "pinned": true passe TOUJOURS avant la sélection
+    # automatique ci-dessus, dans l'ordre de date le plus récent — c'est le
+    # seul cas où l'algorithme keyword+date n'a pas le dernier mot.
+    pinned_articles = sorted(
+        [a for a in articles if a.get("pinned")], key=lambda a: a["date"], reverse=True
+    )
     hero_pool = sorted(geomaroc_all + football_maroc_all, key=lambda a: a["date"], reverse=True)
-    hero_slides = hero_pool[:5]
+    hero_slides = pinned_articles[:5]
+    if len(hero_slides) < 5:
+        seen_slugs = {a["slug"] for a in hero_slides}
+        filler = [a for a in hero_pool if a["slug"] not in seen_slugs][: 5 - len(hero_slides)]
+        hero_slides = hero_slides + filler
     if len(hero_slides) < 5:
         seen_slugs = {a["slug"] for a in hero_slides}
         filler = [a for a in articles if a["slug"] not in seen_slugs][: 5 - len(hero_slides)]
@@ -688,6 +700,19 @@ def build():
     )
     (DIST_DIR / "admin-ads.html").write_text(html, encoding="utf-8")
 
+    # ---------- Page admin (gestion des articles) ----------
+    # Même principe que admin-ads.html : pas de lien nav, noindex, protégé
+    # par firestore.rules (email du propriétaire) + verrou client
+    # admin-cms.js.
+    tpl = env.get_template("admin-cms.html")
+    html = tpl.render(
+        **common,
+        root="",
+        canonical_path="/admin-cms.html",
+        active_nav="",
+    )
+    (DIST_DIR / "admin-cms.html").write_text(html, encoding="utf-8")
+
     # ---------- Fichiers statiques (css, images) ----------
     shutil.copytree(STATIC_DIR, DIST_DIR / "static", dirs_exist_ok=True)
     load_background()
@@ -706,6 +731,38 @@ def build():
     (DIST_DIR / "static" / "search-index.json").write_text(
         json.dumps(search_index, ensure_ascii=False), encoding="utf-8"
     )
+
+    # ---------- Index articles pour la page admin (/admin-cms) ----------
+    # Les articles ne vivent pas dans Firestore (juste des fichiers JSON
+    # dans content/articles/) — cet index, régénéré à chaque build comme
+    # search-index.json, donne à admin-cms.js de quoi lister/rechercher les
+    # articles sans dupliquer leur contenu dans Firestore. Toujours à jour
+    # au prochain build (~20/jour via le pipeline), jamais plus périmé que
+    # ça — acceptable pour un outil d'admin.
+    admin_index = [
+        {
+            "slug": a["slug"],
+            "title": a["title"],
+            "category": a["category"],
+            "category_slug": a["category_slug"],
+            "date": a["date"],
+            "image": a.get("image"),
+            "pinned": bool(a.get("pinned")),
+        }
+        for a in articles
+    ]
+    (DIST_DIR / "static" / "admin-articles-index.json").write_text(
+        json.dumps(admin_index, ensure_ascii=False), encoding="utf-8"
+    )
+
+    # Contenu complet de chaque article, copié tel quel (même principe que
+    # dist/static/data/matches/) — permet à admin-cms.js de charger un
+    # article en entier (dek, tags, paragraphes) au clic sur "Modifier",
+    # sans alourdir admin-articles-index.json qui reste un simple index.
+    admin_articles_dir = DIST_DIR / "static" / "data" / "articles"
+    admin_articles_dir.mkdir(parents=True, exist_ok=True)
+    for path in ARTICLES_DIR.glob("*.json"):
+        shutil.copy2(path, admin_articles_dir / path.name)
 
     # ---------- sitemap.xml ----------
     today_iso = date.today().isoformat()
