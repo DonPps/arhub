@@ -35,23 +35,21 @@ const CATEGORY_NAMES = {
   var content = document.getElementById('admin-cms-content');
   var db = null;
   var firestoreFns = null;
-  var storage = null;
-  var storageFns = null;
   var articles = [];
 
+  // Firebase Storage désactivé pour l'instant (nécessite le forfait payant
+  // Blaze — retour utilisateur du 21/08/2026, "skippons cette option
+  // storage pour le moment") : l'upload de photo depuis cette page est
+  // retiré, le remplacement de photo repasse par le flux Telegram existant
+  // (réponse-photo). Rien à changer côté agents/admin_sync_agent.py — le
+  // support de photoUrl y reste tel quel, prêt si Storage est activé plus
+  // tard sans avoir à y retoucher.
   function initFirebase() {
     if (!firebaseConfigured) return Promise.resolve(false);
     return firebaseAppPromise.then(function (app) {
-      return Promise.all([
-        import('https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js'),
-        import('https://www.gstatic.com/firebasejs/10.13.0/firebase-storage.js'),
-      ]).then(function (mods) {
-        var firestoreMod = mods[0];
-        var storageMod = mods[1];
-        db = firestoreMod.initializeFirestore(app, { experimentalAutoDetectLongPolling: true });
-        firestoreFns = firestoreMod;
-        storage = storageMod.getStorage(app);
-        storageFns = storageMod;
+      return import('https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js').then(function (mod) {
+        db = mod.initializeFirestore(app, { experimentalAutoDetectLongPolling: true });
+        firestoreFns = mod;
         return true;
       });
     });
@@ -184,14 +182,6 @@ const CATEGORY_NAMES = {
     });
   }
 
-  function uploadPhoto(file) {
-    var path = 'cms-uploads/' + Date.now() + '-' + file.name.replace(/[^a-zA-Z0-9.\-]/g, '_');
-    var fileRef = storageFns.ref(storage, path);
-    return storageFns.uploadBytes(fileRef, file).then(function () {
-      return storageFns.getDownloadURL(fileRef);
-    });
-  }
-
   function deleteArticle(slug) {
     if (!window.confirm('Supprimer définitivement cet article ? Cette action passera en file d\'attente (exécutée sous 2 min).')) return;
     queueAction('delete_article', slug, {}).then(function () {
@@ -230,21 +220,15 @@ const CATEGORY_NAMES = {
       var categorySlug = document.getElementById('new-category').value;
       var tags = document.getElementById('new-tags').value.split(',').map(function (t) { return t.trim(); }).filter(Boolean);
       var body = splitParagraphs(document.getElementById('new-body').value);
-      var photoFile = document.getElementById('new-photo').files[0];
 
-      var photoPromise = photoFile ? uploadPhoto(photoFile) : Promise.resolve(null);
-
-      photoPromise
-        .then(function (photoUrl) {
-          return queueAction('create_article', null, {
-            title: title,
-            category_slug: categorySlug,
-            category: CATEGORY_NAMES[categorySlug] || categorySlug,
-            tags: tags,
-            body_paragraphs: body,
-            photoUrl: photoUrl,
-          });
-        })
+      queueAction('create_article', null, {
+        title: title,
+        category_slug: categorySlug,
+        category: CATEGORY_NAMES[categorySlug] || categorySlug,
+        tags: tags,
+        body_paragraphs: body,
+        photoUrl: null,
+      })
         .then(function () {
           showFeedback(newFeedback, 'Article mis en file d\'attente — publication sous 2 min.');
           newForm.reset();
@@ -272,7 +256,6 @@ const CATEGORY_NAMES = {
         document.getElementById('edit-category').value = article.category_slug || 'football';
         document.getElementById('edit-tags').value = (article.tags || []).join(', ');
         document.getElementById('edit-body').value = (article.body_paragraphs || []).join('\n\n');
-        document.getElementById('edit-photo').value = '';
         resetAiTools();
         editPanel.hidden = false;
       })
@@ -287,21 +270,16 @@ const CATEGORY_NAMES = {
     editForm.addEventListener('submit', function (e) {
       e.preventDefault();
       var slug = document.getElementById('edit-slug').value;
-      var photoFile = document.getElementById('edit-photo').files[0];
-      var photoPromise = photoFile ? uploadPhoto(photoFile) : Promise.resolve(null);
 
-      photoPromise
-        .then(function (photoUrl) {
-          return queueAction('edit_article', slug, {
-            title: document.getElementById('edit-title').value.trim(),
-            dek: document.getElementById('edit-dek').value.trim(),
-            category_slug: document.getElementById('edit-category').value,
-            category: CATEGORY_NAMES[document.getElementById('edit-category').value] || '',
-            tags: document.getElementById('edit-tags').value.split(',').map(function (t) { return t.trim(); }).filter(Boolean),
-            body_paragraphs: splitParagraphs(document.getElementById('edit-body').value),
-            photoUrl: photoUrl,
-          });
-        })
+      queueAction('edit_article', slug, {
+        title: document.getElementById('edit-title').value.trim(),
+        dek: document.getElementById('edit-dek').value.trim(),
+        category_slug: document.getElementById('edit-category').value,
+        category: CATEGORY_NAMES[document.getElementById('edit-category').value] || '',
+        tags: document.getElementById('edit-tags').value.split(',').map(function (t) { return t.trim(); }).filter(Boolean),
+        body_paragraphs: splitParagraphs(document.getElementById('edit-body').value),
+        photoUrl: null,
+      })
         .then(function () {
           showFeedback(editFeedback, 'Modification mise en file d\'attente — appliquée sous 2 min.');
         })
