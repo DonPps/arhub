@@ -1,6 +1,6 @@
 {
   "date": "2026-08-21",
-  "updated_at": "2026-08-21T20:00:10Z",
+  "updated_at": "2026-08-21T20:20:04Z",
   "matches": [
     {
       "id": 1552733,
@@ -16,8 +16,8 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 55,
-      "score_a": 1,
+      "elapsed": 75,
+      "score_a": 2,
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
@@ -58,10 +58,10 @@
       "venue": "Emirates Stadium",
       "kickoff_utc": "2026-08-21T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
-      "score_a": 2,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 63,
+      "score_a": 3,
       "score_b": 0,
       "score_ht_a": 2,
       "score_ht_b": 0,
@@ -93,9 +93,9 @@
       "venue": "Estadio de la Cartuja",
       "kickoff_utc": "2026-08-21T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 59,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -104,7 +104,26 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 46,
+          "extra_minute": null,
+          "team_name": "Real Sociedad",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "S. Gomez",
+          "assist": null
+        },
+        {
+          "minute": 49,
+          "extra_minute": null,
+          "team_name": "Real Sociedad",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "J. Aramburu",
+          "assist": null
+        }
+      ]
     }
   ]
 }
