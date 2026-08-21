@@ -1,6 +1,6 @@
 {
   "date": "2026-08-21",
-  "updated_at": "2026-08-21T19:40:06Z",
+  "updated_at": "2026-08-21T20:00:10Z",
   "matches": [
     {
       "id": 1552733,
@@ -14,10 +14,10 @@
       "venue": "CEPAC Vélodrome",
       "kickoff_utc": "2026-08-21T18:45:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
-      "score_a": 0,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 55,
+      "score_a": 1,
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
@@ -25,7 +25,26 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 46,
+          "extra_minute": null,
+          "team_name": "Marseille",
+          "type": "But",
+          "detail": "But",
+          "player": "A. Gouiri",
+          "assist": "A. Gomes"
+        },
+        {
+          "minute": 48,
+          "extra_minute": null,
+          "team_name": "Strasbourg",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "S. Amo-Ameyaw",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1557367,
@@ -39,9 +58,9 @@
       "venue": "Emirates Stadium",
       "kickoff_utc": "2026-08-21T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 2,
       "score_b": 0,
       "score_ht_a": 2,
@@ -74,9 +93,9 @@
       "venue": "Estadio de la Cartuja",
       "kickoff_utc": "2026-08-21T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 38,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
