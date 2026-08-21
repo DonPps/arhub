@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-{% block title %}Blog — Atlas Rising{% endblock %}
+{% block title %}Opinion — Atlas Rising{% endblock %}
 {% block description %}Les billets et coulisses d'Atlas Rising, rédigés directement par la rédaction.{% endblock %}
 {% block content %}
 
 <div class="layout">
   <div>
-    <h2 class="grid-title">Blog</h2>
+    <h2 class="grid-title">Opinion</h2>
     {% if not articles %}
-    <p class="search-empty">Aucun billet de blog pour l'instant — revenez bientôt.</p>
+    <p class="search-empty">Aucun billet pour l'instant — revenez bientôt.</p>
     {% endif %}
     <div class="article-list">
       {% for a in articles %}
