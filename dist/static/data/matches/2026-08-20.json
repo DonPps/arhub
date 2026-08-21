@@ -1,6 +1,6 @@
 {
   "date": "2026-08-20",
-  "updated_at": "2026-08-20T22:40:04Z",
+  "updated_at": "2026-08-21T05:00:07Z",
   "matches": [
     {
       "id": 1623435,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 2,
-          "extra_minute": null,
-          "team_name": "Anderlecht",
-          "type": "But",
-          "detail": "Contre son camp",
-          "player": "J. Oksanen",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623395,
@@ -59,54 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 70,
-          "extra_minute": null,
-          "team_name": "Inter Turku",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "J. Tuominen",
-          "assist": "P. Ahiabu"
-        },
-        {
-          "minute": 70,
-          "extra_minute": null,
-          "team_name": "Inter Turku",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "L. Essomba",
-          "assist": "L. Laine"
-        },
-        {
-          "minute": 72,
-          "extra_minute": null,
-          "team_name": "FC Copenhagen",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "A. Kral",
-          "assist": "T. Delaney"
-        },
-        {
-          "minute": 72,
-          "extra_minute": null,
-          "team_name": "FC Copenhagen",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "G. Vianney Ndjee",
-          "assist": "Y. Moukoko"
-        },
-        {
-          "minute": 81,
-          "extra_minute": null,
-          "team_name": "FC Copenhagen",
-          "type": "Remplacement",
-          "detail": "Substitution 3",
-          "player": "Robert",
-          "assist": "M. Nasnas"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623396,
@@ -130,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "Lincoln Red Imps FC",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623434,
@@ -165,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Jagiellonia",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Y. Kobayashi",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623436,
@@ -200,36 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 58,
-          "extra_minute": null,
-          "team_name": "Mjallby AIF",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "A. Samuelsen",
-          "assist": null
-        },
-        {
-          "minute": 60,
-          "extra_minute": null,
-          "team_name": "Red Bull Salzburg",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Y. Vertessen",
-          "assist": "K. Konate"
-        },
-        {
-          "minute": 60,
-          "extra_minute": null,
-          "team_name": "Red Bull Salzburg",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "B. Mazurek",
-          "assist": "M. Kjaergaard"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623398,
@@ -253,27 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "FC Midtjylland",
-          "type": "But",
-          "detail": "But",
-          "player": "Cho Gue-Sung",
-          "assist": "Franculino"
-        },
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "HNK Rijeka",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "I. Cubelic",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623400,
@@ -297,27 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "FC Nordsjaelland",
-          "type": "But",
-          "detail": "But",
-          "player": "N. Rojkjaer",
-          "assist": "I. Adel"
-        },
-        {
-          "minute": 40,
-          "extra_minute": null,
-          "team_name": "FC ST. Gallen",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623406,
