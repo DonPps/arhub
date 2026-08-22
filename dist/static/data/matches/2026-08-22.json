@@ -1,6 +1,6 @@
 {
   "date": "2026-08-22",
-  "updated_at": "2026-08-22T15:20:05Z",
+  "updated_at": "2026-08-22T15:40:04Z",
   "matches": [
     {
       "id": 1557368,
@@ -51,7 +51,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 59,
+      "elapsed": 79,
       "score_a": 2,
       "score_b": 0,
       "score_ht_a": 1,
@@ -86,7 +86,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 61,
+      "elapsed": 81,
       "score_a": 1,
       "score_b": 1,
       "score_ht_a": 1,
@@ -139,7 +139,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 61,
+      "elapsed": 81,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -169,12 +169,12 @@
       "team_b": "Sevilla",
       "team_a_crest": "https://media.api-sports.io/football/teams/531.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/536.png",
-      "venue": null,
+      "venue": "San Mamés",
       "kickoff_utc": "2026-08-22T15:00:00.000000Z",
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
+      "elapsed": 39,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
@@ -218,16 +218,26 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 5,
-      "score_a": 0,
+      "elapsed": 25,
+      "score_a": 1,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 12,
+          "extra_minute": null,
+          "team_name": "Lens",
+          "type": "But",
+          "detail": "Penalty",
+          "player": "F. Thauvin",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1550092,
