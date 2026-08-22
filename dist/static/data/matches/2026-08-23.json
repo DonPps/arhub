@@ -1,6 +1,6 @@
 {
   "date": "2026-08-23",
-  "updated_at": "2026-08-22T00:00:15Z",
+  "updated_at": "2026-08-22T06:20:04Z",
   "matches": [
     {
       "id": 1552729,
@@ -271,10 +271,10 @@
       "competition": "Ligue 1",
       "competition_logo": "https://media.api-sports.io/football/leagues/61.png",
       "competition_country": "France",
-      "team_a": "Paris Saint Germain",
-      "team_b": "Rennes",
-      "team_a_crest": "https://media.api-sports.io/football/teams/85.png",
-      "team_b_crest": "https://media.api-sports.io/football/teams/94.png",
+      "team_a": "Rennes",
+      "team_b": "Paris Saint Germain",
+      "team_a_crest": "https://media.api-sports.io/football/teams/94.png",
+      "team_b_crest": "https://media.api-sports.io/football/teams/85.png",
       "venue": "Roazhon Park",
       "kickoff_utc": "2026-08-23T18:45:00.000000Z",
       "status": "SCHEDULED",
