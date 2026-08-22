@@ -1,6 +1,6 @@
 {
   "date": "2026-08-21",
-  "updated_at": "2026-08-21T22:40:04Z",
+  "updated_at": "2026-08-22T00:00:13Z",
   "matches": [
     {
       "id": 1552733,
@@ -24,27 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "Marseille",
-          "type": "But",
-          "detail": "But",
-          "player": "A. Gouiri",
-          "assist": "A. Gomes"
-        },
-        {
-          "minute": 48,
-          "extra_minute": null,
-          "team_name": "Strasbourg",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "S. Amo-Ameyaw",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557367,
@@ -68,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "Arsenal",
-          "type": "But",
-          "detail": "But",
-          "player": "K. Havertz",
-          "assist": "R. Calafiori"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570345,
@@ -103,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "Real Sociedad",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "S. Gomez",
-          "assist": null
-        },
-        {
-          "minute": 49,
-          "extra_minute": null,
-          "team_name": "Real Sociedad",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "J. Aramburu",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
