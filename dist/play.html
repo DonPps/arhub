@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Play — Atlas Quiz, Boutique & Dream Team</title>
+<meta name="description" content="Atlas Quiz, la boutique de cartes, ta collection et ton Dream Team — tout Atlas Rising à jouer, au même endroit.">
+<link rel="canonical" href="https://atlasrising.net/play.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Atlas Rising">
+<meta property="og:title" content="Play — Atlas Quiz, Boutique & Dream Team">
+<meta property="og:description" content="Atlas Quiz, la boutique de cartes, ta collection et ton Dream Team — tout Atlas Rising à jouer, au même endroit.">
+<meta property="og:url" content="https://atlasrising.net/play.html">
+<meta property="og:image" content="https://atlasrising.net/static/img/logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Play — Atlas Quiz, Boutique & Dream Team">
+<meta name="twitter:description" content="Atlas Quiz, la boutique de cartes, ta collection et ton Dream Team — tout Atlas Rising à jouer, au même endroit.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="static/img/favicon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0E0C0A">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Atlas Rising">
+<link rel="apple-touch-icon" href="/static/img/pwa/apple-touch-icon.png">
+<link rel="stylesheet" href="static/css/style.css?v=74aaad5aa8">
+<!--
+  base-play.html — coquille dédiée à Play (Football Gaming Hub).
+  Volontairement SANS la nav éditoriale, le footer news, la recherche
+  d'articles, le ticker, les widgets flottants et les publicités de
+  base.html : Play doit donner l'impression de quitter le site média,
+  pas de le prolonger. base.html lui-même n'est pas touché — le site
+  média reste intact. Le compte (#account-toggle/#account-overlay) et
+  le badge de solde (#points-badge/#points-badge-value) sont repris à
+  l'identique (mêmes IDs) pour que auth.js/points-daily.js fonctionnent
+  sans aucune modification.
+-->
+<link rel="stylesheet" href="static/css/play-hub.css?v=74aaad5aa8">
+</head>
+<body data-root="" class="play-body">
+
+<header class="play-hud">
+  <a href="index.html" class="play-hud-quit" aria-label="Quitter Play — retour au site Atlas Rising">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    <span>Quitter Play</span>
+  </a>
+
+  <a href="play.html" class="play-hud-crest" aria-label="Atlas Rising Play">
+    <img src="static/img/logo.png" alt="" width="34" height="34">
+    <span class="play-hud-wordmark">PLAY</span>
+  </a>
+
+  <div class="play-hud-side">
+    <a href="play.html?tab=boutique" class="points-badge" id="points-badge" aria-label="Mes Atlas Points" hidden>
+      <span class="points-badge-icon" aria-hidden="true">⭐</span>
+      <span id="points-badge-value">0</span>
+    </a>
+    <button type="button" class="icon-btn play-hud-account" id="account-toggle" aria-label="Mon compte" aria-expanded="false" aria-controls="account-overlay">
+      <svg id="account-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+      <span class="account-avatar" id="account-avatar" hidden></span>
+      <span class="play-hud-account-text">
+        <span class="icon-btn-label" id="account-label">Compte</span>
+        <span class="play-hud-level" id="play-hud-level" hidden></span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<nav class="play-bottom-nav" id="play-bottom-nav" aria-label="Navigation Play">
+  <button type="button" class="play-bottom-nav-item" data-goto="quiz-solo" data-scroll-top="1">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+    <span>Accueil</span>
+  </button>
+  <button type="button" class="play-bottom-nav-item" data-goto="collection">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+    <span>Collection</span>
+  </button>
+  <button type="button" class="play-bottom-nav-item" data-goto="dreamteam">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+    <span>Dream Team</span>
+  </button>
+  <button type="button" class="play-bottom-nav-item" data-goto="boutique">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l1.5-5h15L21 9M3 9v10a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18M9 13a3 3 0 006 0"/></svg>
+    <span>Boutique</span>
+  </button>
+  <button type="button" class="play-bottom-nav-item" data-goto="quiz-duel">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 3l11 11M17.5 3l-11 11M4 17l4 4M20 17l-4 4"/></svg>
+    <span>Duels</span>
+  </button>
+</nav>
+
+<div class="account-overlay" id="account-overlay" aria-hidden="true">
+  <div class="account-panel">
+    <button type="button" class="account-close" id="account-close" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <div id="account-logged-out">
+      <button type="button" class="account-google-btn" id="google-signin-btn">
+        <svg viewBox="0 0 48 48" width="18" height="18" aria-hidden="true">
+          <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 8 3l6-6C34.5 5.1 29.5 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21c0-1.2-.1-2.3-.4-3.5z"/>
+          <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.5 18.9 13 24 13c3.1 0 5.8 1.1 8 3l6-6C34.5 5.1 29.5 3 24 3 15.9 3 8.9 7.6 6.3 14.7z"/>
+          <path fill="#4CAF50" d="M24 45c5.4 0 10.3-2.1 14-5.4l-6.5-5.4C29.5 35.9 26.9 37 24 37c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9 40.4 15.9 45 24 45z"/>
+          <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.2 4.2-4.1 5.6l6.5 5.4C41.4 35.9 45 30.4 45 24c0-1.2-.1-2.3-.4-3.5z"/>
+        </svg>
+        Continuer avec Google
+      </button>
+      <div class="account-divider"><span>ou</span></div>
+      <div class="account-tabs">
+        <button type="button" class="account-tab active" data-tab="login">Connexion</button>
+        <button type="button" class="account-tab" data-tab="signup">Inscription</button>
+      </div>
+
+      <form id="login-form" class="account-form">
+        <input type="email" placeholder="Email" required autocomplete="email">
+        <input type="password" placeholder="Mot de passe" required autocomplete="current-password">
+        <button type="submit">Se connecter</button>
+        <p class="account-error" hidden></p>
+      </form>
+
+      <form id="signup-form" class="account-form" hidden>
+        <input type="email" placeholder="Email" required autocomplete="email">
+        <input type="password" placeholder="Mot de passe (6 caractères min.)" required autocomplete="new-password" minlength="6">
+        <button type="submit">Créer mon compte</button>
+        <p class="account-error" hidden></p>
+      </form>
+    </div>
+
+    <div id="account-logged-in" hidden>
+      <p class="account-logged-in-title">Connecté en tant que</p>
+      <p class="account-email-display" id="account-email-display"></p>
+      <a href="profil.html" class="account-profile-link">Voir mon profil</a>
+      <button type="button" class="account-logout-btn" id="logout-btn">Se déconnecter</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="pack-opening-modal" id="pack-opening-modal" hidden>
+  <div class="pack-opening-overlay" id="pack-opening-overlay"></div>
+  <div class="pack-opening-panel">
+    <button type="button" class="match-drawer-close" id="pack-opening-close" aria-label="Fermer">&times;</button>
+    <div class="pack-opening-body" id="pack-opening-body"></div>
+  </div>
+</div>
+<div class="pack-opening-modal" id="dreamteam-picker-modal" hidden>
+  <div class="pack-opening-overlay" id="dreamteam-picker-overlay"></div>
+  <div class="pack-opening-panel">
+    <button type="button" class="match-drawer-close" id="dreamteam-picker-close" aria-label="Fermer">&times;</button>
+    <h2 class="pack-reveal-title" id="dreamteam-picker-title">Choisir un joueur</h2>
+    <div class="shop-grid dreamteam-picker-grid" id="dreamteam-picker-grid"></div>
+  </div>
+</div>
+<div class="pack-opening-modal" id="dreamteam-coach-picker-modal" hidden>
+  <div class="pack-opening-overlay" id="dreamteam-coach-picker-overlay"></div>
+  <div class="pack-opening-panel">
+    <button type="button" class="match-drawer-close" id="dreamteam-coach-picker-close" aria-label="Fermer">&times;</button>
+    <h2 class="pack-reveal-title">Choisir un coach</h2>
+    <div class="shop-grid dreamteam-coach-picker-grid" id="dreamteam-coach-picker-grid">
+      
+      <div class="shop-card dreamteam-coach-picker-card" data-coach-slug="hakim-belmadi">
+        <div class="shop-card-media">
+          <img src="static/img/play/coaches/hakim-belmadi.png" alt="Hakim Belmadi" loading="lazy">
+          <span class="shop-card-rarity rarity-epic">epic</span>
+        </div>
+        <div class="shop-card-body">
+          <h3>🇲🇦 Hakim Belmadi</h3>
+          <p class="dreamteam-coach-picker-meta">4-3-3 · Vision Tactique</p>
+        </div>
+      </div>
+      
+      <div class="shop-card dreamteam-coach-picker-card" data-coach-slug="marc-aubry">
+        <div class="shop-card-media">
+          <img src="static/img/play/coaches/marc-aubry.png" alt="Marc Aubry" loading="lazy">
+          <span class="shop-card-rarity rarity-rare">rare</span>
+        </div>
+        <div class="shop-card-body">
+          <h3>🇫🇷 Marc Aubry</h3>
+          <p class="dreamteam-coach-picker-meta">4-4-2 · Boost Défense</p>
+        </div>
+      </div>
+      
+      <div class="shop-card dreamteam-coach-picker-card" data-coach-slug="samuel-okoye">
+        <div class="shop-card-media">
+          <img src="static/img/play/coaches/samuel-okoye.png" alt="Samuel Okoye" loading="lazy">
+          <span class="shop-card-rarity rarity-common">common</span>
+        </div>
+        <div class="shop-card-body">
+          <h3>🇳🇬 Samuel Okoye</h3>
+          <p class="dreamteam-coach-picker-meta">4-3-3 · Focus Jeunes</p>
+        </div>
+      </div>
+      
+      <div class="shop-card dreamteam-coach-picker-card" data-coach-slug="elena-vidal">
+        <div class="shop-card-media">
+          <img src="static/img/play/coaches/elena-vidal.png" alt="Elena Vidal" loading="lazy">
+          <span class="shop-card-rarity rarity-rare">rare</span>
+        </div>
+        <div class="shop-card-body">
+          <h3>🇪🇸 Elena Vidal</h3>
+          <p class="dreamteam-coach-picker-meta">4-1-4-1 · Expérience Compétition</p>
+        </div>
+      </div>
+      
+      <div class="shop-card dreamteam-coach-picker-card" data-coach-slug="joao-medeiros">
+        <div class="shop-card-media">
+          <img src="static/img/play/coaches/joao-medeiros.png" alt="João Medeiros" loading="lazy">
+          <span class="shop-card-rarity rarity-mythic">mythic</span>
+        </div>
+        <div class="shop-card-body">
+          <h3>🇧🇷 João Medeiros</h3>
+          <p class="dreamteam-coach-picker-meta">3-5-2 · +2 Chemistry</p>
+        </div>
+      </div>
+      
+      <div class="shop-card dreamteam-coach-picker-card" data-coach-slug="kenji-watanabe">
+        <div class="shop-card-media">
+          <img src="static/img/play/coaches/kenji-watanabe.png" alt="Kenji Watanabe" loading="lazy">
+          <span class="shop-card-rarity rarity-legendary">legendary</span>
+        </div>
+        <div class="shop-card-body">
+          <h3>🇯🇵 Kenji Watanabe</h3>
+          <p class="dreamteam-coach-picker-meta">4-2-3-1 · Boost Attaque</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<main class="play-main">
+
+
+<div class="play-tabs" role="tablist" aria-label="Sections Play">
+  <button type="button" class="play-tab active" data-tab="quiz-solo" role="tab" aria-selected="true">Quiz Solo</button>
+  <button type="button" class="play-tab" data-tab="quiz-duel" role="tab" aria-selected="false">Défi en ligne</button>
+  <button type="button" class="play-tab" data-tab="boutique" role="tab" aria-selected="false">Boutique</button>
+  <button type="button" class="play-tab" data-tab="collection" role="tab" aria-selected="false">Ma Collection</button>
+  <button type="button" class="play-tab" data-tab="dreamteam" role="tab" aria-selected="false">Dream Team</button>
+</div>
+
+<section class="play-panel" data-tab-panel="quiz-solo">
+
+<div class="quiz-page quizx-page" id="quiz-page" data-quiz-data="static/data/quiz-questions.json">
+
+  <!-- ---------- Hero ---------- -->
+  <section class="quizx-hero">
+    <span class="eyebrow">Atlas Quiz</span>
+    <h1>Le grand quiz du football marocain, africain et mondial</h1>
+    <p class="quizx-hero-subtitle">9 rangs, 225 questions à ton rythme, en solo.</p>
+    <p class="quizx-hero-desc">Progresse de Cadet à Atlas Rising Legend en validant chaque rang l'un après l'autre.</p>
+    <div class="quizx-hero-ctas">
+      <a href="#quiz-ranks-anchor" class="quiz-btn-primary">Jouer maintenant</a>
+      <a href="play.html?tab=quiz-duel" class="quizx-btn-secondary">Défier un ami</a>
+    </div>
+    <div class="quiz-badges" id="quiz-badges" aria-label="Mes badges"></div>
+  </section>
+
+  <!-- ---------- Statistiques ---------- -->
+  <section class="quizx-stats" aria-label="Statistiques Atlas Quiz">
+    <div class="quizx-stat-card">
+      <span class="quizx-stat-value">9</span>
+      <span class="quizx-stat-label">Rangs à débloquer</span>
+    </div>
+    <div class="quizx-stat-card">
+      <span class="quizx-stat-value" id="quizx-stat-players">—</span>
+      <span class="quizx-stat-label">Joueurs classés</span>
+    </div>
+    <div class="quizx-stat-card">
+      <span class="quizx-stat-value">225</span>
+      <span class="quizx-stat-label">Questions</span>
+    </div>
+    <div class="quizx-stat-card">
+      <span class="quizx-stat-value" id="quizx-stat-avgpoints">—</span>
+      <span class="quizx-stat-label">Points moyens</span>
+    </div>
+  </section>
+
+  <!-- ---------- Verrou connexion ---------- -->
+  <div class="quiz-login-gate" id="quiz-login-gate" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">🔒</p>
+      <h2>Connecte-toi pour jouer</h2>
+      <p>Un compte Atlas Rising est nécessaire pour jouer à Atlas Quiz et sauvegarder ta progression d'un appareil à l'autre.</p>
+      <button type="button" class="quiz-btn-primary" id="quiz-login-gate-btn">Se connecter / S'inscrire</button>
+    </div>
+  </div>
+
+  <span id="quiz-ranks-anchor" class="quizx-anchor" aria-hidden="true"></span>
+
+  <div class="quizx-layout">
+    <div class="quizx-main">
+
+      <!-- ---------- Quiz à la une ---------- -->
+      
+      <a href="#quiz-ranks-anchor" class="quizx-featured">
+        <div class="quizx-featured-image">
+          <img src="static/img/quiz/cadet.jpg" alt="Cadet" loading="eager">
+          <span class="quizx-featured-icon">🥉</span>
+        </div>
+        <div class="quizx-featured-body">
+          <span class="quizx-featured-tag">Commence ici</span>
+          <h2>Cadet</h2>
+          <p>Les bases du football pour bien débuter.</p>
+          <span class="quiz-btn-primary">Découvrir ce rang</span>
+        </div>
+      </a>
+      
+
+      <!-- ---------- Écran des rangs ---------- -->
+      <div class="quiz-ranks quizx-quiz-grid" id="quiz-ranks" hidden>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="cadet" data-order="1" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <img src="static/img/quiz/cadet.jpg" alt="Cadet" loading="lazy">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🥉</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Cadet</h3>
+            <p class="quiz-rank-desc">Les bases du football pour bien débuter.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 1/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="espoir" data-order="2" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <img src="static/img/quiz/espoir.jpg" alt="Espoir" loading="lazy">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🥈</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Espoir</h3>
+            <p class="quiz-rank-desc">Clubs, légendes et grandes compétitions.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 2/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="professionnel" data-order="3" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <img src="static/img/quiz/professionnel.jpg" alt="Professionnel" loading="lazy">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">⚽</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Professionnel</h3>
+            <p class="quiz-rank-desc">Règles, tactiques et histoire approfondie.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 3/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="analyste" data-order="4" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <img src="static/img/quiz/analyste.jpg" alt="Analyste" loading="lazy">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">📊</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Analyste</h3>
+            <p class="quiz-rank-desc">Statistiques, records et transferts marquants.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 4/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="expert-fifa" data-order="5" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <img src="static/img/quiz/expert-fifa.jpg" alt="Expert FIFA" loading="lazy">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🧠</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Expert FIFA</h3>
+            <p class="quiz-rank-desc">L&#39;histoire complète de la Coupe du Monde.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 5/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="expert-caf" data-order="6" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <img src="static/img/quiz/expert-caf.jpg" alt="Expert CAF" loading="lazy">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🌍</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Expert CAF</h3>
+            <p class="quiz-rank-desc">Le football africain sous toutes ses coutures.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 6/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="maitre" data-order="7" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <img src="static/img/quiz/maitre.jpg" alt="Maître du Football" loading="lazy">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">👑</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Maître du Football</h3>
+            <p class="quiz-rank-desc">Tactique, histoire et records combinés.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 7/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="elite" data-order="8" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <img src="static/img/quiz/elite.jpg" alt="Atlas Rising Elite" loading="lazy">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🔥</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Atlas Rising Elite</h3>
+            <p class="quiz-rank-desc">Immersion totale dans les Lions de l&#39;Atlas.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 8/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+        <div class="quiz-rank-card quizx-quiz-card" data-rank="legend" data-order="9" data-total="25" data-threshold="20">
+          <div class="quizx-quiz-card-image">
+            <img src="static/img/quiz/legend.jpg" alt="Atlas Rising Legend" loading="lazy">
+            <span class="quiz-rank-icon quizx-quiz-card-icon">🏆</span>
+          </div>
+          <div class="quiz-rank-body quizx-quiz-card-body">
+            <h3 class="quiz-rank-name">Atlas Rising Legend</h3>
+            <p class="quiz-rank-desc">Le rang ultime, réservé aux plus grands connaisseurs.</p>
+            <div class="quizx-quiz-card-meta">
+              <span>Rang 9/9</span>
+              <span>25 questions</span>
+              <span>~8 min</span>
+            </div>
+            <div class="quiz-rank-progress">
+              <div class="quiz-rank-progress-track"><div class="quiz-rank-progress-fill" style="width:0%"></div></div>
+              <span class="quiz-rank-progress-label">0%</span>
+            </div>
+          </div>
+          <div class="quiz-rank-status">
+            <span class="quiz-rank-badge-state" data-locked-icon="🔒" data-unlocked-icon="✓"></span>
+            <button class="quiz-rank-play" type="button" disabled>Jouer</button>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+
+    <aside class="quizx-sidebar">
+      <div class="quizx-sidebar-card" id="quizx-my-stats" hidden>
+        <h3 class="quizx-sidebar-title">Ma progression</h3>
+        <div class="quizx-my-stats-body" id="quizx-my-stats-body">
+          <p class="quizx-sidebar-empty">Connecte-toi pour suivre ta progression.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ---------- Écran de jeu ---------- -->
+  <div class="quiz-player" id="quiz-player" hidden>
+    <div class="quiz-player-head">
+      <button class="quiz-exit" id="quiz-exit" type="button" aria-label="Quitter le quiz">✕</button>
+      <div class="quiz-player-meta">
+        <span id="quiz-question-counter">Question 1 / 25</span>
+        <span id="quiz-score">Score : 0</span>
+      </div>
+      <div class="quiz-timer" id="quiz-timer"><span id="quiz-timer-value">20</span>s</div>
+    </div>
+    <div class="quiz-progress-track"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+
+    <div class="quiz-question-card">
+      <span class="quiz-question-category" id="quiz-question-category"></span>
+      <h2 class="quiz-question-text" id="quiz-question-text"></h2>
+      <div class="quiz-answers" id="quiz-answers"></div>
+      <div class="quiz-explanation" id="quiz-explanation" hidden></div>
+    </div>
+  </div>
+
+  <!-- ---------- Écrans de fin ---------- -->
+  <div class="quiz-result" id="quiz-result" hidden>
+    <div class="quiz-result-card quiz-result-success" id="quiz-result-success" hidden>
+      <div class="quiz-result-icon">🎉</div>
+      <h2>Rang validé !</h2>
+      <div class="quiz-result-badge" id="quiz-result-badge"></div>
+      <p class="quiz-result-score" id="quiz-result-score-success"></p>
+      <button class="quiz-btn-primary" id="quiz-continue-btn" type="button">Continuer</button>
+    </div>
+    <div class="quiz-result-card quiz-result-fail" id="quiz-result-fail" hidden>
+      <div class="quiz-result-icon">😬</div>
+      <h2>Rang non validé</h2>
+      <p class="quiz-result-score" id="quiz-result-score-fail"></p>
+      <p class="quiz-result-threshold" id="quiz-result-threshold"></p>
+      <button class="quiz-btn-primary" id="quiz-retry-btn" type="button">Recommencer</button>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+<section class="play-panel" data-tab-panel="quiz-duel" hidden>
+
+<div class="quiz-duel-page quizx-page" id="quiz-duel-page">
+
+  <!-- ---------- Hero — Online Arena ---------- -->
+  <section class="arena-hero">
+    <div class="arena-hero-overlay">
+      <span class="arena-hero-label">⚡ ONLINE ARENA</span>
+      <p class="arena-hero-desc">Choisis un rang ou un thème, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
+      <div class="arena-hero-ctas">
+        <a href="#quiz-duel-picker-anchor" class="quiz-btn-primary arena-btn-primary">🔥 Trouver un adversaire</a>
+        <a href="#quiz-duel-picker-anchor" class="quizx-btn-secondary arena-btn-secondary">+ Inviter un ami</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Stats de l'arène (réelles) ---------- -->
+  <section class="arena-stats" aria-label="Statistiques de l'arène en ligne">
+    <div class="arena-stat-card">
+      <span class="arena-stat-icon">🏅</span>
+      <span class="arena-stat-value" id="arena-stat-ranked">–</span>
+      <span class="arena-stat-label">Joueurs classés</span>
+    </div>
+    <div class="arena-stat-card">
+      <span class="arena-stat-icon">⚔️</span>
+      <span class="arena-stat-value" id="arena-stat-today">–</span>
+      <span class="arena-stat-label">Duels aujourd'hui</span>
+    </div>
+    <div class="arena-stat-card">
+      <span class="arena-stat-icon">🔴</span>
+      <span class="arena-stat-value" id="arena-stat-live">–</span>
+      <span class="arena-stat-label">Duels en direct</span>
+    </div>
+    <div class="arena-stat-card">
+      <span class="arena-stat-icon">⭐</span>
+      <span class="arena-stat-value" id="arena-stat-avgpoints">–</span>
+      <span class="arena-stat-label">Points moyens</span>
+    </div>
+  </section>
+
+  <!-- ---------- Verrou connexion ---------- -->
+  <div class="quiz-login-gate" id="quiz-duel-login-gate" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">🔒</p>
+      <h2>Connecte-toi pour défier tes amis</h2>
+      <p>Un compte Atlas Rising est nécessaire pour créer ou rejoindre un duel.</p>
+      <button type="button" class="quiz-btn-primary" id="quiz-duel-login-gate-btn">Se connecter / S'inscrire</button>
+    </div>
+  </div>
+
+  <span id="quiz-duel-picker-anchor" class="quizx-anchor" aria-hidden="true"></span>
+
+  <div class="quizx-layout">
+    <div class="quizx-main">
+
+      <!-- ---------- Types de match ---------- -->
+      <section class="arena-modes">
+        <h2 class="grid-title">Types de match</h2>
+        <p class="quizx-hero-desc quizx-section-intro">Choisis ton format — un duel classique par rang ou par thème dès maintenant.</p>
+        <div class="arena-mode-grid">
+          <button type="button" class="arena-mode-card is-active" data-scroll-target="quiz-duel-picker">
+            <span class="arena-mode-icon">⚔️</span>
+            <span class="arena-mode-name">Classique</span>
+            <span class="arena-mode-desc">Duel 1 contre 1, par rang ou thème</span>
+          </button>
+          <div class="arena-mode-card is-soon" aria-disabled="true">
+            <span class="arena-mode-icon">🏆</span>
+            <span class="arena-mode-name">Classé</span>
+            <span class="arena-mode-desc">Ligue avec classement saisonnier</span>
+            <span class="arena-mode-soon-badge">Bientôt disponible</span>
+          </div>
+          <div class="arena-mode-card is-soon" aria-disabled="true">
+            <span class="arena-mode-icon">⚡</span>
+            <span class="arena-mode-name">Blitz</span>
+            <span class="arena-mode-desc">Réponses ultra-rapides, temps limité</span>
+            <span class="arena-mode-soon-badge">Bientôt disponible</span>
+          </div>
+          <div class="arena-mode-card is-soon" aria-disabled="true">
+            <span class="arena-mode-icon">🎗️</span>
+            <span class="arena-mode-name">Championnat</span>
+            <span class="arena-mode-desc">Tournois à élimination directe</span>
+            <span class="arena-mode-soon-badge">Bientôt disponible</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- Mode Duel : défier un ami ---------- -->
+      <div class="quiz-duel-section quizx-card-block arena-picker-card" id="quiz-duel-picker" hidden>
+        <h2 class="grid-title">Configurer ton duel</h2>
+        <p class="quiz-duel-intro">Choisis un rang ou un thème, crée un duel et envoie le lien à un ami — vous jouez en temps réel, chacun de votre côté.</p>
+
+        <div class="quiz-duel-mode-tabs">
+          <button type="button" class="quiz-duel-mode-tab active" data-mode="rank">Par rang</button>
+          <button type="button" class="quiz-duel-mode-tab" data-mode="theme">Par thème</button>
+        </div>
+
+        <div class="quiz-duel-picker-row">
+          <select id="quiz-duel-rank-select"></select>
+          <select id="quiz-duel-theme-select" hidden></select>
+          <button type="button" class="quiz-btn-primary arena-btn-primary" id="quiz-duel-create-btn">🔥 Créer un duel</button>
+        </div>
+
+        <h3 class="quiz-duel-history-title">Mes duels récents</h3>
+        <div class="quiz-duel-history" id="quiz-duel-history-list"></div>
+      </div>
+
+      <!-- ---------- Adversaires récents ---------- -->
+      <section class="arena-recent-opponents-block">
+        <h2 class="grid-title">Adversaires récents</h2>
+        <p class="quizx-hero-desc quizx-section-intro">Tes derniers vrais adversaires — défie-les à nouveau en un clic.</p>
+        <div class="arena-carousel" id="arena-recent-opponents">
+          <p class="quizx-sidebar-empty">Connecte-toi pour voir tes adversaires récents.</p>
+        </div>
+      </section>
+
+      <!-- ---------- Matchs en direct ---------- -->
+      <section class="arena-live-block">
+        <h2 class="grid-title">Matchs en direct</h2>
+        <p class="quizx-hero-desc quizx-section-intro">Des duels Atlas Quiz en cours, en ce moment même.</p>
+        <div class="arena-live-grid" id="arena-live-matches">
+          <p class="quizx-sidebar-empty">Chargement…</p>
+        </div>
+      </section>
+
+      <!-- ---------- Thèmes de duel ---------- -->
+      
+      <section class="quizx-categories">
+        <h2 class="grid-title">Thèmes de duel</h2>
+        <p class="quizx-hero-desc quizx-section-intro">Choisis un thème pour défier un ami directement dessus.</p>
+        <div class="quizx-category-grid">
+          
+          <button type="button" class="quizx-category-card" data-theme="Arbitrage">
+            <span class="quizx-category-icon">🟨</span>
+            <span class="quizx-category-name">Arbitrage</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="CAF">
+            <span class="quizx-category-icon">🏅</span>
+            <span class="quizx-category-name">CAF</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Clubs">
+            <span class="quizx-category-icon">🛡️</span>
+            <span class="quizx-category-name">Clubs</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Coupe du Monde">
+            <span class="quizx-category-icon">🌐</span>
+            <span class="quizx-category-name">Coupe du Monde</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Entraîneurs">
+            <span class="quizx-category-icon">📋</span>
+            <span class="quizx-category-name">Entraîneurs</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="FIFA">
+            <span class="quizx-category-icon">⚽</span>
+            <span class="quizx-category-name">FIFA</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Football Africain">
+            <span class="quizx-category-icon">🌍</span>
+            <span class="quizx-category-name">Football Africain</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Histoire">
+            <span class="quizx-category-icon">📜</span>
+            <span class="quizx-category-name">Histoire</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Joueurs">
+            <span class="quizx-category-icon">⭐</span>
+            <span class="quizx-category-name">Joueurs</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Ligue des Champions">
+            <span class="quizx-category-icon">👑</span>
+            <span class="quizx-category-name">Ligue des Champions</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Maroc">
+            <span class="quizx-category-icon">🇲🇦</span>
+            <span class="quizx-category-name">Maroc</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Records">
+            <span class="quizx-category-icon">🏆</span>
+            <span class="quizx-category-name">Records</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Statistiques">
+            <span class="quizx-category-icon">📊</span>
+            <span class="quizx-category-name">Statistiques</span>
+          </button>
+          
+          <button type="button" class="quizx-category-card" data-theme="Tactique">
+            <span class="quizx-category-icon">♟️</span>
+            <span class="quizx-category-name">Tactique</span>
+          </button>
+          
+        </div>
+      </section>
+      
+
+      <!-- ---------- Activité récente ---------- -->
+      <section class="quizx-activity">
+        <div class="quizx-activity-col">
+          <h2 class="grid-title">Duels récents</h2>
+          <div class="quizx-recent-list" id="quizx-recent-duels">
+            <p class="quizx-sidebar-empty">Chargement…</p>
+          </div>
+        </div>
+        <div class="quizx-activity-col">
+          <h2 class="grid-title">Thèmes populaires</h2>
+          <div class="quizx-popular-list" id="quizx-popular-themes">
+            <p class="quizx-sidebar-empty">Chargement…</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <aside class="quizx-sidebar">
+      <!-- ---------- Classement ---------- -->
+      <div class="quizx-sidebar-card arena-leaderboard-card" id="quiz-leaderboard-section" hidden>
+        <h3 class="quizx-sidebar-title">🏆 Top Joueurs</h3>
+        <p class="quizx-sidebar-subtitle">Meilleurs joueurs, tous rangs et duels confondus.</p>
+        <div class="quiz-leaderboard-list arena-leaderboard-list" id="quiz-leaderboard-list"></div>
+      </div>
+
+      <!-- ---------- Tournoi (à venir) ---------- -->
+      <div class="quizx-sidebar-card arena-tournament-card">
+        <span class="arena-tournament-badge">Bientôt disponible</span>
+        <h3 class="quizx-sidebar-title">🎗️ Tournoi Atlas Rising</h3>
+        <p class="quizx-sidebar-subtitle">Un vrai tournoi à élimination directe, avec classement dédié et récompenses exclusives — en préparation.</p>
+      </div>
+
+      <!-- ---------- Récompenses ---------- -->
+      <div class="quizx-sidebar-card arena-rewards-card">
+        <h3 class="quizx-sidebar-title">🎁 En jeu dans ce duel</h3>
+        <p class="quizx-sidebar-subtitle">Une victoire fait progresser ton score réel au classement général.</p>
+        <p class="arena-rewards-soon">Bientôt : XP, Atlas Points et packs de cartes à gagner.</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ---------- Chargement (entrée en partie) ---------- -->
+  <div class="quiz-login-gate" id="quiz-duel-loading" hidden>
+    <div class="quiz-login-gate-card">
+      <div class="quiz-spinner" aria-hidden="true"></div>
+      <h2>Entrée dans la partie…</h2>
+      <p>Un instant, on prépare le duel.</p>
+    </div>
+  </div>
+
+  <!-- ---------- Rejoindre un duel via lien ---------- -->
+  <div class="quiz-login-gate" id="quiz-duel-join" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">⚔️</p>
+      <h2>Duel Atlas Quiz</h2>
+      <p id="quiz-duel-join-message"></p>
+      <button type="button" class="quiz-btn-primary" id="quiz-duel-join-btn" hidden>Rejoindre le duel</button>
+    </div>
+  </div>
+
+  <!-- ---------- Salle d'attente (hôte) — matchmaking premium, branché
+       sur le vrai flux temps réel (aucun adversaire n'est simulé : le
+       visuel bascule uniquement quand un vrai ami rejoint via le
+       lien). ---------- -->
+  <div class="quiz-login-gate arena-matchmaking-overlay" id="quiz-duel-waiting" hidden>
+    <div class="quiz-login-gate-card arena-matchmaking-card">
+      <span class="arena-matchmaking-eyebrow">ONLINE ARENA</span>
+      <div class="arena-vs-row">
+        <div class="arena-vs-side">
+          <div class="arena-vs-avatar arena-vs-avatar-me"><span class="arena-vs-avatar-glyph">🧑</span></div>
+          <span class="arena-vs-name" id="arena-my-name">Toi</span>
+        </div>
+        <div class="arena-vs-center">
+          <img src="static/img/play/online/versus-duel.png" alt="" class="arena-vs-art">
+        </div>
+        <div class="arena-vs-side">
+          <div class="arena-vs-avatar arena-vs-avatar-opponent" id="arena-opponent-avatar"></div>
+          <span class="arena-vs-name" id="arena-opponent-name">En attente…</span>
+        </div>
+      </div>
+      <p class="arena-matchmaking-status" id="arena-matchmaking-status">
+        En attente d'un adversaire<span class="arena-dots"><span>.</span><span>.</span><span>.</span></span>
+      </p>
+      <p>Envoie ce lien à un ami pour qu'il te rejoigne :</p>
+      <div class="quiz-duel-link-row">
+        <input type="text" id="quiz-duel-invite-link" readonly>
+        <button type="button" class="admin-cancel-btn" id="quiz-duel-copy-btn">Copier le lien</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- Écran de jeu Duel ---------- -->
+  <div class="quiz-player quiz-duel-player" id="quiz-duel-player" hidden>
+    <div class="quiz-duel-scoreboard">
+      <span id="quiz-duel-my-score">Toi : 0</span>
+      <span class="quiz-duel-vs">vs</span>
+      <span id="quiz-duel-opponent-name"></span>
+      <span id="quiz-duel-opponent-score"></span>
+    </div>
+    <div class="quiz-player-head">
+      <div class="quiz-player-meta">
+        <span id="quiz-duel-counter">Question 1 / 10</span>
+      </div>
+    </div>
+    <div class="quiz-question-card">
+      <span class="quiz-question-category" id="quiz-duel-category"></span>
+      <h2 class="quiz-question-text" id="quiz-duel-question-text"></h2>
+      <div class="quiz-answers" id="quiz-duel-answers"></div>
+      <div class="quiz-explanation" id="quiz-duel-explanation" hidden></div>
+    </div>
+  </div>
+
+  <!-- ---------- Résultat Duel ---------- -->
+  <div class="quiz-result" id="quiz-duel-result" hidden>
+    <div class="quiz-result-card">
+      <div class="quiz-result-icon">⚔️</div>
+      <h2 id="quiz-duel-result-title"></h2>
+      <p class="quiz-result-score" id="quiz-duel-result-score"></p>
+      <a class="quiz-btn-primary play-tab-link" data-tab="quiz-duel" href="play.html?tab=quiz-duel">Retour aux duels</a>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+<section class="play-panel" data-tab-panel="boutique" hidden>
+
+<div class="shop-page" id="shop-page">
+  <div class="shop-head">
+    <h1 class="grid-title">Boutique</h1>
+    <div class="shop-balance" id="shop-balance-display" hidden>
+      <span class="points-badge-icon" aria-hidden="true">⭐</span>
+      <span id="shop-balance-value">0</span> Atlas Points
+    </div>
+  </div>
+
+  <div class="shop-login-gate" id="shop-login-gate">
+    <p>Connecte-toi pour dépenser tes Atlas Points.</p>
+    <button type="button" class="quiz-btn-primary" id="shop-login-btn">Se connecter</button>
+  </div>
+
+  <section class="shop-section">
+    <h2 class="grid-title">Packs de cartes</h2>
+    <p class="shop-section-intro">Le contenu d'un pack reste secret tant qu'il n'est pas ouvert.</p>
+    <div class="shop-grid" id="shop-packs-grid">
+      <p class="matches-loading">Chargement…</p>
+    </div>
+  </section>
+
+  <section class="shop-section">
+    <h2 class="grid-title">Badges, avatars &amp; cosmétiques</h2>
+    <div class="shop-grid" id="shop-items-grid">
+      <p class="matches-loading">Chargement…</p>
+    </div>
+  </section>
+
+  <section class="shop-section" id="shop-inventory-section" hidden>
+    <h2 class="grid-title">Mon inventaire</h2>
+    <div class="shop-inventory" id="shop-inventory"></div>
+  </section>
+</div>
+
+</section>
+
+<section class="play-panel" data-tab-panel="collection" hidden>
+
+<div class="collection-page" id="collection-page">
+  <div class="matches-head">
+    <h1 class="grid-title">Ma Collection</h1>
+  </div>
+
+  <div class="quiz-login-gate" id="collection-login-gate">
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">🔒</p>
+      <h2>Connecte-toi pour voir ta collection</h2>
+      <button type="button" class="quiz-btn-primary" id="collection-login-btn">Se connecter / S'inscrire</button>
+    </div>
+  </div>
+
+  <div id="collection-content" hidden>
+    <div class="matches-search-row">
+      <div class="matches-search">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" id="collection-search-input" placeholder="Carte, joueur, équipe, saison..." aria-label="Rechercher une carte">
+      </div>
+      <div class="filter-tabs" id="collection-rarity-tabs" role="tablist" aria-label="Filtrer par rareté">
+        <button type="button" class="filter-tab is-active" data-rarity="all" role="tab" aria-selected="true">Toutes</button>
+      </div>
+    </div>
+    <div class="shop-grid" id="collection-grid"></div>
+  </div>
+</div>
+
+</section>
+
+<section class="play-panel" data-tab-panel="dreamteam" hidden>
+
+<div class="dreamteam-page" id="dreamteam-page">
+
+  <div class="dreamteam-head">
+    <div>
+      <h1 class="grid-title">Dream Team</h1>
+      <p class="dreamteam-formation" id="dreamteam-formation-label">Formation 4-3-3</p>
+    </div>
+    <div class="dreamteam-head-actions">
+      <button type="button" class="quiz-btn-primary" id="dreamteam-share-btn" hidden>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-3.8M8.6 13.4l6.8 3.8"/></svg>
+        Partager
+      </button>
+      <a href="play.html?tab=dreamteam" class="dreamteam-own-link" id="dreamteam-own-link" hidden>Voir mon Dream Team</a>
+    </div>
+  </div>
+
+  <div class="quiz-login-gate" id="dreamteam-login-gate" hidden>
+    <div class="quiz-login-gate-card">
+      <p class="quiz-login-gate-icon">⚽</p>
+      <h2>Connecte-toi pour composer ton Dream Team</h2>
+      <p>Place tes cartes possédées sur le terrain selon leur poste.</p>
+      <button type="button" class="quiz-btn-primary" id="dreamteam-login-gate-btn">Se connecter / S'inscrire</button>
+    </div>
+  </div>
+
+  <p class="dreamteam-empty-note" id="dreamteam-empty-note" hidden>Aucune carte possédée pour l'instant — ouvre des packs depuis la <a href="play.html?tab=boutique">Boutique</a> pour commencer ton Dream Team.</p>
+
+  <div class="dreamteam-field-wrap" id="dreamteam-field-wrap" hidden>
+
+    <div class="dreamteam-led-strip" aria-hidden="true">
+      <div class="dreamteam-led-strip-track">
+        <span>ATLAS RISING • DREAM TEAM • ATLAS RISING • DREAM TEAM • </span>
+        <span>ATLAS RISING • DREAM TEAM • ATLAS RISING • DREAM TEAM • </span>
+      </div>
+    </div>
+
+    <div class="dreamteam-stats-panel" id="dreamteam-stats-panel">
+      <div class="dreamteam-stat" data-stat="overall">
+        <span class="dreamteam-stat-value" id="dreamteam-stat-overall">–</span>
+        <span class="dreamteam-stat-label">Overall</span>
+      </div>
+      <div class="dreamteam-stat" data-stat="chemistry">
+        <span class="dreamteam-stat-value" id="dreamteam-stat-chemistry">–</span>
+        <span class="dreamteam-stat-label">Chemistry</span>
+      </div>
+      <div class="dreamteam-stat" data-stat="value">
+        <span class="dreamteam-stat-value" id="dreamteam-stat-value">0</span>
+        <span class="dreamteam-stat-label">Valeur équipe</span>
+      </div>
+      <div class="dreamteam-stat" data-stat="cards">
+        <span class="dreamteam-stat-value" id="dreamteam-stat-cards">0/11</span>
+        <span class="dreamteam-stat-label">Cartes</span>
+      </div>
+      <div class="dreamteam-stat" data-stat="formation">
+        <span class="dreamteam-stat-value" id="dreamteam-stat-formation">4-3-3</span>
+        <span class="dreamteam-stat-label">Formation</span>
+      </div>
+      <div class="dreamteam-stat" data-stat="legendary">
+        <span class="dreamteam-stat-value" id="dreamteam-stat-legendary">0</span>
+        <span class="dreamteam-stat-label">Légendaires</span>
+      </div>
+    </div>
+
+    <div class="dreamteam-pitch" id="dreamteam-pitch" hidden>
+      <svg class="dreamteam-chemistry-svg" id="dreamteam-chemistry-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="dt-chem-low" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#8a1414"/>
+            <stop offset="100%" stop-color="#ff8f8f"/>
+          </linearGradient>
+          <linearGradient id="dt-chem-mid" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#B8903E"/>
+            <stop offset="100%" stop-color="#f2b866"/>
+          </linearGradient>
+          <linearGradient id="dt-chem-high" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2f8f4e"/>
+            <stop offset="100%" stop-color="#7fd99b"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      
+      <button type="button" class="dreamteam-slot" data-slot="GK" data-label="Gardien" aria-label="Gardien">
+        <span class="dreamteam-slot-plus">+</span>
+        <span class="dreamteam-slot-label">Gardien</span>
+      </button>
+      
+      <button type="button" class="dreamteam-slot" data-slot="LB" data-label="Arrière gauche" aria-label="Arrière gauche">
+        <span class="dreamteam-slot-plus">+</span>
+        <span class="dreamteam-slot-label">Arrière gauche</span>
+      </button>
+      
+      <button type="button" class="dreamteam-slot" data-slot="CB1" data-label="Défenseur central" aria-label="Défenseur central">
+        <span class="dreamteam-slot-plus">+</span>
+        <span class="dreamteam-slot-label">Défenseur central</span>
+      </button>
+      
+      <button type="button" class="dreamteam-slot" data-slot="CB2" data-label="Défenseur central" aria-label="Défenseur central">
+        <span class="dreamteam-slot-plus">+</span>
+        <span class="dreamteam-slot-label">Défenseur central</span>
+      </button>
+      
+      <button type="button" class="dreamteam-slot" data-slot="RB" data-label="Arrière droit" aria-label="Arrière droit">
+        <span class="dreamteam-slot-plus">+</span>
+        <span class="dreamteam-slot-label">Arrière droit</span>
+      </button>
+      
+      <button type="button" class="dreamteam-slot" data-slot="CM1" data-label="Milieu" aria-label="Milieu">
+        <span class="dreamteam-slot-plus">+</span>
+        <span class="dreamteam-slot-label">Milieu</span>
+      </button>
+      
+      <button type="button" class="dreamteam-slot" data-slot="CM2" data-label="Milieu" aria-label="Milieu">
+        <span class="dreamteam-slot-plus">+</span>
+        <span class="dreamteam-slot-label">Milieu</span>
+      </button>
+      
+      <button type="button" class="dreamteam-slot" data-slot="CM3" data-label="Milieu" aria-label="Milieu">
+        <span class="dreamteam-slot-plus">+</span>
+        <span class="dreamteam-slot-label">Milieu</span>
+      </button>
+      
+      <button type="button" class="dreamteam-slot" data-slot="LW" data-label="Ailier gauche" aria-label="Ailier gauche">
+        <span class="dreamteam-slot-plus">+</span>
+        <span class="dreamteam-slot-label">Ailier gauche</span>
+      </button>
+      
+      <button type="button" class="dreamteam-slot" data-slot="ST" data-label="Attaquant" aria-label="Attaquant">
+        <span class="dreamteam-slot-plus">+</span>
+        <span class="dreamteam-slot-label">Attaquant</span>
+      </button>
+      
+      <button type="button" class="dreamteam-slot" data-slot="RW" data-label="Ailier droit" aria-label="Ailier droit">
+        <span class="dreamteam-slot-plus">+</span>
+        <span class="dreamteam-slot-label">Ailier droit</span>
+      </button>
+      
+    </div>
+
+  </div>
+
+  <div class="dreamteam-coach-block" id="dreamteam-coach-block" hidden>
+    <button type="button" class="dreamteam-coach-card is-empty" id="dreamteam-coach-card" aria-label="Choisir un coach">
+      <span class="dreamteam-coach-placeholder-icon">👔</span>
+      <span class="dreamteam-coach-placeholder-text">Choisir un Coach</span>
+    </button>
+  </div>
+
+  <div class="dreamteam-collection-block" id="dreamteam-collection-block" hidden>
+    <h2 class="grid-title">Ma collection</h2>
+    <div class="dreamteam-carousel" id="dreamteam-carousel"></div>
+  </div>
+
+  <h2 class="grid-title">Classement — valeur d'équipe</h2>
+  <div class="quiz-leaderboard-list" id="dreamteam-ranking-list">
+    <p class="quiz-duel-history-empty">Le classement se remplira au fil des premières équipes complétées.</p>
+  </div>
+
+</div>
+
+</section>
+
+
+</main>
+
+<div class="floating-widgets">
+  <div class="floating-widget">
+    <button type="button" class="floating-bubble" id="pwa-install-btn" aria-label="Installer l'application" data-tooltip="Installer l'application" hidden>
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3v13m0 0l-4.5-4.5M12 16l4.5-4.5"/><path d="M4 19.5h16"/></svg>
+    </button>
+    <div class="pwa-ios-tip" id="pwa-ios-tip" hidden>
+      Pour installer : appuie sur <strong>Partager</strong> puis <strong>Sur l'écran d'accueil</strong>.
+      <button type="button" class="pwa-ios-tip-close" id="pwa-ios-tip-close" aria-label="Fermer">&times;</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="static/js/auth.js?v=74aaad5aa8"></script>
+<script src="static/js/pwa-install.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/points-daily.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/play-hud.js?v=74aaad5aa8"></script>
+
+<script type="module" src="static/js/quiz.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/quiz-duel.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/shop.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/pack-opening.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/collection.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/dream-team.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/dreamteam-feel.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/play-tabs.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/play-atmosphere.js?v=74aaad5aa8"></script>
+<script type="module" src="static/js/play-feel.js?v=74aaad5aa8"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
