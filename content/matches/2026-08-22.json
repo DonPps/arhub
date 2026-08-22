@@ -1,6 +1,6 @@
 {
   "date": "2026-08-22",
-  "updated_at": "2026-08-22T13:20:04Z",
+  "updated_at": "2026-08-22T13:40:04Z",
   "matches": [
     {
       "id": 1557368,
@@ -13,9 +13,9 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/33.png",
       "venue": "MKM Stadium",
       "kickoff_utc": "2026-08-22T11:30:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
       "elapsed": 90,
       "score_a": 2,
       "score_b": 0,
