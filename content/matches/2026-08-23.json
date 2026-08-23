@@ -1,6 +1,6 @@
 {
   "date": "2026-08-23",
-  "updated_at": "2026-08-23T21:20:04Z",
+  "updated_at": "2026-08-23T21:40:03Z",
   "matches": [
     {
       "id": 1552729,
@@ -443,10 +443,10 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/529.png",
       "venue": "Estadio Martínez Valero",
       "kickoff_utc": "2026-08-23T19:30:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
-      "elapsed": 86,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
       "score_a": 0,
       "score_b": 5,
       "score_ht_a": 0,
