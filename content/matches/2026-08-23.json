@@ -1,6 +1,6 @@
 {
   "date": "2026-08-23",
-  "updated_at": "2026-08-23T13:00:05Z",
+  "updated_at": "2026-08-23T13:20:05Z",
   "matches": [
     {
       "id": 1552729,
@@ -13,18 +13,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/79.png",
       "venue": "Stade Raymond-Kopa",
       "kickoff_utc": "2026-08-23T13:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 20,
+      "score_a": 0,
+      "score_b": 1,
+      "score_ht_a": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 11,
+          "extra_minute": null,
+          "team_name": "Lille",
+          "type": "But",
+          "detail": "But",
+          "player": "O. Giroud",
+          "assist": "N. Bentaleb"
+        }
+      ]
     },
     {
       "id": 1557373,
@@ -37,18 +48,65 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/66.png",
       "venue": "Amex Stadium",
       "kickoff_utc": "2026-08-23T13:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 20,
+      "score_a": 2,
+      "score_b": 0,
+      "score_ht_a": 2,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 8,
+          "extra_minute": null,
+          "team_name": "Brighton",
+          "type": "But",
+          "detail": "Contre son camp",
+          "player": "V. Lindelof",
+          "assist": null
+        },
+        {
+          "minute": 9,
+          "extra_minute": null,
+          "team_name": "Aston Villa",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Joao Gomes",
+          "assist": null
+        },
+        {
+          "minute": 9,
+          "extra_minute": null,
+          "team_name": "Brighton",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "P. Gross",
+          "assist": null
+        },
+        {
+          "minute": 11,
+          "extra_minute": null,
+          "team_name": "Brighton",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Y. Ayari",
+          "assist": null
+        },
+        {
+          "minute": 18,
+          "extra_minute": null,
+          "team_name": "Brighton",
+          "type": "But",
+          "detail": "But",
+          "player": "M. De Cuyper",
+          "assist": "G. Rutter"
+        }
+      ]
     },
     {
       "id": 1557374,
@@ -61,18 +119,19 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/35.png",
       "venue": "Etihad Stadium",
       "kickoff_utc": "2026-08-23T13:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 17,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": []
     },
     {
       "id": 1570344,
