@@ -1,6 +1,6 @@
 {
   "date": "2026-08-22",
-  "updated_at": "2026-08-22T22:40:04Z",
+  "updated_at": "2026-08-23T01:20:04Z",
   "matches": [
     {
       "id": 1557368,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Hull City",
-          "type": "But",
-          "detail": "But",
-          "player": "S. Ajayi",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557369,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 30,
-          "extra_minute": null,
-          "team_name": "Crystal Palace",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "D. Kamada",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557370,
@@ -94,36 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Ipswich",
-          "type": "But",
-          "detail": "But",
-          "player": "Emersonn",
-          "assist": "J. Enciso"
-        },
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "Sunderland",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "D. Ballard",
-          "assist": null
-        },
-        {
-          "minute": 39,
-          "extra_minute": null,
-          "team_name": "Sunderland",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557371,
@@ -147,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Nottingham Forest",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "O. Aina",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570343,
@@ -182,27 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Athletic Club",
-          "type": "Carton",
-          "detail": "Carton rouge",
-          "player": "Y. Berchiche",
-          "assist": null
-        },
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "Sevilla",
-          "type": "But",
-          "detail": "But",
-          "player": "Oso",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1552732,
@@ -226,18 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "Lens",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "F. Thauvin",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550092,
@@ -261,18 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 6,
-          "extra_minute": null,
-          "team_name": "Inter",
-          "type": "But",
-          "detail": "But",
-          "player": "H. Calhanoglu",
-          "assist": "A. Diouf"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550095,
@@ -320,18 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "Brentford",
-          "type": "But",
-          "detail": "But",
-          "player": "K. Lewis-Potter",
-          "assist": "M. Sangare"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570352,
