@@ -1,6 +1,6 @@
 {
   "date": "2026-08-23",
-  "updated_at": "2026-08-23T16:00:08Z",
+  "updated_at": "2026-08-23T16:20:04Z",
   "matches": [
     {
       "id": 1552729,
@@ -155,9 +155,9 @@
       "venue": "Riyadh Air Metropolitano",
       "kickoff_utc": "2026-08-23T15:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 54,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -166,7 +166,26 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 46,
+          "extra_minute": null,
+          "team_name": "Atletico Madrid",
+          "type": "Remplacement",
+          "detail": "Remplacement",
+          "player": "R. Mendoza",
+          "assist": "A. Baena"
+        },
+        {
+          "minute": 50,
+          "extra_minute": null,
+          "team_name": "Villarreal",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "S. Mourino",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1552730,
@@ -180,8 +199,8 @@
       "venue": "Stade Oceane",
       "kickoff_utc": "2026-08-23T15:15:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
+      "status_short": "HT",
+      "status_long": "Halftime",
       "elapsed": 45,
       "score_a": 0,
       "score_b": 1,
@@ -224,9 +243,9 @@
       "venue": null,
       "kickoff_utc": "2026-08-23T15:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 28,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
