@@ -1,6 +1,6 @@
 {
   "date": "2026-08-23",
-  "updated_at": "2026-08-23T17:40:04Z",
+  "updated_at": "2026-08-23T18:00:06Z",
   "matches": [
     {
       "id": 1552729,
@@ -280,7 +280,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 47,
+      "elapsed": 66,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
@@ -315,7 +315,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 47,
+      "elapsed": 67,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
@@ -350,7 +350,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 7,
+      "elapsed": 27,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -358,8 +358,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": []
+      "score_pen_b": null
     },
     {
       "id": 1550088,
