@@ -1,6 +1,6 @@
 {
   "date": "2026-08-24",
-  "updated_at": "2026-08-24T18:00:08Z",
+  "updated_at": "2026-08-24T18:20:04Z",
   "matches": [
     {
       "id": 1550089,
@@ -16,7 +16,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 67,
+      "elapsed": 87,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
@@ -58,9 +58,9 @@
       "venue": "Estadio El Sadar",
       "kickoff_utc": "2026-08-24T17:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 29,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -69,7 +69,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 38,
+          "extra_minute": null,
+          "team_name": "Levante",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "I. Romero",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1550087,
