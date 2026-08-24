@@ -1,6 +1,6 @@
 {
   "date": "2026-08-24",
-  "updated_at": "2026-08-24T18:40:04Z",
+  "updated_at": "2026-08-24T19:00:06Z",
   "matches": [
     {
       "id": 1550089,
@@ -60,7 +60,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 52,
+      "elapsed": 72,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -92,18 +92,19 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/502.png",
       "venue": "Stadio Olimpico",
       "kickoff_utc": "2026-08-24T18:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 13,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": []
     },
     {
       "id": 1557376,
