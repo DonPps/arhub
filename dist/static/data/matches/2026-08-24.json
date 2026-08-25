@@ -1,6 +1,6 @@
 {
   "date": "2026-08-24",
-  "updated_at": "2026-08-24T22:40:04Z",
+  "updated_at": "2026-08-25T04:00:09Z",
   "matches": [
     {
       "id": 1550089,
@@ -24,27 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Lazio",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "A. Marusic",
-          "assist": "R. Floriani"
-        },
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Lazio",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "R. Floriani",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570350,
@@ -68,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 38,
-          "extra_minute": null,
-          "team_name": "Levante",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "I. Romero",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550087,
@@ -103,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "AS Roma",
-          "type": "But",
-          "detail": "But",
-          "player": "D. Malen",
-          "assist": "P. Dybala"
-        },
-        {
-          "minute": 30,
-          "extra_minute": null,
-          "team_name": "Fiorentina",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "N. Fagioli",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557376,
@@ -147,36 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 1,
-          "extra_minute": null,
-          "team_name": "Chelsea",
-          "type": "But",
-          "detail": "But",
-          "player": "Joao Pedro",
-          "assist": "C. Palmer"
-        },
-        {
-          "minute": 5,
-          "extra_minute": null,
-          "team_name": "Chelsea",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "L. Colwill",
-          "assist": null
-        },
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "Chelsea",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "R. Lavia",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570349,
@@ -187,7 +107,7 @@
       "team_b": "Deportivo La Coruna",
       "team_a_crest": "https://media.api-sports.io/football/teams/535.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/544.png",
-      "venue": "La Rosaleda",
+      "venue": "Estadio La Rosaleda",
       "kickoff_utc": "2026-08-24T19:30:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -200,27 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 21,
-          "extra_minute": null,
-          "team_name": "Deportivo La Coruna",
-          "type": "But",
-          "detail": "But",
-          "player": "P. Aubameyang",
-          "assist": "Cruz Luismi"
-        },
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "Deportivo La Coruna",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "M. Soriano",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
