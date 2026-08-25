@@ -1,6 +1,6 @@
 {
   "date": "2026-08-25",
-  "updated_at": "2026-08-25T22:40:04Z",
+  "updated_at": "2026-08-25T23:00:08Z",
   "matches": [
     {
       "id": 1622626,
@@ -24,27 +24,7 @@
       "score_et_a": 2,
       "score_et_b": 0,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 3,
-          "extra_minute": null,
-          "team_name": "Hapoel Beer Sheva",
-          "type": "VAR",
-          "detail": "Goal Disallowed - offside",
-          "player": "I. Zlatanovic",
-          "assist": null
-        },
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Hapoel Beer Sheva",
-          "type": "But",
-          "detail": "But",
-          "player": "I. Zlatanovic",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570342,
@@ -68,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 26,
-          "extra_minute": null,
-          "team_name": "Valencia",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "R. Sato",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1610924,
@@ -103,27 +72,7 @@
       "score_et_a": 1,
       "score_et_b": 0,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 21,
-          "extra_minute": null,
-          "team_name": "Celtic",
-          "type": "But",
-          "detail": "But",
-          "player": "C. McGregor",
-          "assist": "Yang Hyun-Jun"
-        },
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "Lask Linz",
-          "type": "But",
-          "detail": "But",
-          "player": "M. Usor",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1622627,
@@ -147,36 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 3,
-          "extra_minute": null,
-          "team_name": "NEC Nijmegen",
-          "type": "Carton",
-          "detail": "Carton rouge",
-          "player": "G. Crettaz",
-          "assist": null
-        },
-        {
-          "minute": 5,
-          "extra_minute": null,
-          "team_name": "NEC Nijmegen",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "K. Sierhuis",
-          "assist": "N. Polster"
-        },
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "NEC Nijmegen",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "N. Lebreton",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
