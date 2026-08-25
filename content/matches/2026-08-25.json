@@ -1,6 +1,6 @@
 {
   "date": "2026-08-25",
-  "updated_at": "2026-08-25T17:40:04Z",
+  "updated_at": "2026-08-25T18:00:07Z",
   "matches": [
     {
       "id": 1622626,
@@ -14,9 +14,9 @@
       "venue": "Tofiq Bəhramov",
       "kickoff_utc": "2026-08-25T16:45:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 53,
       "score_a": 1,
       "score_b": 1,
       "score_ht_a": 1,
