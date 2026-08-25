@@ -1,6 +1,6 @@
 {
   "date": "2026-08-25",
-  "updated_at": "2026-08-25T16:40:04Z",
+  "updated_at": "2026-08-25T17:00:08Z",
   "matches": [
     {
       "id": 1622626,
@@ -13,18 +13,38 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/563.png",
       "venue": "Tofiq Bahramov Stadium",
       "kickoff_utc": "2026-08-25T16:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 15,
+      "score_a": 0,
+      "score_b": 1,
+      "score_ht_a": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 3,
+          "extra_minute": null,
+          "team_name": "Hapoel Beer Sheva",
+          "type": "VAR",
+          "detail": "Goal Disallowed - offside",
+          "player": "I. Zlatanovic",
+          "assist": null
+        },
+        {
+          "minute": 10,
+          "extra_minute": null,
+          "team_name": "Hapoel Beer Sheva",
+          "type": "But",
+          "detail": "But",
+          "player": "I. Zlatanovic",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1570342,
