@@ -1,6 +1,6 @@
 {
   "date": "2026-08-26",
-  "updated_at": "2026-08-26T17:00:08Z",
+  "updated_at": "2026-08-26T17:20:05Z",
   "matches": [
     {
       "id": 1623429,
@@ -16,7 +16,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 14,
+      "elapsed": 34,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -25,7 +25,26 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 15,
+          "extra_minute": null,
+          "team_name": "Heart Of Midlothian",
+          "type": "Remplacement",
+          "detail": "Remplacement",
+          "player": "T. Renaud",
+          "assist": "T. Magnusson"
+        },
+        {
+          "minute": 18,
+          "extra_minute": null,
+          "team_name": "Heart Of Midlothian",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "O. McEntee",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1570340,
