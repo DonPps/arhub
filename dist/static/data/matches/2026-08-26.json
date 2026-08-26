@@ -1,6 +1,6 @@
 {
   "date": "2026-08-26",
-  "updated_at": "2026-08-26T21:20:04Z",
+  "updated_at": "2026-08-26T21:40:04Z",
   "matches": [
     {
       "id": 1623429,
@@ -92,10 +92,10 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/656.png",
       "venue": "Arena Z’dezele",
       "kickoff_utc": "2026-08-26T19:00:00.000000Z",
-      "status": "LIVE",
-      "status_short": "ET",
-      "status_long": "Extra Time",
-      "elapsed": 111,
+      "status": "RESULT",
+      "status_short": "AET",
+      "status_long": "Match Finished",
+      "elapsed": 120,
       "score_a": 1,
       "score_b": 2,
       "score_ht_a": 1,
