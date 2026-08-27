@@ -1,0 +1,26 @@
+{
+  "slug": "cyberattaque-donnees-agents-securite-maroc",
+  "title": "Maroc : cyberattaque, données de 70 000 agents publiées",
+  "dek": "Le groupe Jabaroot affirme avoir publié les données de 70 000 agents de la police et du renseignement marocains, un « cadeau » selon lui à l'Europe.",
+  "category": "GEOPOLITICS",
+  "category_slug": "geomaroc",
+  "date": "2026-08-27",
+  "read_time": 2,
+  "affiliate": false,
+  "tags": [
+    "Géopolitique",
+    "Cybersécurité",
+    "Maroc-Algérie",
+    "Renseignement",
+    "Ceuta"
+  ],
+  "body_paragraphs": [
+    "Le Maroc fait face à une nouvelle cyberattaque d'ampleur : le groupe de hackers Jabaroot a affirmé lundi 24 août avoir rendu publiques les données personnelles de 70 000 agents des services de sécurité et du renseignement du royaume. Les pirates informatiques disent avoir agi pour dénoncer l'implication de hauts responsables sécuritaires marocains dans la crise migratoire survenue fin juillet à Ceuta, une accusation qui n'a pas été prouvée à ce stade.",
+    "Jabaroot présente cette publication comme un « cadeau » fait à l'Europe après cet épisode migratoire, tout en accusant certains responsables marocains d'avoir facilité le passage de milliers de migrants vers l'enclave espagnole. Le groupe, qui se présente comme un soutien d'Alger, avait déjà revendiqué en 2025 une fuite de données massives visant la Caisse nationale de sécurité sociale (CNSS) au Maroc.",
+    "Il est pour l'instant difficile d'établir avec certitude la véracité de l'ensemble des informations contenues dans cette liste. D'ex-membres du renseignement marocain, interrogés par la presse internationale, la jugent toutefois au moins en partie authentique, en raison d'éléments jugés crédibles. Du côté marocain, les médias ont largement traité l'information avec retenue : le site Média24 relativise même l'ampleur de la fuite, évoquant un simple « assemblage de données déjà compromises » regroupant des noms d'agents dont les informations avaient déjà fuité par le passé.",
+    "Certaines données révélées seraient toutefois inédites jusqu'ici. Le quotidien français Le Monde rapporte ainsi que la date de naissance précise du patron de la police et du renseignement intérieur marocain figure parmi les informations dévoilées, un élément qui n'était pas connu du grand public auparavant.",
+    "Cette fuite s'inscrit dans une série de cyberattaques répétées visant les institutions marocaines ces dernières années, sur fond de tensions persistantes entre Rabat et Alger. Le Maroc avait par ailleurs déjà attribué l'une des pires cyberattaques de son histoire à des hackers présentés comme algériens, illustrant la dimension géopolitique que prend désormais ce type d'incidents entre les deux pays."
+  ],
+  "source_url": "https://www.rfi.fr/fr/afrique/20260827-maroc-les-donn%C3%A9es-de-70-000-agents-de-la-police-et-du-renseignement-publi%C3%A9es-apr%C3%A8s-une-nouvelle-cyberattaque",
+  "image": "static/img/articles/cyberattaque-donnees-agents-securite-maroc.jpg"
+}
