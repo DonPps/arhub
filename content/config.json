@@ -33,7 +33,7 @@
     {
       "slug": "mentions-legales",
       "title": "Mentions légales",
-      "html_content": "<h1>Mentions légales</h1><p><strong>Éditeur du site :</strong> YochStudio</p><p><strong>Adresse :</strong> Casablanca, Maroc</p><p><strong>Hébergement :</strong> [Nom de l'hébergeur à compléter une fois choisi]</p><p><strong>Directeur de la publication :</strong> Atlas Rising</p><p>Ce site est un média éditorial indépendant sans lien officiel avec la Fédération Royale Marocaine de Football (FRMF) ni la Confédération Africaine de Football (CAF).</p>"
+      "html_content": "<h1>Mentions légales</h1><p><strong>Éditeur du site :</strong> YochStudio</p><p><strong>Adresse :</strong> Casablanca, Maroc</p><p><strong>Hébergement :</strong> Cloudflare, Inc. — 101 Townsend St, San Francisco, CA 94107, États-Unis — <a href=\"https://www.cloudflare.com\" target=\"_blank\" rel=\"noopener\">cloudflare.com</a></p><p><strong>Directeur de la publication :</strong> Atlas Rising</p><p>Ce site est un média éditorial indépendant sans lien officiel avec la Fédération Royale Marocaine de Football (FRMF) ni la Confédération Africaine de Football (CAF).</p>"
     }
   ]
 }
