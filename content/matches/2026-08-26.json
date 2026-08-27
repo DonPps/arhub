@@ -1,6 +1,6 @@
 {
   "date": "2026-08-26",
-  "updated_at": "2026-08-26T22:40:04Z",
+  "updated_at": "2026-08-27T00:20:05Z",
   "matches": [
     {
       "id": 1623429,
@@ -24,27 +24,7 @@
       "score_et_a": 1,
       "score_et_b": 1,
       "score_pen_a": 3,
-      "score_pen_b": 4,
-      "events": [
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "Heart Of Midlothian",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "T. Renaud",
-          "assist": "T. Magnusson"
-        },
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Heart Of Midlothian",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "O. McEntee",
-          "assist": null
-        }
-      ]
+      "score_pen_b": 4
     },
     {
       "id": 1570340,
@@ -68,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Real Madrid",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "A. Carreras",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1622628,
@@ -103,27 +72,7 @@
       "score_et_a": 0,
       "score_et_b": 1,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 16,
-          "extra_minute": null,
-          "team_name": "Celje",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "P. Sirvys",
-          "assist": null
-        },
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Slovan Bratislava",
-          "type": "But",
-          "detail": "But",
-          "player": "A. Sporar",
-          "assist": "K. Bajric"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1622629,
@@ -147,27 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 7,
-          "extra_minute": null,
-          "team_name": "AEK Athens FC",
-          "type": "But",
-          "detail": "But",
-          "player": "L. Jovic",
-          "assist": "L. Rota"
-        },
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "AEK Athens FC",
-          "type": "But",
-          "detail": "But",
-          "player": "B. Varga",
-          "assist": "F. Relvas"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1622630,
@@ -191,36 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Fenerbahçe",
-          "type": "But",
-          "detail": "But",
-          "player": "V. Muriqi",
-          "assist": null
-        },
-        {
-          "minute": 28,
-          "extra_minute": null,
-          "team_name": "Fenerbahçe",
-          "type": "But",
-          "detail": "But",
-          "player": "A. Brown",
-          "assist": "M. Greenwood"
-        },
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "Fenerbahçe",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "M. Skriniar",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1622631,
@@ -244,36 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Dinamo Zagreb",
-          "type": "But",
-          "detail": "But",
-          "player": "A. Hoxha",
-          "assist": "L. Stojkovic"
-        },
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Viking",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "Z. Tripic",
-          "assist": null
-        },
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "Viking",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "H. Heggheim",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
