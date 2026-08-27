@@ -1,6 +1,6 @@
 {
   "date": "2026-08-26",
-  "updated_at": "2026-08-27T00:20:05Z",
+  "updated_at": "2026-08-27T06:40:05Z",
   "matches": [
     {
       "id": 1623429,
@@ -17,12 +17,12 @@
       "status_short": "PEN",
       "status_long": "Match Finished",
       "elapsed": 120,
-      "score_a": 2,
-      "score_b": 2,
+      "score_a": 1,
+      "score_b": 1,
       "score_ht_a": 1,
       "score_ht_b": 0,
-      "score_et_a": 1,
-      "score_et_b": 1,
+      "score_et_a": null,
+      "score_et_b": null,
       "score_pen_a": 3,
       "score_pen_b": 4
     },
