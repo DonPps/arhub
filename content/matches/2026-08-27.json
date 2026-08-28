@@ -1,6 +1,6 @@
 {
   "date": "2026-08-27",
-  "updated_at": "2026-08-27T22:40:04Z",
+  "updated_at": "2026-08-28T01:40:04Z",
   "matches": [
     {
       "id": 1623420,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Shamrock Rovers",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "J. O'Sullivan",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623419,
@@ -59,18 +48,7 @@
       "score_et_a": 0,
       "score_et_b": 0,
       "score_pen_a": 4,
-      "score_pen_b": 3,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "FK Jablonec",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "M. Cedidla",
-          "assist": null
-        }
-      ]
+      "score_pen_b": 3
     },
     {
       "id": 1623422,
@@ -94,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "FC Lugano",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "A. Papadopoulos",
-          "assist": null
-        },
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "FC Lugano",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "M. Zanotti",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623426,
@@ -138,27 +96,7 @@
       "score_et_a": 0,
       "score_et_b": 2,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Twente",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "R. Zerrouki",
-          "assist": null
-        },
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Qarabag",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "B. Langa",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623443,
@@ -182,27 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 48,
-          "extra_minute": null,
-          "team_name": "Universitatea Craiova",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "N. Bancu",
-          "assist": null
-        },
-        {
-          "minute": 62,
-          "extra_minute": null,
-          "team_name": "Universitatea Craiova",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "T. Baluta",
-          "assist": "Teles"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623446,
@@ -226,36 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 31,
-          "extra_minute": null,
-          "team_name": "Jagiellonia",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "J. Imaz",
-          "assist": null
-        },
-        {
-          "minute": 35,
-          "extra_minute": null,
-          "team_name": "FC Iberia 1999",
-          "type": "But",
-          "detail": "But",
-          "player": "Z. Natchkebia",
-          "assist": "N. Sikharulashvili"
-        },
-        {
-          "minute": 37,
-          "extra_minute": null,
-          "team_name": "FC Iberia 1999",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "S. Ende",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623415,
@@ -279,18 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 6,
-          "extra_minute": null,
-          "team_name": "SC Freiburg",
-          "type": "But",
-          "detail": "But",
-          "player": "D. Scherhant",
-          "assist": "M. Eggestein"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623423,
@@ -314,27 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 30,
-          "extra_minute": null,
-          "team_name": "Monaco",
-          "type": "But",
-          "detail": "But",
-          "player": "P. Brunner",
-          "assist": "M. Coulibaly"
-        },
-        {
-          "minute": 33,
-          "extra_minute": null,
-          "team_name": "Gornik Zabrze",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "M. Dietz",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1622633,
@@ -358,27 +216,7 @@
       "score_et_a": 1,
       "score_et_b": 0,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Plzen",
-          "type": "But",
-          "detail": "But",
-          "player": "P. Adu",
-          "assist": "C. Souare"
-        },
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "FK Crvena Zvezda",
-          "type": "But",
-          "detail": "But",
-          "player": "M. Ivanic",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623412,
