@@ -1,6 +1,6 @@
 {
   "date": "2026-08-28",
-  "updated_at": "2026-08-28T19:00:10Z",
+  "updated_at": "2026-08-28T19:20:07Z",
   "matches": [
     {
       "id": 1570359,
@@ -49,9 +49,9 @@
       "venue": "Allianz Arena",
       "kickoff_utc": "2026-08-28T18:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 28,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -86,7 +86,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 10,
+      "elapsed": 30,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -95,7 +95,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 28,
+          "extra_minute": null,
+          "team_name": "Venezia",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "J. Schingtienne",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1552746,
@@ -108,18 +118,19 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/85.png",
       "venue": "Stade Pierre-Mauroy",
       "kickoff_utc": "2026-08-28T18:45:00.000000Z",
-      "status": "OTHER",
-      "status_short": "PST",
-      "status_long": "Match Postponed",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 20,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": []
     },
     {
       "id": 1557381,
@@ -132,18 +143,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/50.png",
       "venue": "Selhurst Park",
       "kickoff_utc": "2026-08-28T19:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 19,
+      "score_a": 0,
+      "score_b": 1,
+      "score_ht_a": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 17,
+          "extra_minute": null,
+          "team_name": "Manchester City",
+          "type": "But",
+          "detail": "But",
+          "player": "E. Haaland",
+          "assist": "A. Semenyo"
+        }
+      ]
     },
     {
       "id": 1570353,
