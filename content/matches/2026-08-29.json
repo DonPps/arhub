@@ -1,6 +1,6 @@
 {
   "date": "2026-08-29",
-  "updated_at": "2026-08-29T12:20:05Z",
+  "updated_at": "2026-08-29T12:40:05Z",
   "matches": [
     {
       "id": 1557383,
@@ -14,9 +14,9 @@
       "venue": "Anfield",
       "kickoff_utc": "2026-08-29T11:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 49,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
