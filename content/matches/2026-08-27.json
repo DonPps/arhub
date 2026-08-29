@@ -1,6 +1,6 @@
 {
   "date": "2026-08-27",
-  "updated_at": "2026-08-27T22:40:04Z",
+  "updated_at": "2026-08-28T20:40:05Z",
   "matches": [
     {
       "id": 1623420,
@@ -11,7 +11,7 @@
       "team_b": "Shamrock Rovers",
       "team_a_crest": "https://media.api-sports.io/football/teams/1165.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/652.png",
-      "venue": "Savon Sanomat Areena",
+      "venue": "Vare Areena",
       "kickoff_utc": "2026-08-27T15:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Shamrock Rovers",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "J. O'Sullivan",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623419,
@@ -46,7 +35,7 @@
       "team_b": "Rangers",
       "team_a_crest": "https://media.api-sports.io/football/teams/1122.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/257.png",
-      "venue": "Stadion Střelnice",
+      "venue": "Stadion Strelnice",
       "kickoff_utc": "2026-08-27T16:00:00.000000Z",
       "status": "RESULT",
       "status_short": "PEN",
@@ -56,21 +45,10 @@
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
-      "score_et_a": 0,
-      "score_et_b": 0,
+      "score_et_a": null,
+      "score_et_b": null,
       "score_pen_a": 4,
-      "score_pen_b": 3,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "FK Jablonec",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "M. Cedidla",
-          "assist": null
-        }
-      ]
+      "score_pen_b": 3
     },
     {
       "id": 1623422,
@@ -81,7 +59,7 @@
       "team_b": "FC Lugano",
       "team_a_crest": "https://media.api-sports.io/football/teams/604.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/606.png",
-      "venue": "Batumi Arena",
+      "venue": "Adjarabet Arena",
       "kickoff_utc": "2026-08-27T16:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -94,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "FC Lugano",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "A. Papadopoulos",
-          "assist": null
-        },
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "FC Lugano",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "M. Zanotti",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623426,
@@ -125,7 +83,7 @@
       "team_b": "Twente",
       "team_a_crest": "https://media.api-sports.io/football/teams/556.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/415.png",
-      "venue": "Tofiq Bəhramov",
+      "venue": "Tofiq Bahramov Stadium",
       "kickoff_utc": "2026-08-27T16:00:00.000000Z",
       "status": "RESULT",
       "status_short": "AET",
@@ -138,27 +96,7 @@
       "score_et_a": 0,
       "score_et_b": 2,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Twente",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "R. Zerrouki",
-          "assist": null
-        },
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Qarabag",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "B. Langa",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623443,
@@ -182,27 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 48,
-          "extra_minute": null,
-          "team_name": "Universitatea Craiova",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "N. Bancu",
-          "assist": null
-        },
-        {
-          "minute": 62,
-          "extra_minute": null,
-          "team_name": "Universitatea Craiova",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "T. Baluta",
-          "assist": "Teles"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623446,
@@ -226,36 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 31,
-          "extra_minute": null,
-          "team_name": "Jagiellonia",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "J. Imaz",
-          "assist": null
-        },
-        {
-          "minute": 35,
-          "extra_minute": null,
-          "team_name": "FC Iberia 1999",
-          "type": "But",
-          "detail": "But",
-          "player": "Z. Natchkebia",
-          "assist": "N. Sikharulashvili"
-        },
-        {
-          "minute": 37,
-          "extra_minute": null,
-          "team_name": "FC Iberia 1999",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "S. Ende",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623415,
@@ -266,7 +155,7 @@
       "team_b": "Motherwell",
       "team_a_crest": "https://media.api-sports.io/football/teams/160.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/256.png",
-      "venue": "Europa-Park-Stadion",
+      "venue": "Europa-Park Stadion",
       "kickoff_utc": "2026-08-27T16:45:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -279,18 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 6,
-          "extra_minute": null,
-          "team_name": "SC Freiburg",
-          "type": "But",
-          "detail": "But",
-          "player": "D. Scherhant",
-          "assist": "M. Eggestein"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623423,
@@ -314,27 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 30,
-          "extra_minute": null,
-          "team_name": "Monaco",
-          "type": "But",
-          "detail": "But",
-          "player": "P. Brunner",
-          "assist": "M. Coulibaly"
-        },
-        {
-          "minute": 33,
-          "extra_minute": null,
-          "team_name": "Gornik Zabrze",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "M. Dietz",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1622633,
@@ -345,7 +203,7 @@
       "team_b": "FK Crvena Zvezda",
       "team_a_crest": "https://media.api-sports.io/football/teams/567.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/598.png",
-      "venue": "Stadion Mesta Plzne",
+      "venue": "Doosan Arena",
       "kickoff_utc": "2026-08-27T17:00:00.000000Z",
       "status": "RESULT",
       "status_short": "AET",
@@ -358,27 +216,7 @@
       "score_et_a": 1,
       "score_et_b": 0,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Plzen",
-          "type": "But",
-          "detail": "But",
-          "player": "P. Adu",
-          "assist": "C. Souare"
-        },
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "FK Crvena Zvezda",
-          "type": "But",
-          "detail": "But",
-          "player": "M. Ivanic",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1623412,
@@ -413,7 +251,7 @@
       "team_b": "Inter Turku",
       "team_a_crest": "https://media.api-sports.io/football/teams/400.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/1164.png",
-      "venue": "Parken",
+      "venue": "Parken Stadium",
       "kickoff_utc": "2026-08-27T17:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -437,7 +275,7 @@
       "team_b": "Panathinaikos",
       "team_a_crest": "https://media.api-sports.io/football/teams/3723.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/617.png",
-      "venue": "Malsovicka arena",
+      "venue": "FINEP Arena",
       "kickoff_utc": "2026-08-27T17:00:00.000000Z",
       "status": "RESULT",
       "status_short": "AET",
@@ -471,8 +309,8 @@
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
-      "score_et_a": 0,
-      "score_et_b": 0,
+      "score_et_a": null,
+      "score_et_b": null,
       "score_pen_a": 4,
       "score_pen_b": 2
     },
@@ -509,7 +347,7 @@
       "team_b": "HNK Hajduk Split",
       "team_a_crest": "https://media.api-sports.io/football/teams/3491.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/608.png",
-      "venue": "Miejski Stadion Piłkarski Raków w Częstochowie",
+      "venue": "Miejski Stadion Pilkarski Rakow",
       "kickoff_utc": "2026-08-27T17:00:00.000000Z",
       "status": "RESULT",
       "status_short": "AET",
@@ -629,7 +467,7 @@
       "team_b": "KI Klaksvik",
       "team_a_crest": "https://media.api-sports.io/football/teams/10124.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/701.png",
-      "venue": "Skonto",
+      "venue": "Skonto stadions",
       "kickoff_utc": "2026-08-27T17:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -701,7 +539,7 @@
       "team_b": "FC Nordsjaelland",
       "team_a_crest": "https://media.api-sports.io/football/teams/1011.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/398.png",
-      "venue": "Sitterstadion",
+      "venue": "Kybunpark",
       "kickoff_utc": "2026-08-27T18:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -725,7 +563,7 @@
       "team_b": "Benfica",
       "team_a_crest": "https://media.api-sports.io/football/teams/406.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/211.png",
-      "venue": "Cepheus Park Randers",
+      "venue": "Cepheus Park",
       "kickoff_utc": "2026-08-27T18:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -749,7 +587,7 @@
       "team_b": "OFI",
       "team_a_crest": "https://media.api-sports.io/football/teams/853.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/1124.png",
-      "venue": "Vasil Levski National Stadium",
+      "venue": "National Stadium Vasil Levski",
       "kickoff_utc": "2026-08-27T18:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -845,7 +683,7 @@
       "team_b": "Vikingur Reykjavik",
       "team_a_crest": "https://media.api-sports.io/football/teams/3364.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/278.png",
-      "venue": "Gradski Stadion",
+      "venue": "Gradski stadion Banja Luka",
       "kickoff_utc": "2026-08-27T18:30:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -869,7 +707,7 @@
       "team_b": "Tromso",
       "team_a_crest": "https://media.api-sports.io/football/teams/51.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/325.png",
-      "venue": "American Express Stadium",
+      "venue": "Amex Stadium",
       "kickoff_utc": "2026-08-27T18:30:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -917,7 +755,7 @@
       "team_b": "Trabzonspor",
       "team_a_crest": "https://media.api-sports.io/football/teams/651.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/998.png",
-      "venue": "Groupama Aréna",
+      "venue": "Groupama Arena",
       "kickoff_utc": "2026-08-27T18:30:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -941,7 +779,7 @@
       "team_b": "FC Midtjylland",
       "team_a_crest": "https://media.api-sports.io/football/teams/561.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/397.png",
-      "venue": "Stadion HNK Rijeka Dean Šćulac",
+      "venue": "Stadion HNK Rijeka",
       "kickoff_utc": "2026-08-27T18:45:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -1037,7 +875,7 @@
       "team_b": "Getafe",
       "team_a_crest": "https://media.api-sports.io/football/teams/573.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/546.png",
-      "venue": "Partizan Stadium",
+      "venue": "Stadion Partizana",
       "kickoff_utc": "2026-08-27T19:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
