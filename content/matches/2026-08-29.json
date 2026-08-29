@@ -1,6 +1,6 @@
 {
   "date": "2026-08-29",
-  "updated_at": "2026-08-29T14:00:13Z",
+  "updated_at": "2026-08-29T14:40:10Z",
   "matches": [
     {
       "id": 1557383,
@@ -49,10 +49,10 @@
       "venue": "Waldstadion Kaiserlinde",
       "kickoff_utc": "2026-08-29T13:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 31,
-      "score_a": 2,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 50,
+      "score_a": 3,
       "score_b": 0,
       "score_ht_a": 2,
       "score_ht_b": 0,
@@ -93,9 +93,9 @@
       "venue": "RheinEnergieStadion",
       "kickoff_utc": "2026-08-29T13:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 28,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 48,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
@@ -128,9 +128,9 @@
       "venue": "Mewa Arena",
       "kickoff_utc": "2026-08-29T13:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 30,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 50,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -163,10 +163,10 @@
       "venue": "Red Bull Arena",
       "kickoff_utc": "2026-08-29T13:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 30,
-      "score_a": 1,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 51,
+      "score_a": 2,
       "score_b": 0,
       "score_ht_a": 1,
       "score_ht_b": 0,
@@ -198,9 +198,9 @@
       "venue": null,
       "kickoff_utc": "2026-08-29T13:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 30,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 2,
       "score_ht_a": 1,
@@ -208,7 +208,63 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 3,
+          "extra_minute": null,
+          "team_name": "Union Berlin",
+          "type": "But",
+          "detail": "But",
+          "player": "Emmanuel Latte Lath",
+          "assist": "Josip Juranović"
+        },
+        {
+          "minute": 10,
+          "extra_minute": null,
+          "team_name": "Eintracht Frankfurt",
+          "type": "But",
+          "detail": "But",
+          "player": "Younes Ebnoutalib",
+          "assist": null
+        },
+        {
+          "minute": 11,
+          "extra_minute": null,
+          "team_name": "Eintracht Frankfurt",
+          "type": "But",
+          "detail": "But",
+          "player": "Younes Ebnoutalib",
+          "assist": null
+        },
+        {
+          "minute": 11,
+          "extra_minute": null,
+          "team_name": "Eintracht Frankfurt",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Younes Ebnoutalib",
+          "assist": null
+        },
+        {
+          "minute": 13,
+          "extra_minute": null,
+          "team_name": "Eintracht Frankfurt",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Jeremiaha Maluze",
+          "assist": null
+        },
+        {
+          "minute": 23,
+          "extra_minute": null,
+          "team_name": "Union Berlin",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Michel Aebischer",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1557378,
@@ -221,18 +277,38 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/45.png",
       "venue": "Vitality Stadium",
       "kickoff_utc": "2026-08-29T14:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 40,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 21,
+          "extra_minute": null,
+          "team_name": "Bournemouth",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Alex Scott",
+          "assist": null
+        },
+        {
+          "minute": 23,
+          "extra_minute": null,
+          "team_name": "Bournemouth",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Adam Smith",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1557380,
@@ -245,18 +321,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/64.png",
       "venue": "Coventry Building Society Arena",
       "kickoff_utc": "2026-08-29T14:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 40,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 10,
+          "extra_minute": null,
+          "team_name": "Hull City",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Lewie Coyle",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1570357,
