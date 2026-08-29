@@ -1,6 +1,6 @@
 {
   "date": "2026-08-29",
-  "updated_at": "2026-08-29T13:40:07Z",
+  "updated_at": "2026-08-29T14:00:13Z",
   "matches": [
     {
       "id": 1557383,
@@ -51,7 +51,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 10,
+      "elapsed": 31,
       "score_a": 2,
       "score_b": 0,
       "score_ht_a": 2,
@@ -95,16 +95,26 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 7,
+      "elapsed": 28,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 0,
-      "score_ht_b": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 27,
+          "extra_minute": null,
+          "team_name": "1899 Hoffenheim",
+          "type": "But",
+          "detail": "But",
+          "player": "Adam Daghim",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1575146,
@@ -120,7 +130,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 10,
+      "elapsed": 30,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -129,7 +139,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 2,
+          "extra_minute": null,
+          "team_name": "FSV Mainz 05",
+          "type": "But",
+          "detail": "But",
+          "player": "Nadiem Amiri",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1575147,
@@ -145,15 +165,26 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 10,
-      "score_a": 0,
+      "elapsed": 30,
+      "score_a": 1,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 25,
+          "extra_minute": null,
+          "team_name": "RB Leipzig",
+          "type": "But",
+          "detail": "But",
+          "player": "Ridle Baku",
+          "assist": "Tidiam Gomis"
+        }
+      ]
     },
     {
       "id": 1575148,
@@ -169,11 +200,11 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 9,
+      "elapsed": 30,
       "score_a": 1,
-      "score_b": 0,
+      "score_b": 2,
       "score_ht_a": 1,
-      "score_ht_b": 0,
+      "score_ht_b": 2,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
