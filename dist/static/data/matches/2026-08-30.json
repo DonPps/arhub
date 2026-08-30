@@ -1,6 +1,6 @@
 {
   "date": "2026-08-30",
-  "updated_at": "2026-08-30T22:40:04Z",
+  "updated_at": "2026-08-30T23:20:05Z",
   "matches": [
     {
       "id": 1552743,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Nice",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Y. Ndayishimiye",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557379,
@@ -59,27 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 4,
-          "extra_minute": null,
-          "team_name": "Chelsea",
-          "type": "But",
-          "detail": "But",
-          "player": "R. Lavia",
-          "assist": null
-        },
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "Chelsea",
-          "type": "But",
-          "detail": "But",
-          "player": "P. Neto",
-          "assist": "M. Rogers"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557382,
@@ -103,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 30,
-          "extra_minute": null,
-          "team_name": "Brentford",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "J. Anthony",
-          "assist": null
-        },
-        {
-          "minute": 34,
-          "extra_minute": null,
-          "team_name": "Leeds",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "J. Rodon",
-          "assist": "N. Elvedi"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557385,
@@ -147,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 35,
-          "extra_minute": null,
-          "team_name": "Fulham",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "J. Andersen",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575145,
@@ -182,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "SC Freiburg",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570360,
@@ -217,36 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Real Madrid",
-          "type": "But",
-          "detail": "But",
-          "player": "J. Bellingham",
-          "assist": null
-        },
-        {
-          "minute": 26,
-          "extra_minute": null,
-          "team_name": "Real Madrid",
-          "type": "But",
-          "detail": "Contre son camp",
-          "player": "A. Herrero",
-          "assist": null
-        },
-        {
-          "minute": 30,
-          "extra_minute": null,
-          "team_name": "Real Madrid",
-          "type": "But",
-          "detail": "But",
-          "player": "K. Mbappe",
-          "assist": "T. Alexander-Arnold"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1552744,
@@ -270,18 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 5,
-          "extra_minute": null,
-          "team_name": "Rennes",
-          "type": "But",
-          "detail": "But",
-          "player": "E. Lepaul",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557384,
@@ -305,18 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Ipswich",
-          "type": "But",
-          "detail": "But",
-          "player": "L. Davis",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575141,
@@ -340,18 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "FC Augsburg",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550105,
@@ -375,18 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Como",
-          "type": "But",
-          "detail": "But",
-          "player": "M. Baturina",
-          "assist": "A. Diao"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570356,
