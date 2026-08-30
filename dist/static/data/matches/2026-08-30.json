@@ -1,6 +1,6 @@
 {
   "date": "2026-08-30",
-  "updated_at": "2026-08-30T15:40:06Z",
+  "updated_at": "2026-08-30T16:00:11Z",
   "matches": [
     {
       "id": 1552743,
@@ -207,9 +207,9 @@
       "venue": "Bernabéu",
       "kickoff_utc": "2026-08-30T15:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 37,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 3,
       "score_b": 0,
       "score_ht_a": 3,
@@ -262,11 +262,11 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 25,
-      "score_a": 1,
-      "score_b": 0,
-      "score_ht_a": 1,
-      "score_ht_b": 0,
+      "elapsed": 45,
+      "score_a": 2,
+      "score_b": 1,
+      "score_ht_a": 2,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
@@ -297,16 +297,26 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 9,
+      "elapsed": 29,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 0,
-      "score_ht_b": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 29,
+          "extra_minute": null,
+          "team_name": "Ipswich",
+          "type": "But",
+          "detail": "But",
+          "player": "L. Davis",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1575141,
@@ -322,7 +332,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 10,
+      "elapsed": 30,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
