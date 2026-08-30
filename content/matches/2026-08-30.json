@@ -1,6 +1,6 @@
 {
   "date": "2026-08-30",
-  "updated_at": "2026-08-30T15:00:07Z",
+  "updated_at": "2026-08-30T15:20:08Z",
   "matches": [
     {
       "id": 1552743,
@@ -174,9 +174,9 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 72,
+      "elapsed": 90,
       "score_a": 4,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 2,
       "score_ht_b": 0,
       "score_et_a": null,
@@ -206,18 +206,19 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/535.png",
       "venue": null,
       "kickoff_utc": "2026-08-30T15:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 16,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": []
     },
     {
       "id": 1552744,
@@ -230,18 +231,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/1298.png",
       "venue": "Roazhon Park",
       "kickoff_utc": "2026-08-30T15:15:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 5,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 5,
+          "extra_minute": null,
+          "team_name": "Rennes",
+          "type": "But",
+          "detail": "But",
+          "player": "E. Lepaul",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1557384,
