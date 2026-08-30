@@ -1,6 +1,6 @@
 {
   "date": "2026-08-29",
-  "updated_at": "2026-08-29T22:40:04Z",
+  "updated_at": "2026-08-30T04:20:06Z",
   "matches": [
     {
       "id": 1557383,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Nottingham Forest",
-          "type": "But",
-          "detail": "But",
-          "player": "Dan Ndoye",
-          "assist": "Morgan Gibbs-White"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575143,
@@ -59,27 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "SV Elversberg",
-          "type": "But",
-          "detail": "But",
-          "player": "Lukas Petkov",
-          "assist": "Francis Onyeka"
-        },
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "SV Elversberg",
-          "type": "But",
-          "detail": "But",
-          "player": "Lasse Günther",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575144,
@@ -103,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "1899 Hoffenheim",
-          "type": "But",
-          "detail": "But",
-          "player": "Adam Daghim",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575146,
@@ -138,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 2,
-          "extra_minute": null,
-          "team_name": "FSV Mainz 05",
-          "type": "But",
-          "detail": "But",
-          "player": "Nadiem Amiri",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575147,
@@ -173,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "RB Leipzig",
-          "type": "But",
-          "detail": "But",
-          "player": "Ridle Baku",
-          "assist": "Tidiam Gomis"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575148,
@@ -208,63 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 3,
-          "extra_minute": null,
-          "team_name": "Union Berlin",
-          "type": "But",
-          "detail": "But",
-          "player": "Emmanuel Latte Lath",
-          "assist": "Josip Juranović"
-        },
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Eintracht Frankfurt",
-          "type": "But",
-          "detail": "But",
-          "player": "Younes Ebnoutalib",
-          "assist": null
-        },
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Eintracht Frankfurt",
-          "type": "But",
-          "detail": "But",
-          "player": "Younes Ebnoutalib",
-          "assist": null
-        },
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Eintracht Frankfurt",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Younes Ebnoutalib",
-          "assist": null
-        },
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Eintracht Frankfurt",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Jeremiaha Maluze",
-          "assist": null
-        },
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Union Berlin",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Michel Aebischer",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557378,
@@ -288,27 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 21,
-          "extra_minute": null,
-          "team_name": "Bournemouth",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Alex Scott",
-          "assist": null
-        },
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Bournemouth",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Adam Smith",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557380,
@@ -332,18 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Hull City",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Lewie Coyle",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570357,
@@ -367,18 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 16,
-          "extra_minute": null,
-          "team_name": "Real Betis",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1552745,
@@ -402,27 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "Strasbourg",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Jeyland Mitchell",
-          "assist": null
-        },
-        {
-          "minute": 38,
-          "extra_minute": null,
-          "team_name": "Lens",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "Florian Thauvin",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550100,
