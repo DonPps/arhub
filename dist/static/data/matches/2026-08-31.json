@@ -1,6 +1,6 @@
 {
   "date": "2026-08-31",
-  "updated_at": "2026-08-31T19:20:05Z",
+  "updated_at": "2026-08-31T20:40:04Z",
   "matches": [
     {
       "id": 1550103,
@@ -48,10 +48,10 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/546.png",
       "venue": "Estadio El Sadar",
       "kickoff_utc": "2026-08-31T17:30:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
-      "elapsed": 85,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -83,11 +83,11 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/500.png",
       "venue": "New Balance Arena",
       "kickoff_utc": "2026-08-31T18:45:00.000000Z",
-      "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 35,
-      "score_a": 0,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
+      "score_a": 1,
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
@@ -95,7 +95,26 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 55,
+          "extra_minute": null,
+          "team_name": "Atalanta",
+          "type": "Remplacement",
+          "detail": "Remplacement",
+          "player": "C. De Ketelaere",
+          "assist": "N. Zalewski"
+        },
+        {
+          "minute": 56,
+          "extra_minute": null,
+          "team_name": "Atalanta",
+          "type": "Remplacement",
+          "detail": "Substitution 2",
+          "player": "G. Raspadori",
+          "assist": "E. Elmas"
+        }
+      ]
     },
     {
       "id": 1557377,
@@ -109,18 +128,28 @@
       "venue": "Villa Park",
       "kickoff_utc": "2026-08-31T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 20,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 82,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 0,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 29,
+          "extra_minute": null,
+          "team_name": "Arsenal",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "C. Tzolis",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1570354,
@@ -133,18 +162,47 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/728.png",
       "venue": "Camp Nou",
       "kickoff_utc": "2026-08-31T19:30:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
+      "score_a": 2,
+      "score_b": 1,
+      "score_ht_a": 2,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 12,
+          "extra_minute": null,
+          "team_name": "Rayo Vallecano",
+          "type": "But",
+          "detail": "But",
+          "player": "S. Camello",
+          "assist": "A. Garcia"
+        },
+        {
+          "minute": 19,
+          "extra_minute": null,
+          "team_name": "Barcelona",
+          "type": "But",
+          "detail": "But",
+          "player": "Raphinha",
+          "assist": "X. Espart"
+        },
+        {
+          "minute": 21,
+          "extra_minute": null,
+          "team_name": "Barcelona",
+          "type": "But",
+          "detail": "But",
+          "player": "Lamine Yamal",
+          "assist": "M. Bernal"
+        }
+      ]
     }
   ]
 }
