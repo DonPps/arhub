@@ -1,6 +1,6 @@
 {
   "date": "2026-08-31",
-  "updated_at": "2026-08-31T16:20:05Z",
+  "updated_at": "2026-08-31T16:40:04Z",
   "matches": [
     {
       "id": 1550103,
@@ -13,18 +13,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/497.png",
       "venue": "Stadio Via del Mare",
       "kickoff_utc": "2026-08-31T16:30:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 4,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 4,
+          "extra_minute": null,
+          "team_name": "AS Roma",
+          "type": "But",
+          "detail": "But",
+          "player": "D. Malen",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1570358,
