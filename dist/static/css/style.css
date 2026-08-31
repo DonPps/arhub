@@ -37,6 +37,53 @@
   --radius-lg: 16px;
 }
 
+/* Carte promo YouTube (page d'accueil, après le hero) — retour
+   utilisateur du 01/09/2026 : ramener du trafic vers la chaîne
+   @atlasrisingma. Lien "?sub_confirmation=1" : ouvre YouTube avec la
+   boîte de dialogue d'abonnement pré-remplie si le visiteur est déjà
+   connecté à son compte Google.
+
+   Format compact façon "popup" (retour utilisateur du 01/09/2026 —
+   le premier jet en bandeau pleine largeur était trop imposant) :
+   carte centrée, largeur limitée, empilée verticalement plutôt qu'en
+   ligne. Motif décoratif : étoile à 8 branches (deux carrés superposés,
+   l'un pivoté à 45°) — même grammaire géométrique que le reste du site
+   ("identité visuelle marocaine", voir l'en-tête de ce fichier),
+   encodée en SVG inline pour ne pas ajouter de fichier image. */
+.youtube-promo{
+  position:relative; overflow:hidden;
+  max-width: 380px; margin: 0 auto;
+  display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px;
+  background: var(--ink); color:#fff; border-radius: var(--radius-lg);
+  padding: 26px 24px; box-shadow: var(--shadow-card);
+}
+.youtube-promo::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cg fill='none' stroke='%23F2C572' stroke-width='1'%3E%3Crect x='8' y='8' width='24' height='24'/%3E%3Crect x='8' y='8' width='24' height='24' transform='rotate(45 20 20)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 40px 40px;
+  opacity:.14;
+}
+.youtube-promo > *{ position:relative; }
+.youtube-promo-icon{
+  flex-shrink:0; width:44px; height:44px; border-radius:50%;
+  background: var(--red); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+}
+.youtube-promo-icon svg{ width:22px; height:22px; }
+.youtube-promo-text .eyebrow{ color: var(--gold); }
+.youtube-promo-text h2{
+  font-family: var(--font-display); font-size: 19px; line-height:1.25;
+  margin: 4px 0 6px; color:#fff;
+}
+.youtube-promo-text p{ color: rgba(255,255,255,.75); font-size:13px; margin:0; }
+.youtube-promo-btn{
+  flex-shrink:0; display:inline-flex; align-items:center; gap:8px;
+  background: var(--red); color:#fff; font-family: var(--font-nav);
+  font-weight:600; font-size:14px; padding: 10px 20px; border-radius: 999px;
+  text-decoration:none; transition: background .2s var(--ease), transform .2s var(--ease);
+}
+.youtube-promo-btn:hover{ background: var(--red-dark); transform: translateY(-1px); }
+
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 
