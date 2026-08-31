@@ -37,6 +37,39 @@
   --radius-lg: 16px;
 }
 
+/* Bandeau promo YouTube (page d'accueil, après le hero) — retour
+   utilisateur du 01/09/2026 : ramener du trafic vers la chaîne
+   @atlasrisingma. Lien "?sub_confirmation=1" : ouvre YouTube avec la
+   boîte de dialogue d'abonnement pré-remplie si le visiteur est déjà
+   connecté à son compte Google. */
+.youtube-promo{
+  display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+  background: var(--ink); color:#fff; border-radius: var(--radius-lg);
+  padding: 28px 32px; box-shadow: var(--shadow-card);
+}
+.youtube-promo-icon{
+  flex-shrink:0; width:56px; height:56px; border-radius:50%;
+  background: var(--red); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+}
+.youtube-promo-text{ flex:1 1 240px; min-width:200px; }
+.youtube-promo-text .eyebrow{ color: var(--gold); }
+.youtube-promo-text h2{
+  font-family: var(--font-display); font-size: 22px; line-height:1.2;
+  margin: 4px 0 6px; color:#fff;
+}
+.youtube-promo-text p{ color: rgba(255,255,255,.75); font-size:14px; margin:0; }
+.youtube-promo-btn{
+  flex-shrink:0; display:inline-flex; align-items:center; gap:8px;
+  background: var(--red); color:#fff; font-family: var(--font-nav);
+  font-weight:600; font-size:14px; padding: 12px 22px; border-radius: 999px;
+  text-decoration:none; transition: background .2s var(--ease), transform .2s var(--ease);
+}
+.youtube-promo-btn:hover{ background: var(--red-dark); transform: translateY(-1px); }
+@media (max-width: 640px){
+  .youtube-promo{ flex-direction:column; text-align:center; padding:24px; }
+}
+
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 
