@@ -37,22 +37,23 @@
   --radius-lg: 16px;
 }
 
-/* Carte YouTube compacte (page d'accueil, après le hero) — refonte du
-   01/09/2026, remplace l'ancien encart .youtube-promo. Retour
+/* Carte YouTube compacte (sidebar page d'accueil, sous le podcast) —
+   refonte du 01/09/2026, remplace l'ancien encart .youtube-promo. Retour
    utilisateur : "ça ne doit pas être une section du site, c'est juste
    un petit truc" — un premier jet en grande section 2 colonnes avec
-   grille de vidéos était trop imposant, ramené ici à une petite carte
-   centrée. Ton "documentaire/média premium" : fond anthracite, vert
-   comme accent (couleur locale à cette carte uniquement — --yt-green
-   n'existe pas dans :root, le reste du site garde le rouge comme
-   accent), rouge du site en touche secondaire très discrète (point
-   avant le label). Le lien pointe vers la vraie chaîne (@atlasrisingma,
-   déjà utilisée ailleurs sur le site) — aucune URL inventée. */
+   grille de vidéos était trop imposant, ramené à une petite carte ; puis
+   déplacée de la colonne principale vers la sidebar, sous le podcast.
+   Ton "documentaire/média premium" : fond anthracite, vert comme accent
+   (couleur locale à cette carte uniquement — --yt-green n'existe pas
+   dans :root, le reste du site garde le rouge comme accent), rouge du
+   site en touche secondaire très discrète (point avant le label). Le
+   lien pointe vers la vraie chaîne (@atlasrisingma, déjà utilisée
+   ailleurs sur le site) — aucune URL inventée. */
 .yt-feature{
   --yt-green: #1F5C4B;
   --yt-green-light: #2E7D66;
   position:relative; overflow:hidden;
-  max-width: 360px; margin: 0 auto;
+  margin: 0 0 32px;
   display:flex; flex-direction:column; align-items:center; text-align:center; gap:6px;
   background: var(--ink); color:#F5F2EC; border-radius: var(--radius-lg);
   padding: 26px 24px; box-shadow: var(--shadow-card);

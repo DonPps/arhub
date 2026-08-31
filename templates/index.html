@@ -76,20 +76,6 @@
 
     {{ ad_inline('home_after_hero') }}
 
-    <section class="content-section section-youtube" data-reveal>
-      <div class="yt-feature">
-        <div class="yt-feature-logo" aria-hidden="true"><img src="{{ root }}static/img/logo.png" alt=""></div>
-        <span class="yt-feature-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="yt-feature-label">Sur YouTube</span>
-        <h2 class="yt-feature-title">Atlas Rising, aussi en vidéo.</h2>
-        <p class="yt-feature-text">Décryptages, géopolitique et économie marocaine — en quelques minutes.</p>
-        <a href="https://www.youtube.com/@atlasrisingma" target="_blank" rel="noopener" class="yt-feature-cta">
-          <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          Voir la chaîne
-        </a>
-      </div>
-    </section>
-
     {% if mercato_articles %}
     <section class="content-section section-mercato" data-reveal>
       <div class="section-head">
@@ -232,6 +218,18 @@
         <p>Prochain épisode bientôt disponible.</p>
       </div>
       {% endif %}
+    </div>
+
+    <div class="yt-feature">
+      <div class="yt-feature-logo" aria-hidden="true"><img src="{{ root }}static/img/logo.png" alt=""></div>
+      <span class="yt-feature-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="yt-feature-label">Sur YouTube</span>
+      <h2 class="yt-feature-title">Atlas Rising, aussi en vidéo.</h2>
+      <p class="yt-feature-text">Décryptages, géopolitique et économie marocaine — en quelques minutes.</p>
+      <a href="https://www.youtube.com/@atlasrisingma" target="_blank" rel="noopener" class="yt-feature-cta">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Voir la chaîne
+      </a>
     </div>
 
     {{ ad_sidebar('home_sidebar') }}
