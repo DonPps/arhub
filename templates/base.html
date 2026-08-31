@@ -111,6 +111,10 @@
         <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2l4 4-4 4M3 6h18M7 22l-4-4 4-4M21 18H3"/></svg>
         {{ categories_by_slug['transferts'].name }}
       </a>
+      <a href="{{ root }}categorie/economie.html" class="{% if active_nav=='economie' %}active{% endif %}">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M6 21V10M11 21V6M16 21V13M21 21V3"/></svg>
+        {{ categories_by_slug['economie'].name }}
+      </a>
       <a href="{{ root }}matchs.html" class="{% if active_nav=='matchs' %}active{% endif %}">
         <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
         Matchs

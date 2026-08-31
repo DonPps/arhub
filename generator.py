@@ -92,13 +92,19 @@ def _compress_audio(source: Path, dest: Path) -> None:
     uniquement, donc perte de qualité imperceptible) — utilisé quand la
     source dépasse PODCAST_MAX_BYTES. Toujours produit un .m4a en sortie,
     quel que soit le format d'origine, pour éviter d'avoir à gérer un
-    encodeur différent par extension."""
+    encodeur différent par extension.
+
+    timeout=300 : retour utilisateur du 31/08/2026 — un run de
+    generator.py est resté bloqué indéfiniment sur un process ffmpeg
+    suspendu (jamais de sortie, jamais d'erreur), sans timeout pour
+    l'interrompre. Tous les autres subprocess.run() de ce dépôt ont déjà
+    un timeout ; celui-ci était le seul oublié."""
     import imageio_ffmpeg
     ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
     subprocess.run(
         [ffmpeg, "-y", "-i", str(source), "-ac", "1", "-b:a", PODCAST_COMPRESS_BITRATE,
          "-movflags", "+faststart", str(dest)],
-        capture_output=True, check=True,
+        capture_output=True, check=True, timeout=300,
     )
 
 
@@ -465,7 +471,12 @@ def build():
         "categories_by_slug": {c["slug"]: c for c in config["categories"]},
         "today": date.today().strftime("%d/%m/%Y"),
         "year": date.today().year,
-        "ticker": articles[:10],
+        # Retour utilisateur du 28/08/2026 : le bandeau "En continu" doit
+        # impérativement n'afficher QUE les news du jour, jamais des
+        # articles plus anciens même récents — se vide simplement (bandeau
+        # masqué, voir {% if ticker %} dans base.html) tant qu'aucun
+        # article n'a encore été publié aujourd'hui.
+        "ticker": [a for a in articles if a.get("date") == date.today().isoformat()][:10],
         # Widgets flottants (base.html, présents sur toutes les pages) :
         # podcast pour la mini-pop-up lecteur, quiz pour le lien direct.
         "podcast": load_podcast(),

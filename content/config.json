@@ -12,6 +12,10 @@
     {
       "slug": "transferts",
       "name": "Transferts"
+    },
+    {
+      "slug": "economie",
+      "name": "Économie"
     }
   ],
   "static_pages": [
