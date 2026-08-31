@@ -1,6 +1,6 @@
 {
   "date": "2026-08-31",
-  "updated_at": "2026-08-31T18:20:04Z",
+  "updated_at": "2026-08-31T18:40:04Z",
   "matches": [
     {
       "id": 1550103,
@@ -13,10 +13,10 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/497.png",
       "venue": "Via del Mare",
       "kickoff_utc": "2026-08-31T16:30:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
-      "elapsed": 82,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
       "score_a": 0,
       "score_b": 4,
       "score_ht_a": 0,
@@ -49,8 +49,8 @@
       "venue": "Estadio El Sadar",
       "kickoff_utc": "2026-08-31T17:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
+      "status_short": "HT",
+      "status_long": "Halftime",
       "elapsed": 45,
       "score_a": 1,
       "score_b": 0,
