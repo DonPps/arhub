@@ -1,6 +1,6 @@
 {
   "date": "2026-08-31",
-  "updated_at": "2026-08-31T22:40:04Z",
+  "updated_at": "2026-09-01T00:40:05Z",
   "matches": [
     {
       "id": 1550103,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 4,
-          "extra_minute": null,
-          "team_name": "AS Roma",
-          "type": "But",
-          "detail": "But",
-          "player": "D. Malen",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570358,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Osasuna",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "J. Herrando",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550098,
@@ -94,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 55,
-          "extra_minute": null,
-          "team_name": "Atalanta",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "C. De Ketelaere",
-          "assist": "N. Zalewski"
-        },
-        {
-          "minute": 56,
-          "extra_minute": null,
-          "team_name": "Atalanta",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "G. Raspadori",
-          "assist": "E. Elmas"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557377,
@@ -138,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Arsenal",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "C. Tzolis",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570354,
@@ -173,36 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "Rayo Vallecano",
-          "type": "But",
-          "detail": "But",
-          "player": "S. Camello",
-          "assist": "A. Garcia"
-        },
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Barcelona",
-          "type": "But",
-          "detail": "But",
-          "player": "Raphinha",
-          "assist": "X. Espart"
-        },
-        {
-          "minute": 21,
-          "extra_minute": null,
-          "team_name": "Barcelona",
-          "type": "But",
-          "detail": "But",
-          "player": "Lamine Yamal",
-          "assist": "M. Bernal"
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
