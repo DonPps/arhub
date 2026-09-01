@@ -42,27 +42,30 @@
    utilisateur : "ça ne doit pas être une section du site, c'est juste
    un petit truc" — un premier jet en grande section 2 colonnes avec
    grille de vidéos était trop imposant, ramené à une petite carte ; puis
-   déplacée de la colonne principale vers la sidebar, sous le podcast.
-   Ton "documentaire/média premium" : fond anthracite, vert comme accent
-   (couleur locale à cette carte uniquement — --yt-green n'existe pas
-   dans :root, le reste du site garde le rouge comme accent), rouge du
-   site en touche secondaire très discrète (point avant le label). Le
-   lien pointe vers la vraie chaîne (@atlasrisingma, déjà utilisée
-   ailleurs sur le site) — aucune URL inventée. */
+   déplacée de la colonne principale vers la sidebar, sous le podcast ;
+   puis habillée d'une photo (studio TV nocturne, carte du Maroc en
+   surimpression verte) fournie par l'utilisateur, avec un voile sombre
+   dégradé pour garder le texte lisible. Vert comme accent (couleur
+   locale à cette carte uniquement — --yt-green n'existe pas dans :root,
+   le reste du site garde le rouge comme accent), rouge du site en
+   touche secondaire très discrète (point avant le label). Le lien
+   pointe vers la vraie chaîne (@atlasrisingma, déjà utilisée ailleurs
+   sur le site) — aucune URL inventée. */
 .yt-feature{
   --yt-green: #1F5C4B;
   --yt-green-light: #2E7D66;
   position:relative; overflow:hidden;
   margin: 0 0 32px;
   display:flex; flex-direction:column; align-items:center; text-align:center; gap:6px;
-  background: var(--ink); color:#F5F2EC; border-radius: var(--radius-lg);
+  background: var(--ink) url("../img/youtube-card-bg.jpg") center / cover no-repeat;
+  color:#F5F2EC; border-radius: var(--radius-lg);
   padding: 26px 24px; box-shadow: var(--shadow-card);
 }
-.yt-feature-logo{
-  position:absolute; right:-20px; bottom:-20px; width:110px; height:110px;
-  opacity:.06; pointer-events:none;
+.yt-feature::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,.72) 55%, rgba(10,10,10,.88) 100%);
 }
-.yt-feature-logo img{ width:100%; height:100%; object-fit:contain; }
 .yt-feature > *{ position:relative; z-index:1; }
 .yt-feature-play{
   width:36px; height:36px; border-radius:50%; margin-bottom:4px;
