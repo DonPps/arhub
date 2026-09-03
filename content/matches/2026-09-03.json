@@ -1,6 +1,6 @@
 {
   "date": "2026-09-03",
-  "updated_at": "2026-09-03T19:40:05Z",
+  "updated_at": "2026-09-03T20:00:06Z",
   "matches": [
     {
       "id": 1552754,
@@ -14,9 +14,9 @@
       "venue": "Stadium de Toulouse",
       "kickoff_utc": "2026-09-03T18:45:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 56,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -58,9 +58,9 @@
       "venue": "Anoeta",
       "kickoff_utc": "2026-09-03T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 38,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
