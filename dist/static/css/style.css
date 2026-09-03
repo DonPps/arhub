@@ -842,6 +842,16 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .ad-slot[data-ad-placement]{
   border:none; padding:0; margin: 28px 0; text-transform:none; letter-spacing:normal;
   text-align:left; border-radius: 10px; overflow:hidden; transition: opacity .3s var(--ease);
+  /* CLS constaté sur Cloudflare Web Analytics (03/09/2026) sur les
+     emplacements ad-inline et la sidebar : AdSense en
+     data-full-width-responsive recalcule et impose sa propre hauteur
+     après le premier rendu, ce qu'overflow:hidden seul ne bloque pas
+     (ce n'est pas un débordement visuel, c'est la boîte elle-même qui
+     change de taille). contain:size fige la taille de la boîte
+     (dérivée d'aspect-ratio) indépendamment de ce que injecte le
+     script publicitaire — le contenu qui dépasse est simplement rogné,
+     jamais de saut de mise en page. */
+  contain: layout size style;
 }
 .ad-slot.ad-empty{ display:none; }
 .ad-slot.ad-placeholder{
