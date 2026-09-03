@@ -1,6 +1,6 @@
 {
   "date": "2026-09-03",
-  "updated_at": "2026-09-03T20:00:06Z",
+  "updated_at": "2026-09-03T20:20:05Z",
   "matches": [
     {
       "id": 1552754,
@@ -16,9 +16,9 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 56,
+      "elapsed": 76,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 0,
       "score_ht_b": 0,
       "score_et_a": null,
@@ -58,9 +58,9 @@
       "venue": "Anoeta",
       "kickoff_utc": "2026-09-03T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 59,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
