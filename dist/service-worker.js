@@ -6,14 +6,14 @@
    - Pages (navigations) : network-first — jamais de contenu périmé
      tant qu'il y a du réseau, juste un filet de sécurité hors-ligne.
    - Assets statiques same-origin (css/js/img) : cache-first — déjà
-     versionnés via ?v=b1421f3f19, donc un nouveau déploiement
+     versionnés via ?v=74fecdc12c, donc un nouveau déploiement
      produit naturellement de nouvelles URLs, aucun risque de servir du
      vieux CSS/JS.
    - Tout le reste (Firebase, cross-origin, non-GET) : jamais intercepté,
      passe directement au réseau — ne doit jamais interférer avec
      l'auth ou les duels en temps réel. */
 
-const CACHE_NAME = 'atlas-rising-b1421f3f19';
+const CACHE_NAME = 'atlas-rising-74fecdc12c';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
