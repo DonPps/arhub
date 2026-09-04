@@ -1,6 +1,6 @@
 {
   "date": "2026-09-03",
-  "updated_at": "2026-09-03T22:40:04Z",
+  "updated_at": "2026-09-04T04:40:05Z",
   "matches": [
     {
       "id": 1552754,
@@ -24,27 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "Toulouse",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Santiago Hidalgo",
-          "assist": null
-        },
-        {
-          "minute": 34,
-          "extra_minute": null,
-          "team_name": "Toulouse",
-          "type": "VAR",
-          "detail": "Penalty confirmed",
-          "player": "Thomas Jorgensen",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570392,
@@ -68,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Real Sociedad",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Yangel Herrera",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
