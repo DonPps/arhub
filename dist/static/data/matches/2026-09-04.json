@@ -1,6 +1,6 @@
 {
   "date": "2026-09-04",
-  "updated_at": "2026-09-04T22:40:04Z",
+  "updated_at": "2026-09-04T23:40:05Z",
   "matches": [
     {
       "id": 1620120,
@@ -48,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Diambars",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1620132,
@@ -83,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "Panthère",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1620134,
@@ -142,27 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Lyon",
-          "type": "But",
-          "detail": "But",
-          "player": "Loïs Openda",
-          "assist": "Ernest Nuamah"
-        },
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Lyon",
-          "type": "VAR",
-          "detail": "",
-          "player": "Loïs Openda",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1619058,
@@ -210,27 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 6,
-          "extra_minute": null,
-          "team_name": "Zamalek SC",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        },
-        {
-          "minute": 37,
-          "extra_minute": null,
-          "team_name": "Zamalek SC",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1620128,
@@ -254,27 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 41,
-          "extra_minute": null,
-          "team_name": "Al Hilal Port Sudan",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        },
-        {
-          "minute": 43,
-          "extra_minute": null,
-          "team_name": "Welwalo Adigrat Uni",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1619074,
