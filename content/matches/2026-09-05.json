@@ -1,6 +1,6 @@
 {
   "date": "2026-09-05",
-  "updated_at": "2026-09-05T10:20:05Z",
+  "updated_at": "2026-09-05T10:40:06Z",
   "matches": [
     {
       "id": 1557395,
@@ -541,9 +541,9 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/5453.png",
       "venue": null,
       "kickoff_utc": "2026-09-05T15:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
+      "status": "OTHER",
+      "status_short": "PST",
+      "status_long": "Match Postponed",
       "elapsed": null,
       "score_a": null,
       "score_b": null,
