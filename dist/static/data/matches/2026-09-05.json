@@ -1,6 +1,6 @@
 {
   "date": "2026-09-05",
-  "updated_at": "2026-09-05T22:00:07Z",
+  "updated_at": "2026-09-05T22:20:04Z",
   "matches": [
     {
       "id": 1557395,
@@ -752,30 +752,6 @@
       "score_b": 1,
       "score_ht_a": 2,
       "score_ht_b": 0,
-      "score_et_a": null,
-      "score_et_b": null,
-      "score_pen_a": null,
-      "score_pen_b": null
-    },
-    {
-      "id": 1620133,
-      "competition": "CAF Confederation Cup",
-      "competition_logo": "https://media.api-sports.io/football/leagues/20.png",
-      "competition_country": "World",
-      "team_a": "Panthers",
-      "team_b": "ASPAC",
-      "team_a_crest": "https://media.api-sports.io/football/teams/28151.png",
-      "team_b_crest": "https://media.api-sports.io/football/teams/5453.png",
-      "venue": null,
-      "kickoff_utc": "2026-09-05T15:00:00.000000Z",
-      "status": "OTHER",
-      "status_short": "PST",
-      "status_long": "Match Postponed",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
