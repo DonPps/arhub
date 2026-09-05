@@ -1,6 +1,6 @@
 {
   "date": "2026-09-05",
-  "updated_at": "2026-09-05T07:40:05Z",
+  "updated_at": "2026-09-05T08:00:08Z",
   "matches": [
     {
       "id": 1557395,
@@ -517,30 +517,6 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/5357.png",
       "venue": null,
       "kickoff_utc": "2026-09-05T14:30:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
-      "score_et_a": null,
-      "score_et_b": null,
-      "score_pen_a": null,
-      "score_pen_b": null
-    },
-    {
-      "id": 1619052,
-      "competition": "CAF Champions League",
-      "competition_logo": "https://media.api-sports.io/football/leagues/12.png",
-      "competition_country": "World",
-      "team_a": "15 de Agosto",
-      "team_b": "Fomboni Club",
-      "team_a_crest": "https://media.api-sports.io/football/teams/19116.png",
-      "team_b_crest": "https://media.api-sports.io/football/teams/6419.png",
-      "venue": null,
-      "kickoff_utc": "2026-09-05T15:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
       "status_long": "Not Started",
