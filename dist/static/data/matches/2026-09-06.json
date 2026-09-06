@@ -1,6 +1,6 @@
 {
   "date": "2026-09-06",
-  "updated_at": "2026-09-06T12:00:09Z",
+  "updated_at": "2026-09-06T12:20:06Z",
   "matches": [
     {
       "id": 1619065,
@@ -16,7 +16,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 28,
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -38,18 +38,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/1036.png",
       "venue": null,
       "kickoff_utc": "2026-09-06T12:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 20,
+      "score_a": 0,
+      "score_b": 1,
+      "score_ht_a": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 5,
+          "extra_minute": null,
+          "team_name": "Pyramids FC",
+          "type": "But",
+          "detail": "But",
+          "player": null,
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1550111,
