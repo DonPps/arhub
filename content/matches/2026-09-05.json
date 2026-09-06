@@ -1,6 +1,6 @@
 {
   "date": "2026-09-05",
-  "updated_at": "2026-09-05T22:40:05Z",
+  "updated_at": "2026-09-06T01:00:09Z",
   "matches": [
     {
       "id": 1557395,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Bournemouth",
-          "type": "But",
-          "detail": "But",
-          "player": "Marcus Tavernier",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550110,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Fiorentina",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Christ Inao Oulaï",
-          "assist": "Cher Ndour"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1619053,
@@ -94,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 28,
-          "extra_minute": null,
-          "team_name": "Al Hilal Omdurman",
-          "type": "But",
-          "detail": "But",
-          "player": "J. Yasser",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1619108,
@@ -153,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 53,
-          "extra_minute": null,
-          "team_name": "Black Bulls Maputo",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1620127,
@@ -212,18 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 39,
-          "extra_minute": null,
-          "team_name": "Red Arrows",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1620129,
@@ -247,36 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "Al Ahli Tripoli",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        },
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Al Ahli Tripoli",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        },
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "Al Ahli Tripoli",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575150,
@@ -300,45 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "Borussia Dortmund",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Filippo Mane",
-          "assist": "Ethan Nwaneri"
-        },
-        {
-          "minute": 40,
-          "extra_minute": null,
-          "team_name": "1899 Hoffenheim",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Ozan Kabak",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "1899 Hoffenheim",
-          "type": "But",
-          "detail": "But",
-          "player": "Leon Avdullahu",
-          "assist": "Vladimír Coufal"
-        },
-        {
-          "minute": 45,
-          "extra_minute": 2,
-          "team_name": "1899 Hoffenheim",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Albian Hajdari",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575151,
@@ -362,36 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 1,
-          "extra_minute": null,
-          "team_name": "Bayer Leverkusen",
-          "type": "But",
-          "detail": "But",
-          "player": "Ignacio Ezequiel Agustín Fernández Carballo",
-          "assist": "Miguel Gutiérrez"
-        },
-        {
-          "minute": 4,
-          "extra_minute": null,
-          "team_name": "Union Berlin",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Felix Uduokhai",
-          "assist": null
-        },
-        {
-          "minute": 28,
-          "extra_minute": null,
-          "team_name": "Bayer Leverkusen",
-          "type": "But",
-          "detail": "But",
-          "player": "Facundo Medina",
-          "assist": "Miguel Gutiérrez"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575153,
@@ -415,54 +264,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Borussia Mönchengladbach",
-          "type": "But",
-          "detail": "But",
-          "player": "Hugo Bolin",
-          "assist": null
-        },
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "SV Elversberg",
-          "type": "But",
-          "detail": "But",
-          "player": "David Mokwa",
-          "assist": "Lukas Pinckert"
-        },
-        {
-          "minute": 44,
-          "extra_minute": null,
-          "team_name": "Borussia Mönchengladbach",
-          "type": "But",
-          "detail": "But",
-          "player": "Hugo Bolin",
-          "assist": "Franck Honorat"
-        },
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "SV Elversberg",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Vincent Wagner",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": 2,
-          "team_name": "Borussia Mönchengladbach",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Hugo Bolin",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575155,
@@ -486,36 +288,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 4,
-          "extra_minute": null,
-          "team_name": "Werder Bremen",
-          "type": "But",
-          "detail": "But",
-          "player": "Eren Dinkci",
-          "assist": "Iván San José Cantalejo"
-        },
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Werder Bremen",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Iván San José Cantalejo",
-          "assist": null
-        },
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "RB Leipzig",
-          "type": "VAR",
-          "detail": "Penalty cancelled",
-          "player": "Christopher Nkunku",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575157,
