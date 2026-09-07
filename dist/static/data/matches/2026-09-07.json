@@ -1,6 +1,6 @@
 {
   "date": "2026-09-07",
-  "updated_at": "2026-09-07T17:40:05Z",
+  "updated_at": "2026-09-07T18:00:08Z",
   "matches": [
     {
       "id": 1550109,
@@ -16,7 +16,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 52,
+      "elapsed": 72,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -49,9 +49,9 @@
       "venue": "Coliseum",
       "kickoff_utc": "2026-09-07T17:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 38,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
