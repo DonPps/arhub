@@ -1,6 +1,6 @@
 {
   "date": "2026-09-06",
-  "updated_at": "2026-09-06T22:40:04Z",
+  "updated_at": "2026-09-07T02:20:05Z",
   "matches": [
     {
       "id": 1619065,
@@ -48,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 5,
-          "extra_minute": null,
-          "team_name": "Pyramids FC",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550111,
@@ -83,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 16,
-          "extra_minute": null,
-          "team_name": "Venezia",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Armel Bella-Kotchap",
-          "assist": "Richie Sagrado"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550115,
@@ -118,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 38,
-          "extra_minute": null,
-          "team_name": "Monza",
-          "type": "But",
-          "detail": "But",
-          "player": "Jay Robinson",
-          "assist": "Ricardo Mangas"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1552755,
@@ -153,27 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Estac Troyes",
-          "type": "But",
-          "detail": "But",
-          "player": "Antoine Mille",
-          "assist": "Anis Ouzenadji"
-        },
-        {
-          "minute": 37,
-          "extra_minute": null,
-          "team_name": "Estac Troyes",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Junior Diaz",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557390,
@@ -197,27 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Everton",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Harrison Armstrong",
-          "assist": null
-        },
-        {
-          "minute": 34,
-          "extra_minute": null,
-          "team_name": "Everton",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Brennan Johnson",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1619054,
