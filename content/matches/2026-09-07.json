@@ -1,6 +1,6 @@
 {
   "date": "2026-09-07",
-  "updated_at": "2026-09-07T20:40:04Z",
+  "updated_at": "2026-09-07T21:00:07Z",
   "matches": [
     {
       "id": 1550109,
@@ -83,9 +83,9 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/487.png",
       "venue": "Bluenergy Stadium - Stadio Friuli",
       "kickoff_utc": "2026-09-07T18:45:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
       "elapsed": 90,
       "score_a": 1,
       "score_b": 2,
@@ -121,8 +121,8 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 50,
-      "score_a": 0,
+      "elapsed": 70,
+      "score_a": 1,
       "score_b": 2,
       "score_ht_a": 0,
       "score_ht_b": 2,
