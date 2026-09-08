@@ -1,6 +1,6 @@
 {
   "date": "2026-09-07",
-  "updated_at": "2026-09-08T10:00:08Z",
+  "updated_at": "2026-09-08T16:20:06Z",
   "matches": [
     {
       "id": 1550109,
@@ -35,7 +35,7 @@
       "team_b": "Celta Vigo",
       "team_a_crest": "https://media.api-sports.io/football/teams/546.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/538.png",
-      "venue": "Coliseum",
+      "venue": "Coliseum Alfonso Pérez",
       "kickoff_utc": "2026-09-07T17:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -59,7 +59,7 @@
       "team_b": "Lazio",
       "team_a_crest": "https://media.api-sports.io/football/teams/494.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/487.png",
-      "venue": "Bluenergy Stadium - Stadio Friuli",
+      "venue": "Bluenergy Stadium",
       "kickoff_utc": "2026-09-07T18:45:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -83,7 +83,7 @@
       "team_b": "Real Sociedad",
       "team_a_crest": "https://media.api-sports.io/football/teams/797.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/548.png",
-      "venue": null,
+      "venue": "Estadio Martínez Valero",
       "kickoff_utc": "2026-09-07T19:30:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
