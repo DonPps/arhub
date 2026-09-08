@@ -1,6 +1,6 @@
 {
   "date": "2026-09-07",
-  "updated_at": "2026-09-07T22:40:05Z",
+  "updated_at": "2026-09-08T03:40:04Z",
   "matches": [
     {
       "id": 1550109,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Cagliari",
-          "type": "But",
-          "detail": "But",
-          "player": "Daniel Maldini",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570368,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Getafe",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Kiko Femenia",
-          "assist": "Andrés García"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550116,
@@ -94,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Udinese",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Jakub Piotrowski",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570366,
@@ -129,27 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Real Sociedad",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Jon Aramburu",
-          "assist": null
-        },
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Real Sociedad",
-          "type": "But",
-          "detail": "But",
-          "player": "Job Ochieng",
-          "assist": "Carlos Soler"
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
