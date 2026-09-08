@@ -1,6 +1,6 @@
 {
   "date": "2026-09-08",
-  "updated_at": "2026-09-08T19:20:06Z",
+  "updated_at": "2026-09-08T19:40:06Z",
   "matches": [
     {
       "id": 1635609,
@@ -95,7 +95,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 18,
+      "elapsed": 38,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -104,7 +104,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 27,
+          "extra_minute": null,
+          "team_name": "Borussia Dortmund",
+          "type": "Remplacement",
+          "detail": "Remplacement",
+          "player": "Konstantinos Karetsas",
+          "assist": "Ethan Nwaneri"
+        }
+      ]
     },
     {
       "id": 1635654,
@@ -120,7 +130,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 18,
+      "elapsed": 38,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -129,7 +139,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 37,
+          "extra_minute": null,
+          "team_name": "Manchester City",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Josko Gvardiol",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1635683,
@@ -145,11 +165,11 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 18,
-      "score_a": 1,
-      "score_b": 0,
-      "score_ht_a": 1,
-      "score_ht_b": 0,
+      "elapsed": 38,
+      "score_a": 2,
+      "score_b": 1,
+      "score_ht_a": 2,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
@@ -180,15 +200,35 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 17,
-      "score_a": 1,
+      "elapsed": 37,
+      "score_a": 2,
       "score_b": 0,
-      "score_ht_a": 1,
+      "score_ht_a": 2,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 14,
+          "extra_minute": null,
+          "team_name": "Real Madrid",
+          "type": "But",
+          "detail": "But",
+          "player": "Kylian Mbappé",
+          "assist": "Brahim Díaz"
+        },
+        {
+          "minute": 23,
+          "extra_minute": null,
+          "team_name": "Real Madrid",
+          "type": "But",
+          "detail": "But",
+          "player": "Federico Valverde",
+          "assist": null
+        }
+      ]
     }
   ]
 }
