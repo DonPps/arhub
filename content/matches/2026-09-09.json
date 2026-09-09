@@ -1,6 +1,6 @@
 {
   "date": "2026-09-09",
-  "updated_at": "2026-09-09T17:40:05Z",
+  "updated_at": "2026-09-09T18:00:07Z",
   "matches": [
     {
       "id": 1635628,
@@ -14,9 +14,9 @@
       "venue": "Camp Nou",
       "kickoff_utc": "2026-09-09T16:45:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 55,
       "score_a": 2,
       "score_b": 0,
       "score_ht_a": 2,
@@ -49,9 +49,9 @@
       "venue": "MHPArena",
       "kickoff_utc": "2026-09-09T16:45:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 56,
       "score_a": 3,
       "score_b": 1,
       "score_ht_a": 3,
