@@ -1,6 +1,6 @@
 {
   "date": "2026-09-08",
-  "updated_at": "2026-09-08T22:40:05Z",
+  "updated_at": "2026-09-09T05:00:08Z",
   "matches": [
     {
       "id": 1635609,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "AEK Athens FC",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635643,
@@ -59,27 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Aston Villa",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Ian Maatsen",
-          "assist": null
-        },
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Aston Villa",
-          "type": "But",
-          "detail": "But",
-          "player": "John McGinn",
-          "assist": "Pau Torres"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635652,
@@ -103,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "Borussia Dortmund",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Konstantinos Karetsas",
-          "assist": "Ethan Nwaneri"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635654,
@@ -138,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 37,
-          "extra_minute": null,
-          "team_name": "Manchester City",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Josko Gvardiol",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635683,
@@ -173,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "Lille",
-          "type": "But",
-          "detail": "But",
-          "player": "Ayase Ueda",
-          "assist": "Ethan Mbappe"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635714,
@@ -208,27 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "Real Madrid",
-          "type": "But",
-          "detail": "But",
-          "player": "Kylian Mbappé",
-          "assist": "Brahim Díaz"
-        },
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Real Madrid",
-          "type": "But",
-          "detail": "But",
-          "player": "Federico Valverde",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
