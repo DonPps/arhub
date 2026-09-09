@@ -1,6 +1,6 @@
 {
   "date": "2026-09-08",
-  "updated_at": "2026-09-09T11:20:05Z",
+  "updated_at": "2026-09-09T17:40:06Z",
   "matches": [
     {
       "id": 1635609,
@@ -35,7 +35,7 @@
       "team_b": "Aston Villa",
       "team_a_crest": "https://media.api-sports.io/football/teams/569.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/66.png",
-      "venue": "Jan Breydel Stadion",
+      "venue": "Jan Breydel Stadium",
       "kickoff_utc": "2026-09-08T16:45:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -83,7 +83,7 @@
       "team_b": "Manchester City",
       "team_a_crest": "https://media.api-sports.io/football/teams/212.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/50.png",
-      "venue": null,
+      "venue": "Estádio do Dragão",
       "kickoff_utc": "2026-09-08T19:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -107,7 +107,7 @@
       "team_b": "Real Betis",
       "team_a_crest": "https://media.api-sports.io/football/teams/79.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/543.png",
-      "venue": "Stade Pierre-Mauroy",
+      "venue": "Decathlon Arena - Stade Pierre Mauroy",
       "kickoff_utc": "2026-09-08T19:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -131,7 +131,7 @@
       "team_b": "Inter",
       "team_a_crest": "https://media.api-sports.io/football/teams/541.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/505.png",
-      "venue": null,
+      "venue": "Bernabéu",
       "kickoff_utc": "2026-09-08T19:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
