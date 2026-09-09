@@ -1,6 +1,6 @@
 {
   "date": "2026-09-09",
-  "updated_at": "2026-09-09T16:40:04Z",
+  "updated_at": "2026-09-09T17:00:08Z",
   "matches": [
     {
       "id": 1635628,
@@ -13,18 +13,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/209.png",
       "venue": "Camp Nou",
       "kickoff_utc": "2026-09-09T16:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 13,
+      "score_a": 1,
+      "score_b": 0,
+      "score_ht_a": 1,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 3,
+          "extra_minute": null,
+          "team_name": "Barcelona",
+          "type": "But",
+          "detail": "But",
+          "player": "Raphael Dias Belloli",
+          "assist": "Lamine Yamal"
+        }
+      ]
     },
     {
       "id": 1635741,
@@ -37,18 +48,19 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/759.png",
       "venue": "MHPArena",
       "kickoff_utc": "2026-09-09T16:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 14,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": []
     },
     {
       "id": 1635686,
