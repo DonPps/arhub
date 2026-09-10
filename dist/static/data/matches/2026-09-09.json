@@ -1,6 +1,6 @@
 {
   "date": "2026-09-09",
-  "updated_at": "2026-09-09T22:40:04Z",
+  "updated_at": "2026-09-10T00:00:09Z",
   "matches": [
     {
       "id": 1635628,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 3,
-          "extra_minute": null,
-          "team_name": "Barcelona",
-          "type": "But",
-          "detail": "But",
-          "player": "Raphael Dias Belloli",
-          "assist": "Lamine Yamal"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635741,
@@ -59,45 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "VfB Stuttgart",
-          "type": "But",
-          "detail": "But",
-          "player": "Ermedin Demirović",
-          "assist": "Angelo Stiller"
-        },
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Viking",
-          "type": "But",
-          "detail": "But",
-          "player": "Zlatko Tripić",
-          "assist": "Henrik Bjørdal"
-        },
-        {
-          "minute": 26,
-          "extra_minute": null,
-          "team_name": "VfB Stuttgart",
-          "type": "But",
-          "detail": "But",
-          "player": "Ermedin Demirović",
-          "assist": "Deniz Undav"
-        },
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "VfB Stuttgart",
-          "type": "But",
-          "detail": "But",
-          "player": "Ermedin Demirović",
-          "assist": "Deniz Undav"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635686,
@@ -121,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Atletico Madrid",
-          "type": "But",
-          "detail": "But",
-          "player": "Marcos Llorente",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635698,
@@ -156,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 42,
-          "extra_minute": null,
-          "team_name": "Napoli",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Billy Gilmour",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635705,
@@ -191,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Paris Saint Germain",
-          "type": "But",
-          "detail": "But",
-          "player": "Ousmane Dembélé",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635736,
@@ -226,36 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 5,
-          "extra_minute": null,
-          "team_name": "Galatasaray",
-          "type": "But",
-          "detail": "Contre son camp",
-          "player": "Gonçalo Inácio",
-          "assist": null
-        },
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Sporting CP",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Sergi Altimira",
-          "assist": null
-        },
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "Sporting CP",
-          "type": "But",
-          "detail": "But",
-          "player": "Geny Catamo",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
