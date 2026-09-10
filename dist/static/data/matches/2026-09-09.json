@@ -1,6 +1,6 @@
 {
   "date": "2026-09-09",
-  "updated_at": "2026-09-10T12:40:05Z",
+  "updated_at": "2026-09-10T19:00:09Z",
   "matches": [
     {
       "id": 1635628,
@@ -11,7 +11,7 @@
       "team_b": "Feyenoord",
       "team_a_crest": "https://media.api-sports.io/football/teams/529.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/209.png",
-      "venue": "Camp Nou",
+      "venue": "Spotify Camp Nou",
       "kickoff_utc": "2026-09-09T16:45:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -35,7 +35,7 @@
       "team_b": "Viking",
       "team_a_crest": "https://media.api-sports.io/football/teams/172.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/759.png",
-      "venue": "MHPArena",
+      "venue": "MHP Arena",
       "kickoff_utc": "2026-09-09T16:45:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -131,7 +131,7 @@
       "team_b": "Galatasaray",
       "team_a_crest": "https://media.api-sports.io/football/teams/228.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/645.png",
-      "venue": null,
+      "venue": "Estádio José Alvalade",
       "kickoff_utc": "2026-09-09T19:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",

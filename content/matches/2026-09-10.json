@@ -1,6 +1,6 @@
 {
   "date": "2026-09-10",
-  "updated_at": "2026-09-10T18:40:04Z",
+  "updated_at": "2026-09-10T19:00:08Z",
   "matches": [
     {
       "id": 1619087,
@@ -48,18 +48,19 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/5453.png",
       "venue": null,
       "kickoff_utc": "2026-09-10T15:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
+      "score_a": 1,
+      "score_b": 3,
+      "score_ht_a": 1,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": []
     },
     {
       "id": 1635659,
