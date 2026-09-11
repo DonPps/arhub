@@ -1,6 +1,6 @@
 {
   "date": "2026-09-11",
-  "updated_at": "2026-09-11T15:00:07Z",
+  "updated_at": "2026-09-11T15:20:05Z",
   "matches": [
     {
       "id": 1619052,
@@ -38,9 +38,9 @@
       "venue": null,
       "kickoff_utc": "2026-09-11T14:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 65,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
