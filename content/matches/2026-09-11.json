@@ -1,6 +1,6 @@
 {
   "date": "2026-09-11",
-  "updated_at": "2026-09-11T00:00:08Z",
+  "updated_at": "2026-09-11T00:20:04Z",
   "matches": [
     {
       "id": 1619052,
@@ -60,7 +60,7 @@
       "team_a_crest": "https://media.api-sports.io/football/teams/4913.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/6421.png",
       "venue": null,
-      "kickoff_utc": "2026-09-11T15:00:00.000000Z",
+      "kickoff_utc": "2026-09-11T14:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
       "status_long": "Not Started",
