@@ -1,6 +1,6 @@
 {
   "date": "2026-09-10",
-  "updated_at": "2026-09-10T22:40:04Z",
+  "updated_at": "2026-09-11T01:20:05Z",
   "matches": [
     {
       "id": 1619087,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 53,
-          "extra_minute": null,
-          "team_name": "Wiliete",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1620133,
@@ -83,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 39,
-          "extra_minute": null,
-          "team_name": "AS Roma",
-          "type": "But",
-          "detail": "But",
-          "player": "Bryan Cristante",
-          "assist": "Donyell Malen"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635708,
@@ -118,27 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 35,
-          "extra_minute": null,
-          "team_name": "Shakhtar Donetsk",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Vinícius Tobias",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": 1,
-          "team_name": "Shakhtar Donetsk",
-          "type": "But",
-          "detail": "But",
-          "player": "Gleiker Mendoza",
-          "assist": "Isaque"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635632,
@@ -186,27 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 2,
-          "extra_minute": null,
-          "team_name": "RB Leipzig",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Willi Orbán",
-          "assist": null
-        },
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "Como",
-          "type": "But",
-          "detail": "But",
-          "player": "Martin Baturina",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635697,
