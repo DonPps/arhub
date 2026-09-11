@@ -1,6 +1,6 @@
 {
   "date": "2026-09-12",
-  "updated_at": "2026-09-11T07:40:06Z",
+  "updated_at": "2026-09-11T14:00:09Z",
   "matches": [
     {
       "id": 1570378,
@@ -541,30 +541,6 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/540.png",
       "venue": "Estadio El Sadar",
       "kickoff_utc": "2026-09-12T14:15:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
-      "score_et_a": null,
-      "score_et_b": null,
-      "score_pen_a": null,
-      "score_pen_b": null
-    },
-    {
-      "id": 1620151,
-      "competition": "CAF Confederation Cup",
-      "competition_logo": "https://media.api-sports.io/football/leagues/20.png",
-      "competition_country": "World",
-      "team_a": "Inate Rouge",
-      "team_b": "Red Arrows",
-      "team_a_crest": "https://media.api-sports.io/football/teams/28148.png",
-      "team_b_crest": "https://media.api-sports.io/football/teams/5213.png",
-      "venue": null,
-      "kickoff_utc": "2026-09-12T14:30:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
       "status_long": "Not Started",
