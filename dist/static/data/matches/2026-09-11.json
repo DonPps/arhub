@@ -1,6 +1,6 @@
 {
   "date": "2026-09-11",
-  "updated_at": "2026-09-11T17:00:09Z",
+  "updated_at": "2026-09-11T17:20:05Z",
   "matches": [
     {
       "id": 1619052,
@@ -117,9 +117,9 @@
       "venue": "Stade Amahoro",
       "kickoff_utc": "2026-09-11T16:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 55,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -176,9 +176,9 @@
       "venue": null,
       "kickoff_utc": "2026-09-11T16:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 61,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
