@@ -1,6 +1,6 @@
 {
   "date": "2026-09-13",
-  "updated_at": "2026-09-13T22:40:04Z",
+  "updated_at": "2026-09-13T23:00:08Z",
   "matches": [
     {
       "id": 1620151,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Red Arrows",
-          "type": "But",
-          "detail": "But",
-          "player": "A. Mumba",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570374,
@@ -59,27 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Malaga",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Einar Galilea",
-          "assist": null
-        },
-        {
-          "minute": 26,
-          "extra_minute": null,
-          "team_name": "Celta Vigo",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Yoel Lago",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1619089,
@@ -103,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 70,
-          "extra_minute": null,
-          "team_name": "Asswehly",
-          "type": "But",
-          "detail": "But",
-          "player": "O. John",
-          "assist": null
-        },
-        {
-          "minute": 76,
-          "extra_minute": null,
-          "team_name": "Asswehly",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550122,
@@ -147,27 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 3,
-          "extra_minute": null,
-          "team_name": "Lecce",
-          "type": "But",
-          "detail": "But",
-          "player": "L. Coulibaly",
-          "assist": "I. Ilic"
-        },
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Lecce",
-          "type": "But",
-          "detail": "But",
-          "player": "Tiago Gabriel",
-          "assist": "I. Ilic"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1552760,
@@ -191,27 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 3,
-          "extra_minute": null,
-          "team_name": "Lille",
-          "type": "VAR",
-          "detail": "Goal cancelled",
-          "player": "Hákon Arnar Haraldsson",
-          "assist": null
-        },
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Lille",
-          "type": "But",
-          "detail": "But",
-          "player": "Tiago Santos",
-          "assist": "Dilane Bakwa"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557400,
@@ -235,18 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 35,
-          "extra_minute": null,
-          "team_name": "Brighton",
-          "type": "But",
-          "detail": "But",
-          "player": "Charalampos Kostoulas",
-          "assist": "Pascal Groß"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1619103,
@@ -270,36 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Simba",
-          "type": "But",
-          "detail": "But",
-          "player": "C. Chama",
-          "assist": null
-        },
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "Simba",
-          "type": "But",
-          "detail": "But",
-          "player": "L. Gueye",
-          "assist": null
-        },
-        {
-          "minute": 34,
-          "extra_minute": null,
-          "team_name": "Simba",
-          "type": "But",
-          "detail": "But",
-          "player": "C. Chama",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1620161,
@@ -323,27 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 1,
-          "extra_minute": null,
-          "team_name": "Durban City",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        },
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "Durban City",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1620162,
@@ -367,27 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Singida Black Stars",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        },
-        {
-          "minute": 21,
-          "extra_minute": null,
-          "team_name": "Singida Black Stars",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575159,
