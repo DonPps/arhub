@@ -1,6 +1,6 @@
 {
   "date": "2026-09-12",
-  "updated_at": "2026-09-12T22:40:04Z",
+  "updated_at": "2026-09-13T04:00:09Z",
   "matches": [
     {
       "id": 1570378,
@@ -24,36 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 7,
-          "extra_minute": null,
-          "team_name": "Alaves",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Nahuel Tenaglia",
-          "assist": null
-        },
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Alaves",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Pablo Ibanez Lumbreras",
-          "assist": null
-        },
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Alaves",
-          "type": "But",
-          "detail": "But",
-          "player": "Ville Koski",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1620163,
@@ -77,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 62,
-          "extra_minute": null,
-          "team_name": "Tusker",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550119,
@@ -112,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "Frosinone",
-          "type": "But",
-          "detail": "But",
-          "player": "G. Kvernadze",
-          "assist": "R. Schmid"
-        },
-        {
-          "minute": 16,
-          "extra_minute": null,
-          "team_name": "Frosinone",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "G. Cittadini",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1619080,
@@ -156,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "African Stars",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1619081,
@@ -191,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 43,
-          "extra_minute": null,
-          "team_name": "Al Hilal Omdurman",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1619091,
@@ -226,27 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 45,
-          "extra_minute": 4,
-          "team_name": "TP Mazembe",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": 4,
-          "team_name": "TP Mazembe",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1619095,
