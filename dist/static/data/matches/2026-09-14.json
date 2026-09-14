@@ -1,6 +1,6 @@
 {
   "date": "2026-09-14",
-  "updated_at": "2026-09-14T19:00:07Z",
+  "updated_at": "2026-09-14T19:20:06Z",
   "matches": [
     {
       "id": 1550118,
@@ -86,11 +86,11 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 14,
-      "score_a": 0,
-      "score_b": 1,
-      "score_ht_a": 0,
-      "score_ht_b": 1,
+      "elapsed": 34,
+      "score_a": 1,
+      "score_b": 2,
+      "score_ht_a": 1,
+      "score_ht_b": 2,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
@@ -118,18 +118,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/34.png",
       "venue": "Elland Road",
       "kickoff_utc": "2026-09-14T19:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 20,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 19,
+          "extra_minute": null,
+          "team_name": "Newcastle",
+          "type": "Remplacement",
+          "detail": "Remplacement",
+          "player": "Nico González",
+          "assist": "Sean Steur"
+        }
+      ]
     },
     {
       "id": 1570382,
@@ -142,18 +153,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/543.png",
       "venue": "Estadio de la Cerámica",
       "kickoff_utc": "2026-09-14T19:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 20,
+      "score_a": 1,
+      "score_b": 0,
+      "score_ht_a": 1,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 18,
+          "extra_minute": null,
+          "team_name": "Villarreal",
+          "type": "But",
+          "detail": "But",
+          "player": "Tajon Buchanan",
+          "assist": "Carlos Romero"
+        }
+      ]
     }
   ]
 }
