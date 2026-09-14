@@ -1,6 +1,6 @@
 {
   "date": "2026-09-13",
-  "updated_at": "2026-09-14T11:40:05Z",
+  "updated_at": "2026-09-14T18:00:09Z",
   "matches": [
     {
       "id": 1620151,
@@ -227,7 +227,7 @@
       "team_b": "Hamburger SV",
       "team_a_crest": "https://media.api-sports.io/football/teams/173.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/175.png",
-      "venue": "Red Bull Arena",
+      "venue": "Leipzig Red Bull Arena",
       "kickoff_utc": "2026-09-13T13:30:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -419,7 +419,7 @@
       "team_b": "Bayern München",
       "team_a_crest": "https://media.api-sports.io/football/teams/1660.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/157.png",
-      "venue": "Waldstadion Kaiserlinde",
+      "venue": "Ursapharm-Arena an der Kaiserlinde",
       "kickoff_utc": "2026-09-13T15:30:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
