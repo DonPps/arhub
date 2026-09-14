@@ -1,6 +1,6 @@
 {
   "date": "2026-09-14",
-  "updated_at": "2026-09-14T18:40:04Z",
+  "updated_at": "2026-09-14T19:00:07Z",
   "matches": [
     {
       "id": 1550118,
@@ -83,18 +83,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/494.png",
       "venue": null,
       "kickoff_utc": "2026-09-14T18:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 14,
+      "score_a": 0,
+      "score_b": 1,
+      "score_ht_a": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 9,
+          "extra_minute": null,
+          "team_name": "Udinese",
+          "type": "But",
+          "detail": "But",
+          "player": "J. Abankwah",
+          "assist": "U. Gomez"
+        }
+      ]
     },
     {
       "id": 1557402,
