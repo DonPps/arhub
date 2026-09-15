@@ -1,6 +1,6 @@
 {
   "date": "2026-09-15",
-  "updated_at": "2026-09-15T19:00:07Z",
+  "updated_at": "2026-09-15T19:20:04Z",
   "matches": [
     {
       "id": 1570391,
@@ -13,9 +13,9 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/540.png",
       "venue": "Municipal de Butarque",
       "kickoff_utc": "2026-09-15T17:00:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
       "elapsed": 90,
       "score_a": 2,
       "score_b": 1,
@@ -49,9 +49,9 @@
       "venue": "Estadio de Mendizorroza",
       "kickoff_utc": "2026-09-15T18:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 59,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
