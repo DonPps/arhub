@@ -1,6 +1,6 @@
 {
   "date": "2026-09-14",
-  "updated_at": "2026-09-14T22:40:04Z",
+  "updated_at": "2026-09-15T00:20:05Z",
   "matches": [
     {
       "id": 1550118,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Como",
-          "type": "But",
-          "detail": "But",
-          "player": "J. Ramon",
-          "assist": "N. Paz"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550125,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 40,
-          "extra_minute": null,
-          "team_name": "AS Roma",
-          "type": "But",
-          "detail": "But",
-          "player": "D. Malen",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550120,
@@ -94,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Udinese",
-          "type": "But",
-          "detail": "But",
-          "player": "J. Abankwah",
-          "assist": "U. Gomez"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557402,
@@ -129,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Newcastle",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Nico González",
-          "assist": "Sean Steur"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570382,
@@ -164,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Villarreal",
-          "type": "But",
-          "detail": "But",
-          "player": "Tajon Buchanan",
-          "assist": "Carlos Romero"
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
