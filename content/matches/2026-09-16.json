@@ -1,6 +1,6 @@
 {
   "date": "2026-09-16",
-  "updated_at": "2026-09-16T18:00:11Z",
+  "updated_at": "2026-09-16T18:20:06Z",
   "matches": [
     {
       "id": 1620144,
@@ -60,9 +60,9 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 58,
+      "elapsed": 78,
       "score_a": 1,
-      "score_b": 3,
+      "score_b": 4,
       "score_ht_a": 0,
       "score_ht_b": 2,
       "score_et_a": null,
@@ -104,7 +104,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 57,
+      "elapsed": 77,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -146,10 +146,10 @@
       "venue": "Riyadh Air Metropolitano",
       "kickoff_utc": "2026-09-16T17:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
-      "score_a": 1,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 58,
+      "score_a": 2,
       "score_b": 0,
       "score_ht_a": 1,
       "score_ht_b": 0,
@@ -181,18 +181,73 @@
       "venue": "Estadio de Riazor",
       "kickoff_utc": "2026-09-16T17:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 61,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 0,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 45,
+          "extra_minute": null,
+          "team_name": "Deportivo La Coruna",
+          "type": "Remplacement",
+          "detail": "Remplacement",
+          "player": "Bil Nsongo",
+          "assist": "Adama Traoré"
+        },
+        {
+          "minute": 52,
+          "extra_minute": null,
+          "team_name": "Sevilla",
+          "type": "But",
+          "detail": "But",
+          "player": "Miguel Sierra",
+          "assist": null
+        },
+        {
+          "minute": 57,
+          "extra_minute": null,
+          "team_name": "Deportivo La Coruna",
+          "type": "Remplacement",
+          "detail": "Substitution 2",
+          "player": "Riki Rodríguez",
+          "assist": "Mario Soriano"
+        },
+        {
+          "minute": 57,
+          "extra_minute": null,
+          "team_name": "Deportivo La Coruna",
+          "type": "Remplacement",
+          "detail": "Substitution 3",
+          "player": "Yeremay Hernández",
+          "assist": "Jonathan Asp Jensen"
+        },
+        {
+          "minute": 58,
+          "extra_minute": null,
+          "team_name": "Deportivo La Coruna",
+          "type": "VAR",
+          "detail": "Card upgrade confirmed",
+          "player": "Angeliño",
+          "assist": null
+        },
+        {
+          "minute": 59,
+          "extra_minute": null,
+          "team_name": "Deportivo La Coruna",
+          "type": "Carton",
+          "detail": "Carton rouge",
+          "player": "Angeliño",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1636207,
