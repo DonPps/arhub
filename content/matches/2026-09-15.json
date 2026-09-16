@@ -1,6 +1,6 @@
 {
   "date": "2026-09-15",
-  "updated_at": "2026-09-15T22:40:04Z",
+  "updated_at": "2026-09-16T01:40:06Z",
   "matches": [
     {
       "id": 1570391,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 3,
-          "extra_minute": null,
-          "team_name": "Rayo Vallecano",
-          "type": "But",
-          "detail": "But",
-          "player": "Álvaro García",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570383,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Valencia",
-          "type": "But",
-          "detail": "But",
-          "player": "Arnaut Danjuma",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570388,
@@ -94,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 4,
-          "extra_minute": null,
-          "team_name": "Real Madrid",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Yan Diomande",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
