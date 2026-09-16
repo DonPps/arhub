@@ -1,6 +1,6 @@
 {
   "date": "2026-09-16",
-  "updated_at": "2026-09-16T17:40:07Z",
+  "updated_at": "2026-09-16T18:00:11Z",
   "matches": [
     {
       "id": 1620144,
@@ -58,11 +58,11 @@
       "venue": "Vazgen Sargsyan Republican Stadium",
       "kickoff_utc": "2026-09-16T16:45:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
-      "score_a": 0,
-      "score_b": 2,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 58,
+      "score_a": 1,
+      "score_b": 3,
       "score_ht_a": 0,
       "score_ht_b": 2,
       "score_et_a": null,
@@ -102,9 +102,9 @@
       "venue": "GSP Stadium",
       "kickoff_utc": "2026-09-16T16:45:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 57,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -113,7 +113,26 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 56,
+          "extra_minute": null,
+          "team_name": "Celta Vigo",
+          "type": "Remplacement",
+          "detail": "Remplacement",
+          "player": "F. Jutgla",
+          "assist": "H. Gonzalez"
+        },
+        {
+          "minute": 57,
+          "extra_minute": null,
+          "team_name": "Celta Vigo",
+          "type": "Remplacement",
+          "detail": "Substitution 2",
+          "player": "C. Driouech",
+          "assist": "W. Swedberg"
+        }
+      ]
     },
     {
       "id": 1570384,
@@ -127,9 +146,9 @@
       "venue": "Riyadh Air Metropolitano",
       "kickoff_utc": "2026-09-16T17:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 38,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -162,9 +181,9 @@
       "venue": "Estadio de Riazor",
       "kickoff_utc": "2026-09-16T17:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 38,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
