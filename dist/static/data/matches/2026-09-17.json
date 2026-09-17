@@ -1,6 +1,6 @@
 {
   "date": "2026-09-17",
-  "updated_at": "2026-09-17T07:00:06Z",
+  "updated_at": "2026-09-17T07:20:04Z",
   "matches": [
     {
       "id": 1636285,
@@ -59,7 +59,7 @@
       "team_b": "Getafe",
       "team_a_crest": "https://media.api-sports.io/football/teams/543.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/546.png",
-      "venue": "Benito Villamarín",
+      "venue": "Estadio de La Cartuja",
       "kickoff_utc": "2026-09-17T17:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
@@ -251,7 +251,7 @@
       "team_b": "Villarreal",
       "team_a_crest": "https://media.api-sports.io/football/teams/535.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/533.png",
-      "venue": "La Rosaleda",
+      "venue": "Estadio La Rosaleda",
       "kickoff_utc": "2026-09-17T19:30:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
