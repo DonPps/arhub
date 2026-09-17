@@ -1,6 +1,6 @@
 {
   "date": "2026-09-16",
-  "updated_at": "2026-09-16T22:40:04Z",
+  "updated_at": "2026-09-17T03:00:07Z",
   "matches": [
     {
       "id": 1620144,
@@ -24,27 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 28,
-          "extra_minute": null,
-          "team_name": "ASPAC",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        },
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "Panthers",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636217,
@@ -68,27 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "Sparta Praha",
-          "type": "But",
-          "detail": "But",
-          "player": "T. Guddal",
-          "assist": "A. Karabec"
-        },
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Sparta Praha",
-          "type": "But",
-          "detail": "But",
-          "player": "T. Guddal",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636312,
@@ -112,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 56,
-          "extra_minute": null,
-          "team_name": "Celta Vigo",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "F. Jutgla",
-          "assist": "H. Gonzalez"
-        },
-        {
-          "minute": 57,
-          "extra_minute": null,
-          "team_name": "Celta Vigo",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "C. Driouech",
-          "assist": "W. Swedberg"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570384,
@@ -156,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Atletico Madrid",
-          "type": "But",
-          "detail": "But",
-          "player": "Jonathan David",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570387,
@@ -191,63 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "Deportivo La Coruna",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Bil Nsongo",
-          "assist": "Adama Traoré"
-        },
-        {
-          "minute": 52,
-          "extra_minute": null,
-          "team_name": "Sevilla",
-          "type": "But",
-          "detail": "But",
-          "player": "Miguel Sierra",
-          "assist": null
-        },
-        {
-          "minute": 57,
-          "extra_minute": null,
-          "team_name": "Deportivo La Coruna",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "Riki Rodríguez",
-          "assist": "Mario Soriano"
-        },
-        {
-          "minute": 57,
-          "extra_minute": null,
-          "team_name": "Deportivo La Coruna",
-          "type": "Remplacement",
-          "detail": "Substitution 3",
-          "player": "Yeremay Hernández",
-          "assist": "Jonathan Asp Jensen"
-        },
-        {
-          "minute": 58,
-          "extra_minute": null,
-          "team_name": "Deportivo La Coruna",
-          "type": "VAR",
-          "detail": "Card upgrade confirmed",
-          "player": "Angeliño",
-          "assist": null
-        },
-        {
-          "minute": 59,
-          "extra_minute": null,
-          "team_name": "Deportivo La Coruna",
-          "type": "Carton",
-          "detail": "Carton rouge",
-          "player": "Angeliño",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636207,
@@ -271,27 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "AC Milan",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "S. Pavlovic",
-          "assist": null
-        },
-        {
-          "minute": 16,
-          "extra_minute": null,
-          "team_name": "Benfica",
-          "type": "But",
-          "detail": "But",
-          "player": "D. Lukebakio",
-          "assist": "J. Kaminski"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636212,
@@ -315,18 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Lyon",
-          "type": "But",
-          "detail": "But",
-          "player": "N. Nartey",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636225,
@@ -361,7 +203,7 @@
       "team_b": "Dinamo Zagreb",
       "team_a_crest": "https://media.api-sports.io/football/teams/563.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/620.png",
-      "venue": "Rapid-Giulesti Stadium",
+      "venue": "Superbet Arena - Giulesti",
       "kickoff_utc": "2026-09-16T19:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
@@ -409,7 +251,7 @@
       "team_b": "Rennes",
       "team_a_crest": "https://media.api-sports.io/football/teams/637.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/94.png",
-      "venue": "Merkur Arena",
+      "venue": "Merkur-Arena",
       "kickoff_utc": "2026-09-16T19:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
