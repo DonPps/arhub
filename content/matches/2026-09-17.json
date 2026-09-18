@@ -1,6 +1,6 @@
 {
   "date": "2026-09-17",
-  "updated_at": "2026-09-17T22:40:04Z",
+  "updated_at": "2026-09-18T04:20:06Z",
   "matches": [
     {
       "id": 1636285,
@@ -24,27 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 39,
-          "extra_minute": null,
-          "team_name": "Red Bull Salzburg",
-          "type": "But",
-          "detail": "But",
-          "player": "Haris Tabaković",
-          "assist": null
-        },
-        {
-          "minute": 41,
-          "extra_minute": null,
-          "team_name": "Red Bull Salzburg",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Sota Kitano",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636304,
@@ -68,27 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "1899 Hoffenheim",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Vladimír Coufal",
-          "assist": null
-        },
-        {
-          "minute": 30,
-          "extra_minute": null,
-          "team_name": "OFI",
-          "type": "But",
-          "detail": "But",
-          "player": "Aitor Cantalapiedra",
-          "assist": "Kenan Kodro"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570386,
@@ -112,36 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Getafe",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "José Bordalás Jiménez",
-          "assist": null
-        },
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Real Betis",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Ángel Ortiz",
-          "assist": null
-        },
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "Getafe",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "David Cordón Mancha",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636232,
@@ -165,27 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Beşiktaş",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Emmanuel Agbadou",
-          "assist": null
-        },
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "Beşiktaş",
-          "type": "But",
-          "detail": "But",
-          "player": "Ilhan Fakili",
-          "assist": "Junior Olaitan"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636247,
@@ -209,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Ferencvarosi TC",
-          "type": "But",
-          "detail": "But",
-          "player": "Bamidele Isa Yusuf",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636251,
@@ -244,18 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Crystal Palace",
-          "type": "But",
-          "detail": "But",
-          "player": "Yeremy Pino",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636278,
@@ -279,45 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Juventus",
-          "type": "But",
-          "detail": "But",
-          "player": "Nicolás Iván Gonzalez",
-          "assist": "Kamil Grabara"
-        },
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Juventus",
-          "type": "But",
-          "detail": "But",
-          "player": "Kerim Alajbegovic",
-          "assist": "Weston McKennie"
-        },
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "NEC Nijmegen",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Clement Bischoff",
-          "assist": "Dennis Geiger"
-        },
-        {
-          "minute": 35,
-          "extra_minute": null,
-          "team_name": "Juventus",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "Nick Woltemade",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636287,
@@ -341,18 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Torreense",
-          "type": "But",
-          "detail": "But",
-          "player": "Alejandro Alfaro",
-          "assist": "David Bruno"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636316,
@@ -376,27 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 16,
-          "extra_minute": null,
-          "team_name": "Union St. Gilloise",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Ondrej Kricfalusi",
-          "assist": null
-        },
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Union St. Gilloise",
-          "type": "But",
-          "detail": "But",
-          "player": "Relebohile Mofokeng",
-          "assist": "Massire Sylla"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636321,
@@ -420,63 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Bournemouth",
-          "type": "But",
-          "detail": "But",
-          "player": "Justin Kluivert",
-          "assist": "Adrien Truffert"
-        },
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Bournemouth",
-          "type": "VAR",
-          "detail": "Goal confirmed",
-          "player": "Justin Kluivert",
-          "assist": null
-        },
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "Bournemouth",
-          "type": "But",
-          "detail": "But",
-          "player": "Rayan Vitor Simplício Rocha",
-          "assist": "Alex Scott"
-        },
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Real Sociedad",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Benat Turrientes",
-          "assist": null
-        },
-        {
-          "minute": 33,
-          "extra_minute": null,
-          "team_name": "Real Sociedad",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Ander Barrenetxea",
-          "assist": null
-        },
-        {
-          "minute": 42,
-          "extra_minute": null,
-          "team_name": "Bournemouth",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Justin Kluivert",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570390,
@@ -500,18 +264,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "Malaga",
-          "type": "But",
-          "detail": "But",
-          "player": "Carlos Dotor",
-          "assist": "Juan Cruz"
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
