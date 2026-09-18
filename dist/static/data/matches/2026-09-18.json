@@ -1,6 +1,6 @@
 {
   "date": "2026-09-18",
-  "updated_at": "2026-09-18T20:00:09Z",
+  "updated_at": "2026-09-18T20:20:05Z",
   "matches": [
     {
       "id": 1575167,
@@ -16,8 +16,8 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 71,
-      "score_a": 5,
+      "elapsed": 90,
+      "score_a": 7,
       "score_b": 0,
       "score_ht_a": 3,
       "score_ht_b": 0,
@@ -51,8 +51,8 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 55,
-      "score_a": 1,
+      "elapsed": 75,
+      "score_a": 2,
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
@@ -86,9 +86,9 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 54,
+      "elapsed": 74,
       "score_a": 1,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
@@ -119,10 +119,10 @@
       "venue": "Gtech Community Stadium",
       "kickoff_utc": "2026-09-18T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
-      "score_a": 0,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 62,
+      "score_a": 1,
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
@@ -130,7 +130,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 61,
+          "extra_minute": null,
+          "team_name": "Brentford",
+          "type": "But",
+          "detail": "But",
+          "player": "Jaidon Anthony",
+          "assist": "Jannik Schuster"
+        }
+      ]
     },
     {
       "id": 1570397,
@@ -144,9 +154,9 @@
       "venue": "RCDE Stadium",
       "kickoff_utc": "2026-09-18T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 54,
       "score_a": 0,
       "score_b": 2,
       "score_ht_a": 0,
