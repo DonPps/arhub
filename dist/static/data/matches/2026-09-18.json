@@ -1,6 +1,6 @@
 {
   "date": "2026-09-18",
-  "updated_at": "2026-09-18T18:40:06Z",
+  "updated_at": "2026-09-18T19:00:10Z",
   "matches": [
     {
       "id": 1575167,
@@ -16,16 +16,26 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 10,
-      "score_a": 0,
+      "elapsed": 30,
+      "score_a": 1,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 18,
+          "extra_minute": null,
+          "team_name": "Bayern München",
+          "type": "But",
+          "detail": "But",
+          "player": "Jamal Musiala",
+          "assist": "Alphonso Davies"
+        }
+      ]
     },
     {
       "id": 1550133,
@@ -38,18 +48,19 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/488.png",
       "venue": null,
       "kickoff_utc": "2026-09-18T18:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 13,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": []
     },
     {
       "id": 1552769,
@@ -62,18 +73,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/116.png",
       "venue": "Stade Louis II",
       "kickoff_utc": "2026-09-18T18:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 15,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 9,
+          "extra_minute": null,
+          "team_name": "Monaco",
+          "type": "But",
+          "detail": "But",
+          "player": "Matthis Abline",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1557408,
