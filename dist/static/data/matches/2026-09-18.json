@@ -1,6 +1,6 @@
 {
   "date": "2026-09-18",
-  "updated_at": "2026-09-18T09:00:06Z",
+  "updated_at": "2026-09-18T09:20:05Z",
   "matches": [
     {
       "id": 1575167,
@@ -83,7 +83,7 @@
       "team_b": "Chelsea",
       "team_a_crest": "https://media.api-sports.io/football/teams/55.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/49.png",
-      "venue": "Brentford Community Stadium",
+      "venue": "Gtech Community Stadium",
       "kickoff_utc": "2026-09-18T19:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
