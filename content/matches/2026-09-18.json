@@ -1,6 +1,6 @@
 {
   "date": "2026-09-18",
-  "updated_at": "2026-09-18T22:40:04Z",
+  "updated_at": "2026-09-18T23:20:05Z",
   "matches": [
     {
       "id": 1575167,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Bayern München",
-          "type": "But",
-          "detail": "But",
-          "player": "Jamal Musiala",
-          "assist": "Alphonso Davies"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550133,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 30,
-          "extra_minute": null,
-          "team_name": "Monza",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "E. Kouadio",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1552769,
@@ -94,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Monaco",
-          "type": "But",
-          "detail": "But",
-          "player": "Matthis Abline",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557408,
@@ -129,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 61,
-          "extra_minute": null,
-          "team_name": "Brentford",
-          "type": "But",
-          "detail": "But",
-          "player": "Jaidon Anthony",
-          "assist": "Jannik Schuster"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570397,
@@ -164,27 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 4,
-          "extra_minute": null,
-          "team_name": "Elche",
-          "type": "VAR",
-          "detail": "Card upgrade confirmed",
-          "player": "Federico Redondo Solari",
-          "assist": null
-        },
-        {
-          "minute": 6,
-          "extra_minute": null,
-          "team_name": "Elche",
-          "type": "Carton",
-          "detail": "Carton rouge",
-          "player": "Federico Redondo Solari",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
