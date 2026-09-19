@@ -1,6 +1,6 @@
 {
   "date": "2026-09-19",
-  "updated_at": "2026-09-19T12:40:05Z",
+  "updated_at": "2026-09-19T13:00:08Z",
   "matches": [
     {
       "id": 1557416,
@@ -16,7 +16,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 46,
+      "elapsed": 66,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
@@ -49,9 +49,9 @@
       "venue": "Estadio El Sadar",
       "kickoff_utc": "2026-09-19T12:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
