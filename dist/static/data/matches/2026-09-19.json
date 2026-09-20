@@ -1,6 +1,6 @@
 {
   "date": "2026-09-19",
-  "updated_at": "2026-09-19T22:40:05Z",
+  "updated_at": "2026-09-20T00:40:06Z",
   "matches": [
     {
       "id": 1557416,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Tottenham",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Pedro Porro",
-          "assist": "Archie Gray"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570399,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 16,
-          "extra_minute": null,
-          "team_name": "Osasuna",
-          "type": "But",
-          "detail": "But",
-          "player": "Ante Budimir",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550129,
@@ -94,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "Bologna",
-          "type": "But",
-          "detail": "But",
-          "player": "F. Bernardeschi",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550135,
@@ -129,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 4,
-          "extra_minute": null,
-          "team_name": "Udinese",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "N. Zaniolo",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575170,
@@ -164,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Eintracht Frankfurt",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Raphael Onyedika Nwadike",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575171,
@@ -199,18 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Hamburger SV",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Albert Grönbaek",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575172,
@@ -234,18 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 5,
-          "extra_minute": null,
-          "team_name": "FC Augsburg",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Han-Noah Massengo",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575174,
@@ -269,36 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Borussia Mönchengladbach",
-          "type": "But",
-          "detail": "But",
-          "player": "Florian Neuhaus",
-          "assist": "Lukas Ullrich"
-        },
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "FSV Mainz 05",
-          "type": "But",
-          "detail": "But",
-          "player": "Phillip Tietz",
-          "assist": "Sheraldo Becker"
-        },
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Borussia Mönchengladbach",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Lukas Ullrich",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557409,
@@ -322,27 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 31,
-          "extra_minute": null,
-          "team_name": "Brighton",
-          "type": "But",
-          "detail": "But",
-          "player": "Pascal Groß",
-          "assist": "Charalampos Kostoulas"
-        },
-        {
-          "minute": 33,
-          "extra_minute": null,
-          "team_name": "Brighton",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Charalampos Kostoulas",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557410,
@@ -366,18 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Everton",
-          "type": "But",
-          "detail": "But",
-          "player": "Thierno Barry",
-          "assist": "James Tarkowski"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557414,
@@ -401,27 +264,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 3,
-          "extra_minute": null,
-          "team_name": "Newcastle",
-          "type": "But",
-          "detail": "But",
-          "player": "Joe Willock",
-          "assist": "Harvey Barnes"
-        },
-        {
-          "minute": 7,
-          "extra_minute": null,
-          "team_name": "Newcastle",
-          "type": "But",
-          "detail": "But",
-          "player": "Lewis Hall",
-          "assist": "Harvey Barnes"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570393,
