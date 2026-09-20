@@ -1,6 +1,6 @@
 {
   "date": "2026-09-19",
-  "updated_at": "2026-09-20T00:40:06Z",
+  "updated_at": "2026-09-20T07:00:10Z",
   "matches": [
     {
       "id": 1557416,
@@ -83,7 +83,7 @@
       "team_b": "Cagliari",
       "team_a_crest": "https://media.api-sports.io/football/teams/494.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/490.png",
-      "venue": "Bluenergy Stadium",
+      "venue": "Bluenergy Stadium - Stadio Friuli",
       "kickoff_utc": "2026-09-19T13:00:00.000000Z",
       "status": "RESULT",
       "status_short": "FT",
