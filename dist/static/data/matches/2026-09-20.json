@@ -1,6 +1,6 @@
 {
   "date": "2026-09-20",
-  "updated_at": "2026-09-20T11:20:05Z",
+  "updated_at": "2026-09-20T11:40:05Z",
   "matches": [
     {
       "id": 1550130,
@@ -14,9 +14,9 @@
       "venue": "Stadio Artemio Franchi",
       "kickoff_utc": "2026-09-20T10:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 46,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
