@@ -1,6 +1,6 @@
 {
   "date": "2026-09-20",
-  "updated_at": "2026-09-20T13:40:07Z",
+  "updated_at": "2026-09-20T14:00:14Z",
   "matches": [
     {
       "id": 1550130,
@@ -51,8 +51,8 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 74,
-      "score_a": 0,
+      "elapsed": 90,
+      "score_a": 1,
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
@@ -84,12 +84,12 @@
       "venue": "Stadio Benito Stirpe",
       "kickoff_utc": "2026-09-20T13:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 34,
-      "score_a": 1,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
+      "score_a": 2,
       "score_b": 0,
-      "score_ht_a": 1,
+      "score_ht_a": 2,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
@@ -119,12 +119,12 @@
       "venue": "Stadio Ennio Tardini",
       "kickoff_utc": "2026-09-20T13:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 37,
-      "score_a": 0,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
+      "score_a": 1,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
@@ -163,9 +163,9 @@
       "venue": "Stade de l'Abbé-Deschamps",
       "kickoff_utc": "2026-09-20T13:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
@@ -198,9 +198,9 @@
       "venue": "Vitality Stadium",
       "kickoff_utc": "2026-09-20T13:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -209,7 +209,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 45,
+          "extra_minute": null,
+          "team_name": "Liverpool",
+          "type": "But",
+          "detail": "But",
+          "player": null,
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1557412,
@@ -223,9 +233,9 @@
       "venue": "Elland Road",
       "kickoff_utc": "2026-09-20T13:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -258,17 +268,73 @@
       "venue": "Etihad Stadium",
       "kickoff_utc": "2026-09-20T13:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
-      "score_a": 2,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
+      "score_a": 3,
       "score_b": 2,
-      "score_ht_a": 2,
+      "score_ht_a": 3,
       "score_ht_b": 2,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 8,
+          "extra_minute": null,
+          "team_name": "Sunderland",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Dayann Methalie",
+          "assist": null
+        },
+        {
+          "minute": 9,
+          "extra_minute": null,
+          "team_name": "Manchester City",
+          "type": "But",
+          "detail": "But",
+          "player": "Enzo Fernández",
+          "assist": null
+        },
+        {
+          "minute": 12,
+          "extra_minute": null,
+          "team_name": "Sunderland",
+          "type": "But",
+          "detail": "But",
+          "player": "Brian Brobbey",
+          "assist": "Enzo Le Fée"
+        },
+        {
+          "minute": 29,
+          "extra_minute": null,
+          "team_name": "Manchester City",
+          "type": "But",
+          "detail": "But",
+          "player": "Rayan Cherki",
+          "assist": "Antoine Semenyo"
+        },
+        {
+          "minute": 33,
+          "extra_minute": null,
+          "team_name": "Sunderland",
+          "type": "But",
+          "detail": "But",
+          "player": "Brian Brobbey",
+          "assist": "Thomas Meunier"
+        },
+        {
+          "minute": 43,
+          "extra_minute": null,
+          "team_name": "Manchester City",
+          "type": "But",
+          "detail": "But",
+          "player": "Antoine Semenyo",
+          "assist": "Marc Guehi"
+        }
+      ]
     },
     {
       "id": 1575169,
@@ -284,7 +350,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 10,
+      "elapsed": 31,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -292,7 +358,27 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 11,
+          "extra_minute": null,
+          "team_name": "RB Leipzig",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Antonio Nusa",
+          "assist": null
+        },
+        {
+          "minute": 26,
+          "extra_minute": null,
+          "team_name": "RB Leipzig",
+          "type": "Remplacement",
+          "detail": "Remplacement",
+          "player": "Brajan Gruda",
+          "assist": "Tidiam Gomis"
+        }
+      ]
     },
     {
       "id": 1570394,
