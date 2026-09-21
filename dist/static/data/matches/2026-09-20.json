@@ -1,6 +1,6 @@
 {
   "date": "2026-09-20",
-  "updated_at": "2026-09-20T23:40:04Z",
+  "updated_at": "2026-09-21T02:00:09Z",
   "matches": [
     {
       "id": 1550130,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Napoli",
-          "type": "But",
-          "detail": "But",
-          "player": "B. Gilmour",
-          "assist": "M. Politano"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570398,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 21,
-          "extra_minute": null,
-          "team_name": "Getafe",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Johan Mojica",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550131,
@@ -94,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "Frosinone",
-          "type": "But",
-          "detail": "But",
-          "player": "G. Calo",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550134,
@@ -129,27 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Parma",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "D. Drobnic",
-          "assist": null
-        },
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "Genoa",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "S. Otoa",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1552766,
@@ -173,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Stade Brestois 29",
-          "type": "But",
-          "detail": "But",
-          "player": "Pathé Mboup",
-          "assist": "Joris Chotard"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557407,
@@ -208,18 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "Liverpool",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557412,
@@ -243,18 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 38,
-          "extra_minute": null,
-          "team_name": "Leeds",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Jayden Bogle",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557413,
@@ -278,63 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Sunderland",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Dayann Methalie",
-          "assist": null
-        },
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Manchester City",
-          "type": "But",
-          "detail": "But",
-          "player": "Enzo Fernández",
-          "assist": null
-        },
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "Sunderland",
-          "type": "But",
-          "detail": "But",
-          "player": "Brian Brobbey",
-          "assist": "Enzo Le Fée"
-        },
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Manchester City",
-          "type": "But",
-          "detail": "But",
-          "player": "Rayan Cherki",
-          "assist": "Antoine Semenyo"
-        },
-        {
-          "minute": 33,
-          "extra_minute": null,
-          "team_name": "Sunderland",
-          "type": "But",
-          "detail": "But",
-          "player": "Brian Brobbey",
-          "assist": "Thomas Meunier"
-        },
-        {
-          "minute": 43,
-          "extra_minute": null,
-          "team_name": "Manchester City",
-          "type": "But",
-          "detail": "But",
-          "player": "Antoine Semenyo",
-          "assist": "Marc Guehi"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575169,
@@ -358,27 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "RB Leipzig",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Antonio Nusa",
-          "assist": null
-        },
-        {
-          "minute": 26,
-          "extra_minute": null,
-          "team_name": "RB Leipzig",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Brajan Gruda",
-          "assist": "Tidiam Gomis"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570394,
@@ -402,18 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 6,
-          "extra_minute": null,
-          "team_name": "Atletico Madrid",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Diego Pablo Simeone",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1552770,
