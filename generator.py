@@ -550,7 +550,7 @@ def build():
     html = tpl.render(
         **common,
         root="",
-        canonical_path="/blog.html",
+        canonical_path="/blog",
         active_nav="blog",
         articles=blog_posts,
         trending=trending,
@@ -567,7 +567,7 @@ def build():
         html = tpl.render(
             **common,
             root="../",
-            canonical_path=f"/article/{art['slug']}.html",
+            canonical_path=f"/article/{art['slug']}",
             active_nav=art.get("category_slug", ""),
             article=art,
             related=related,
@@ -584,7 +584,7 @@ def build():
         html = tpl.render(
             **common,
             root="../",
-            canonical_path=f"/categorie/{cat['slug']}.html",
+            canonical_path=f"/categorie/{cat['slug']}",
             active_nav=cat["slug"],
             category=cat,
             articles=cat_articles,
@@ -597,7 +597,7 @@ def build():
         html = tpl.render(
             **common,
             root="",
-            canonical_path=f"/{page['slug']}.html",
+            canonical_path=f"/{page['slug']}",
             active_nav="",
             page=page,
         )
@@ -632,7 +632,7 @@ def build():
     html = tpl.render(
         **common,
         root="",
-        canonical_path="/matchs.html",
+        canonical_path="/matchs",
         active_nav="matchs",
         matches_groups=matches_groups,
         matches_updated_at=matches_updated_at,
@@ -666,7 +666,7 @@ def build():
     html = tpl.render(
         **common,
         root="",
-        canonical_path="/play.html",
+        canonical_path="/play",
         active_nav="play",
         quiz_ranks=quiz_ranks,
         quiz_question_count=quiz_question_count,
@@ -692,7 +692,7 @@ def build():
     html = tpl.render(
         **common,
         root="",
-        canonical_path="/profil.html",
+        canonical_path="/profil",
         active_nav="profil",
         quiz_ranks=quiz_ranks,
     )
@@ -706,7 +706,7 @@ def build():
     html = tpl.render(
         **common,
         root="",
-        canonical_path="/admin-ads.html",
+        canonical_path="/admin-ads",
         active_nav="",
     )
     (DIST_DIR / "admin-ads.html").write_text(html, encoding="utf-8")
@@ -719,7 +719,7 @@ def build():
     html = tpl.render(
         **common,
         root="",
-        canonical_path="/admin-cms.html",
+        canonical_path="/admin-cms",
         active_nav="",
     )
     (DIST_DIR / "admin-cms.html").write_text(html, encoding="utf-8")
@@ -734,7 +734,7 @@ def build():
             "title": a["title"],
             "dek": a["dek"],
             "category": a["category"],
-            "url": f"article/{a['slug']}.html",
+            "url": f"article/{a['slug']}",
             "tags": a.get("tags", []),
         }
         for a in articles
@@ -777,13 +777,12 @@ def build():
 
     # ---------- sitemap.xml ----------
     today_iso = date.today().isoformat()
-    url_entries = [("/", today_iso), ("/blog.html", today_iso)]
-    url_entries += [(f"/article/{a['slug']}.html", a["date"]) for a in articles]
-    url_entries += [(f"/categorie/{c['slug']}.html", today_iso) for c in config["categories"]]
-    url_entries += [(f"/{p['slug']}.html", today_iso) for p in config["static_pages"]]
-    url_entries += [("/matchs.html", today_iso)]
-    url_entries += [("/play.html", today_iso)]
-    url_entries += [("/profil.html", today_iso)]
+    url_entries = [("/", today_iso), ("/blog", today_iso)]
+    url_entries += [(f"/article/{a['slug']}", a["date"]) for a in articles]
+    url_entries += [(f"/categorie/{c['slug']}", today_iso) for c in config["categories"]]
+    url_entries += [(f"/{p['slug']}", today_iso) for p in config["static_pages"]]
+    url_entries += [("/matchs", today_iso)]
+    url_entries += [("/play", today_iso)]
     sitemap_entries = "\n".join(
         f"  <url><loc>{config['site_url']}{u}</loc><lastmod>{lm}</lastmod></url>"
         for u, lm in url_entries
