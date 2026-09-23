@@ -40,7 +40,7 @@
       <div class="hero-slider-track">
         {% for a in hero_slides %}
         <article class="hero-slide{% if loop.first %} is-active{% endif %}" data-index="{{ loop.index0 }}">
-          <a href="article/{{ a.slug }}.html" class="hero-media-link">
+          <a href="article/{{ a.slug }}" class="hero-media-link">
             {% if a.image %}
             <div class="hero-media has-image" style="aspect-ratio:{{ a.image_ratio }}"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="{% if loop.first %}eager{% else %}lazy{% endif %}"{% if loop.first %} fetchpriority="high"{% endif %}></div>
             {% else %}
@@ -48,9 +48,9 @@
             {% endif %}
           </a>
           <span class="eyebrow">{{ a.category }}</span>
-          <h2><a href="article/{{ a.slug }}.html">{{ a.title }}</a></h2>
+          <h2><a href="article/{{ a.slug }}">{{ a.title }}</a></h2>
           <p class="dek">{{ a.dek }}</p>
-          <a href="article/{{ a.slug }}.html" class="hero-slide-cta">
+          <a href="article/{{ a.slug }}" class="hero-slide-cta">
             Lire l'article
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -80,10 +80,10 @@
     <section class="content-section section-mercato" data-reveal>
       <div class="section-head">
         <h2 class="grid-title">Mercato</h2>
-        <a href="{{ root }}categorie/transferts.html" class="section-see-all">Voir tout →</a>
+        <a href="{{ root }}categorie/transferts" class="section-see-all">Voir tout →</a>
       </div>
       <div class="mercato-grid">
-        <a href="article/{{ mercato_articles[0].slug }}.html" class="mercato-card-big">
+        <a href="article/{{ mercato_articles[0].slug }}" class="mercato-card-big">
           {% if mercato_articles[0].image %}
           <div class="mercato-card-media has-image" style="aspect-ratio:{{ mercato_articles[0].image_ratio }}"><img src="{{ root }}{{ mercato_articles[0].image }}" alt="{{ mercato_articles[0].title }}" loading="lazy"></div>
           {% endif %}
@@ -93,7 +93,7 @@
         </a>
         <div class="mercato-small-list">
           {% for a in mercato_articles[1:4] %}
-          <a href="article/{{ a.slug }}.html" class="mercato-card-small">
+          <a href="article/{{ a.slug }}" class="mercato-card-small">
             {% if a.image %}<div class="mercato-card-small-media"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
             <div>
               <span class="eyebrow">{{ a.category }}</span>
@@ -110,10 +110,10 @@
     <section class="content-section section-monde" data-reveal>
       <div class="section-head">
         <h2 class="grid-title">Football</h2>
-        <a href="{{ root }}categorie/football.html" class="section-see-all">Voir tout →</a>
+        <a href="{{ root }}categorie/football" class="section-see-all">Voir tout →</a>
       </div>
       <div class="magazine-grid">
-        <a href="article/{{ football_articles[0].slug }}.html" class="magazine-card-lg">
+        <a href="article/{{ football_articles[0].slug }}" class="magazine-card-lg">
           {% if football_articles[0].image %}
           <div class="magazine-card-media has-image" style="aspect-ratio:{{ football_articles[0].image_ratio }}"><img src="{{ root }}{{ football_articles[0].image }}" alt="{{ football_articles[0].title }}" loading="lazy"></div>
           {% endif %}
@@ -121,7 +121,7 @@
           <h3>{{ football_articles[0].title }}</h3>
         </a>
         {% for a in football_articles[1:6] %}
-        <a href="article/{{ a.slug }}.html" class="magazine-card-sm">
+        <a href="article/{{ a.slug }}" class="magazine-card-sm">
           {% if a.image %}<div class="magazine-card-media"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
           <h4>{{ a.title }}</h4>
         </a>
@@ -136,7 +136,7 @@
         <h2 class="grid-title">Maroc</h2>
       </div>
       <div class="mercato-grid">
-        <a href="article/{{ maroc_articles[0].slug }}.html" class="mercato-card-big">
+        <a href="article/{{ maroc_articles[0].slug }}" class="mercato-card-big">
           {% if maroc_articles[0].image %}
           <div class="mercato-card-media has-image" style="aspect-ratio:{{ maroc_articles[0].image_ratio }}"><img src="{{ root }}{{ maroc_articles[0].image }}" alt="{{ maroc_articles[0].title }}" loading="lazy"></div>
           {% endif %}
@@ -146,7 +146,7 @@
         </a>
         <div class="mercato-small-list">
           {% for a in maroc_articles[1:4] %}
-          <a href="article/{{ a.slug }}.html" class="mercato-card-small">
+          <a href="article/{{ a.slug }}" class="mercato-card-small">
             {% if a.image %}<div class="mercato-card-small-media"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>{% endif %}
             <div>
               <span class="eyebrow">{{ a.category }}</span>
@@ -163,11 +163,11 @@
     <section class="content-section section-geomaroc" data-reveal>
       <div class="section-head">
         <h2 class="grid-title">GEOPOLITICS</h2>
-        <a href="{{ root }}categorie/geomaroc.html" class="section-see-all">Voir tout →</a>
+        <a href="{{ root }}categorie/geomaroc" class="section-see-all">Voir tout →</a>
       </div>
       <div class="geomaroc-row">
         {% for a in geomaroc_articles %}
-        <a href="article/{{ a.slug }}.html" class="geomaroc-card">
+        <a href="article/{{ a.slug }}" class="geomaroc-card">
           <div class="geomaroc-card-media">
             {% if a.image %}<img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy">{% endif %}
             <span class="geomaroc-card-badge">Analyse</span>
@@ -182,7 +182,7 @@
     {{ sponsor_hero('home_before_quiz') }}
 
     <section class="content-section section-quiz section-quiz-cta-only" data-reveal>
-      <a href="{{ root }}play.html" class="quiz-promo-cta">
+      <a href="{{ root }}play" class="quiz-promo-cta">
         Jouer à l'Atlas Quiz
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -197,7 +197,7 @@
       <div class="side-item">
         <div class="side-num">{{ '%02d'|format(loop.index) }}</div>
         <div class="side-item-body">
-          <a href="article/{{ t.slug }}.html">{{ t.title }}</a>
+          <a href="article/{{ t.slug }}">{{ t.title }}</a>
           <span class="side-time">{{ t.read_time }} min</span>
         </div>
       </div>

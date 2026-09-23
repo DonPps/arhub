@@ -109,7 +109,27 @@ l'utilisateur via la console web DigitalOcean.
   "delete" ou photo pour corriger un article) + bot social (teaser avec
   photo). Tokens dans la config du pipeline, pas dans ce dépôt.
 
-## SEO — état des lieux (31/08/2026)
+## SEO — état des lieux (23/09/2026)
+
+**Bug critique corrigé le 23/09/2026** — cause probable du fait que
+*seule* la homepage était indexée par Google (aucune page article/
+catégorie/blog ne remontait, même en cherchant leur titre exact) :
+Cloudflare Pages redirige automatiquement (308) toute URL en `.html`
+vers sa version sans extension (ex. `/article/x.html` → `/article/x`),
+mais `generator.py` générait canonical tags, sitemap.xml, liens internes
+ET `og:url`/`mainEntityOfPage` avec l'extension `.html` sur **toutes les
+pages sauf la home**. Résultat : Google suivait la redirection, puis
+lisait un canonical qui pointait vers l'URL qui venait justement de
+rediriger — signal contradictoire classique qui empêche l'indexation
+(catégorie "Page avec redirection" dans Search Console). Fix : tout
+(canonical_path, sitemap, liens `<a href>` dans tous les templates,
+index de recherche JS, partage Dream Team) généré directement en URLs
+sans `.html`, pour que la page servie en 200 soit exactement celle
+référencée partout, sans aucun hop de redirection. Fichiers `.html`
+restent sur disque (Cloudflare les sert nativement sans extension) —
+seuls les liens/canonical/sitemap ont changé. À vérifier dans Search
+Console d'ici quelques semaines que la couverture (Page indexing) monte
+au-delà de la seule homepage.
 
 Déjà en place : sitemap, schema.org `NewsArticle` complet (headline,
 image, dates, auteur, éditeur) sur `templates/article.html`, attributs
@@ -123,10 +143,11 @@ externe pour l'instant, levier n°1 pour la confiance d'un jeune domaine)
 et le temps (crawl budget/autorité de domaine, rien de technique
 n'accélère vraiment ça).
 
-Indexation Google (dernier audit connu, 28/08/2026) : très peu de pages
-encore indexées sur un jeune domaine (situation normale, pas un bug) ;
+Indexation Google (dernier audit connu, 28/08/2026, avant le fix
+ci-dessus) : très peu de pages encore indexées sur un jeune domaine ;
 homepage + catégorie Football indexées et génèrent des impressions
-croissantes ; le reste suit progressivement.
+croissantes ; le reste suit progressivement — à ré-auditer maintenant que
+le conflit redirection/canonical est corrigé.
 
 ## Pièges connus (gotchas)
 
@@ -161,8 +182,30 @@ croissantes ; le reste suit progressivement.
   (plusieurs minutes, parfois 15-20+) sur cette machine — toujours les
   lancer en arrière-plan (`run_in_background: true`) et attendre plutôt
   que de supposer un blocage prématurément.
+- **Clone local en retard sur `origin` sans avertissement** : `git
+  status` "clean" signifie juste "pas de diff avec le HEAD local", PAS
+  "à jour avec origin". Le pipeline (`C:\AtlasRising`, autre dépôt) pousse
+  en continu sur `origin` de ce dépôt — le clone local peut donc dériver
+  de plusieurs centaines/milliers de commits sans que rien ne le
+  signale. Toujours faire `git fetch origin && git rev-list --left-right
+  --count HEAD...origin/master` avant tout `python generator.py` suivi
+  d'un commit/push (sinon on régénère `dist/` depuis un `content/`
+  obsolète et on risque d'écraser des jours/semaines d'articles publiés
+  en live). Si en retard : `git pull origin master --ff-only` d'abord,
+  regénérer ensuite. Constaté le 23/09/2026 (1792 commits de retard).
 
 ## Historique des décisions majeures (plus récent en premier)
+
+- **23/09/2026** — Fix indexation Google : conflit redirection 308
+  (Cloudflare Pages, `.html` → sans extension) / canonical (généré en
+  `.html`) présent sur toutes les pages sauf la home, expliquant
+  vraisemblablement pourquoi seule la homepage était indexée. Canonical,
+  sitemap, liens internes (tous les templates) et index de recherche
+  regénérés sans `.html`. Voir section SEO pour le détail technique.
+  Au passage : découverte que le clone local de ce dépôt peut dériver
+  très loin derrière `origin` sans que `git status` ne le signale (1792
+  commits de retard constatés, le pipeline poussant directement sur
+  `origin` en continu) — voir gotcha ci-dessous.
 
 - **31/08/2026** — Rubrique Économie créée (nouvelle catégorie + agent
   dédié) ; football recentré (Botola/ligues premium/joueurs marocains

@@ -13,12 +13,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Play — Atlas Quiz, Boutique & Dream Team</title>
 <meta name="description" content="Atlas Quiz, la boutique de cartes, ta collection et ton Dream Team — tout Atlas Rising à jouer, au même endroit.">
-<link rel="canonical" href="https://atlasrising.net/play.html">
+<link rel="canonical" href="https://atlasrising.net/play">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Atlas Rising">
 <meta property="og:title" content="Play — Atlas Quiz, Boutique & Dream Team">
 <meta property="og:description" content="Atlas Quiz, la boutique de cartes, ta collection et ton Dream Team — tout Atlas Rising à jouer, au même endroit.">
-<meta property="og:url" content="https://atlasrising.net/play.html">
+<meta property="og:url" content="https://atlasrising.net/play">
 <meta property="og:image" content="https://atlasrising.net/static/img/logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Play — Atlas Quiz, Boutique & Dream Team">
@@ -35,7 +35,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Atlas Rising">
 <link rel="apple-touch-icon" href="/static/img/pwa/apple-touch-icon.png">
-<link rel="stylesheet" href="static/css/style.css?v=0c15d0d385">
+<link rel="stylesheet" href="static/css/style.css?v=74fecdc12c">
 <!--
   base-play.html — coquille dédiée à Play (Football Gaming Hub).
   Volontairement SANS la nav éditoriale, le footer news, la recherche
@@ -47,23 +47,23 @@
   l'identique (mêmes IDs) pour que auth.js/points-daily.js fonctionnent
   sans aucune modification.
 -->
-<link rel="stylesheet" href="static/css/play-hub.css?v=0c15d0d385">
+<link rel="stylesheet" href="static/css/play-hub.css?v=74fecdc12c">
 </head>
 <body data-root="" class="play-body">
 
 <header class="play-hud">
-  <a href="index.html" class="play-hud-quit" aria-label="Quitter Play — retour au site Atlas Rising">
+  <a href="/" class="play-hud-quit" aria-label="Quitter Play — retour au site Atlas Rising">
     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
     <span>Quitter Play</span>
   </a>
 
-  <a href="play.html" class="play-hud-crest" aria-label="Atlas Rising Play">
+  <a href="play" class="play-hud-crest" aria-label="Atlas Rising Play">
     <img src="static/img/logo.png" alt="" width="34" height="34">
     <span class="play-hud-wordmark">PLAY</span>
   </a>
 
   <div class="play-hud-side">
-    <a href="play.html?tab=boutique" class="points-badge" id="points-badge" aria-label="Mes Atlas Points" hidden>
+    <a href="play?tab=boutique" class="points-badge" id="points-badge" aria-label="Mes Atlas Points" hidden>
       <span class="points-badge-icon" aria-hidden="true">⭐</span>
       <span id="points-badge-value">0</span>
     </a>
@@ -141,7 +141,7 @@
     <div id="account-logged-in" hidden>
       <p class="account-logged-in-title">Connecté en tant que</p>
       <p class="account-email-display" id="account-email-display"></p>
-      <a href="profil.html" class="account-profile-link">Voir mon profil</a>
+      <a href="profil" class="account-profile-link">Voir mon profil</a>
       <button type="button" class="account-logout-btn" id="logout-btn">Se déconnecter</button>
     </div>
   </div>
@@ -264,7 +264,7 @@
     <p class="quizx-hero-desc">Progresse de Cadet à Atlas Rising Legend en validant chaque rang l'un après l'autre.</p>
     <div class="quizx-hero-ctas">
       <a href="#quiz-ranks-anchor" class="quiz-btn-primary">Jouer maintenant</a>
-      <a href="play.html?tab=quiz-duel" class="quizx-btn-secondary">Défier un ami</a>
+      <a href="play?tab=quiz-duel" class="quizx-btn-secondary">Défier un ami</a>
     </div>
     <div class="quiz-badges" id="quiz-badges" aria-label="Mes badges"></div>
   </section>
@@ -919,7 +919,7 @@
       <div class="quiz-result-icon">⚔️</div>
       <h2 id="quiz-duel-result-title"></h2>
       <p class="quiz-result-score" id="quiz-duel-result-score"></p>
-      <a class="quiz-btn-primary play-tab-link" data-tab="quiz-duel" href="play.html?tab=quiz-duel">Retour aux duels</a>
+      <a class="quiz-btn-primary play-tab-link" data-tab="quiz-duel" href="play?tab=quiz-duel">Retour aux duels</a>
     </div>
   </div>
 
@@ -1011,7 +1011,7 @@
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-3.8M8.6 13.4l6.8 3.8"/></svg>
         Partager
       </button>
-      <a href="play.html?tab=dreamteam" class="dreamteam-own-link" id="dreamteam-own-link" hidden>Voir mon Dream Team</a>
+      <a href="play?tab=dreamteam" class="dreamteam-own-link" id="dreamteam-own-link" hidden>Voir mon Dream Team</a>
     </div>
   </div>
 
@@ -1024,7 +1024,7 @@
     </div>
   </div>
 
-  <p class="dreamteam-empty-note" id="dreamteam-empty-note" hidden>Aucune carte possédée pour l'instant — ouvre des packs depuis la <a href="play.html?tab=boutique">Boutique</a> pour commencer ton Dream Team.</p>
+  <p class="dreamteam-empty-note" id="dreamteam-empty-note" hidden>Aucune carte possédée pour l'instant — ouvre des packs depuis la <a href="play?tab=boutique">Boutique</a> pour commencer ton Dream Team.</p>
 
   <div class="dreamteam-field-wrap" id="dreamteam-field-wrap" hidden>
 
@@ -1175,21 +1175,21 @@
   </div>
 </div>
 
-<script type="module" src="static/js/auth.js?v=0c15d0d385"></script>
-<script src="static/js/pwa-install.js?v=0c15d0d385"></script>
-<script type="module" src="static/js/points-daily.js?v=0c15d0d385"></script>
-<script type="module" src="static/js/play-hud.js?v=0c15d0d385"></script>
+<script type="module" src="static/js/auth.js?v=74fecdc12c"></script>
+<script src="static/js/pwa-install.js?v=74fecdc12c"></script>
+<script type="module" src="static/js/points-daily.js?v=74fecdc12c"></script>
+<script type="module" src="static/js/play-hud.js?v=74fecdc12c"></script>
 
-<script type="module" src="static/js/quiz.js?v=0c15d0d385"></script>
-<script type="module" src="static/js/quiz-duel.js?v=0c15d0d385"></script>
-<script type="module" src="static/js/shop.js?v=0c15d0d385"></script>
-<script type="module" src="static/js/pack-opening.js?v=0c15d0d385"></script>
-<script type="module" src="static/js/collection.js?v=0c15d0d385"></script>
-<script type="module" src="static/js/dream-team.js?v=0c15d0d385"></script>
-<script type="module" src="static/js/dreamteam-feel.js?v=0c15d0d385"></script>
-<script type="module" src="static/js/play-tabs.js?v=0c15d0d385"></script>
-<script type="module" src="static/js/play-atmosphere.js?v=0c15d0d385"></script>
-<script type="module" src="static/js/play-feel.js?v=0c15d0d385"></script>
+<script type="module" src="static/js/quiz.js?v=74fecdc12c"></script>
+<script type="module" src="static/js/quiz-duel.js?v=74fecdc12c"></script>
+<script type="module" src="static/js/shop.js?v=74fecdc12c"></script>
+<script type="module" src="static/js/pack-opening.js?v=74fecdc12c"></script>
+<script type="module" src="static/js/collection.js?v=74fecdc12c"></script>
+<script type="module" src="static/js/dream-team.js?v=74fecdc12c"></script>
+<script type="module" src="static/js/dreamteam-feel.js?v=74fecdc12c"></script>
+<script type="module" src="static/js/play-tabs.js?v=74fecdc12c"></script>
+<script type="module" src="static/js/play-atmosphere.js?v=74fecdc12c"></script>
+<script type="module" src="static/js/play-feel.js?v=74fecdc12c"></script>
 
 <script>
 if ('serviceWorker' in navigator) {

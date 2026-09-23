@@ -187,7 +187,7 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
         rows = rows.filter(function (r) { return r.value > 0; });
         if (!rows.length) return;
         listEl.innerHTML = rows.map(function (r, i) {
-          return '<a class="quiz-leaderboard-row" href="' + root + 'play.html?tab=dreamteam&u=' + encodeURIComponent(r.uid) + '">' +
+          return '<a class="quiz-leaderboard-row" href="' + root + 'play?tab=dreamteam&u=' + encodeURIComponent(r.uid) + '">' +
             '<span class="quiz-leaderboard-rank">' + (i + 1) + '</span>' +
             '<span class="quiz-leaderboard-name">' + escapeHtml(r.nickname || 'Joueur') + '</span>' +
             '<span class="quiz-leaderboard-points">' + r.value + '</span></a>';
@@ -600,7 +600,7 @@ import { loadTopDreamTeams } from './dreamteam-ranking.js';
   if (shareBtn) {
     shareBtn.addEventListener('click', function () {
       if (!currentUser) return;
-      var url = window.location.origin + root + 'play.html?tab=dreamteam&u=' + currentUser.uid;
+      var url = window.location.origin + root + 'play?tab=dreamteam&u=' + currentUser.uid;
       var title = 'Mon Dream Team Atlas Rising';
       var showCopied = function () {
         var original = shareBtn.innerHTML;

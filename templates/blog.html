@@ -12,7 +12,7 @@
     <div class="article-list">
       {% for a in articles %}
       <article class="list-item">
-        <a href="article/{{ a.slug }}.html" class="list-media-link">
+        <a href="article/{{ a.slug }}" class="list-media-link">
           {% if a.image %}
           <div class="list-media has-image" style="aspect-ratio:{{ a.image_ratio }}"><img src="{{ root }}{{ a.image }}" alt="{{ a.title }}" loading="lazy"></div>
           {% else %}
@@ -21,7 +21,7 @@
         </a>
         <div>
           <span class="eyebrow">{{ a.category }}</span>
-          <h3><a href="article/{{ a.slug }}.html">{{ a.title }}</a></h3>
+          <h3><a href="article/{{ a.slug }}">{{ a.title }}</a></h3>
           <p>{{ a.dek }}</p>
           <div class="meta">{{ a.date }} · {{ a.read_time }} min de lecture</div>
         </div>
@@ -36,7 +36,7 @@
       <div class="side-item">
         <div class="side-num">{{ '%02d'|format(loop.index) }}</div>
         <div class="side-item-body">
-          <a href="article/{{ t.slug }}.html">{{ t.title }}</a>
+          <a href="article/{{ t.slug }}">{{ t.title }}</a>
           <span class="side-time">{{ t.read_time }} min</span>
         </div>
       </div>
