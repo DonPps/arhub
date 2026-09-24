@@ -1,6 +1,6 @@
 {
   "date": "2026-09-24",
-  "updated_at": "2026-09-24T01:20:04Z",
+  "updated_at": "2026-09-24T01:40:05Z",
   "matches": [
     {
       "id": 1636664,
@@ -35,7 +35,7 @@
       "team_b": "Ittihad Tanger",
       "team_a_crest": "https://media.api-sports.io/football/teams/18753.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/974.png",
-      "venue": null,
+      "venue": "Stade El Bachir",
       "kickoff_utc": "2026-09-24T20:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
