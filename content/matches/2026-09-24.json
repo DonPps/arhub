@@ -1,6 +1,6 @@
 {
   "date": "2026-09-24",
-  "updated_at": "2026-09-24T20:40:06Z",
+  "updated_at": "2026-09-24T21:00:08Z",
   "matches": [
     {
       "id": 1636664,
@@ -38,12 +38,12 @@
       "venue": "Stade El Bachir",
       "kickoff_utc": "2026-09-24T20:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
-      "score_a": 0,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
+      "score_a": 1,
       "score_b": 1,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
