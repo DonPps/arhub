@@ -1,6 +1,6 @@
 {
   "date": "2026-09-24",
-  "updated_at": "2026-09-24T23:40:04Z",
+  "updated_at": "2026-09-25T01:00:09Z",
   "matches": [
     {
       "id": 1636664,
@@ -48,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Ittihad Tanger",
-          "type": "But",
-          "detail": "But",
-          "player": "S. Khorsa",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
