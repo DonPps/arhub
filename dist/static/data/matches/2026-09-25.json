@@ -1,6 +1,6 @@
 {
   "date": "2026-09-25",
-  "updated_at": "2026-09-25T19:20:06Z",
+  "updated_at": "2026-09-25T19:40:06Z",
   "matches": [
     {
       "id": 1545826,
@@ -16,16 +16,26 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 18,
-      "score_a": 0,
+      "elapsed": 38,
+      "score_a": 1,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 36,
+          "extra_minute": null,
+          "team_name": "Morocco",
+          "type": "But",
+          "detail": "But",
+          "player": "Noussair Mazraoui",
+          "assist": "Nayef Aguerd"
+        }
+      ]
     }
   ]
 }
