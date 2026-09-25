@@ -1,6 +1,6 @@
 {
   "date": "2026-09-25",
-  "updated_at": "2026-09-25T20:00:07Z",
+  "updated_at": "2026-09-25T20:20:05Z",
   "matches": [
     {
       "id": 1545826,
@@ -14,9 +14,9 @@
       "venue": "Stade Prince Moulay Abdallah",
       "kickoff_utc": "2026-09-25T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 58,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
