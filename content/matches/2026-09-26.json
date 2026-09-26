@@ -1,6 +1,6 @@
 {
   "date": "2026-09-26",
-  "updated_at": "2026-09-26T22:00:08Z",
+  "updated_at": "2026-09-26T22:20:05Z",
   "matches": [
     {
       "id": 1636668,
@@ -179,12 +179,12 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/3458.png",
       "venue": "Stade Mohamed V",
       "kickoff_utc": "2026-09-26T20:00:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
       "elapsed": 90,
       "score_a": 1,
-      "score_b": 2,
+      "score_b": 3,
       "score_ht_a": 0,
       "score_ht_b": 1,
       "score_et_a": null,
