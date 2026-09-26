@@ -1,6 +1,6 @@
 {
   "date": "2026-09-25",
-  "updated_at": "2026-09-25T23:40:05Z",
+  "updated_at": "2026-09-26T02:20:06Z",
   "matches": [
     {
       "id": 1545826,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "Morocco",
-          "type": "But",
-          "detail": "But",
-          "player": "Noussair Mazraoui",
-          "assist": "Nayef Aguerd"
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
