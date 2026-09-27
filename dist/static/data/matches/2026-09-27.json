@@ -1,6 +1,6 @@
 {
   "date": "2026-09-27",
-  "updated_at": "2026-09-27T01:20:05Z",
+  "updated_at": "2026-09-27T01:40:05Z",
   "matches": [
     {
       "id": 1636667,
@@ -155,7 +155,7 @@
       "team_b": "Hassania Agadir",
       "team_a_crest": "https://media.api-sports.io/football/teams/971.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/973.png",
-      "venue": null,
+      "venue": "El Harti Stadium",
       "kickoff_utc": "2026-09-27T20:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
