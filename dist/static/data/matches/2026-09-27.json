@@ -1,6 +1,6 @@
 {
   "date": "2026-09-27",
-  "updated_at": "2026-09-27T21:00:09Z",
+  "updated_at": "2026-09-27T21:20:05Z",
   "matches": [
     {
       "id": 1641161,
@@ -169,9 +169,9 @@
       "venue": "El Harti Stadium",
       "kickoff_utc": "2026-09-27T20:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 57,
       "score_a": 1,
       "score_b": 1,
       "score_ht_a": 1,
