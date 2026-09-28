@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-29",
+  "updated_at": "2026-09-28T05:00:10Z",
+  "matches": [
+    {
+      "id": 1545853,
+      "competition": "Africa Cup of Nations - Qualification",
+      "competition_logo": "https://media.api-sports.io/football/leagues/36.png",
+      "competition_country": "World",
+      "team_a": "Lesotho",
+      "team_b": "Morocco",
+      "team_a_crest": "https://media.api-sports.io/football/teams/1518.png",
+      "team_b_crest": "https://media.api-sports.io/football/teams/31.png",
+      "venue": null,
+      "kickoff_utc": "2026-09-29T13:00:00.000000Z",
+      "status": "SCHEDULED",
+      "status_short": "NS",
+      "status_long": "Not Started",
+      "elapsed": null,
+      "score_a": null,
+      "score_b": null,
+      "score_ht_a": null,
+      "score_ht_b": null,
+      "score_et_a": null,
+      "score_et_b": null,
+      "score_pen_a": null,
+      "score_pen_b": null
+    }
+  ]
+}
