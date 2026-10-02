@@ -1,6 +1,6 @@
 {
   "date": "2026-10-02",
-  "updated_at": "2026-10-02T20:40:06Z",
+  "updated_at": "2026-10-02T21:00:07Z",
   "matches": [
     {
       "id": 1640786,
@@ -93,9 +93,9 @@
       "venue": "Stade Ibn Batouta",
       "kickoff_utc": "2026-10-02T20:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
