@@ -1,6 +1,6 @@
 {
   "date": "2026-10-08",
-  "updated_at": "2026-10-08T19:20:04Z",
+  "updated_at": "2026-10-08T19:40:04Z",
   "matches": [
     {
       "id": 1644202,
@@ -51,8 +51,8 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 58,
-      "score_a": 0,
+      "elapsed": 78,
+      "score_a": 1,
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
@@ -86,9 +86,9 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 56,
+      "elapsed": 76,
       "score_a": 2,
-      "score_b": 3,
+      "score_b": 4,
       "score_ht_a": 2,
       "score_ht_b": 3,
       "score_et_a": null,
