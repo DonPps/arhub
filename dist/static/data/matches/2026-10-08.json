@@ -1,6 +1,6 @@
 {
   "date": "2026-10-08",
-  "updated_at": "2026-10-08T21:40:05Z",
+  "updated_at": "2026-10-08T22:00:07Z",
   "matches": [
     {
       "id": 1644202,
@@ -136,10 +136,10 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/976.png",
       "venue": null,
       "kickoff_utc": "2026-10-08T20:00:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
-      "elapsed": 79,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
