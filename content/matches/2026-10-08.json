@@ -1,6 +1,6 @@
 {
   "date": "2026-10-08",
-  "updated_at": "2026-10-08T23:40:05Z",
+  "updated_at": "2026-10-09T00:40:06Z",
   "matches": [
     {
       "id": 1644202,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 34,
-          "extra_minute": null,
-          "team_name": "Renaissance Berkane",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Y. El Kaabi",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1644203,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "FAR Rabat",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "M. Ndockyt",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1644204,
@@ -94,36 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Hassania Agadir",
-          "type": "But",
-          "detail": "But",
-          "player": "A. Bennadi",
-          "assist": "I. Riahi"
-        },
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "CR Khemis Zemamra",
-          "type": "But",
-          "detail": "But",
-          "player": "J. Essaghir",
-          "assist": "Z. Ajoughlal"
-        },
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Hassania Agadir",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1644205,
@@ -147,27 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Maghreb Fès",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "A. Harmach",
-          "assist": null
-        },
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Maghreb Fès",
-          "type": "VAR",
-          "detail": "Goal Disallowed - video review",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
