@@ -1,6 +1,6 @@
 {
   "date": "2026-10-10",
-  "updated_at": "2026-10-10T01:20:05Z",
+  "updated_at": "2026-10-10T01:40:05Z",
   "matches": [
     {
       "id": 1557417,
@@ -707,7 +707,7 @@
       "team_b": "Difaa EL Jadida",
       "team_a_crest": "https://media.api-sports.io/football/teams/18753.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/964.png",
-      "venue": null,
+      "venue": "Stade El Bachir",
       "kickoff_utc": "2026-10-10T19:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
