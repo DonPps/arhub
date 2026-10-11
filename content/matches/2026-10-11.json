@@ -1,6 +1,6 @@
 {
   "date": "2026-10-11",
-  "updated_at": "2026-10-11T18:20:07Z",
+  "updated_at": "2026-10-11T18:40:07Z",
   "matches": [
     {
       "id": 1550139,
@@ -548,11 +548,11 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/727.png",
       "venue": "Estadio de la Cartuja",
       "kickoff_utc": "2026-10-11T16:30:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
-      "elapsed": 86,
-      "score_a": 4,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
+      "score_a": 5,
       "score_b": 2,
       "score_ht_a": 2,
       "score_ht_b": 0,
@@ -575,7 +575,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 61,
+      "elapsed": 81,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 0,
