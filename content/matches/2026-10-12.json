@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12",
-  "updated_at": "2026-10-12T19:00:09Z",
+  "updated_at": "2026-10-12T19:20:07Z",
   "matches": [
     {
       "id": 1550137,
@@ -69,7 +69,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 14,
+      "elapsed": 34,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -91,18 +91,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/34.png",
       "venue": "Coventry Building Society Arena",
       "kickoff_utc": "2026-10-12T19:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 20,
+      "score_a": 1,
+      "score_b": 0,
+      "score_ht_a": 1,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 6,
+          "extra_minute": null,
+          "team_name": "Coventry",
+          "type": "But",
+          "detail": "Penalty",
+          "player": "Jack Rudoni",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1570407,
@@ -115,18 +126,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/536.png",
       "venue": "Estadio Ciudad de Valencia",
       "kickoff_utc": "2026-10-12T19:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 18,
+      "score_a": 0,
+      "score_b": 1,
+      "score_ht_a": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 13,
+          "extra_minute": null,
+          "team_name": "Sevilla",
+          "type": "But",
+          "detail": "But",
+          "player": "Robbie Ure",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1644210,
