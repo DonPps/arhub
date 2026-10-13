@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "updated_at": "2026-10-13T19:20:09Z",
+  "updated_at": "2026-10-13T19:40:07Z",
   "matches": [
     {
       "id": 1635679,
@@ -95,7 +95,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 62,
+      "elapsed": 82,
       "score_a": 1,
       "score_b": 2,
       "score_ht_a": 0,
@@ -139,7 +139,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
+      "elapsed": 39,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -148,7 +148,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 29,
+          "extra_minute": null,
+          "team_name": "Arsenal",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Mikel Merino",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1635623,
@@ -164,7 +174,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 18,
+      "elapsed": 38,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -199,16 +209,35 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
-      "score_a": 0,
+      "elapsed": 39,
+      "score_a": 1,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 28,
+          "extra_minute": null,
+          "team_name": "Galatasaray",
+          "type": "But",
+          "detail": "But",
+          "player": "Aleksey Batrakov",
+          "assist": "Rafael Leão"
+        },
+        {
+          "minute": 36,
+          "extra_minute": null,
+          "team_name": "Galatasaray",
+          "type": "VAR",
+          "detail": "Goal cancelled",
+          "player": "Baris Alper Yilmaz",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1635671,
@@ -224,15 +253,44 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
+      "elapsed": 39,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 0,
-      "score_ht_b": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 27,
+          "extra_minute": null,
+          "team_name": "Club Brugge KV",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Jorne Spileers",
+          "assist": null
+        },
+        {
+          "minute": 29,
+          "extra_minute": null,
+          "team_name": "Inter",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Hakan Çalhanoğlu",
+          "assist": null
+        },
+        {
+          "minute": 30,
+          "extra_minute": null,
+          "team_name": "Club Brugge KV",
+          "type": "But",
+          "detail": "Penalty",
+          "player": "Nicolo Tresoldi",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1635711,
@@ -248,7 +306,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
+      "elapsed": 39,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -272,10 +330,10 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
-      "score_a": 1,
+      "elapsed": 39,
+      "score_a": 2,
       "score_b": 0,
-      "score_ht_a": 1,
+      "score_ht_a": 2,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
@@ -296,10 +354,10 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 20,
-      "score_a": 0,
+      "elapsed": 40,
+      "score_a": 2,
       "score_b": 1,
-      "score_ht_a": 0,
+      "score_ht_a": 2,
       "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
