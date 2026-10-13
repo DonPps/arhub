@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "updated_at": "2026-10-13T21:00:06Z",
+  "updated_at": "2026-10-13T21:20:04Z",
   "matches": [
     {
       "id": 1635679,
@@ -463,9 +463,9 @@
       "venue": "Stade Moulay El Hassan",
       "kickoff_utc": "2026-10-13T20:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 62,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
