@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "updated_at": "2026-10-13T19:40:07Z",
+  "updated_at": "2026-10-13T20:00:13Z",
   "matches": [
     {
       "id": 1635679,
@@ -92,11 +92,11 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/3449.png",
       "venue": "Stade Municipal de Berkane",
       "kickoff_utc": "2026-10-13T18:00:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
-      "elapsed": 82,
-      "score_a": 1,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
+      "score_a": 2,
       "score_b": 2,
       "score_ht_a": 0,
       "score_ht_b": 2,
@@ -137,9 +137,9 @@
       "venue": "Emirates Stadium",
       "kickoff_utc": "2026-10-13T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -172,9 +172,9 @@
       "venue": "Riyadh Air Metropolitano",
       "kickoff_utc": "2026-10-13T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 38,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -207,13 +207,13 @@
       "venue": "Rams Park",
       "kickoff_utc": "2026-10-13T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 1,
-      "score_ht_b": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
@@ -251,12 +251,12 @@
       "venue": "San Siro/Giuseppe Meazza",
       "kickoff_utc": "2026-10-13T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
-      "score_a": 0,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
+      "score_a": 1,
       "score_b": 1,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
@@ -304,9 +304,9 @@
       "venue": "Leipzig Red Bull Arena",
       "kickoff_utc": "2026-10-13T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -314,7 +314,36 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 16,
+          "extra_minute": null,
+          "team_name": "PSV Eindhoven",
+          "type": "VAR",
+          "detail": "Penalty confirmed",
+          "player": "Ruben van Bommel",
+          "assist": null
+        },
+        {
+          "minute": 19,
+          "extra_minute": null,
+          "team_name": "PSV Eindhoven",
+          "type": "But",
+          "detail": "Penalty manqué",
+          "player": "Ivan Perišić",
+          "assist": null
+        },
+        {
+          "minute": 43,
+          "extra_minute": null,
+          "team_name": "PSV Eindhoven",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Sergiño Dest",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1635742,
@@ -328,9 +357,9 @@
       "venue": "SR-Bank Arena",
       "kickoff_utc": "2026-10-13T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 2,
       "score_b": 0,
       "score_ht_a": 2,
@@ -338,7 +367,27 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 2,
+          "extra_minute": null,
+          "team_name": "Viking",
+          "type": "But",
+          "detail": "But",
+          "player": "Gianni Stensness",
+          "assist": "Zlatko Tripić"
+        },
+        {
+          "minute": 38,
+          "extra_minute": null,
+          "team_name": "Viking",
+          "type": "But",
+          "detail": "But",
+          "player": "Peter Christiansen",
+          "assist": "Erik Botheim"
+        }
+      ]
     },
     {
       "id": 1635748,
@@ -352,9 +401,9 @@
       "venue": "Estadio de la Cerámica",
       "kickoff_utc": "2026-10-13T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 2,
       "score_b": 1,
       "score_ht_a": 2,
@@ -362,7 +411,45 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 8,
+          "extra_minute": null,
+          "team_name": "Napoli",
+          "type": "But",
+          "detail": "But",
+          "player": "Amir Rrahmani",
+          "assist": null
+        },
+        {
+          "minute": 23,
+          "extra_minute": null,
+          "team_name": "Villarreal",
+          "type": "But",
+          "detail": "But",
+          "player": "Georges Mikautadze",
+          "assist": null
+        },
+        {
+          "minute": 26,
+          "extra_minute": null,
+          "team_name": "Villarreal",
+          "type": "But",
+          "detail": "But",
+          "player": "Álvaro Santiago Mouriño González",
+          "assist": "Gerard Moreno"
+        },
+        {
+          "minute": 33,
+          "extra_minute": null,
+          "team_name": "Villarreal",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Georges Mikautadze",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1644212,
