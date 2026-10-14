@@ -1,6 +1,6 @@
 {
   "date": "2026-10-14",
-  "updated_at": "2026-10-14T19:40:08Z",
+  "updated_at": "2026-10-14T20:00:13Z",
   "matches": [
     {
       "id": 1635665,
@@ -111,9 +111,9 @@
       "venue": "Stadio Olimpico",
       "kickoff_utc": "2026-10-14T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 1,
       "score_ht_a": 1,
@@ -146,9 +146,9 @@
       "venue": "Villa Park",
       "kickoff_utc": "2026-10-14T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 3,
       "score_b": 0,
       "score_ht_a": 3,
@@ -181,9 +181,9 @@
       "venue": "Estadio de la Cartuja",
       "kickoff_utc": "2026-10-14T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -192,7 +192,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 42,
+          "extra_minute": null,
+          "team_name": "FC Porto",
+          "type": "VAR",
+          "detail": "Goal cancelled",
+          "player": "Borja Sainz",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1635639,
@@ -206,9 +216,9 @@
       "venue": "Aspmyra Stadion",
       "kickoff_utc": "2026-10-14T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -250,9 +260,9 @@
       "venue": "Etihad Stadium",
       "kickoff_utc": "2026-10-14T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 37,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 3,
       "score_ht_a": 0,
@@ -303,9 +313,9 @@
       "venue": "Stamford Bridge",
       "kickoff_utc": "2026-10-14T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 1,
       "score_ht_a": 1,
@@ -313,7 +323,54 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 18,
+          "extra_minute": null,
+          "team_name": "AEK Athens FC",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Lovro Majer",
+          "assist": null
+        },
+        {
+          "minute": 28,
+          "extra_minute": null,
+          "team_name": "AEK Athens FC",
+          "type": "But",
+          "detail": "But",
+          "player": "Lovro Majer",
+          "assist": "Stavros Pilios"
+        },
+        {
+          "minute": 31,
+          "extra_minute": null,
+          "team_name": "Shakhtar Donetsk",
+          "type": "VAR",
+          "detail": "Penalty confirmed",
+          "player": "Alisson",
+          "assist": null
+        },
+        {
+          "minute": 34,
+          "extra_minute": null,
+          "team_name": "Shakhtar Donetsk",
+          "type": "But",
+          "detail": "Penalty",
+          "player": "Pedrinho",
+          "assist": null
+        },
+        {
+          "minute": 42,
+          "extra_minute": null,
+          "team_name": "AEK Athens FC",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Harold Moukoudi",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1635733,
@@ -327,9 +384,9 @@
       "venue": "Tehelne Pole Stadion",
       "kickoff_utc": "2026-10-14T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
@@ -337,7 +394,36 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 12,
+          "extra_minute": null,
+          "team_name": "VfB Stuttgart",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Ramon Hendriks",
+          "assist": null
+        },
+        {
+          "minute": 26,
+          "extra_minute": null,
+          "team_name": "VfB Stuttgart",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Bilal El Khannouss",
+          "assist": null
+        },
+        {
+          "minute": 29,
+          "extra_minute": null,
+          "team_name": "VfB Stuttgart",
+          "type": "But",
+          "detail": "But",
+          "player": "Deniz Undav",
+          "assist": "Angelo Stiller"
+        }
+      ]
     },
     {
       "id": 1644213,
