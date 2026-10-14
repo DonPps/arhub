@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "updated_at": "2026-10-13T23:40:05Z",
+  "updated_at": "2026-10-14T01:00:09Z",
   "matches": [
     {
       "id": 1635679,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Sporting CP",
-          "type": "But",
-          "detail": "But",
-          "player": "Luis Suárez",
-          "assist": "Nestory Irankunda"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635721,
@@ -59,27 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "Sabah FA",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Veljko Simić",
-          "assist": null
-        },
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Sabah FA",
-          "type": "VAR",
-          "detail": "Goal cancelled",
-          "player": "Kaheem Parris",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1644211,
@@ -103,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 5,
-          "extra_minute": null,
-          "team_name": "CR Khemis Zemamra",
-          "type": "But",
-          "detail": "Contre son camp",
-          "player": "Jamal Harkass",
-          "assist": null
-        },
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "CR Khemis Zemamra",
-          "type": "But",
-          "detail": "But",
-          "player": "Youness moukhlis",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635612,
@@ -147,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Arsenal",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Mikel Merino",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635623,
@@ -182,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 1,
-          "extra_minute": null,
-          "team_name": "Atletico Madrid",
-          "type": "But",
-          "detail": "But",
-          "player": "Pablo Barrios Rivas",
-          "assist": "Alejandro Baena Rodríguez"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635666,
@@ -217,27 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 28,
-          "extra_minute": null,
-          "team_name": "Galatasaray",
-          "type": "But",
-          "detail": "But",
-          "player": "Aleksey Batrakov",
-          "assist": "Rafael Leão"
-        },
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "Galatasaray",
-          "type": "VAR",
-          "detail": "Goal cancelled",
-          "player": "Baris Alper Yilmaz",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635671,
@@ -261,36 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "Club Brugge KV",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Jorne Spileers",
-          "assist": null
-        },
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Inter",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Hakan Çalhanoğlu",
-          "assist": null
-        },
-        {
-          "minute": 30,
-          "extra_minute": null,
-          "team_name": "Club Brugge KV",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "Nicolo Tresoldi",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635711,
@@ -314,36 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 16,
-          "extra_minute": null,
-          "team_name": "PSV Eindhoven",
-          "type": "VAR",
-          "detail": "Penalty confirmed",
-          "player": "Ruben van Bommel",
-          "assist": null
-        },
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "PSV Eindhoven",
-          "type": "But",
-          "detail": "Penalty manqué",
-          "player": "Ivan Perišić",
-          "assist": null
-        },
-        {
-          "minute": 43,
-          "extra_minute": null,
-          "team_name": "PSV Eindhoven",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Sergiño Dest",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635742,
@@ -367,27 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 2,
-          "extra_minute": null,
-          "team_name": "Viking",
-          "type": "But",
-          "detail": "But",
-          "player": "Gianni Stensness",
-          "assist": "Zlatko Tripić"
-        },
-        {
-          "minute": 38,
-          "extra_minute": null,
-          "team_name": "Viking",
-          "type": "But",
-          "detail": "But",
-          "player": "Peter Christiansen",
-          "assist": "Erik Botheim"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635748,
@@ -411,45 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Napoli",
-          "type": "But",
-          "detail": "But",
-          "player": "Amir Rrahmani",
-          "assist": null
-        },
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Villarreal",
-          "type": "But",
-          "detail": "But",
-          "player": "Georges Mikautadze",
-          "assist": null
-        },
-        {
-          "minute": 26,
-          "extra_minute": null,
-          "team_name": "Villarreal",
-          "type": "But",
-          "detail": "But",
-          "player": "Álvaro Santiago Mouriño González",
-          "assist": "Gerard Moreno"
-        },
-        {
-          "minute": 33,
-          "extra_minute": null,
-          "team_name": "Villarreal",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Georges Mikautadze",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1644212,
