@@ -1,6 +1,6 @@
 {
   "date": "2026-10-14",
-  "updated_at": "2026-10-14T23:40:04Z",
+  "updated_at": "2026-10-15T02:20:05Z",
   "matches": [
     {
       "id": 1635665,
@@ -24,36 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Como",
-          "type": "But",
-          "detail": "But",
-          "player": "Assane Diao Diaoune",
-          "assist": "Jacobo Ramón"
-        },
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "Feyenoord",
-          "type": "But",
-          "detail": "But",
-          "player": "Gjivai Zechiel",
-          "assist": "Luciano Valente"
-        },
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Como",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Assane Diao Diaoune",
-          "assist": "Jesús Rodríguez"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635674,
@@ -77,27 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Liverpool",
-          "type": "But",
-          "detail": "But",
-          "player": "Ronald Araujo",
-          "assist": "Konstantinos Tsimikas"
-        },
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Liverpool",
-          "type": "But",
-          "detail": "But",
-          "player": "Bradley Barcola",
-          "assist": "Lewis Koumas"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635614,
@@ -121,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "AS Roma",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Manu Koné",
-          "assist": "Niccolò Pisilli"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635620,
@@ -156,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "Aston Villa",
-          "type": "But",
-          "detail": "But",
-          "player": "Johan Manzambi",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635635,
@@ -191,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 42,
-          "extra_minute": null,
-          "team_name": "FC Porto",
-          "type": "VAR",
-          "detail": "Goal cancelled",
-          "player": "Borja Sainz",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635639,
@@ -226,27 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Borussia Dortmund",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Kouakou Joane Gadou",
-          "assist": null
-        },
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "Borussia Dortmund",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Fábio Silva",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635690,
@@ -270,36 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Paris Saint Germain",
-          "type": "But",
-          "detail": "But",
-          "player": "Désiré Doue",
-          "assist": "Fabián Ruiz"
-        },
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "Paris Saint Germain",
-          "type": "But",
-          "detail": "But",
-          "player": "Ousmane Dembélé",
-          "assist": "Désiré Doue"
-        },
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "Paris Saint Germain",
-          "type": "But",
-          "detail": "But",
-          "player": "Vitinha",
-          "assist": "Warren Zaire-Emery"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635725,
@@ -323,54 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "AEK Athens FC",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Lovro Majer",
-          "assist": null
-        },
-        {
-          "minute": 28,
-          "extra_minute": null,
-          "team_name": "AEK Athens FC",
-          "type": "But",
-          "detail": "But",
-          "player": "Lovro Majer",
-          "assist": "Stavros Pilios"
-        },
-        {
-          "minute": 31,
-          "extra_minute": null,
-          "team_name": "Shakhtar Donetsk",
-          "type": "VAR",
-          "detail": "Penalty confirmed",
-          "player": "Alisson",
-          "assist": null
-        },
-        {
-          "minute": 34,
-          "extra_minute": null,
-          "team_name": "Shakhtar Donetsk",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "Pedrinho",
-          "assist": null
-        },
-        {
-          "minute": 42,
-          "extra_minute": null,
-          "team_name": "AEK Athens FC",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Harold Moukoudi",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635733,
@@ -394,36 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "VfB Stuttgart",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Ramon Hendriks",
-          "assist": null
-        },
-        {
-          "minute": 26,
-          "extra_minute": null,
-          "team_name": "VfB Stuttgart",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Bilal El Khannouss",
-          "assist": null
-        },
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "VfB Stuttgart",
-          "type": "But",
-          "detail": "But",
-          "player": "Deniz Undav",
-          "assist": "Angelo Stiller"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1644213,
@@ -447,18 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 2,
-          "extra_minute": null,
-          "team_name": "Maghreb Fès",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Khalid Baba",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
