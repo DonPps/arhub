@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "updated_at": "2026-10-16T17:40:07Z",
+  "updated_at": "2026-10-16T18:00:16Z",
   "matches": [
     {
       "id": 1639533,
@@ -38,12 +38,12 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/1040.png",
       "venue": "Stade Amahoro",
       "kickoff_utc": "2026-10-16T16:00:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
-      "elapsed": 82,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 0,
       "score_ht_b": 0,
       "score_et_a": null,
@@ -131,18 +131,28 @@
       "venue": null,
       "kickoff_utc": "2026-10-16T17:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
-      "score_a": 0,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
+      "score_a": 1,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 45,
+          "extra_minute": 1,
+          "team_name": "Masr",
+          "type": "But",
+          "detail": "But",
+          "player": null,
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1575187,
