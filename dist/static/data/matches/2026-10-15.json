@@ -1,6 +1,6 @@
 {
   "date": "2026-10-15",
-  "updated_at": "2026-10-15T23:40:05Z",
+  "updated_at": "2026-10-16T03:40:06Z",
   "matches": [
     {
       "id": 1636222,
@@ -24,27 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 39,
-          "extra_minute": null,
-          "team_name": "Hapoel Beer Sheva",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Pedro Miguel Santos Amador",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "AZ Alkmaar",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Seiya Maikuma",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636239,
@@ -68,27 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Omonia Nicosia",
-          "type": "VAR",
-          "detail": "Goal cancelled",
-          "player": "Loïs Diony",
-          "assist": null
-        },
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Celje",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Artemijus Tutyskinas",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636279,
@@ -112,54 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "Lech Poznan",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Wojciech Monka",
-          "assist": "Terry Yegbe"
-        },
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Bayer Leverkusen",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Martin Terrier",
-          "assist": "Patrik Schick"
-        },
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "Bayer Leverkusen",
-          "type": "VAR",
-          "detail": "Penalty confirmed",
-          "player": "Ibrahim Maza",
-          "assist": null
-        },
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Bayer Leverkusen",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "Patrik Schick",
-          "assist": null
-        },
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "Bayer Leverkusen",
-          "type": "But",
-          "detail": "But",
-          "player": "Malik Tillman",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636293,
@@ -183,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Lyon",
-          "type": "But",
-          "detail": "But",
-          "player": "Corentin Tolisso",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636328,
@@ -218,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 39,
-          "extra_minute": null,
-          "team_name": "Union St. Gilloise",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "David Hubert",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636332,
@@ -253,45 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "AC Milan",
-          "type": "But",
-          "detail": "But",
-          "player": "Alphadjo Cissè",
-          "assist": "Omari Hutchinson"
-        },
-        {
-          "minute": 21,
-          "extra_minute": null,
-          "team_name": "AC Milan",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Omari Hutchinson",
-          "assist": null
-        },
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "AC Milan",
-          "type": "But",
-          "detail": "But",
-          "player": "Alphadjo Cissè",
-          "assist": "Davide Bartesaghi"
-        },
-        {
-          "minute": 40,
-          "extra_minute": null,
-          "team_name": "Red Bull Salzburg",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Valentin Zabransky",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636338,
@@ -315,54 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Sparta Praha",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Martin Suchomel",
-          "assist": null
-        },
-        {
-          "minute": 28,
-          "extra_minute": null,
-          "team_name": "Lillestrom",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Gustav Kjolstad Nyheim",
-          "assist": null
-        },
-        {
-          "minute": 30,
-          "extra_minute": null,
-          "team_name": "Sparta Praha",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Ebrima Singhateh",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "Sparta Praha",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Ebrima Singhateh",
-          "assist": "Josimar Alcocer"
-        },
-        {
-          "minute": 56,
-          "extra_minute": null,
-          "team_name": "Sparta Praha",
-          "type": "But",
-          "detail": "But",
-          "player": "Josimar Alcocer",
-          "assist": "Jonatan Braut Brunes"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636350,
@@ -386,36 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 37,
-          "extra_minute": null,
-          "team_name": "Torreense",
-          "type": "But",
-          "detail": "But",
-          "player": "Volnei Feltes",
-          "assist": "Amine Oudrhiri"
-        },
-        {
-          "minute": 43,
-          "extra_minute": null,
-          "team_name": "Torreense",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Jonathan Mutombo Mawesi",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "Sunderland",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Trai Hume",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636401,
@@ -439,36 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 3,
-          "extra_minute": null,
-          "team_name": "Monaco",
-          "type": "But",
-          "detail": "But",
-          "player": "P. Brunner",
-          "assist": "S. Idumbo"
-        },
-        {
-          "minute": 43,
-          "extra_minute": null,
-          "team_name": "Monaco",
-          "type": "But",
-          "detail": "But",
-          "player": "A. Fati",
-          "assist": "P. Brunner"
-        },
-        {
-          "minute": 51,
-          "extra_minute": null,
-          "team_name": "CSKA Sofia",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "S. Sensi",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636404,
@@ -492,108 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 26,
-          "extra_minute": null,
-          "team_name": "Egnatia Rrogozhinë",
-          "type": "But",
-          "detail": "But",
-          "player": "I. Gruda",
-          "assist": "A. Kryeziu"
-        },
-        {
-          "minute": 33,
-          "extra_minute": null,
-          "team_name": "FC Midtjylland",
-          "type": "But",
-          "detail": "But",
-          "player": "Cho Gue-Sung",
-          "assist": "R. Kristensen"
-        },
-        {
-          "minute": 40,
-          "extra_minute": null,
-          "team_name": "FC Midtjylland",
-          "type": "VAR",
-          "detail": "Goal Disallowed - offside",
-          "player": "Cho Gue-Sung",
-          "assist": null
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "FC Midtjylland",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Hong Hyun-Seok",
-          "assist": "K. Watjen"
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "FC Midtjylland",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "Cho Gue-Sung",
-          "assist": "F. Etim"
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "FC Midtjylland",
-          "type": "Remplacement",
-          "detail": "Substitution 3",
-          "player": "D. Martinez",
-          "assist": "S. Iheanacho"
-        },
-        {
-          "minute": 56,
-          "extra_minute": null,
-          "team_name": "FC Midtjylland",
-          "type": "Remplacement",
-          "detail": "Substitution 4",
-          "player": "M. Rajovic",
-          "assist": "S. Johannesen"
-        },
-        {
-          "minute": 66,
-          "extra_minute": null,
-          "team_name": "Egnatia Rrogozhinë",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "G. Jaime",
-          "assist": "G. Smajli"
-        },
-        {
-          "minute": 66,
-          "extra_minute": null,
-          "team_name": "Egnatia Rrogozhinë",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "A. Albanese",
-          "assist": "I. Diabate"
-        },
-        {
-          "minute": 72,
-          "extra_minute": null,
-          "team_name": "Egnatia Rrogozhinë",
-          "type": "Remplacement",
-          "detail": "Substitution 3",
-          "player": "D. Adjessa",
-          "assist": "J. Montenegro"
-        },
-        {
-          "minute": 77,
-          "extra_minute": null,
-          "team_name": "FC Midtjylland",
-          "type": "Remplacement",
-          "detail": "Substitution 5",
-          "player": "D. Castillo",
-          "assist": "M. Uhre"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636414,
@@ -617,72 +264,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 21,
-          "extra_minute": null,
-          "team_name": "Aarhus",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "M. Anderson",
-          "assist": "F. Emmery"
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "Aarhus",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "D. L. Gretarsson",
-          "assist": "T. Molgaard"
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "Gent",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "S. Van Der Heyden",
-          "assist": "M. Diallo"
-        },
-        {
-          "minute": 58,
-          "extra_minute": null,
-          "team_name": "Aarhus",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "J. Bogere",
-          "assist": null
-        },
-        {
-          "minute": 62,
-          "extra_minute": null,
-          "team_name": "Aarhus",
-          "type": "Remplacement",
-          "detail": "Substitution 3",
-          "player": "K. Arnstad",
-          "assist": "M. Knudsen"
-        },
-        {
-          "minute": 66,
-          "extra_minute": null,
-          "team_name": "Gent",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "M. Volckaert",
-          "assist": "H. Goore"
-        },
-        {
-          "minute": 74,
-          "extra_minute": null,
-          "team_name": "Gent",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "M. Delorge",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636419,
@@ -706,63 +288,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 37,
-          "extra_minute": null,
-          "team_name": "HNK Hajduk Split",
-          "type": "But",
-          "detail": "But",
-          "player": "A. Sanyang",
-          "assist": "M. Soticek"
-        },
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "HNK Hajduk Split",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "A. del Moral",
-          "assist": null
-        },
-        {
-          "minute": 53,
-          "extra_minute": null,
-          "team_name": "Ajax",
-          "type": "But",
-          "detail": "But",
-          "player": "D. Klaassen",
-          "assist": "T. Kehrer"
-        },
-        {
-          "minute": 55,
-          "extra_minute": null,
-          "team_name": "HNK Hajduk Split",
-          "type": "But",
-          "detail": "But",
-          "player": "M. Soticek",
-          "assist": "M. Sego"
-        },
-        {
-          "minute": 60,
-          "extra_minute": null,
-          "team_name": "HNK Hajduk Split",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "M. Sego",
-          "assist": null
-        },
-        {
-          "minute": 69,
-          "extra_minute": null,
-          "team_name": "HNK Hajduk Split",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "A. del Moral",
-          "assist": "L. Dendoncker"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636440,
