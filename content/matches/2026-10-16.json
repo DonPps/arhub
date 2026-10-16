@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "updated_at": "2026-10-16T18:00:16Z",
+  "updated_at": "2026-10-16T18:20:05Z",
   "matches": [
     {
       "id": 1639533,
@@ -24,8 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": []
+      "score_pen_b": null
     },
     {
       "id": 1639336,
@@ -131,11 +130,11 @@
       "venue": null,
       "kickoff_utc": "2026-10-16T17:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 61,
       "score_a": 1,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
