@@ -1,6 +1,6 @@
 {
   "date": "2026-10-17",
-  "updated_at": "2026-10-17T11:40:08Z",
+  "updated_at": "2026-10-17T12:00:16Z",
   "matches": [
     {
       "id": 1557430,
@@ -16,7 +16,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 8,
+      "elapsed": 28,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -25,7 +25,26 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 23,
+          "extra_minute": null,
+          "team_name": "Everton",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Harrison Armstrong",
+          "assist": null
+        },
+        {
+          "minute": 27,
+          "extra_minute": null,
+          "team_name": "Chelsea",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Pedro Neto",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1570416,
