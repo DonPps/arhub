@@ -1,6 +1,6 @@
 {
   "date": "2026-10-17",
-  "updated_at": "2026-10-17T12:20:08Z",
+  "updated_at": "2026-10-17T12:40:10Z",
   "matches": [
     {
       "id": 1557430,
@@ -14,11 +14,11 @@
       "venue": "Hill Dickinson Stadium",
       "kickoff_utc": "2026-10-17T11:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 49,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 0,
       "score_ht_b": 0,
       "score_et_a": null,
@@ -60,7 +60,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
+      "elapsed": 39,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -69,7 +69,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 22,
+          "extra_minute": null,
+          "team_name": "Atletico Madrid",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Morten Hjulmand",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1639337,
@@ -85,16 +95,26 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 20,
+      "elapsed": 40,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 0,
-      "score_ht_b": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 40,
+          "extra_minute": null,
+          "team_name": "Young Africans",
+          "type": "But",
+          "detail": "But",
+          "player": null,
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1550156,
