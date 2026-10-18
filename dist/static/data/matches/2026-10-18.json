@@ -1,6 +1,6 @@
 {
   "date": "2026-10-18",
-  "updated_at": "2026-10-18T13:20:08Z",
+  "updated_at": "2026-10-18T13:40:10Z",
   "matches": [
     {
       "id": 1550155,
@@ -51,7 +51,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 60,
+      "elapsed": 80,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -104,7 +104,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 58,
+      "elapsed": 78,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
@@ -139,11 +139,11 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 18,
+      "elapsed": 38,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 2,
       "score_ht_a": 0,
-      "score_ht_b": 0,
+      "score_ht_b": 2,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
@@ -174,11 +174,11 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 20,
+      "elapsed": 40,
       "score_a": 1,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 1,
-      "score_ht_b": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
@@ -209,7 +209,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 20,
+      "elapsed": 40,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -217,7 +217,36 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 6,
+          "extra_minute": null,
+          "team_name": "Bournemouth",
+          "type": "But",
+          "detail": "But",
+          "player": "Marcus Tavernier",
+          "assist": "Francisco Evanilson"
+        },
+        {
+          "minute": 17,
+          "extra_minute": null,
+          "team_name": "Sunderland",
+          "type": "Carton",
+          "detail": "Carton rouge",
+          "player": "Kevin Danso",
+          "assist": null
+        },
+        {
+          "minute": 26,
+          "extra_minute": null,
+          "team_name": "Bournemouth",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Antonio Silva",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1557429,
@@ -233,7 +262,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 20,
+      "elapsed": 40,
       "score_a": 3,
       "score_b": 0,
       "score_ht_a": 3,
@@ -241,7 +270,45 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 4,
+          "extra_minute": null,
+          "team_name": "Brighton",
+          "type": "But",
+          "detail": "Contre son camp",
+          "player": "Jaydee Canvot",
+          "assist": null
+        },
+        {
+          "minute": 7,
+          "extra_minute": null,
+          "team_name": "Brighton",
+          "type": "But",
+          "detail": "But",
+          "player": "Diego Gomez",
+          "assist": "Olivier Boscagli"
+        },
+        {
+          "minute": 10,
+          "extra_minute": null,
+          "team_name": "Brighton",
+          "type": "But",
+          "detail": "But",
+          "player": "Yasin Ayari",
+          "assist": "Charalampos Kostoulas"
+        },
+        {
+          "minute": 29,
+          "extra_minute": null,
+          "team_name": "Brighton",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Pascal Groß",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1557432,
@@ -257,15 +324,44 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
+      "elapsed": 39,
       "score_a": 0,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 0,
-      "score_ht_b": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 17,
+          "extra_minute": null,
+          "team_name": "Manchester United",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Bruno Fernandes",
+          "assist": null
+        },
+        {
+          "minute": 19,
+          "extra_minute": null,
+          "team_name": "Leeds",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Gabriel Gudmundsson",
+          "assist": null
+        },
+        {
+          "minute": 35,
+          "extra_minute": null,
+          "team_name": "Manchester United",
+          "type": "But",
+          "detail": "But",
+          "player": "Bryan Mbeumo",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1639339,
@@ -281,7 +377,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 14,
+      "elapsed": 34,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -305,7 +401,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
+      "elapsed": 40,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -353,7 +449,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 11,
+      "elapsed": 31,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -374,14 +470,14 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/160.png",
       "venue": "BayArena",
       "kickoff_utc": "2026-10-18T13:30:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 10,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
