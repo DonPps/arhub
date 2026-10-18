@@ -1,6 +1,6 @@
 {
   "date": "2026-10-18",
-  "updated_at": "2026-10-18T11:00:10Z",
+  "updated_at": "2026-10-18T11:20:06Z",
   "matches": [
     {
       "id": 1550155,
@@ -14,13 +14,13 @@
       "venue": "Bluenergy Stadium",
       "kickoff_utc": "2026-10-18T10:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 28,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
-      "score_b": 1,
+      "score_b": 2,
       "score_ht_a": 0,
-      "score_ht_b": 1,
+      "score_ht_b": 2,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
