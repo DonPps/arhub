@@ -1,6 +1,6 @@
 {
   "date": "2026-10-18",
-  "updated_at": "2026-10-19T07:20:09Z",
+  "updated_at": "2026-10-19T13:40:06Z",
   "matches": [
     {
       "id": 1550155,
@@ -429,30 +429,6 @@
       "score_b": 4,
       "score_ht_a": 0,
       "score_ht_b": 2,
-      "score_et_a": null,
-      "score_et_b": null,
-      "score_pen_a": null,
-      "score_pen_b": null
-    },
-    {
-      "id": 1640092,
-      "competition": "CAF Confederation Cup",
-      "competition_logo": "https://media.api-sports.io/football/leagues/20.png",
-      "competition_country": "World",
-      "team_a": "Panthers",
-      "team_b": "USM Alger",
-      "team_a_crest": "https://media.api-sports.io/football/teams/28151.png",
-      "team_b_crest": "https://media.api-sports.io/football/teams/910.png",
-      "venue": "Stade du 5 Juillet 1962",
-      "kickoff_utc": "2026-10-18T15:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
