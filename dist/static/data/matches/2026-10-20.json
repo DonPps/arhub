@@ -1,6 +1,6 @@
 {
   "date": "2026-10-20",
-  "updated_at": "2026-10-20T00:00:12Z",
+  "updated_at": "2026-10-20T00:20:05Z",
   "matches": [
     {
       "id": 1644171,
@@ -253,12 +253,12 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/910.png",
       "venue": "Stade du 5 Juillet 1962",
       "kickoff_utc": "2026-10-20T19:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
+      "status": "OTHER",
+      "status_short": "WO",
+      "status_long": "Walkover",
       "elapsed": null,
-      "score_a": null,
-      "score_b": null,
+      "score_a": 0,
+      "score_b": 0,
       "score_ht_a": null,
       "score_ht_b": null,
       "score_et_a": null,
