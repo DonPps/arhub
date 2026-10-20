@@ -1,6 +1,6 @@
 {
   "date": "2026-10-20",
-  "updated_at": "2026-10-20T19:40:09Z",
+  "updated_at": "2026-10-20T20:00:17Z",
   "matches": [
     {
       "id": 1635661,
@@ -93,9 +93,9 @@
       "venue": "Stadio Olimpico",
       "kickoff_utc": "2026-10-20T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 2,
       "score_b": 0,
       "score_ht_a": 2,
@@ -146,9 +146,9 @@
       "venue": "Estádio do Dragão",
       "kickoff_utc": "2026-10-20T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -181,12 +181,12 @@
       "venue": "Anfield",
       "kickoff_utc": "2026-10-20T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
-      "score_a": 1,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
+      "score_a": 2,
       "score_b": 2,
-      "score_ht_a": 1,
+      "score_ht_a": 2,
       "score_ht_b": 2,
       "score_et_a": null,
       "score_et_b": null,
@@ -216,9 +216,9 @@
       "venue": "Etihad Stadium",
       "kickoff_utc": "2026-10-20T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 39,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 2,
       "score_b": 0,
       "score_ht_a": 2,
@@ -260,17 +260,46 @@
       "venue": "Maradona Stadium",
       "kickoff_utc": "2026-10-20T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 37,
-      "score_a": 1,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
+      "score_a": 2,
       "score_b": 1,
-      "score_ht_a": 1,
+      "score_ht_a": 2,
       "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 1,
+          "extra_minute": null,
+          "team_name": "Napoli",
+          "type": "But",
+          "detail": "But",
+          "player": "Matteo Politano",
+          "assist": "Leonardo Spinazzola"
+        },
+        {
+          "minute": 27,
+          "extra_minute": null,
+          "team_name": "Bodo/Glimt",
+          "type": "But",
+          "detail": "But",
+          "player": "Jens Petter Hauge",
+          "assist": "Sondre Fet"
+        },
+        {
+          "minute": 41,
+          "extra_minute": null,
+          "team_name": "Napoli",
+          "type": "But",
+          "detail": "But",
+          "player": "Scott McTominay",
+          "assist": "Kevin De Bruyne"
+        }
+      ]
     },
     {
       "id": 1635702,
@@ -284,17 +313,55 @@
       "venue": "Parc des Princes",
       "kickoff_utc": "2026-10-20T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 38,
-      "score_a": 0,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
+      "score_a": 1,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 17,
+          "extra_minute": null,
+          "team_name": "Barcelona",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "João Cancelo",
+          "assist": null
+        },
+        {
+          "minute": 20,
+          "extra_minute": null,
+          "team_name": "Paris Saint Germain",
+          "type": "Remplacement",
+          "detail": "Remplacement",
+          "player": "Ousmane Dembélé",
+          "assist": "Ferrán Torres"
+        },
+        {
+          "minute": 27,
+          "extra_minute": null,
+          "team_name": "Barcelona",
+          "type": "Remplacement",
+          "detail": "Remplacement",
+          "player": "Daniel Olmo Carvajal",
+          "assist": "Fermín López"
+        },
+        {
+          "minute": 38,
+          "extra_minute": null,
+          "team_name": "Paris Saint Germain",
+          "type": "But",
+          "detail": "But",
+          "player": "Désiré Doue",
+          "assist": "João Neves"
+        }
+      ]
     },
     {
       "id": 1635738,
@@ -308,9 +375,9 @@
       "venue": "MHP Arena",
       "kickoff_utc": "2026-10-20T19:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -318,7 +385,27 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 17,
+          "extra_minute": null,
+          "team_name": "VfB Stuttgart",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Maximilian Mittelstädt",
+          "assist": null
+        },
+        {
+          "minute": 36,
+          "extra_minute": null,
+          "team_name": "VfB Stuttgart",
+          "type": "But",
+          "detail": "But",
+          "player": "Jamie Leweling",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1640092,
