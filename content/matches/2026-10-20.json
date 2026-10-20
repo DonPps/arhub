@@ -1,6 +1,6 @@
 {
   "date": "2026-10-20",
-  "updated_at": "2026-10-20T19:20:09Z",
+  "updated_at": "2026-10-20T19:40:09Z",
   "matches": [
     {
       "id": 1635661,
@@ -95,16 +95,44 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 20,
-      "score_a": 0,
+      "elapsed": 40,
+      "score_a": 2,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 2,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 20,
+          "extra_minute": null,
+          "team_name": "Slovan Bratislava",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Tigran·Barseghyan",
+          "assist": null
+        },
+        {
+          "minute": 21,
+          "extra_minute": null,
+          "team_name": "AS Roma",
+          "type": "But",
+          "detail": "But",
+          "player": "Mario Hermoso",
+          "assist": "Daniele Ghilardi"
+        },
+        {
+          "minute": 39,
+          "extra_minute": null,
+          "team_name": "AS Roma",
+          "type": "But",
+          "detail": "But",
+          "player": "Nahuel Molina",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1635655,
@@ -120,7 +148,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
+      "elapsed": 39,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -129,7 +157,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 39,
+          "extra_minute": null,
+          "team_name": "PSV Eindhoven",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Lutsharel Geertruida",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1635688,
@@ -145,11 +183,11 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
-      "score_a": 0,
-      "score_b": 1,
-      "score_ht_a": 0,
-      "score_ht_b": 1,
+      "elapsed": 39,
+      "score_a": 1,
+      "score_b": 2,
+      "score_ht_a": 1,
+      "score_ht_b": 2,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
@@ -180,15 +218,35 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
-      "score_a": 1,
+      "elapsed": 39,
+      "score_a": 2,
       "score_b": 0,
-      "score_ht_a": 1,
+      "score_ht_a": 2,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 12,
+          "extra_minute": null,
+          "team_name": "Manchester City",
+          "type": "But",
+          "detail": "But",
+          "player": "Elliot Anderson",
+          "assist": null
+        },
+        {
+          "minute": 34,
+          "extra_minute": null,
+          "team_name": "Manchester City",
+          "type": "But",
+          "detail": "But",
+          "player": "Phil Foden",
+          "assist": "Rico Lewis"
+        }
+      ]
     },
     {
       "id": 1635700,
@@ -204,11 +262,11 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 17,
+      "elapsed": 37,
       "score_a": 1,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 1,
-      "score_ht_b": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
@@ -228,7 +286,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 17,
+      "elapsed": 38,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -252,10 +310,10 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 20,
-      "score_a": 0,
+      "elapsed": 40,
+      "score_a": 1,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
