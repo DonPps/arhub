@@ -1,6 +1,6 @@
 {
   "date": "2026-10-20",
-  "updated_at": "2026-10-20T23:40:05Z",
+  "updated_at": "2026-10-21T03:40:05Z",
   "matches": [
     {
       "id": 1635661,
@@ -24,27 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 4,
-          "extra_minute": null,
-          "team_name": "Fenerbahçe",
-          "type": "But",
-          "detail": "But",
-          "player": "Oğuz Aydın",
-          "assist": "Milan Škriniar"
-        },
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Fenerbahçe",
-          "type": "But",
-          "detail": "But",
-          "player": "Mason Greenwood",
-          "assist": "Nélson Semedo"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635719,
@@ -68,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Borussia Dortmund",
-          "type": "But",
-          "detail": "But",
-          "player": "Serhou Guirassy",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635617,
@@ -103,36 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "Slovan Bratislava",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Tigran·Barseghyan",
-          "assist": null
-        },
-        {
-          "minute": 21,
-          "extra_minute": null,
-          "team_name": "AS Roma",
-          "type": "But",
-          "detail": "But",
-          "player": "Mario Hermoso",
-          "assist": "Daniele Ghilardi"
-        },
-        {
-          "minute": 39,
-          "extra_minute": null,
-          "team_name": "AS Roma",
-          "type": "But",
-          "detail": "But",
-          "player": "Nahuel Molina",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635655,
@@ -156,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 39,
-          "extra_minute": null,
-          "team_name": "PSV Eindhoven",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Lutsharel Geertruida",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635688,
@@ -191,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 4,
-          "extra_minute": null,
-          "team_name": "Villarreal",
-          "type": "But",
-          "detail": "But",
-          "player": "Georges Mikautadze",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635693,
@@ -226,27 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "Manchester City",
-          "type": "But",
-          "detail": "But",
-          "player": "Elliot Anderson",
-          "assist": null
-        },
-        {
-          "minute": 34,
-          "extra_minute": null,
-          "team_name": "Manchester City",
-          "type": "But",
-          "detail": "But",
-          "player": "Phil Foden",
-          "assist": "Rico Lewis"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635700,
@@ -270,36 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 1,
-          "extra_minute": null,
-          "team_name": "Napoli",
-          "type": "But",
-          "detail": "But",
-          "player": "Matteo Politano",
-          "assist": "Leonardo Spinazzola"
-        },
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "Bodo/Glimt",
-          "type": "But",
-          "detail": "But",
-          "player": "Jens Petter Hauge",
-          "assist": "Sondre Fet"
-        },
-        {
-          "minute": 41,
-          "extra_minute": null,
-          "team_name": "Napoli",
-          "type": "But",
-          "detail": "But",
-          "player": "Scott McTominay",
-          "assist": "Kevin De Bruyne"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635702,
@@ -323,45 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Barcelona",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "João Cancelo",
-          "assist": null
-        },
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "Paris Saint Germain",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Ousmane Dembélé",
-          "assist": "Ferrán Torres"
-        },
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "Barcelona",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Daniel Olmo Carvajal",
-          "assist": "Fermín López"
-        },
-        {
-          "minute": 38,
-          "extra_minute": null,
-          "team_name": "Paris Saint Germain",
-          "type": "But",
-          "detail": "But",
-          "player": "Désiré Doue",
-          "assist": "João Neves"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635738,
@@ -385,27 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "VfB Stuttgart",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Maximilian Mittelstädt",
-          "assist": null
-        },
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "VfB Stuttgart",
-          "type": "But",
-          "detail": "But",
-          "player": "Jamie Leweling",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1640092,
