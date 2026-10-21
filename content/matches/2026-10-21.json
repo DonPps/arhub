@@ -1,6 +1,6 @@
 {
   "date": "2026-10-21",
-  "updated_at": "2026-10-21T19:20:08Z",
+  "updated_at": "2026-10-21T19:40:06Z",
   "matches": [
     {
       "id": 1644171,
@@ -165,9 +165,9 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 58,
+      "elapsed": 78,
       "score_a": 2,
-      "score_b": 0,
+      "score_b": 1,
       "score_ht_a": 2,
       "score_ht_b": 0,
       "score_et_a": null,
@@ -209,16 +209,44 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
-      "score_a": 0,
+      "elapsed": 39,
+      "score_a": 2,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 2,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 23,
+          "extra_minute": null,
+          "team_name": "Aston Villa",
+          "type": "But",
+          "detail": "But",
+          "player": "Ross Barkley",
+          "assist": "Ibrahim Mbaye"
+        },
+        {
+          "minute": 35,
+          "extra_minute": null,
+          "team_name": "Aston Villa",
+          "type": "VAR",
+          "detail": "Penalty confirmed",
+          "player": " Alysson Edward Franco da Rocha",
+          "assist": null
+        },
+        {
+          "minute": 37,
+          "extra_minute": null,
+          "team_name": "Aston Villa",
+          "type": "But",
+          "detail": "Penalty",
+          "player": "Emiliano Buendía",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1635630,
@@ -234,11 +262,11 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 20,
-      "score_a": 0,
-      "score_b": 0,
-      "score_ht_a": 0,
-      "score_ht_b": 0,
+      "elapsed": 40,
+      "score_a": 1,
+      "score_b": 1,
+      "score_ht_a": 1,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
@@ -278,7 +306,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 20,
+      "elapsed": 40,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -313,7 +341,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 20,
+      "elapsed": 40,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -321,7 +349,8 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": []
     },
     {
       "id": 1635672,
@@ -337,7 +366,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
+      "elapsed": 39,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -345,7 +374,27 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 32,
+          "extra_minute": null,
+          "team_name": "Shakhtar Donetsk",
+          "type": "Remplacement",
+          "detail": "Remplacement",
+          "player": "Pedrinho",
+          "assist": "Egor Nazaryna"
+        },
+        {
+          "minute": 36,
+          "extra_minute": null,
+          "team_name": "Shakhtar Donetsk",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Oleg Ocheretko",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1635716,
@@ -361,7 +410,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 18,
+      "elapsed": 38,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -385,7 +434,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 18,
+      "elapsed": 38,
       "score_a": 1,
       "score_b": 1,
       "score_ht_a": 1,
