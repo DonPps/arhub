@@ -1,6 +1,6 @@
 {
   "date": "2026-10-21",
-  "updated_at": "2026-10-21T16:40:06Z",
+  "updated_at": "2026-10-21T17:00:12Z",
   "matches": [
     {
       "id": 1644171,
@@ -49,9 +49,9 @@
       "venue": "KMC Stadium",
       "kickoff_utc": "2026-10-21T16:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 40,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -83,18 +83,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/33.png",
       "venue": "Stadio Giuseppe Sinigaglia",
       "kickoff_utc": "2026-10-21T16:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 13,
+      "score_a": 1,
+      "score_b": 0,
+      "score_ht_a": 1,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 2,
+          "extra_minute": null,
+          "team_name": "Como",
+          "type": "But",
+          "detail": "But",
+          "player": "Nico Paz",
+          "assist": "Lucas Da Cunha"
+        }
+      ]
     },
     {
       "id": 1635684,
@@ -107,18 +118,38 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/645.png",
       "venue": "Stade Pierre-Mauroy",
       "kickoff_utc": "2026-10-21T16:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 15,
+      "score_a": 1,
+      "score_b": 1,
+      "score_ht_a": 1,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 2,
+          "extra_minute": null,
+          "team_name": "Galatasaray",
+          "type": "But",
+          "detail": "But",
+          "player": "Yunus Akgün",
+          "assist": null
+        },
+        {
+          "minute": 7,
+          "extra_minute": null,
+          "team_name": "Lille",
+          "type": "But",
+          "detail": "But",
+          "player": "Soriba Diaoune",
+          "assist": "Alexsandro"
+        }
+      ]
     },
     {
       "id": 1570389,
