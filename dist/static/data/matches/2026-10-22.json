@@ -1,6 +1,6 @@
 {
   "date": "2026-10-22",
-  "updated_at": "2026-10-22T15:00:09Z",
+  "updated_at": "2026-10-22T15:20:05Z",
   "matches": [
     {
       "id": 1636434,
@@ -14,13 +14,13 @@
       "venue": "Almaty Central Stadium",
       "kickoff_utc": "2026-10-22T14:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 30,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
-      "score_b": 3,
+      "score_b": 2,
       "score_ht_a": 0,
-      "score_ht_b": 3,
+      "score_ht_b": 2,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
