@@ -1,6 +1,6 @@
 {
   "date": "2026-10-21",
-  "updated_at": "2026-10-21T23:40:06Z",
+  "updated_at": "2026-10-22T05:00:10Z",
   "matches": [
     {
       "id": 1644171,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 28,
-          "extra_minute": null,
-          "team_name": "15 de Agosto",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1639347,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "Young Africans",
-          "type": "But",
-          "detail": "But",
-          "player": "I. Kazimoto",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635647,
@@ -94,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 2,
-          "extra_minute": null,
-          "team_name": "Como",
-          "type": "But",
-          "detail": "But",
-          "player": "Nico Paz",
-          "assist": "Lucas Da Cunha"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635684,
@@ -129,27 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 2,
-          "extra_minute": null,
-          "team_name": "Galatasaray",
-          "type": "But",
-          "detail": "But",
-          "player": "Yunus Akgün",
-          "assist": null
-        },
-        {
-          "minute": 7,
-          "extra_minute": null,
-          "team_name": "Lille",
-          "type": "But",
-          "detail": "But",
-          "player": "Soriba Diaoune",
-          "assist": "Alexsandro"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570389,
@@ -173,27 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "Levante",
-          "type": "But",
-          "detail": "But",
-          "player": "Roger Brugué",
-          "assist": "Daniel Requena Sánchez"
-        },
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Levante",
-          "type": "But",
-          "detail": "But",
-          "player": "Roger Brugué",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635621,
@@ -217,36 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Aston Villa",
-          "type": "But",
-          "detail": "But",
-          "player": "Ross Barkley",
-          "assist": "Ibrahim Mbaye"
-        },
-        {
-          "minute": 35,
-          "extra_minute": null,
-          "team_name": "Aston Villa",
-          "type": "VAR",
-          "detail": "Penalty confirmed",
-          "player": " Alysson Edward Franco da Rocha",
-          "assist": null
-        },
-        {
-          "minute": 37,
-          "extra_minute": null,
-          "team_name": "Aston Villa",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "Emiliano Buendía",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635630,
@@ -270,27 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Arsenal",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Bukayo Saka",
-          "assist": "Eberechi Eze"
-        },
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Arsenal",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Kai Havertz",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635636,
@@ -314,18 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "Feyenoord",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Mika Mármol",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635645,
@@ -349,27 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "Lens",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Matthieu Udol",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": 3,
-          "team_name": "Club Brugge KV",
-          "type": "But",
-          "detail": "But",
-          "player": "Hans Vanaken",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635672,
@@ -393,27 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "Shakhtar Donetsk",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Pedrinho",
-          "assist": "Egor Nazaryna"
-        },
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "Shakhtar Donetsk",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Oleg Ocheretko",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1635716,
