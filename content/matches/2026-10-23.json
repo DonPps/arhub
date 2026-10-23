@@ -1,6 +1,6 @@
 {
   "date": "2026-10-23",
-  "updated_at": "2026-10-23T17:20:07Z",
+  "updated_at": "2026-10-23T17:40:06Z",
   "matches": [
     {
       "id": 1639346,
@@ -51,8 +51,8 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 61,
-      "score_a": 0,
+      "elapsed": 81,
+      "score_a": 1,
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
@@ -60,7 +60,17 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 66,
+          "extra_minute": null,
+          "team_name": "Kaizer Chiefs",
+          "type": "But",
+          "detail": "But",
+          "player": null,
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1639015,
