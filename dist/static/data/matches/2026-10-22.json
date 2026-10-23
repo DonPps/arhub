@@ -1,6 +1,6 @@
 {
   "date": "2026-10-22",
-  "updated_at": "2026-10-22T23:40:04Z",
+  "updated_at": "2026-10-23T00:00:14Z",
   "matches": [
     {
       "id": 1636434,
@@ -24,198 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 6,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "But",
-          "detail": "But",
-          "player": "V. Taborda",
-          "assist": "G. Kyriakopoulos"
-        },
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "C. Dessers",
-          "assist": null
-        },
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "Kairat Almaty",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "E. Tapalov",
-          "assist": null
-        },
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "VAR",
-          "detail": "Goal Disallowed - offside",
-          "player": "A. Tetteh",
-          "assist": null
-        },
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "Kairat Almaty",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "O. Baybek",
-          "assist": "A. Shirobokov"
-        },
-        {
-          "minute": 45,
-          "extra_minute": 1,
-          "team_name": "Panathinaikos",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "E. Palmer-Brown",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": 2,
-          "team_name": "Kairat Almaty",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "A. Mrynskiy",
-          "assist": null
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "Kairat Almaty",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "Edmilson",
-          "assist": "O. Jukkola"
-        },
-        {
-          "minute": 47,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "But",
-          "detail": "But",
-          "player": "C. Dessers",
-          "assist": "A. Tetteh"
-        },
-        {
-          "minute": 56,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "C. Dessers",
-          "assist": "E. Rastoder"
-        },
-        {
-          "minute": 56,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "E. Camara",
-          "assist": "K. Kangwa"
-        },
-        {
-          "minute": 57,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "But",
-          "detail": "But",
-          "player": "K. Kangwa",
-          "assist": null
-        },
-        {
-          "minute": 65,
-          "extra_minute": null,
-          "team_name": "Kairat Almaty",
-          "type": "Remplacement",
-          "detail": "Substitution 3",
-          "player": "L. Mata",
-          "assist": "L. Kurgin"
-        },
-        {
-          "minute": 65,
-          "extra_minute": null,
-          "team_name": "Kairat Almaty",
-          "type": "Remplacement",
-          "detail": "Substitution 4",
-          "player": "M. Gual",
-          "assist": "I. Bekbolat"
-        },
-        {
-          "minute": 65,
-          "extra_minute": null,
-          "team_name": "Kairat Almaty",
-          "type": "Remplacement",
-          "detail": "Substitution 5",
-          "player": "J. Oksanen",
-          "assist": "D. Kasabulat"
-        },
-        {
-          "minute": 65,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "Remplacement",
-          "detail": "Substitution 3",
-          "player": "S. Andino",
-          "assist": "F. Pellistri"
-        },
-        {
-          "minute": 65,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "Remplacement",
-          "detail": "Substitution 4",
-          "player": "I. Louza",
-          "assist": "P. Chirivella"
-        },
-        {
-          "minute": 75,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "But",
-          "detail": "But",
-          "player": "E. Rastoder",
-          "assist": null
-        },
-        {
-          "minute": 75,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "Remplacement",
-          "detail": "Substitution 5",
-          "player": "S. de Vrij",
-          "assist": "G. Katris"
-        },
-        {
-          "minute": 77,
-          "extra_minute": null,
-          "team_name": "Panathinaikos",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "K. Kangwa",
-          "assist": null
-        },
-        {
-          "minute": 79,
-          "extra_minute": null,
-          "team_name": "Kairat Almaty",
-          "type": "But",
-          "detail": "But",
-          "player": "I. Bekbolat",
-          "assist": "A. Shirobokov"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636215,
@@ -239,36 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 21,
-          "extra_minute": null,
-          "team_name": "AZ Alkmaar",
-          "type": "But",
-          "detail": "But",
-          "player": "Valdemar Byskov Andreasen",
-          "assist": null
-        },
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Ararat-Armenia",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Bruno Wilson",
-          "assist": null
-        },
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "AZ Alkmaar",
-          "type": "But",
-          "detail": "But",
-          "player": "Weslley Pinto Batista",
-          "assist": "Seiya Maikuma"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636258,
@@ -292,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Dinamo Zagreb",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Dion Drena Beljo",
-          "assist": null
-        },
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "NEC Nijmegen",
-          "type": "But",
-          "detail": "But",
-          "player": "Clement Bischoff",
-          "assist": "Noe Lebreton"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636262,
@@ -336,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 9,
-          "extra_minute": null,
-          "team_name": "Ferencvarosi TC",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Kristoffer Zachariassen",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636276,
@@ -371,36 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 5,
-          "extra_minute": null,
-          "team_name": "Juventus",
-          "type": "But",
-          "detail": "But",
-          "player": "Zeki Çelik",
-          "assist": "Nick Woltemade"
-        },
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "Rennes",
-          "type": "But",
-          "detail": "But",
-          "player": "Mousa Al-Tamari",
-          "assist": "Bryan Reynolds"
-        },
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Juventus",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Federico Gatti",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636280,
@@ -424,27 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 2,
-          "extra_minute": null,
-          "team_name": "Sunderland",
-          "type": "But",
-          "detail": "But",
-          "player": "Timur Tutierov",
-          "assist": "Nilson Angulo"
-        },
-        {
-          "minute": 41,
-          "extra_minute": null,
-          "team_name": "Sunderland",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Kevin Danso",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636303,
@@ -468,45 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "Bayer Leverkusen",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Carles Martínez Novell",
-          "assist": null
-        },
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "Bayer Leverkusen",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Aleix García",
-          "assist": null
-        },
-        {
-          "minute": 35,
-          "extra_minute": null,
-          "team_name": "Bayer Leverkusen",
-          "type": "But",
-          "detail": "But",
-          "player": "Jonas Hofmann",
-          "assist": null
-        },
-        {
-          "minute": 37,
-          "extra_minute": null,
-          "team_name": "Bayer Leverkusen",
-          "type": "But",
-          "detail": "But",
-          "player": "Jonas Hofmann",
-          "assist": "Malik Tillman"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636330,
@@ -530,63 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "Union St. Gilloise",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Mateo Biondic",
-          "assist": "Raul Florucz"
-        },
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "Union St. Gilloise",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Nohim Chibani",
-          "assist": null
-        },
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "Hapoel Beer Sheva",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Niv·Yehoshua",
-          "assist": null
-        },
-        {
-          "minute": 30,
-          "extra_minute": null,
-          "team_name": "Union St. Gilloise",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "Darius Olaru",
-          "assist": "Dylan Aquino"
-        },
-        {
-          "minute": 45,
-          "extra_minute": 1,
-          "team_name": "Union St. Gilloise",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "Raul Florucz",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": 6,
-          "team_name": "Hapoel Beer Sheva",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "zahi ahmed",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636340,
@@ -610,63 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Sturm Graz",
-          "type": "But",
-          "detail": "But",
-          "player": "Oumar Diakité",
-          "assist": "Luca Weinhandl"
-        },
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Marseille",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Angel Gomes",
-          "assist": null
-        },
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "Sturm Graz",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Oumar Diakité",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "Marseille",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Angel Gomes",
-          "assist": "Himad Abdelli"
-        },
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "Marseille",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "Neal Maupay",
-          "assist": "Igor Paixão"
-        },
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "Sturm Graz",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Oumar Diakité",
-          "assist": "Belmin Beganovic"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636397,
@@ -690,90 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "FC Copenhagen",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "J. Suzuki",
-          "assist": null
-        },
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "FK Crvena Zvezda",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Y. Nakayama",
-          "assist": null
-        },
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "FC Copenhagen",
-          "type": "But",
-          "detail": "Contre son camp",
-          "player": "M. Gashtarov",
-          "assist": null
-        },
-        {
-          "minute": 34,
-          "extra_minute": null,
-          "team_name": "FK Crvena Zvezda",
-          "type": "But",
-          "detail": "But",
-          "player": "T. Elsnik",
-          "assist": "V. Lucic"
-        },
-        {
-          "minute": 38,
-          "extra_minute": null,
-          "team_name": "FK Crvena Zvezda",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "R. Krunic",
-          "assist": null
-        },
-        {
-          "minute": 40,
-          "extra_minute": null,
-          "team_name": "FC Copenhagen",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "H. Nemeth",
-          "assist": null
-        },
-        {
-          "minute": 41,
-          "extra_minute": null,
-          "team_name": "FK Crvena Zvezda",
-          "type": "But",
-          "detail": "But",
-          "player": "V. Kostov",
-          "assist": "M. Ristic"
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "FC Copenhagen",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "J. Suzuki",
-          "assist": "A. Markgraf"
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "FC Copenhagen",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "A. Cornelius",
-          "assist": "V. Dadason"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636415,
@@ -797,117 +264,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 2,
-          "extra_minute": null,
-          "team_name": "Getafe",
-          "type": "But",
-          "detail": "But",
-          "player": "I. Azon",
-          "assist": null
-        },
-        {
-          "minute": 3,
-          "extra_minute": null,
-          "team_name": "FC Lugano",
-          "type": "But",
-          "detail": "But",
-          "player": "A. Ajeti",
-          "assist": "D. Dos Santos"
-        },
-        {
-          "minute": 7,
-          "extra_minute": null,
-          "team_name": "FC Lugano",
-          "type": "But",
-          "detail": "But",
-          "player": "Y. Cimignani",
-          "assist": null
-        },
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "FC Lugano",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Y. Cimignani",
-          "assist": null
-        },
-        {
-          "minute": 20,
-          "extra_minute": null,
-          "team_name": "FC Lugano",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "U. Bislimi",
-          "assist": null
-        },
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Getafe",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "B. Mayoral",
-          "assist": null
-        },
-        {
-          "minute": 26,
-          "extra_minute": null,
-          "team_name": "FC Lugano",
-          "type": "But",
-          "detail": "But",
-          "player": "A. Ajeti",
-          "assist": "D. Moncada"
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "Getafe",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "A. Risco",
-          "assist": "N. Gudelj"
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "Getafe",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "Davinchi",
-          "assist": "J. Mojica"
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "Getafe",
-          "type": "Remplacement",
-          "detail": "Substitution 3",
-          "player": "A. Abqar",
-          "assist": "R. Terrats"
-        },
-        {
-          "minute": 46,
-          "extra_minute": null,
-          "team_name": "Getafe",
-          "type": "Remplacement",
-          "detail": "Substitution 4",
-          "player": "Kiko Femenia",
-          "assist": "M. Satriano"
-        },
-        {
-          "minute": 50,
-          "extra_minute": null,
-          "team_name": "FC Lugano",
-          "type": "But",
-          "detail": "But",
-          "player": "U. Bislimi",
-          "assist": "M. Zanotti"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636424,
@@ -931,99 +288,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "FC Iberia 1999",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Lucas Cafe",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": null,
-          "team_name": "FC Iberia 1999",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "N. Dadiani",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": 1,
-          "team_name": "Mjallby AIF",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "V. Gustafson",
-          "assist": null
-        },
-        {
-          "minute": 55,
-          "extra_minute": null,
-          "team_name": "FC Iberia 1999",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "J. Jinjolava",
-          "assist": null
-        },
-        {
-          "minute": 60,
-          "extra_minute": null,
-          "team_name": "FC Iberia 1999",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "J. Jinjolava",
-          "assist": null
-        },
-        {
-          "minute": 61,
-          "extra_minute": null,
-          "team_name": "FC Iberia 1999",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Lucas Cafe",
-          "assist": "J. Tiboue"
-        },
-        {
-          "minute": 62,
-          "extra_minute": null,
-          "team_name": "Mjallby AIF",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "J. Gustavsson",
-          "assist": null
-        },
-        {
-          "minute": 65,
-          "extra_minute": null,
-          "team_name": "Mjallby AIF",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "V. Granath",
-          "assist": "M. Nielsen"
-        },
-        {
-          "minute": 65,
-          "extra_minute": null,
-          "team_name": "Mjallby AIF",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "V. Gustafson",
-          "assist": "M. Enggaard"
-        },
-        {
-          "minute": 72,
-          "extra_minute": null,
-          "team_name": "FC Iberia 1999",
-          "type": "Remplacement",
-          "detail": "Substitution 2",
-          "player": "Z. Natchkebia",
-          "assist": "G. Kutsia"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1636429,
