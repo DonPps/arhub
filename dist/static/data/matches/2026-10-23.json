@@ -1,6 +1,6 @@
 {
   "date": "2026-10-23",
-  "updated_at": "2026-10-23T18:00:11Z",
+  "updated_at": "2026-10-23T18:20:08Z",
   "matches": [
     {
       "id": 1639346,
@@ -48,18 +48,18 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/5213.png",
       "venue": "FNB Stadium",
       "kickoff_utc": "2026-10-23T16:00:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
-      "elapsed": 90,
+      "status": "RESULT",
+      "status_short": "PEN",
+      "status_long": "Match Finished",
+      "elapsed": 120,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
-      "score_et_a": null,
-      "score_et_b": null,
-      "score_pen_a": null,
-      "score_pen_b": null,
+      "score_et_a": 0,
+      "score_et_b": 0,
+      "score_pen_a": 2,
+      "score_pen_b": 3,
       "events": [
         {
           "minute": 66,
@@ -83,18 +83,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/6383.png",
       "venue": "Lucas Masterpieces Moripe Stadium",
       "kickoff_utc": "2026-10-23T18:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 18,
+      "score_a": 1,
+      "score_b": 0,
+      "score_ht_a": 1,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 11,
+          "extra_minute": null,
+          "team_name": "Mamelodi Sundowns",
+          "type": "But",
+          "detail": "But",
+          "player": "T. Matthews",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1639345,
@@ -107,18 +118,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/5357.png",
       "venue": "Orlando Stadium",
       "kickoff_utc": "2026-10-23T18:00:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 18,
+      "score_a": 1,
+      "score_b": 0,
+      "score_ht_a": 1,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 18,
+          "extra_minute": null,
+          "team_name": "Orlando Pirates",
+          "type": "But",
+          "detail": "But",
+          "player": null,
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1575196,
