@@ -1,6 +1,6 @@
 {
   "date": "2026-10-23",
-  "updated_at": "2026-10-23T14:40:06Z",
+  "updated_at": "2026-10-23T15:00:10Z",
   "matches": [
     {
       "id": 1639346,
@@ -16,16 +16,26 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 9,
-      "score_a": 0,
+      "elapsed": 29,
+      "score_a": 1,
       "score_b": 0,
-      "score_ht_a": 0,
+      "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 18,
+          "extra_minute": null,
+          "team_name": "Petro de Luanda",
+          "type": "But",
+          "detail": "But",
+          "player": null,
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1639526,
