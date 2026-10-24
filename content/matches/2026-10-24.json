@@ -1,6 +1,6 @@
 {
   "date": "2026-10-24",
-  "updated_at": "2026-10-24T12:40:07Z",
+  "updated_at": "2026-10-24T13:00:15Z",
   "matches": [
     {
       "id": 1557438,
@@ -16,9 +16,9 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 52,
-      "score_a": 1,
-      "score_b": 0,
+      "elapsed": 72,
+      "score_a": 2,
+      "score_b": 1,
       "score_ht_a": 1,
       "score_ht_b": 0,
       "score_et_a": null,
@@ -49,9 +49,9 @@
       "venue": "Estadio de Vallecas",
       "kickoff_utc": "2026-10-24T12:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "1H",
-      "status_long": "First Half",
-      "elapsed": 38,
+      "status_short": "HT",
+      "status_long": "Halftime",
+      "elapsed": 45,
       "score_a": 0,
       "score_b": 2,
       "score_ht_a": 0,
