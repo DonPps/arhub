@@ -1,6 +1,6 @@
 {
   "date": "2026-10-23",
-  "updated_at": "2026-10-23T23:40:05Z",
+  "updated_at": "2026-10-24T01:20:07Z",
   "matches": [
     {
       "id": 1639346,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Petro de Luanda",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1639526,
@@ -59,18 +48,7 @@
       "score_et_a": 0,
       "score_et_b": 0,
       "score_pen_a": 2,
-      "score_pen_b": 3,
-      "events": [
-        {
-          "minute": 66,
-          "extra_minute": null,
-          "team_name": "Kaizer Chiefs",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": 3
     },
     {
       "id": 1639015,
@@ -94,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Mamelodi Sundowns",
-          "type": "But",
-          "detail": "But",
-          "player": "T. Matthews",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1639345,
@@ -129,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 18,
-          "extra_minute": null,
-          "team_name": "Orlando Pirates",
-          "type": "But",
-          "detail": "But",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575196,
@@ -164,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 5,
-          "extra_minute": null,
-          "team_name": "VfB Stuttgart",
-          "type": "But",
-          "detail": "But",
-          "player": "Ermedin Demirović",
-          "assist": "Dženan Pejčinović"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550165,
@@ -223,18 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "Stade Brestois 29",
-          "type": "But",
-          "detail": "But",
-          "player": "Ludovic Ajorque",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557443,
@@ -258,18 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 13,
-          "extra_minute": null,
-          "team_name": "Nottingham Forest",
-          "type": "But",
-          "detail": "But",
-          "player": "Neco Williams",
-          "assist": "Daniel Muñoz"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570423,
