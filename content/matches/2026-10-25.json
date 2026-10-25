@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "updated_at": "2026-10-25T19:20:05Z",
+  "updated_at": "2026-10-25T19:40:06Z",
   "matches": [
     {
       "id": 1550161,
@@ -1087,9 +1087,9 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/539.png",
       "venue": "Anoeta Stadium",
       "kickoff_utc": "2026-10-25T17:30:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
       "elapsed": 90,
       "score_a": 2,
       "score_b": 1,
@@ -1114,7 +1114,7 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 55,
+      "elapsed": 76,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
@@ -1138,7 +1138,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 20,
+      "elapsed": 40,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
