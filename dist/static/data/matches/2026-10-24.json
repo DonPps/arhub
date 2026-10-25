@@ -1,6 +1,6 @@
 {
   "date": "2026-10-24",
-  "updated_at": "2026-10-24T23:40:06Z",
+  "updated_at": "2026-10-25T02:40:06Z",
   "matches": [
     {
       "id": 1557438,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 6,
-          "extra_minute": null,
-          "team_name": "Aston Villa",
-          "type": "But",
-          "detail": "But",
-          "player": "Nicolas Jackson",
-          "assist": "John McGinn"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570429,
@@ -59,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Elche",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Javier Morcillo Rodrigálvarez",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550158,
@@ -94,27 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 32,
-          "extra_minute": null,
-          "team_name": "Bologna",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Federico Bernardeschi",
-          "assist": null
-        },
-        {
-          "minute": 38,
-          "extra_minute": null,
-          "team_name": "Cagliari",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Zé Pedro",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550159,
@@ -138,18 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 7,
-          "extra_minute": null,
-          "team_name": "Como",
-          "type": "But",
-          "detail": "But",
-          "player": "Lucas Da Cunha",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1639356,
@@ -221,36 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "FC Augsburg",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Calvin Marc Brackelmann",
-          "assist": "Jeffrey Gouweleeuw"
-        },
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Union Berlin",
-          "type": "Carton",
-          "detail": "Carton rouge",
-          "player": "Felix Uduokhai",
-          "assist": null
-        },
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "Union Berlin",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Livan Burcu",
-          "assist": "Leopold Querfeld"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575200,
@@ -274,45 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 7,
-          "extra_minute": null,
-          "team_name": "Werder Bremen",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "Niclas Füllkrug",
-          "assist": null
-        },
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "Werder Bremen",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "Niclas Füllkrug",
-          "assist": null
-        },
-        {
-          "minute": 33,
-          "extra_minute": null,
-          "team_name": "FSV Mainz 05",
-          "type": "But",
-          "detail": "But",
-          "player": "Anthony Caci",
-          "assist": "Sheraldo Becker"
-        },
-        {
-          "minute": 38,
-          "extra_minute": null,
-          "team_name": "Werder Bremen",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Ludovit Reis",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575201,
