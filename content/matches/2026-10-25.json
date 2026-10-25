@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "updated_at": "2026-10-25T12:20:08Z",
+  "updated_at": "2026-10-25T12:40:06Z",
   "matches": [
     {
       "id": 1550161,
@@ -14,9 +14,9 @@
       "venue": "San Siro/Giuseppe Meazza",
       "kickoff_utc": "2026-10-25T11:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 49,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
