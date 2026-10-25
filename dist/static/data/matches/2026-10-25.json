@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "updated_at": "2026-10-25T11:00:08Z",
+  "updated_at": "2026-10-25T11:20:07Z",
   "matches": [
     {
       "id": 1550161,
@@ -563,7 +563,7 @@
       "team_b": "FUS Rabat",
       "team_a_crest": "https://media.api-sports.io/football/teams/3449.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/977.png",
-      "venue": "Stade Terrain Ahmed Chokri",
+      "venue": "Stade Municipal Zemamra",
       "kickoff_utc": "2026-10-25T16:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
@@ -875,7 +875,7 @@
       "team_b": "Difaa EL Jadida",
       "team_a_crest": "https://media.api-sports.io/football/teams/971.png",
       "team_b_crest": "https://media.api-sports.io/football/teams/964.png",
-      "venue": null,
+      "venue": "Stade de Marrakech",
       "kickoff_utc": "2026-10-25T18:00:00.000000Z",
       "status": "SCHEDULED",
       "status_short": "NS",
