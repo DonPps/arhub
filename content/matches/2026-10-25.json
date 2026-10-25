@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "updated_at": "2026-10-25T00:00:15Z",
+  "updated_at": "2026-10-25T00:20:06Z",
   "matches": [
     {
       "id": 1550161,
@@ -929,8 +929,8 @@
       "status_short": "WO",
       "status_long": "Walkover",
       "elapsed": null,
-      "score_a": null,
-      "score_b": null,
+      "score_a": 0,
+      "score_b": 0,
       "score_ht_a": null,
       "score_ht_b": null,
       "score_et_a": null,
