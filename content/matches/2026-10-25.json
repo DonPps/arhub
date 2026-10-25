@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "updated_at": "2026-10-25T21:00:08Z",
+  "updated_at": "2026-10-25T21:20:06Z",
   "matches": [
     {
       "id": 1550161,
@@ -1186,9 +1186,9 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 58,
+      "elapsed": 78,
       "score_a": 0,
-      "score_b": 1,
+      "score_b": 2,
       "score_ht_a": 0,
       "score_ht_b": 1,
       "score_et_a": null,
@@ -1208,9 +1208,9 @@
       "venue": "Spotify Camp Nou",
       "kickoff_utc": "2026-10-25T20:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 57,
       "score_a": 0,
       "score_b": 1,
       "score_ht_a": 0,
