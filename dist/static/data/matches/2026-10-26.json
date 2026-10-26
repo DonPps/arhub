@@ -1,6 +1,6 @@
 {
   "date": "2026-10-26",
-  "updated_at": "2026-10-26T21:00:08Z",
+  "updated_at": "2026-10-26T21:20:05Z",
   "matches": [
     {
       "id": 1552800,
@@ -16,8 +16,8 @@
       "status": "LIVE",
       "status_short": "2H",
       "status_long": "Second Half",
-      "elapsed": 73,
-      "score_a": 1,
+      "elapsed": 90,
+      "score_a": 2,
       "score_b": 0,
       "score_ht_a": 0,
       "score_ht_b": 0,
@@ -49,9 +49,9 @@
       "venue": "Estadio Ramón Sánchez-Pizjuán",
       "kickoff_utc": "2026-10-26T20:00:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 58,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
