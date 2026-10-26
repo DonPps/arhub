@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "updated_at": "2026-10-25T23:40:05Z",
+  "updated_at": "2026-10-26T04:00:12Z",
   "matches": [
     {
       "id": 1550161,
@@ -24,36 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 51,
-          "extra_minute": null,
-          "team_name": "Fiorentina",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Marin Pongračić",
-          "assist": "Viery"
-        },
-        {
-          "minute": 64,
-          "extra_minute": null,
-          "team_name": "Inter",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Pio Esposito",
-          "assist": "Ange-Yoan Bonny"
-        },
-        {
-          "minute": 65,
-          "extra_minute": null,
-          "team_name": "Fiorentina",
-          "type": "But",
-          "detail": "But",
-          "player": "Álex Jiménez",
-          "assist": "Nicolo Fagioli"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570424,
@@ -77,18 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Athletic Club",
-          "type": "But",
-          "detail": "But",
-          "player": "Alex Berenguer",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1639528,
@@ -184,45 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 1,
-          "extra_minute": null,
-          "team_name": "Frosinone",
-          "type": "But",
-          "detail": "But",
-          "player": "Romano Schmid",
-          "assist": null
-        },
-        {
-          "minute": 7,
-          "extra_minute": null,
-          "team_name": "Frosinone",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Gabriele Bracaglia",
-          "assist": null
-        },
-        {
-          "minute": 14,
-          "extra_minute": null,
-          "team_name": "Atalanta",
-          "type": "But",
-          "detail": "But",
-          "player": "Nikola Krstović",
-          "assist": "Charles De Ketelaere"
-        },
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Frosinone",
-          "type": "But",
-          "detail": "But",
-          "player": "Romano Schmid",
-          "assist": "Farès Ghedjemis"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550160,
@@ -246,18 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 25,
-          "extra_minute": null,
-          "team_name": "Genoa",
-          "type": "But",
-          "detail": "But",
-          "player": "Mikael Ellertsson",
-          "assist": "Stephan El Shaarawy"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1552797,
@@ -281,18 +192,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 15,
-          "extra_minute": null,
-          "team_name": "Monaco",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Ansu Fati",
-          "assist": "Mathys Detourbet"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557441,
@@ -316,18 +216,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "Newcastle",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Nico González",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557442,
@@ -351,27 +240,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 23,
-          "extra_minute": null,
-          "team_name": "Brentford",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Aaron Hickey",
-          "assist": null
-        },
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Hull City",
-          "type": "But",
-          "detail": "Penalty",
-          "player": "Oliver McBurnie",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557444,
@@ -395,45 +264,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 6,
-          "extra_minute": null,
-          "team_name": "Brighton",
-          "type": "Remplacement",
-          "detail": "Remplacement",
-          "player": "Ferdi Kadıoğlu",
-          "assist": "Costinha"
-        },
-        {
-          "minute": 17,
-          "extra_minute": null,
-          "team_name": "Liverpool",
-          "type": "But",
-          "detail": "Contre son camp",
-          "player": "Pascal Groß",
-          "assist": null
-        },
-        {
-          "minute": 21,
-          "extra_minute": null,
-          "team_name": "Liverpool",
-          "type": "But",
-          "detail": "But",
-          "player": "Alexander Isak",
-          "assist": "Bradley Barcola"
-        },
-        {
-          "minute": 45,
-          "extra_minute": 3,
-          "team_name": "Brighton",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Olivier Boscagli",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1557445,
@@ -457,72 +288,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 22,
-          "extra_minute": null,
-          "team_name": "Manchester United",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Andrey Santos",
-          "assist": null
-        },
-        {
-          "minute": 27,
-          "extra_minute": null,
-          "team_name": "Bournemouth",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Tyler Adams",
-          "assist": null
-        },
-        {
-          "minute": 37,
-          "extra_minute": null,
-          "team_name": "Manchester United",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Ayden Heaven",
-          "assist": null
-        },
-        {
-          "minute": 38,
-          "extra_minute": null,
-          "team_name": "Bournemouth",
-          "type": "But",
-          "detail": "But",
-          "player": "Rayan Vitor Simplício Rocha",
-          "assist": "Justin Kluivert"
-        },
-        {
-          "minute": 40,
-          "extra_minute": null,
-          "team_name": "Manchester United",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Youri Tielemans",
-          "assist": null
-        },
-        {
-          "minute": 43,
-          "extra_minute": null,
-          "team_name": "Bournemouth",
-          "type": "But",
-          "detail": "But",
-          "player": "Marcus Tavernier",
-          "assist": "Adrien Truffert"
-        },
-        {
-          "minute": 45,
-          "extra_minute": 3,
-          "team_name": "Manchester United",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Harry Maguire",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1575197,
