@@ -1,6 +1,6 @@
 {
   "date": "2026-10-27",
-  "updated_at": "2026-10-27T19:40:05Z",
+  "updated_at": "2026-10-27T20:00:11Z",
   "matches": [
     {
       "id": 1550174,
@@ -57,18 +57,38 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/490.png",
       "venue": "Stadio Olimpico",
       "kickoff_utc": "2026-10-27T19:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 14,
+      "score_a": 0,
+      "score_b": 1,
+      "score_ht_a": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 7,
+          "extra_minute": null,
+          "team_name": "Cagliari",
+          "type": "VAR",
+          "detail": "Penalty confirmed",
+          "player": "Michel Adopo",
+          "assist": null
+        },
+        {
+          "minute": 10,
+          "extra_minute": null,
+          "team_name": "Cagliari",
+          "type": "But",
+          "detail": "Penalty",
+          "player": "M'Bala Nzola",
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1550175,
@@ -81,18 +101,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/895.png",
       "venue": "Stadio Olimpico Grande Torino",
       "kickoff_utc": "2026-10-27T19:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 12,
+      "score_a": 0,
+      "score_b": 0,
+      "score_ht_a": 0,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 5,
+          "extra_minute": null,
+          "team_name": "Como",
+          "type": "But",
+          "detail": "But",
+          "player": "Anastasios Douvikas",
+          "assist": null
+        }
+      ]
     }
   ]
 }
