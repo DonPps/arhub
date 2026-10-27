@@ -1,6 +1,6 @@
 {
   "date": "2026-10-27",
-  "updated_at": "2026-10-27T19:20:06Z",
+  "updated_at": "2026-10-27T19:40:05Z",
   "matches": [
     {
       "id": 1550174,
@@ -13,10 +13,10 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/487.png",
       "venue": "Mapei Stadium – Città del Tricolore",
       "kickoff_utc": "2026-10-27T17:30:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
-      "elapsed": 86,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
       "score_a": 2,
       "score_b": 6,
       "score_ht_a": 2,
