@@ -1,6 +1,6 @@
 {
   "date": "2026-10-27",
-  "updated_at": "2026-10-27T20:40:06Z",
+  "updated_at": "2026-10-27T21:00:08Z",
   "matches": [
     {
       "id": 1550174,
@@ -58,9 +58,9 @@
       "venue": "Stadio Olimpico",
       "kickoff_utc": "2026-10-27T19:45:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 57,
       "score_a": 2,
       "score_b": 1,
       "score_ht_a": 2,
@@ -102,9 +102,9 @@
       "venue": "Stadio Olimpico Grande Torino",
       "kickoff_utc": "2026-10-27T19:45:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 51,
       "score_a": 1,
       "score_b": 0,
       "score_ht_a": 1,
