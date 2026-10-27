@@ -1,6 +1,6 @@
 {
   "date": "2026-10-26",
-  "updated_at": "2026-10-26T23:40:04Z",
+  "updated_at": "2026-10-27T05:20:07Z",
   "matches": [
     {
       "id": 1552800,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 31,
-          "extra_minute": null,
-          "team_name": "Paris Saint Germain",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Vitinha",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1570431,
@@ -59,27 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 24,
-          "extra_minute": null,
-          "team_name": "Sevilla",
-          "type": "But",
-          "detail": "But",
-          "player": "Isaac Romero",
-          "assist": "Youssouf Fofana"
-        },
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Osasuna",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Alejandro Catena",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
