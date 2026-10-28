@@ -1,6 +1,6 @@
 {
   "date": "2026-10-28",
-  "updated_at": "2026-10-28T19:40:05Z",
+  "updated_at": "2026-10-28T20:00:12Z",
   "matches": [
     {
       "id": 1550167,
@@ -127,10 +127,10 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/973.png",
       "venue": "Stade Mohamed V",
       "kickoff_utc": "2026-10-28T18:00:00.000000Z",
-      "status": "LIVE",
-      "status_short": "2H",
-      "status_long": "Second Half",
-      "elapsed": 82,
+      "status": "RESULT",
+      "status_short": "FT",
+      "status_long": "Match Finished",
+      "elapsed": 90,
       "score_a": 1,
       "score_b": 1,
       "score_ht_a": 0,
@@ -171,18 +171,29 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/496.png",
       "venue": "Luigi Ferraris",
       "kickoff_utc": "2026-10-28T19:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 14,
+      "score_a": 1,
+      "score_b": 0,
+      "score_ht_a": 1,
+      "score_ht_b": 0,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 12,
+          "extra_minute": null,
+          "team_name": "Genoa",
+          "type": "But",
+          "detail": "But",
+          "player": "Kingsley Ehizibue",
+          "assist": "Tommaso Baldanzi"
+        }
+      ]
     },
     {
       "id": 1550172,
@@ -195,18 +206,38 @@
       "team_b_crest": "https://media.api-sports.io/football/teams/492.png",
       "venue": "Stadio Brianteo",
       "kickoff_utc": "2026-10-28T19:45:00.000000Z",
-      "status": "SCHEDULED",
-      "status_short": "NS",
-      "status_long": "Not Started",
-      "elapsed": null,
-      "score_a": null,
-      "score_b": null,
-      "score_ht_a": null,
-      "score_ht_b": null,
+      "status": "LIVE",
+      "status_short": "1H",
+      "status_long": "First Half",
+      "elapsed": 14,
+      "score_a": 0,
+      "score_b": 1,
+      "score_ht_a": 0,
+      "score_ht_b": 1,
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null
+      "score_pen_b": null,
+      "events": [
+        {
+          "minute": 8,
+          "extra_minute": null,
+          "team_name": "Monza",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "Saba Goglichidze",
+          "assist": null
+        },
+        {
+          "minute": 10,
+          "extra_minute": null,
+          "team_name": "Napoli",
+          "type": "But",
+          "detail": "But",
+          "player": "Rasmus Hojlund",
+          "assist": "Giovanni Di Lorenzo"
+        }
+      ]
     },
     {
       "id": 1646858,
