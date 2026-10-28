@@ -1,6 +1,6 @@
 {
   "date": "2026-10-28",
-  "updated_at": "2026-10-28T18:20:11Z",
+  "updated_at": "2026-10-28T18:40:06Z",
   "matches": [
     {
       "id": 1550167,
@@ -14,9 +14,9 @@
       "venue": "San Siro/Giuseppe Meazza",
       "kickoff_utc": "2026-10-28T17:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 50,
       "score_a": 2,
       "score_b": 1,
       "score_ht_a": 2,
@@ -49,9 +49,9 @@
       "venue": "Ennio Tardini",
       "kickoff_utc": "2026-10-28T17:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 53,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -93,9 +93,9 @@
       "venue": "Stadio Pier Luigi Penzo",
       "kickoff_utc": "2026-10-28T17:30:00.000000Z",
       "status": "LIVE",
-      "status_short": "HT",
-      "status_long": "Halftime",
-      "elapsed": 45,
+      "status_short": "2H",
+      "status_long": "Second Half",
+      "elapsed": 53,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -130,7 +130,7 @@
       "status": "LIVE",
       "status_short": "1H",
       "status_long": "First Half",
-      "elapsed": 19,
+      "elapsed": 39,
       "score_a": 0,
       "score_b": 0,
       "score_ht_a": 0,
@@ -139,7 +139,26 @@
       "score_et_b": null,
       "score_pen_a": null,
       "score_pen_b": null,
-      "events": []
+      "events": [
+        {
+          "minute": 19,
+          "extra_minute": null,
+          "team_name": "Raja Casablanca",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": "othmane chraibi",
+          "assist": null
+        },
+        {
+          "minute": 36,
+          "extra_minute": null,
+          "team_name": "Hassania Agadir",
+          "type": "Carton",
+          "detail": "Carton jaune",
+          "player": null,
+          "assist": null
+        }
+      ]
     },
     {
       "id": 1550171,
