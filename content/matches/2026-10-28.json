@@ -1,6 +1,6 @@
 {
   "date": "2026-10-28",
-  "updated_at": "2026-10-28T23:40:07Z",
+  "updated_at": "2026-10-29T01:40:06Z",
   "matches": [
     {
       "id": 1550167,
@@ -24,18 +24,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Bologna",
-          "type": "But",
-          "detail": "But",
-          "player": "Samuel Mbangula Tshifunda",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550173,
@@ -59,27 +48,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 29,
-          "extra_minute": null,
-          "team_name": "Parma",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Alberto Gilardino",
-          "assist": null
-        },
-        {
-          "minute": 45,
-          "extra_minute": 1,
-          "team_name": "Udinese",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Jesper Karlstrom",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550176,
@@ -103,18 +72,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 28,
-          "extra_minute": null,
-          "team_name": "Inter",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Alessandro Bastoni",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1646857,
@@ -138,27 +96,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 19,
-          "extra_minute": null,
-          "team_name": "Raja Casablanca",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "othmane chraibi",
-          "assist": null
-        },
-        {
-          "minute": 36,
-          "extra_minute": null,
-          "team_name": "Hassania Agadir",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": null,
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550171,
@@ -182,18 +120,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 12,
-          "extra_minute": null,
-          "team_name": "Genoa",
-          "type": "But",
-          "detail": "But",
-          "player": "Kingsley Ehizibue",
-          "assist": "Tommaso Baldanzi"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1550172,
@@ -217,27 +144,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 8,
-          "extra_minute": null,
-          "team_name": "Monza",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Saba Goglichidze",
-          "assist": null
-        },
-        {
-          "minute": 10,
-          "extra_minute": null,
-          "team_name": "Napoli",
-          "type": "But",
-          "detail": "But",
-          "player": "Rasmus Hojlund",
-          "assist": "Giovanni Di Lorenzo"
-        }
-      ]
+      "score_pen_b": null
     },
     {
       "id": 1646858,
@@ -261,18 +168,7 @@
       "score_et_a": null,
       "score_et_b": null,
       "score_pen_a": null,
-      "score_pen_b": null,
-      "events": [
-        {
-          "minute": 11,
-          "extra_minute": null,
-          "team_name": "Ittihad Tanger",
-          "type": "Carton",
-          "detail": "Carton jaune",
-          "player": "Akram El Wahabi",
-          "assist": null
-        }
-      ]
+      "score_pen_b": null
     }
   ]
 }
